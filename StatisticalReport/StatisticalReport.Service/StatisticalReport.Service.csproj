@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEEC3FBB-0C3E-4079-A0E1-BCABAD77765F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StatisticalReport.Service</RootNamespace>
+    <AssemblyName>StatisticalReport.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataTypeConvert, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\DataTypeConvert.dll</HintPath>
+    </Reference>
+    <Reference Include="FileIO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\FileIO.dll</HintPath>
+    </Reference>
+    <Reference Include="FormTableConvert, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\类库\马亮\FormTableConvert\FormTableConvert\bin\Debug\FormTableConvert.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlServerDataAdapter">
+      <HintPath>..\..\Lib\SqlServerDataAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UpDownLoadFiles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\UpDownLoadFiles.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticalReportServices\Daily\CementMilEnergyConsumption_TargetCompletion.cs" />
+    <Compile Include="StatisticalReportServices\Daily\EnergyConsumption_TargetCompletion.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\CementMilMonthlyEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\CementMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\CementMonthlyElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\ClinkerMonthlyCoalDustConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\ClinkerMonthlyPeakerValleyFlatElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\ClinkerMonthlyProcessEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\CoalMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\TeamCementMonthlyElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\TeamClinkerMonthlyProcessEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\StatisticalReportHelper.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\CementMilYearlyEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\CementYearlyElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyProcessEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\TeamCementYearlyElectricityConsumption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StatisticalReport.Infrastructure\StatisticalReport.Infrastructure.csproj">
+      <Project>{4ec309c1-ffb5-438b-9234-3fa38675cc4e}</Project>
+      <Name>StatisticalReport.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
