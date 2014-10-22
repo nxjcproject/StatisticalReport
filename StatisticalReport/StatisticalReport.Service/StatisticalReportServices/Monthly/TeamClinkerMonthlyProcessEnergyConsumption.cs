@@ -9,7 +9,7 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 {
-    public class TeamClinkerMonthlyProcessEnergyConsumption
+    public class TeamClinkerMonthlyProcessEnergyConsumption              //zcs
     {
         private static TZHelper _tzHelper;
 

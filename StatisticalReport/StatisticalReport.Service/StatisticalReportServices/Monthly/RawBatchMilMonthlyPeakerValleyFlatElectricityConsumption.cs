@@ -9,7 +9,7 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 {
-    public class RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption
+    public class RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption                  //zcs
     {
         public static TZHelper _tzHelper;
 

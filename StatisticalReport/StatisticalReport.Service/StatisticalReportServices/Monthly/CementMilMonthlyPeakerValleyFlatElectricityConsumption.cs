@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace StatisticalReport.Service.StatisticalReportServices.Monthly
+namespace StatisticalReport.Service.StatisticalReportServices.Monthly                           //zcs
 {
     public class CementMilMonthlyPeakerValleyFlatElectricityConsumption
     {

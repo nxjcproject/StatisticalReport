@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace StatisticalReport.Service.StatisticalReportServices.Monthly
+namespace StatisticalReport.Service.StatisticalReportServices.Monthly                   //zcs
 {
     public class CementMilMonthlyEnergyConsumption
     {
@@ -23,7 +23,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
         {
             DataTable temp1 = _tzHelper.CreateTableStructure("report_CementMilMonthlyEnergyConsumption");
 
-            DataTable temp2 = _tzHelper.GetReportData("tz_Report", organizationID, date, "report_CementMillYearlyElectricity_sum");
+            DataTable temp2 = _tzHelper.GetReportData("tz_Report", organizationID, date, "table_CementMillYearlyElectricity_sum");
             foreach (DataRow dr in temp2.Rows)
             {
                 DataRow newRow = temp1.NewRow();

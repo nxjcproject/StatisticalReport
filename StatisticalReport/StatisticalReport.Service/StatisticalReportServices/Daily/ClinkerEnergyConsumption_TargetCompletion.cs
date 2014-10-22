@@ -6,20 +6,20 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace StatisticalReport.Service.StatisticalReportServices.Daily
+namespace StatisticalReport.Service.StatisticalReportServices.Daily           //cdy
 {
-    public class EnergyConsumption_TargetCompletion
+    public class ClinkerEnergyConsumption_TargetCompletion
     {
         private static string connectionString;
         private static TZHelper tzHelper;
 
-        static EnergyConsumption_TargetCompletion()//静态构造函数
+        static ClinkerEnergyConsumption_TargetCompletion()//静态构造函数
         {
             connectionString = ConnectionStringFactory.NXJCConnectionString;
             tzHelper = new TZHelper(connectionString);
         }
 
-        public static DataTable Query(string organizeID, string date)
+        public static DataTable TableQuery(string organizeID, string date)
         {
             string[] Date = date.Split('-', ',');
             string year = Date[0];

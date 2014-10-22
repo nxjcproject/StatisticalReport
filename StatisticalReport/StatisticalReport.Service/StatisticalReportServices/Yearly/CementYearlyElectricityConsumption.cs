@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 {
-    public class CementYearlyElectricityConsumption
+    public class CementYearlyElectricityConsumption                      //cdy
     {
         private static TZHelper _tzHelper;
 
