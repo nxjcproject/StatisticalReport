@@ -9,7 +9,7 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 {
-    public class ClinkerMonthlyCoalDustConsumption
+    public class ClinkerMonthlyCoalDustConsumption                             //zcs
     {
         private static TZHelper _tzHelper;
 

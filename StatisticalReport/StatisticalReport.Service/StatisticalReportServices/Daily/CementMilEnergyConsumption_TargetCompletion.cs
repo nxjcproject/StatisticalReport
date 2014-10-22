@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace StatisticalReport.Service.StatisticalReportServices.Daily
+namespace StatisticalReport.Service.StatisticalReportServices.Daily             //cdy
 {
     public class CementMilEnergyConsumption_TargetCompletion
     {
@@ -18,7 +18,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily
             connectionString = ConnectionStringFactory.NXJCConnectionString;
             tzHelper = new TZHelper(connectionString);
         }
-        public static DataTable Query(string organizeID, string date)
+        public static DataTable TableQuery(string organizeID, string date)
         {
             string[] Date = date.Split('-', ',');
             string year = Date[0];

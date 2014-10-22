@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 {
-    public class ClinkerYearlyProcessEnergyConsumption
+    public class ClinkerYearlyProcessEnergyConsumption                         //cdy
     {
         private static string connectionString;
         private static TZHelper tzHelper;

@@ -9,11 +9,11 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 {
-    public class TeamCementMonthlyElectricityConsumption
+    public class TeamCementMonthlyEnergyConsumption                      //zcs
     {
         private static TZHelper _tzHelper;
 
-        static TeamCementMonthlyElectricityConsumption()
+        static TeamCementMonthlyEnergyConsumption()
         {
             string connString = ConnectionStringFactory.NXJCConnectionString;
             _tzHelper = new TZHelper(connString);
@@ -22,7 +22,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
         public static DataTable TableQuery(string organizationID, string date)
         {
             DataTable temp1 = CementMilMonthlyEnergyConsumption.TableQuery(organizationID, date); // 获得“水泥粉磨能耗月统计分析”数据表
-            DataTable result = _tzHelper.CreateTableStructure("report_TeamCementMonthlyElectricityConsumption");
+            DataTable result = _tzHelper.CreateTableStructure("report_TeamCementMonthlyEnergyConsumption");
 
             int year = 0, month = 0;
             int.TryParse(date.Split('-')[0], out year);

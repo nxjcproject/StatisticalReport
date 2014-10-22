@@ -10,75 +10,8 @@ using System.Text;
 
 namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 {
-    public class ClinkerMonthlyPeakerValleyFlatElectricityConsumption
+    public class ClinkerMonthlyPeakerValleyFlatElectricityConsumption                            //zcs
     {
-        #region PAGE
-
-        private static readonly FileIO.XmlSerializerIO mXmlSerializerIO = new FileIO.XmlSerializerIO();
-        public static string ReadReportHeaderFile(string myFilePath)
-        {
-            string m_ColumnsJsonData = "";
-            if (File.Exists(myFilePath))
-            {
-                FormTableConvert.FormTemplate m_FormTableTemplate = (FormTableConvert.FormTemplate)mXmlSerializerIO.XmlSerializerFromFile(myFilePath, typeof(FormTableConvert.FormTemplate));
-                DataTable m_DataTable = TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-                string m_ColumnsJson = FormTableConvert.TemplateToEasyUIGridJson.ToEasyUIGridJson(m_FormTableTemplate);
-                string m_DataTableJson = DataTypeConvert.DataTableConvertJson.DataTableToJson(m_DataTable, "rows", m_DataTable.Rows.Count, true);
-                m_ColumnsJsonData = "{" + m_DataTableJson + "," + m_ColumnsJson + "}";
-            }
-            return m_ColumnsJsonData;
-        }
-
-        public static string CreateHtmlTable(string myFilePath)
-        {
-            FormTableConvert.FormTemplate m_FormTemplate = (FormTableConvert.FormTemplate)mXmlSerializerIO.XmlSerializerFromFile(myFilePath, typeof(FormTableConvert.FormTemplate));
-            string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
-            DataTable m_DataTable = GetDataTable();
-            if (m_FormTemplate != null && m_DataTable != null)
-            {
-                string m_HtmlTable = FormTableConvert.TemplateToHtmlTable.ToHtmlDataHtmlTable(m_FormTemplate, m_TagData, m_DataTable, FormTableConvert.ConvertType.Print);
-                //string m_HtmlTable = FormTableConvert.TemplateToHtmlTable.ToHtmlSourceHtmlTable(m_FormTemplate);
-                return m_HtmlTable;
-            }
-            else
-            {
-                return "";
-            }
-        }
-
-        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
-        {
-            if (myFileType == "xls")
-            {
-                UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
-            }
-        }
-
-        private static DataTable GetDataTable()
-        {
-            DataTable m_DataTable = new DataTable("ReportTemplate");
-            for (int i = 0; i < 17; i++)
-            {
-                m_DataTable.Columns.Add("Col" + i.ToString(), typeof(String));
-                //m_DataTable.Columns.Add("cold" + i.ToString(), typeof(String));
-            }
-            for (int i = 0; i < 20; i++)
-            {
-                m_DataTable.Rows.Add(GetDataRow(i));
-            }
-            return m_DataTable;
-        }
-        private static string[] GetDataRow(int myIndex)
-        {
-            string[] m_DataRow = new string[17];
-            for (int i = 0; i < m_DataRow.Length; i++)
-            {
-                m_DataRow[i] = myIndex.ToString() + "__" + i.ToString();
-            }
-            return m_DataRow;
-        }
-
-        #endregion
         private static TZHelper _tzHelper;
 
         static ClinkerMonthlyPeakerValleyFlatElectricityConsumption()
