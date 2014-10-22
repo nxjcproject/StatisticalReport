@@ -62,7 +62,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                 dr["Amountto_Clinker_Output"] = (decimal)dr["First_Clinker_Output"] + (decimal)dr["Second_Clinker_Output"] + (decimal)dr["Third_Clinker_Output"];
                 dr["Amountto_KilnHead_CoalDust"] = (decimal)dr["First_KilnHead_CoalDust"] + (decimal)dr["Second_KilnHead_CoalDust"] + (decimal)dr["Third_KilnHead_CoalDust"];
-                dr["Amountto_KilnTail_CoalDust"] = (decimal)dr["First_KilnTail_CoalDust"] + (decimal)dr["Second_KilnTail_CoalDust"] + (decimal)dr["Third_Valley_Electricity"];
+                dr["Amountto_KilnTail_CoalDust"] = (decimal)dr["First_KilnTail_CoalDust"] + (decimal)dr["Second_KilnTail_CoalDust"] + (decimal)dr["Third_KilnTail_CoalDust"];
                 dr["Amountto_sum_CoalDust"] = (decimal)dr["First_sum_CoalDust"] + (decimal)dr["Second_sum_CoalDust"] + (decimal)dr["Third_sum_CoalDust"];
                 if ((decimal)dr["Amountto_Clinker_Output"] != 0)
                 {
