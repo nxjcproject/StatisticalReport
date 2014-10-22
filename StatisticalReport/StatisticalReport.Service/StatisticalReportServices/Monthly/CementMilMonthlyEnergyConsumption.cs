@@ -63,9 +63,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 temp1.Rows.Add(newRow);
             }
 
-            string column = "First_Electricity_Cement,First_Electricity_CementGrinding,First_Electricity_AdmixturePreparation,First_Electricity_BagsBulk"
-                + "Second_Electricity_Cement,Second_Electricity_CementGrinding,Second_Electricity_AdmixturePreparation,Second_Electricity_BagsBulk"
-                + "Third_Electricity_Cement,Third_Electricity_CementGrinding,Third_Electricity_AdmixturePreparation,Third_Electricity_BagsBulk"
+            string column = "First_Electricity_Cement,First_Electricity_CementGrinding,First_Electricity_AdmixturePreparation,First_Electricity_BagsBulk,"
+                + "Second_Electricity_Cement,Second_Electricity_CementGrinding,Second_Electricity_AdmixturePreparation,Second_Electricity_BagsBulk,"
+                + "Third_Electricity_Cement,Third_Electricity_CementGrinding,Third_Electricity_AdmixturePreparation,Third_Electricity_BagsBulk,"
                 + "First_Output_Cement,Second_Output_Cement,Third_Output_Cement";
             temp1 = ReportHelper.MyTotalOn(temp1, "vDate", column);
             ReportHelper.GetTotal(temp1, "vDate", column);
