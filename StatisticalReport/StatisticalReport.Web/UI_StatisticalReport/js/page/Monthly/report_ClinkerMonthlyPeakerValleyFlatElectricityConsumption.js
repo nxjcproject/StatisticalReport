@@ -117,3 +117,33 @@ function PrintFileFun() {
 
 
 }
+
+function QueryReportFun() {
+    var OrganizationID = $('#OrganizationID').val();
+    var Datetime = $('#datetime').datetimebox('getValue');
+    alert(OrganizationID + ', ' + Datetime);
+}
+
+// datetime spinner
+function onOrganisationTreeClick(node) {
+    $('#productLineName').val(node.text);
+    $('#OrganizationID').val(node.OrganizationID);
+}
+
+function ddformatter(date) {
+    if (!date) { return ''; }
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    return y + '-' + (m < 10 ? ('0' + m) : m);
+}
+function ddparser(s) {
+    if (!s) { return null; }
+    var ss = s.split('-');
+    var y = parseInt(ss[0], 10);
+    var m = parseInt(ss[1], 10);
+    if (!isNaN(y) && !isNaN(m)) {
+        return new Date(y, m - 1, 1);
+    } else {
+        return new Date();
+    }
+}

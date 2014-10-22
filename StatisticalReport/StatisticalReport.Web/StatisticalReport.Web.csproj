@@ -39,8 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InternalMemeryRestore">
-      <HintPath>..\..\..\WebStyleBaseForEnergy_开发用\WebStyleBaseForEnergy\bin\Debug\InternalMemeryRestore.dll</HintPath>
+    <Reference Include="EasyUIJsonParser">
+      <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,10 +59,12 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WebStyleBaseForEnergy">
-      <HintPath>..\..\..\WebStyleBaseForEnergy_开发用\WebStyleBaseForEnergy\bin\Debug\WebStyleBaseForEnergy.dll</HintPath>
+      <HintPath>..\..\Lib\WebStyleBaseForEnergy.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\OrganisationService.asmx" />
+    <Content Include="Common\OrganisationTree.ascx" />
     <Content Include="js\common\PrintFile.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Report_Example.js" />
@@ -1565,6 +1567,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\OrganisationService.asmx.cs">
+      <DependentUpon>OrganisationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\OrganisationTree.ascx.cs">
+      <DependentUpon>OrganisationTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\OrganisationTree.ascx.designer.cs">
+      <DependentUpon>OrganisationTree.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
       <DependentUpon>report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
@@ -1577,6 +1590,7 @@
   <ItemGroup>
     <Content Include="lib\pllib\syntaxhighlighter\LGPL-LICENSE" />
     <Content Include="lib\pllib\syntaxhighlighter\MIT-LICENSE" />
+    <None Include="Properties\PublishProfiles\Default.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

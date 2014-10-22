@@ -32,14 +32,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataTypeConvert">
-      <HintPath>..\..\..\DataTypeConvert\DataTypeConvert\bin\Debug\DataTypeConvert.dll</HintPath>
+      <HintPath>..\..\Lib\DataTypeConvert.dll</HintPath>
     </Reference>
     <Reference Include="FileIO">
-      <HintPath>..\..\..\FormTableEditTool\FormTableEditTool\bin\Debug\FileIO.dll</HintPath>
+      <HintPath>..\..\Lib\FileIO.dll</HintPath>
     </Reference>
-    <Reference Include="FormTableConvert, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\类库\马亮\FormTableConvert\FormTableConvert\bin\Debug\FormTableConvert.dll</HintPath>
+    <Reference Include="FormTableConvert">
+      <HintPath>..\..\Lib\FormTableConvert.dll</HintPath>
     </Reference>
     <Reference Include="SqlServerDataAdapter">
       <HintPath>..\..\Lib\SqlServerDataAdapter.dll</HintPath>
@@ -53,7 +52,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UpDownLoadFiles">
-      <HintPath>..\..\..\组件\UpDownLoadFiles\UpDownLoadFiles\bin\Debug\UpDownLoadFiles.dll</HintPath>
+      <HintPath>..\..\Lib\UpDownLoadFiles.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
