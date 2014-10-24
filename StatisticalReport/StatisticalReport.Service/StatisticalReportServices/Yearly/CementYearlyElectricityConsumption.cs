@@ -18,10 +18,10 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             _tzHelper = new TZHelper(connString);
         }
 
-        public static DataTable Query(string organizeID, string year, string tableName)
+        public static DataTable TableQuery(string organizeID, string year)
         {
             DataTable temp1;
-            temp1 = _tzHelper.CreateTableStructure(tableName);//目标数据表
+            temp1 = _tzHelper.CreateTableStructure("report_CementYearlyElectricityConsumption");//目标数据表
             int MonthEnd;
             if (DateTime.Now.Year.ToString() != year)
             { MonthEnd = 12; }
@@ -30,29 +30,29 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //形成产量数据----------------start----------------------
             DataTable temp_cl;
-            temp_cl = _tzHelper.CreateTableStructure("report_CementMillMonthlyOutput");
+            temp_cl = _tzHelper.CreateTableStructure("table_CementMillMonthlyOutput");
             for (int i = 1; i <= MonthEnd; i++) //形成每月产量数据，包括累计
             {
                 DataTable temp2;
                 string date = year + "-" + ReportHelper.MyToString(i, 2, 0);
-                temp2 = _tzHelper.GetReportData("tz_Report", organizeID, date, "report_CementMillMonthlyOutput");
+                temp2 = _tzHelper.GetReportData("tz_Report", organizeID, date, "table_CementMillMonthlyOutput");
                 if (temp2.Rows.Count == 0)
                 { continue; }
                 foreach (DataRow dr in temp2.Rows)
                 {
                     DataRow row = temp1.NewRow();
-                    row["月份"] = ReportHelper.MyToString(i, 2, 0);
-                    row["水泥品种"] = dr["CementTypes"];
-                    row["本月产量"] = dr["CementProductionSum"];//要改
+                    row["vDate"] = ReportHelper.MyToString(i, 2, 0);
+                    row["CementTypes"] = dr["CementTypes"];
+                    row["Output_Monthly"] = Convert.ToInt64(dr["CementProductionSum"]);//要改
                     temp1.Rows.Add(row);
                 }
                 temp_cl.Merge(temp2);//产量并入累计暂存
                 foreach (DataRow dr in temp_cl.Rows)//累计产量并入目标表
                 {
                     DataRow row = temp1.NewRow();
-                    row["月份"] = ReportHelper.MyToString(i, 2, 0);
-                    row["水泥品种"] = dr["CementTypes"];//要改
-                    row["累计产量"] = dr["CementProductionSum"];//要改
+                    row["vDate"] = ReportHelper.MyToString(i, 2, 0);
+                    row["CementTypes"] = dr["CementTypes"];//要改
+                    row["Output_Accumulative"] = Convert.ToInt64(dr["CementProductionSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
@@ -60,86 +60,98 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //形成电量数据----------------start-----------------------
             DataTable temp_dl;
-            temp_dl = _tzHelper.CreateTableStructure("report_CementMillMonthlyElectricity_sum");
+            temp_dl = _tzHelper.CreateTableStructure("table_CementMillMonthlyElectricity_sum");
             for (int i = 1; i <= MonthEnd; i++)//形成每月电量数据，包括累计
             {
                 DataTable temp2;
                 string date = year + "-" + ReportHelper.MyToString(i, 2, 0);
-                temp2 = _tzHelper.GetReportData("tz_Report", organizeID, date, "report_CementMillMonthlyElectricity_sum");
+                temp2 = _tzHelper.GetReportData("tz_Report", organizeID, date, "table_CementMillMonthlyElectricity_sum");
                 if (temp2.Rows.Count == 0)
                 { continue; }
                 foreach (DataRow dr in temp2.Rows)//本月电量并入目标表
                 {
                     DataRow row = temp1.NewRow();
-                    row["月份"] = ReportHelper.MyToString(i, 2, 0);
-                    row["水泥品种"] = dr["CementTypes"];//要改
-                    row["本月用电量"] = dr["AmounttoSum"];//要改
+                    row["vDate"] = ReportHelper.MyToString(i, 2, 0);
+                    row["CementTypes"] = dr["CementTypes"];//要改
+                    row["Electricity_Monthly"] = Convert.ToInt64(dr["AmounttoSum"]);//要改
                     temp1.Rows.Add(row);
                 }
                 temp_dl.Merge(temp2);    //电量并入累计暂存
                 foreach (DataRow dr in temp_dl.Rows)//累计电量并入目标表
                 {
                     DataRow row = temp1.NewRow();
-                    row["月份"] = ReportHelper.MyToString(i, 2, 0);
-                    row["水泥品种"] = dr["CementTypes"];//要改
-                    row["累计用电量"] = dr["AmounttoSum"];//要改
+                    row["vDate"] = ReportHelper.MyToString(i, 2, 0);
+                    row["CementTypes"] = dr["CementTypes"];//要改
+                    row["Electricity_Accumulative"] = Convert.ToInt64(dr["AmounttoSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
             //-----------------------END------------------------------
-            DataTable temp = ReportHelper.GroupByTotal(temp1, "月份,水泥品种", "本月产量,累计产量,本月用电量,累计用电量");    // temp每月明细
-            DataTable table4 = ReportHelper.MyTotalOn(temp, "月份", "本月产量,累计产量,本月用电量,累计用电量");//表4每月合计
+            DataTable temp = ReportHelper.GroupByTotal(temp1, "vDate,CementTypes", "Output_Monthly,Output_Accumulative,Electricity_Monthly,Electricity_Accumulative");    // temp每月明细
+            DataTable table4 = ReportHelper.MyTotalOn(temp, "vDate", "Output_Monthly,Output_Accumulative,Electricity_Monthly,Electricity_Accumulative");//表4每月合计
             foreach (DataRow dr in table4.Rows)//将表4水泥品种字段中的数据全部用合计替换
             {
-                dr["水泥品种"] = "总总合计";
+                dr["CementTypes"] = "总总合计";
             }
             temp.Merge(table4);
 
-            DataTable result = ReportHelper.SortTable(temp, new string[] { "月份", "水泥品种" });//按照月份和水泥品种排序
+            DataTable result = ReportHelper.SortTable(temp, new string[] { "vDate", "CementTypes" });//按照月份和水泥品种排序
             foreach (DataRow dr in result.Rows)
             {
-                string PZ = dr["水泥品种"].ToString().Trim();
+                
+                string PZ = dr["CementTypes"].ToString().Trim();
 
-                if (dr["水泥品种"].ToString() != "总总合计")
+                if (dr["CementTypes"].ToString() != "总总合计")
                 {
-                    double ZHXS = _tzHelper.GetConvertCoefficient(PZ);
-                    dr["折合系数"] = ZHXS;
+                    decimal ZHXS = _tzHelper.GetConvertCoefficient(PZ);
+                    dr["ConvertCoefficient"] = ZHXS;
                 }
                 else
                 {
-                    dr["水泥品种"] = "合计";
+                    dr["CementTypes"] = "合计";
                 }
-                if (dr["本月产量"] is DBNull)
-                { dr["本月产量"] = 0; }
-                if (dr["本月用电量"] is DBNull)
+                if (MyToDecimal(dr["Output_Monthly"]) != 0)
                 {
-                    dr["本月用电量"] = 0;
-                    dr["本月电耗"] = 0;
-                    dr["本月折算电耗"] = 0;
+                    dr["ElectricityConsumption_Monthly"] = MyToDecimal(dr["Electricity_Monthly"]) / MyToDecimal(dr["Output_Monthly"]);
                 }
-                else
+                if (dr["CementTypes"].ToString() != "合计" && MyToDecimal(dr["ConvertCoefficient"]) != 0)
                 {
-                    dr["本月电耗"] = Convert.ToDouble(dr["本月用电量"]) / Convert.ToDouble(dr["本月产量"]);
-                    if (dr["水泥品种"].ToString() != "合计")
-                    { dr["本月折算电耗"] = Convert.ToDouble(dr["本月电耗"]) / Convert.ToDouble(dr["折合系数"]); }
+                    if (dr["ElectricityConsumption_Monthly"] is DBNull)
+                    {
+                        dr["ElectricityConsumption_Monthly"] = 0;
+                    }
+                    dr["Convert_ElectricityConsumption_Monthly"] = MyToDecimal(dr["ElectricityConsumption_Monthly"]) / MyToDecimal(dr["ConvertCoefficient"]);
                 }
 
-                if (dr["累计产量"] is DBNull)
-                { dr["累计产量"] = 0; }
-                if (dr["累计用电量"] is DBNull)
+
+                if (MyToDecimal(dr["Output_Accumulative"]) != 0)
                 {
-                    dr["累计用电量"] = 0;
-                    dr["累计电耗"] = 0;
-                    dr["累计折算电耗"] = 0;
+                    dr["ElectricityConsumption_Accumulative"] = MyToDecimal(dr["Electricity_Accumulative"]) / MyToDecimal(dr["Output_Accumulative"]);
                 }
-                else
+                if (dr["CementTypes"].ToString() != "合计")
                 {
-                    dr["累计电耗"] = Convert.ToDouble(dr["累计用电量"]) / Convert.ToDouble(dr["累计产量"]);
-                    if (dr["水泥品种"].ToString() != "合计")
-                    { dr["累计折算电耗"] = Convert.ToDouble(dr["累计电耗"]) / Convert.ToDouble(dr["折合系数"]); }
+                    if (dr["ElectricityConsumption_Accumulative"] is DBNull)
+                    {
+                        dr["ElectricityConsumption_Accumulative"] = 0;
+                    }
+                    dr["Convert_ElectricityConsumption_Accumulative"] = MyToDecimal(dr["ElectricityConsumption_Accumulative"]) / MyToDecimal(dr["ConvertCoefficient"]);                  
                 }
+
             }
-            return result;
+            return result; 
+        }
+
+        public static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+           }
         }
     }
 }
