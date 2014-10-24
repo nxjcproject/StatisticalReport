@@ -35,24 +35,24 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //形成产量数据----------------start----------------------
             DataTable temp_cl;
-            temp_cl = tzHelper.CreateTableStructure("report_ClinkerMonthlyOutput");
+            temp_cl = tzHelper.CreateTableStructure("table_ClinkerMonthlyOutput");
             for (int i = 1; i <= MonthEnd; i++) //形成每月产量数据，包括累计
             {
                 DataTable temp2;
                 string date = _year + "-" + ReportHelper.MyToString(i, 2, 0);
-                temp2 = tzHelper.GetReportData("tz_Report", _organizeID, date, "report_ClinkerMonthlyOutput","vDate='合计'");
-                
+                temp2 = tzHelper.GetReportData("tz_Report", _organizeID, date, "table_ClinkerMonthlyOutput","vDate='合计'");
+
                 if (temp2.Rows.Count == 0)
                 { continue; }
                 foreach (DataRow dr in temp2.Rows)
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Consumption_CoalDust_Monthly"] = dr["AmounttoCoalDustConsumptionSum"];//用煤量
-                    row["Output_RawBatch_Monthly"] = dr["RawBatchProductionSum"];
-                    row["Output_Clinker_Monthly"] = dr["ClinkerProductionSum"];//要改
-                    row["Output_CoalDust_Monthly"] = dr["CoalDustProductionSum"];
-                    row["Output_Cogeneration_Monthly"] = dr["PowerGenerationSum"];
+                    row["Consumption_CoalDust_Monthly"] =Convert.ToInt64(dr["AmounttoCoalDustConsumptionSum"]);//用煤量
+                    row["Output_RawBatch_Monthly"] = Convert.ToInt64(dr["RawBatchProductionSum"]);
+                    row["Output_Clinker_Monthly"] = Convert.ToInt64(dr["ClinkerProductionSum"]);//要改
+                    row["Output_CoalDust_Monthly"] = Convert.ToInt64(dr["CoalDustProductionSum"]);
+                    row["Output_Cogeneration_Monthly"] = Convert.ToInt64(dr["PowerGenerationSum"]);
                     temp1.Rows.Add(row);
                 }
                 temp_cl.Merge(temp2);//产量并入累计暂存
@@ -60,11 +60,11 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Consumption_CoalDust_Accumulative"] = dr["AmounttoCoalDustConsumptionSum"];//用煤量
-                    row["Output_RawBatch_Accumulative"] = dr["RawBatchProductionSum"];//要改
-                    row["Output_Clinker_Accumulative"] = dr["ClinkerProductionSum"];//要改
-                    row["Output_CoalDust_Accumulative"] = dr["CoalDustProductionSum"];//要改
-                    row["Output_Cogeneration_Accumulative"] = dr["PowerGenerationSum"];//要改
+                    row["Consumption_CoalDust_Accumulative"] = Convert.ToInt64(dr["AmounttoCoalDustConsumptionSum"]);//用煤量
+                    row["Output_RawBatch_Accumulative"] = Convert.ToInt64(dr["RawBatchProductionSum"]);//要改
+                    row["Output_Clinker_Accumulative"] = Convert.ToInt64(dr["ClinkerProductionSum"]);//要改
+                    row["Output_CoalDust_Accumulative"] = Convert.ToInt64(dr["CoalDustProductionSum"]);//要改
+                    row["Output_Cogeneration_Accumulative"] = Convert.ToInt64(dr["PowerGenerationSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
@@ -72,22 +72,22 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //形成电量数据----------------start-----------------------
             DataTable temp_dl;
-            temp_dl = tzHelper.CreateTableStructure("report_ClinkerMonthlyElectricity_sum");
+            temp_dl = tzHelper.CreateTableStructure("table_ClinkerMonthlyElectricity_sum");
             for (int i = 1; i <= MonthEnd; i++)//形成每月电量数据，包括累计
             {
                 DataTable temp2;
                 string date = _year + "-" + ReportHelper.MyToString(i, 2, 0);
-                temp2 = tzHelper.GetReportData("tz_Report", _organizeID, date, "report_ClinkerMonthlyElectricity_sum", "vDate='合计'");
+                temp2 = tzHelper.GetReportData("tz_Report", _organizeID, date, "table_ClinkerMonthlyElectricity_sum", "vDate='合计'");
                 if (temp2.Rows.Count == 0)
                 { continue; }
                 foreach (DataRow dr in temp2.Rows)//本月电量并入目标表
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Electricity_RawBatch_Monthly"] = dr["AmounttoRawBatchPreparationSum"];//要改
-                    row["Electricity_RawBatchMil_Monthly"] = dr["RawBatchGrindingSum"];//要改
-                    row["Electricity_Clinker_Monthly"] = dr["AmounttoFiringSystemSum"];//要改
-                    row["Electricity_CoalDust_Monthly"] = dr["CoalMillSystemSum"];//要改
+                    row["Electricity_RawBatch_Monthly"] = Convert.ToInt64(dr["AmounttoRawBatchPreparationSum"]);//要改
+                    row["Electricity_RawBatchMil_Monthly"] = Convert.ToInt64(dr["RawBatchGrindingSum"]);//要改
+                    row["Electricity_Clinker_Monthly"] = Convert.ToInt64(dr["AmounttoFiringSystemSum"]);//要改
+                    row["Electricity_CoalDust_Monthly"] = Convert.ToInt64(dr["CoalMillSystemSum"]);//要改
                     temp1.Rows.Add(row);
                 }
                 temp_dl.Merge(temp2);    //电量并入累计暂存
@@ -95,10 +95,10 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Electricity_RawBatch_Accumulative"] = dr["AmounttoRawBatchPreparationSum"];//要改
-                    row["Electricity_RawBatchMil_Accumulative"] = dr["RawBatchGrindingSum"];//要改
-                    row["Electricity_Clinker_Accumulative"] = dr["AmounttoFiringSystemSum"];//要改
-                    row["Electricity_CoalDust_Accumulative"] = dr["CoalMillSystemSum"];//要改
+                    row["Electricity_RawBatch_Accumulative"] = Convert.ToInt64(dr["AmounttoRawBatchPreparationSum"]);//要改
+                    row["Electricity_RawBatchMil_Accumulative"] = Convert.ToInt64(dr["RawBatchGrindingSum"]);//要改
+                    row["Electricity_Clinker_Accumulative"] = Convert.ToInt64(dr["AmounttoFiringSystemSum"]);//要改
+                    row["Electricity_CoalDust_Accumulative"] = Convert.ToInt64(dr["CoalMillSystemSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
@@ -111,141 +111,79 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             foreach (DataRow dr in temp.Rows)
             {
                 //电耗—生料制备-本月
-                if(dr["Electricity_RawBatch_Monthly"] is DBNull)
-                {
-                    dr["Electricity_RawBatch_Monthly"] = 0;
-                    dr["ElectricityConsumption_RawBatch_Monthly"]=0;
-                }
-                else
-                {
-                    if (dr["Output_RawBatch_Monthly"] is DBNull)
-                    { dr["Output_RawBatch_Monthly"] = 0; }
-                    dr["ElectricityConsumption_RawBatch_Monthly"] = Convert.ToDouble(dr["Electricity_RawBatch_Monthly"]) / Convert.ToDouble(dr["Output_RawBatch_Monthly"]);
+                if(MyToDecimal(dr["Output_RawBatch_Monthly"])!=0)              
+                {                    
+                    dr["ElectricityConsumption_RawBatch_Monthly"] = MyToDecimal(dr["Electricity_RawBatch_Monthly"]) / MyToDecimal(dr["Output_RawBatch_Monthly"]);
                 }
                 //电耗-生料制备-累计
-                if (dr["Electricity_RawBatch_Accumulative"] is DBNull)
-                {
-                    dr["Electricity_RawBatch_Accumulative"] = 0;
-                    dr["ElectricityConsumption_RawBatch_Accumulative"] = 0; 
-                }
-                else
-                {
-                    if (dr["Output_RawBatch_Accumulative"] is DBNull)
-                    { dr["Output_RawBatch_Accumulative"] = 0; }
-                    dr["ElectricityConsumption_RawBatch_Accumulative"] = Convert.ToDouble(dr["Electricity_RawBatch_Accumulative"]) / Convert.ToDouble(dr["Output_RawBatch_Accumulative"]);
+                if (MyToDecimal(dr["Output_RawBatch_Accumulative"])!=0)               
+                {                 
+                    dr["ElectricityConsumption_RawBatch_Accumulative"] = MyToDecimal(dr["Electricity_RawBatch_Accumulative"]) / MyToDecimal(dr["Output_RawBatch_Accumulative"]);
                 }
                 //电耗-生料磨-本月
-                if (dr["Electricity_RawBatchMil_Monthly"] is DBNull)
+                if (MyToDecimal(dr["Output_RawBatch_Monthly"])!=0)          
                 {
-                    dr["Electricity_RawBatchMil_Monthly"] = 0;
-                    dr["ElectricityConsumption_RawBatchMill_Monthly"] = 0;
-                }
-                else
-                {
-                    if (dr["Output_RawBatch_Monthly"] is DBNull)
-                    { dr["Output_RawBatch_Monthly"] = 0; }
-                    dr["ElectricityConsumption_RawBatchMill_Monthly"] = Convert.ToDouble(dr["Electricity_RawBatchMil_Monthly"]) / Convert.ToDouble(dr["Output_RawBatch_Monthly"]);
+                    dr["ElectricityConsumption_RawBatchMill_Monthly"] = MyToDecimal(dr["Electricity_RawBatchMil_Monthly"]) / MyToDecimal(dr["Output_RawBatch_Monthly"]);
                 }
                 //电耗-生料磨-累计
-                if (dr["Electricity_RawBatchMil_Accumulative"] is DBNull)
+                if (MyToDecimal(dr["Output_RawBatch_Accumulative"])!=0)
                 {
-                    dr["Electricity_RawBatchMil_Accumulative"] = 0;
-                    dr["ElectricityConsumption_RawBatchMill_Accumulative"] = 0; 
-                }
-                else
-                {
-                    if (dr["Output_RawBatch_Accumulative"] is DBNull)
-                    { { dr["Output_RawBatch_Accumulative"] = 0; } }
-                    dr["ElectricityConsumption_RawBatchMill_Accumulative"] = Convert.ToDouble(dr["Electricity_RawBatchMil_Accumulative"]) / Convert.ToDouble(dr["Output_RawBatch_Accumulative"]);
+                    dr["ElectricityConsumption_RawBatchMill_Accumulative"] = MyToDecimal(dr["Electricity_RawBatchMil_Accumulative"]) / MyToDecimal(dr["Output_RawBatch_Accumulative"]);
                 }
                 //电耗-熟料烧成-本月
-                if (dr["Electricity_Clinker_Monthly"] is DBNull)
+                if (MyToDecimal(dr["Output_Clinker_Monthly"])!=0)
                 {
-                    dr["Electricity_Clinker_Monthly"] = 0;
-                    dr["ElectricityConsumption_Clinker_Monthly"] = 0; 
-                }
-                else
-                {
-                    if (dr["Output_Clinker_Monthly"] is DBNull)
-                    { { dr["Output_Clinker_Monthly"] = 0; } }
-                    dr["ElectricityConsumption_Clinker_Monthly"] = Convert.ToDouble(dr["Electricity_Clinker_Monthly"]) / Convert.ToDouble(dr["Output_Clinker_Monthly"]);
+                    dr["ElectricityConsumption_Clinker_Monthly"] = MyToDecimal(dr["Electricity_Clinker_Monthly"]) / MyToDecimal(dr["Output_Clinker_Monthly"]);
                 }
                 //电耗-熟料烧成-累计
-                if (dr["Electricity_Clinker_Accumulative"] is DBNull)
+                if (MyToDecimal(dr["Output_Clinker_Accumulative"])!=0)
                 {
-                    dr["Electricity_Clinker_Accumulative"] = 0;
-                    dr["ElectricityConsumption_Clinker_Accumulative"] = 0;
-                }
-                else
-                {
-                    if (dr["Output_Clinker_Accumulative"] is DBNull)
-                    { { dr["Output_Clinker_Accumulative"] = 0; } }
-                    dr["ElectricityConsumption_Clinker_Accumulative"] = Convert.ToDouble(dr["Electricity_Clinker_Accumulative"]) / Convert.ToDouble(dr["Output_Clinker_Accumulative"]);
+                    dr["ElectricityConsumption_Clinker_Accumulative"] = MyToDecimal(dr["Electricity_Clinker_Accumulative"]) / MyToDecimal(dr["Output_Clinker_Accumulative"]);
                 }
                 //电耗-煤磨-本月
-                if (dr["Electricity_CoalDust_Monthly"] is DBNull)
+                if (MyToDecimal(dr["Output_CoalDust_Monthly"])!=0)
                 {
-                    dr["Electricity_CoalDust_Monthly"] = 0;
-                    dr["ElectricityConsumption_CoalDust_Monthly"] = 0; 
-                }
-                else
-                {
-                    if (dr["Output_CoalDust_Monthly"] is DBNull)
-                    { { dr["Output_CoalDust_Monthly"] = 0; } }
-                    dr["ElectricityConsumption_CoalDust_Monthly"] = Convert.ToDouble(dr["Electricity_CoalDust_Monthly"]) / Convert.ToDouble(dr["Output_CoalDust_Monthly"]);
+                    dr["ElectricityConsumption_CoalDust_Monthly"] = MyToDecimal(dr["Electricity_CoalDust_Monthly"]) / MyToDecimal(dr["Output_CoalDust_Monthly"]);
                 }
                 //电耗-煤磨-累计
-                if (dr["Electricity_CoalDust_Accumulative"] is DBNull)
+                if (MyToDecimal(dr["Output_CoalDust_Accumulative"])!=0)
                 {
-                    dr["Electricity_CoalDust_Accumulative"] = 0;
-                    dr["ElectricityConsumption_CoalDust_Accumulative"] = 0; 
-                }
-                else
-                {
-                    if (dr["Output_CoalDust_Accumulative"] is DBNull)
-                    { { dr["Output_CoalDust_Accumulative"] = 0; } }
-                    dr["ElectricityConsumption_CoalDust_Accumulative"] = Convert.ToDouble(dr["Electricity_CoalDust_Accumulative"]) / Convert.ToDouble(dr["Output_CoalDust_Accumulative"]);
+                    dr["ElectricityConsumption_CoalDust_Accumulative"] = MyToDecimal(dr["Electricity_CoalDust_Accumulative"]) / MyToDecimal(dr["Output_CoalDust_Accumulative"]);
                 }
                 //吨熟料综合电耗-本月
-                if (0 == Convert.ToDouble(dr["Electricity_RawBatch_Monthly"]) && 0 == Convert.ToDouble(dr["Electricity_Clinker_Monthly"]))
+                if (MyToDecimal(dr["Output_Clinker_Monthly"])!=0)
                 {
-                    dr["ComprehensiveElectricityConsumption_Monthly"] = 0;
-                }
-                else
-                {
-                    dr["ComprehensiveElectricityConsumption_Monthly"]=(Convert.ToDouble(dr["Electricity_RawBatch_Monthly"])+Convert.ToDouble(dr["Electricity_Clinker_Monthly"]))/Convert.ToDouble(dr["Output_Clinker_Monthly"]);
+                    dr["ComprehensiveElectricityConsumption_Monthly"]=(MyToDecimal(dr["Electricity_RawBatch_Monthly"])+MyToDecimal(dr["Electricity_Clinker_Monthly"]))/MyToDecimal(dr["Output_Clinker_Monthly"]);
                 }
                 //吨熟料综合电耗-累计
-                if (0 == Convert.ToDouble(dr["Electricity_RawBatch_Accumulative"]) && 0 == Convert.ToDouble(dr["Electricity_Clinker_Accumulative"]))
+                if (MyToDecimal(dr["Output_Clinker_Accumulative"])!=0)
                 {
-                    dr["ComprehensiveElectricityConsumption_Accumulative"] = 0;
-                }
-                else
-                {
-                    dr["ComprehensiveElectricityConsumption_Accumulative"] = (Convert.ToDouble(dr["Electricity_RawBatch_Accumulative"]) + Convert.ToDouble(dr["Electricity_Clinker_Accumulative"])) / Convert.ToDouble(dr["Output_Clinker_Accumulative"]);
+                    dr["ComprehensiveElectricityConsumption_Accumulative"] = (MyToDecimal(dr["Electricity_RawBatch_Accumulative"]) + MyToDecimal(dr["Electricity_Clinker_Accumulative"])) / MyToDecimal(dr["Output_Clinker_Accumulative"]);
                 }
                 //吨熟料实物煤耗-本月
-                if (dr["Consumption_CoalDust_Monthly"] is DBNull)
+                if (MyToDecimal(dr["Output_Clinker_Monthly"])!=0)
                 {
-                    dr["Consumption_CoalDust_Monthly"] = 0;
-                    dr["ComprehensiveCoalConsumption_Monthly"] = 0;
-                }
-                else
-                {
-                    dr["ComprehensiveCoalConsumption_Monthly"] = Convert.ToDouble(dr["Consumption_CoalDust_Monthly"]) / Convert.ToDouble(dr["Output_Clinker_Monthly"]);
+                    dr["ComprehensiveCoalConsumption_Monthly"] = MyToDecimal(dr["Consumption_CoalDust_Monthly"]) / MyToDecimal(dr["Output_Clinker_Monthly"]);
                 }
                 //吨熟料实物煤耗-累计
-                if ( dr["Consumption_CoalDust_Accumulative"] is DBNull)
+                if (MyToDecimal(dr["Output_Clinker_Accumulative"])!=0)
                 {
-                    dr["Consumption_CoalDust_Accumulative"] = 0;
-                    dr["ComprehensiveCoalConsumption_Accumulative"] = 0;
-                }
-                else
-                {
-                    dr["ComprehensiveCoalConsumption_Accumulative"] = Convert.ToDouble(dr["Consumption_CoalDust_Accumulative"]) / Convert.ToDouble(dr["Output_Clinker_Accumulative"]);
+                    dr["ComprehensiveCoalConsumption_Accumulative"] = MyToDecimal(dr["Consumption_CoalDust_Accumulative"]) / MyToDecimal(dr["Output_Clinker_Accumulative"]);
                 }
             }
             return temp;
+        }
+        public static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+            }
         }
     }
 }

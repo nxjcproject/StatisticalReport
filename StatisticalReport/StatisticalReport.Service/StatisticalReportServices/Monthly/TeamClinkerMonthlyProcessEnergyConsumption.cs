@@ -41,75 +41,75 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["甲班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatch"];
-                        newRow["TeamA_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
-                        newRow["TeamA_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Clinker"];
-                        newRow["TeamA_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CoalDust"];
-                        newRow["TeamA_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Consumption_CoalDust"];
-                        newRow["TeamA_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Output_RawBatch"];
-                        newRow["TeamA_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Output_Clinker"];
-                        newRow["TeamA_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Output_CoalDust"];
-                        newRow["TeamA_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["First_Output_Cogeneration"];
-                        newRow["TeamA_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
-                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamA_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
-                        newRow["TeamA_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
-                        newRow["TeamA_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
+                        newRow["TeamA_Electricity_RawBatch"] = temp1.Rows[i - 1]["First_Electricity_RawBatch"];
+                        newRow["TeamA_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
+                        newRow["TeamA_Electricity_Clinker"] = temp1.Rows[i - 1]["First_Electricity_Clinker"];
+                        newRow["TeamA_Electricity_CoalDust"] = temp1.Rows[i - 1]["First_Electricity_CoalDust"];
+                        newRow["TeamA_Consumption_CoalDust"] = temp1.Rows[i - 1]["First_Consumption_CoalDust"];
+                        newRow["TeamA_Output_RawBatch"] = temp1.Rows[i - 1]["First_Output_RawBatch"];
+                        newRow["TeamA_Output_Clinker"] = temp1.Rows[i - 1]["First_Output_Clinker"];
+                        newRow["TeamA_Output_CoalDust"] = temp1.Rows[i - 1]["First_Output_CoalDust"];
+                        newRow["TeamA_Output_Cogeneration"] = temp1.Rows[i - 1]["First_Output_Cogeneration"];
+                        newRow["TeamA_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
+                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamA_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
+                        newRow["TeamA_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatch"];
-                        newRow["TeamB_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
-                        newRow["TeamB_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Clinker"];
-                        newRow["TeamB_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CoalDust"];
-                        newRow["TeamB_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Consumption_CoalDust"];
-                        newRow["TeamB_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Output_RawBatch"];
-                        newRow["TeamB_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Output_Clinker"];
-                        newRow["TeamB_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Output_CoalDust"];
-                        newRow["TeamB_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["First_Output_Cogeneration"];
-                        newRow["TeamB_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
-                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamB_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
-                        newRow["TeamB_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
-                        newRow["TeamB_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
+                        newRow["TeamB_Electricity_RawBatch"] = temp1.Rows[i - 1]["First_Electricity_RawBatch"];
+                        newRow["TeamB_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
+                        newRow["TeamB_Electricity_Clinker"] = temp1.Rows[i - 1]["First_Electricity_Clinker"];
+                        newRow["TeamB_Electricity_CoalDust"] = temp1.Rows[i - 1]["First_Electricity_CoalDust"];
+                        newRow["TeamB_Consumption_CoalDust"] = temp1.Rows[i - 1]["First_Consumption_CoalDust"];
+                        newRow["TeamB_Output_RawBatch"] = temp1.Rows[i - 1]["First_Output_RawBatch"];
+                        newRow["TeamB_Output_Clinker"] = temp1.Rows[i - 1]["First_Output_Clinker"];
+                        newRow["TeamB_Output_CoalDust"] = temp1.Rows[i - 1]["First_Output_CoalDust"];
+                        newRow["TeamB_Output_Cogeneration"] = temp1.Rows[i - 1]["First_Output_Cogeneration"];
+                        newRow["TeamB_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
+                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamB_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
+                        newRow["TeamB_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatch"];
-                        newRow["TeamC_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
-                        newRow["TeamC_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Clinker"];
-                        newRow["TeamC_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CoalDust"];
-                        newRow["TeamC_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Consumption_CoalDust"];
-                        newRow["TeamC_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Output_RawBatch"];
-                        newRow["TeamC_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Output_Clinker"];
-                        newRow["TeamC_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Output_CoalDust"];
-                        newRow["TeamC_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["First_Output_Cogeneration"];
-                        newRow["TeamC_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
-                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamC_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
-                        newRow["TeamC_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
-                        newRow["TeamC_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
+                        newRow["TeamC_Electricity_RawBatch"] = temp1.Rows[i - 1]["First_Electricity_RawBatch"];
+                        newRow["TeamC_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
+                        newRow["TeamC_Electricity_Clinker"] = temp1.Rows[i - 1]["First_Electricity_Clinker"];
+                        newRow["TeamC_Electricity_CoalDust"] = temp1.Rows[i - 1]["First_Electricity_CoalDust"];
+                        newRow["TeamC_Consumption_CoalDust"] = temp1.Rows[i - 1]["First_Consumption_CoalDust"];
+                        newRow["TeamC_Output_RawBatch"] = temp1.Rows[i - 1]["First_Output_RawBatch"];
+                        newRow["TeamC_Output_Clinker"] = temp1.Rows[i - 1]["First_Output_Clinker"];
+                        newRow["TeamC_Output_CoalDust"] = temp1.Rows[i - 1]["First_Output_CoalDust"];
+                        newRow["TeamC_Output_Cogeneration"] = temp1.Rows[i - 1]["First_Output_Cogeneration"];
+                        newRow["TeamC_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
+                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamC_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
+                        newRow["TeamC_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatch"];
-                        newRow["TeamD_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
-                        newRow["TeamD_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Clinker"];
-                        newRow["TeamD_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CoalDust"];
-                        newRow["TeamD_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Consumption_CoalDust"];
-                        newRow["TeamD_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_Output_RawBatch"];
-                        newRow["TeamD_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["First_Output_Clinker"];
-                        newRow["TeamD_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_Output_CoalDust"];
-                        newRow["TeamD_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["First_Output_Cogeneration"];
-                        newRow["TeamD_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
-                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamD_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
-                        newRow["TeamD_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
-                        newRow["TeamD_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
+                        newRow["TeamD_Electricity_RawBatch"] = temp1.Rows[i - 1]["First_Electricity_RawBatch"];
+                        newRow["TeamD_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["First_Electricity_RawBatchGrinding"];
+                        newRow["TeamD_Electricity_Clinker"] = temp1.Rows[i - 1]["First_Electricity_Clinker"];
+                        newRow["TeamD_Electricity_CoalDust"] = temp1.Rows[i - 1]["First_Electricity_CoalDust"];
+                        newRow["TeamD_Consumption_CoalDust"] = temp1.Rows[i - 1]["First_Consumption_CoalDust"];
+                        newRow["TeamD_Output_RawBatch"] = temp1.Rows[i - 1]["First_Output_RawBatch"];
+                        newRow["TeamD_Output_Clinker"] = temp1.Rows[i - 1]["First_Output_Clinker"];
+                        newRow["TeamD_Output_CoalDust"] = temp1.Rows[i - 1]["First_Output_CoalDust"];
+                        newRow["TeamD_Output_Cogeneration"] = temp1.Rows[i - 1]["First_Output_Cogeneration"];
+                        newRow["TeamD_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatch"];
+                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamD_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Clinker"];
+                        newRow["TeamD_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CoalDust"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveCoalConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -123,75 +123,75 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["乙班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
-                        newRow["TeamA_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
-                        newRow["TeamA_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Clinker"];
-                        newRow["TeamA_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
-                        newRow["TeamA_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
-                        newRow["TeamA_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Output_RawBatch"];
-                        newRow["TeamA_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Output_Clinker"];
-                        newRow["TeamA_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Output_CoalDust"];
-                        newRow["TeamA_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cogeneration"];
-                        newRow["TeamA_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
-                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamA_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
-                        newRow["TeamA_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
-                        newRow["TeamA_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
+                        newRow["TeamA_Electricity_RawBatch"] = temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
+                        newRow["TeamA_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
+                        newRow["TeamA_Electricity_Clinker"] = temp1.Rows[i - 1]["Second_Electricity_Clinker"];
+                        newRow["TeamA_Electricity_CoalDust"] = temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
+                        newRow["TeamA_Consumption_CoalDust"] = temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
+                        newRow["TeamA_Output_RawBatch"] = temp1.Rows[i - 1]["Second_Output_RawBatch"];
+                        newRow["TeamA_Output_Clinker"] = temp1.Rows[i - 1]["Second_Output_Clinker"];
+                        newRow["TeamA_Output_CoalDust"] = temp1.Rows[i - 1]["Second_Output_CoalDust"];
+                        newRow["TeamA_Output_Cogeneration"] = temp1.Rows[i - 1]["Second_Output_Cogeneration"];
+                        newRow["TeamA_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
+                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamA_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
+                        newRow["TeamA_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
-                        newRow["TeamB_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
-                        newRow["TeamB_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Clinker"];
-                        newRow["TeamB_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
-                        newRow["TeamB_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
-                        newRow["TeamB_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Output_RawBatch"];
-                        newRow["TeamB_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Output_Clinker"];
-                        newRow["TeamB_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Output_CoalDust"];
-                        newRow["TeamB_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cogeneration"];
-                        newRow["TeamB_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
-                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamB_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
-                        newRow["TeamB_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
-                        newRow["TeamB_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
+                        newRow["TeamB_Electricity_RawBatch"] = temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
+                        newRow["TeamB_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
+                        newRow["TeamB_Electricity_Clinker"] = temp1.Rows[i - 1]["Second_Electricity_Clinker"];
+                        newRow["TeamB_Electricity_CoalDust"] = temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
+                        newRow["TeamB_Consumption_CoalDust"] = temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
+                        newRow["TeamB_Output_RawBatch"] = temp1.Rows[i - 1]["Second_Output_RawBatch"];
+                        newRow["TeamB_Output_Clinker"] = temp1.Rows[i - 1]["Second_Output_Clinker"];
+                        newRow["TeamB_Output_CoalDust"] = temp1.Rows[i - 1]["Second_Output_CoalDust"];
+                        newRow["TeamB_Output_Cogeneration"] = temp1.Rows[i - 1]["Second_Output_Cogeneration"];
+                        newRow["TeamB_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
+                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamB_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
+                        newRow["TeamB_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
-                        newRow["TeamC_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
-                        newRow["TeamC_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Clinker"];
-                        newRow["TeamC_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
-                        newRow["TeamC_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
-                        newRow["TeamC_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Output_RawBatch"];
-                        newRow["TeamC_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Output_Clinker"];
-                        newRow["TeamC_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Output_CoalDust"];
-                        newRow["TeamC_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cogeneration"];
-                        newRow["TeamC_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
-                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamC_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
-                        newRow["TeamC_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
-                        newRow["TeamC_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
+                        newRow["TeamC_Electricity_RawBatch"] = temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
+                        newRow["TeamC_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
+                        newRow["TeamC_Electricity_Clinker"] = temp1.Rows[i - 1]["Second_Electricity_Clinker"];
+                        newRow["TeamC_Electricity_CoalDust"] = temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
+                        newRow["TeamC_Consumption_CoalDust"] = temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
+                        newRow["TeamC_Output_RawBatch"] = temp1.Rows[i - 1]["Second_Output_RawBatch"];
+                        newRow["TeamC_Output_Clinker"] = temp1.Rows[i - 1]["Second_Output_Clinker"];
+                        newRow["TeamC_Output_CoalDust"] = temp1.Rows[i - 1]["Second_Output_CoalDust"];
+                        newRow["TeamC_Output_Cogeneration"] = temp1.Rows[i - 1]["Second_Output_Cogeneration"];
+                        newRow["TeamC_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
+                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamC_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
+                        newRow["TeamC_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
-                        newRow["TeamD_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
-                        newRow["TeamD_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Clinker"];
-                        newRow["TeamD_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
-                        newRow["TeamD_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
-                        newRow["TeamD_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_Output_RawBatch"];
-                        newRow["TeamD_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_Output_Clinker"];
-                        newRow["TeamD_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_Output_CoalDust"];
-                        newRow["TeamD_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cogeneration"];
-                        newRow["TeamD_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
-                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamD_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
-                        newRow["TeamD_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
-                        newRow["TeamD_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
+                        newRow["TeamD_Electricity_RawBatch"] = temp1.Rows[i - 1]["Second_Electricity_RawBatch"];
+                        newRow["TeamD_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_Electricity_RawBatchGrinding"];
+                        newRow["TeamD_Electricity_Clinker"] = temp1.Rows[i - 1]["Second_Electricity_Clinker"];
+                        newRow["TeamD_Electricity_CoalDust"] = temp1.Rows[i - 1]["Second_Electricity_CoalDust"];
+                        newRow["TeamD_Consumption_CoalDust"] = temp1.Rows[i - 1]["Second_Consumption_CoalDust"];
+                        newRow["TeamD_Output_RawBatch"] = temp1.Rows[i - 1]["Second_Output_RawBatch"];
+                        newRow["TeamD_Output_Clinker"] = temp1.Rows[i - 1]["Second_Output_Clinker"];
+                        newRow["TeamD_Output_CoalDust"] = temp1.Rows[i - 1]["Second_Output_CoalDust"];
+                        newRow["TeamD_Output_Cogeneration"] = temp1.Rows[i - 1]["Second_Output_Cogeneration"];
+                        newRow["TeamD_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatch"];
+                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamD_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Clinker"];
+                        newRow["TeamD_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CoalDust"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveCoalConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -205,75 +205,75 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["丙班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
-                        newRow["TeamA_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
-                        newRow["TeamA_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Clinker"];
-                        newRow["TeamA_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
-                        newRow["TeamA_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
-                        newRow["TeamA_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Output_RawBatch"];
-                        newRow["TeamA_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Output_Clinker"];
-                        newRow["TeamA_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Output_CoalDust"];
-                        newRow["TeamA_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cogeneration"];
-                        newRow["TeamA_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
-                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamA_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
-                        newRow["TeamA_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
-                        newRow["TeamA_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
+                        newRow["TeamA_Electricity_RawBatch"] = temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
+                        newRow["TeamA_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
+                        newRow["TeamA_Electricity_Clinker"] = temp1.Rows[i - 1]["Third_Electricity_Clinker"];
+                        newRow["TeamA_Electricity_CoalDust"] = temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
+                        newRow["TeamA_Consumption_CoalDust"] = temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
+                        newRow["TeamA_Output_RawBatch"] = temp1.Rows[i - 1]["Third_Output_RawBatch"];
+                        newRow["TeamA_Output_Clinker"] = temp1.Rows[i - 1]["Third_Output_Clinker"];
+                        newRow["TeamA_Output_CoalDust"] = temp1.Rows[i - 1]["Third_Output_CoalDust"];
+                        newRow["TeamA_Output_Cogeneration"] = temp1.Rows[i - 1]["Third_Output_Cogeneration"];
+                        newRow["TeamA_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
+                        newRow["TeamA_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamA_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
+                        newRow["TeamA_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["丙班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
-                        newRow["TeamB_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
-                        newRow["TeamB_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Clinker"];
-                        newRow["TeamB_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
-                        newRow["TeamB_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
-                        newRow["TeamB_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Output_RawBatch"];
-                        newRow["TeamB_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Output_Clinker"];
-                        newRow["TeamB_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Output_CoalDust"];
-                        newRow["TeamB_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cogeneration"];
-                        newRow["TeamB_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
-                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamB_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
-                        newRow["TeamB_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
-                        newRow["TeamB_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
+                        newRow["TeamB_Electricity_RawBatch"] = temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
+                        newRow["TeamB_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
+                        newRow["TeamB_Electricity_Clinker"] = temp1.Rows[i - 1]["Third_Electricity_Clinker"];
+                        newRow["TeamB_Electricity_CoalDust"] = temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
+                        newRow["TeamB_Consumption_CoalDust"] = temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
+                        newRow["TeamB_Output_RawBatch"] = temp1.Rows[i - 1]["Third_Output_RawBatch"];
+                        newRow["TeamB_Output_Clinker"] = temp1.Rows[i - 1]["Third_Output_Clinker"];
+                        newRow["TeamB_Output_CoalDust"] = temp1.Rows[i - 1]["Third_Output_CoalDust"];
+                        newRow["TeamB_Output_Cogeneration"] = temp1.Rows[i - 1]["Third_Output_Cogeneration"];
+                        newRow["TeamB_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
+                        newRow["TeamB_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamB_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
+                        newRow["TeamB_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["丙班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
-                        newRow["TeamC_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
-                        newRow["TeamC_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Clinker"];
-                        newRow["TeamC_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
-                        newRow["TeamC_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
-                        newRow["TeamC_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Output_RawBatch"];
-                        newRow["TeamC_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Output_Clinker"];
-                        newRow["TeamC_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Output_CoalDust"];
-                        newRow["TeamC_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cogeneration"];
-                        newRow["TeamC_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
-                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamC_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
-                        newRow["TeamC_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
-                        newRow["TeamC_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
+                        newRow["TeamC_Electricity_RawBatch"] = temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
+                        newRow["TeamC_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
+                        newRow["TeamC_Electricity_Clinker"] = temp1.Rows[i - 1]["Third_Electricity_Clinker"];
+                        newRow["TeamC_Electricity_CoalDust"] = temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
+                        newRow["TeamC_Consumption_CoalDust"] = temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
+                        newRow["TeamC_Output_RawBatch"] = temp1.Rows[i - 1]["Third_Output_RawBatch"];
+                        newRow["TeamC_Output_Clinker"] = temp1.Rows[i - 1]["Third_Output_Clinker"];
+                        newRow["TeamC_Output_CoalDust"] = temp1.Rows[i - 1]["Third_Output_CoalDust"];
+                        newRow["TeamC_Output_Cogeneration"] = temp1.Rows[i - 1]["Third_Output_Cogeneration"];
+                        newRow["TeamC_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
+                        newRow["TeamC_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamC_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
+                        newRow["TeamC_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
-                        newRow["TeamD_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
-                        newRow["TeamD_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Clinker"];
-                        newRow["TeamD_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
-                        newRow["TeamD_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
-                        newRow["TeamD_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_Output_RawBatch"];
-                        newRow["TeamD_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_Output_Clinker"];
-                        newRow["TeamD_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_Output_CoalDust"];
-                        newRow["TeamD_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cogeneration"];
-                        newRow["TeamD_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
-                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
-                        newRow["TeamD_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
-                        newRow["TeamD_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
-                        newRow["TeamD_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
+                        newRow["TeamD_Electricity_RawBatch"] = temp1.Rows[i - 1]["Third_Electricity_RawBatch"];
+                        newRow["TeamD_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_Electricity_RawBatchGrinding"];
+                        newRow["TeamD_Electricity_Clinker"] = temp1.Rows[i - 1]["Third_Electricity_Clinker"];
+                        newRow["TeamD_Electricity_CoalDust"] = temp1.Rows[i - 1]["Third_Electricity_CoalDust"];
+                        newRow["TeamD_Consumption_CoalDust"] = temp1.Rows[i - 1]["Third_Consumption_CoalDust"];
+                        newRow["TeamD_Output_RawBatch"] = temp1.Rows[i - 1]["Third_Output_RawBatch"];
+                        newRow["TeamD_Output_Clinker"] = temp1.Rows[i - 1]["Third_Output_Clinker"];
+                        newRow["TeamD_Output_CoalDust"] = temp1.Rows[i - 1]["Third_Output_CoalDust"];
+                        newRow["TeamD_Output_Cogeneration"] = temp1.Rows[i - 1]["Third_Output_Cogeneration"];
+                        newRow["TeamD_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatch"];
+                        newRow["TeamD_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_RawBatchGrinding"];
+                        newRow["TeamD_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Clinker"];
+                        newRow["TeamD_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CoalDust"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveCoalConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -284,21 +284,21 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                     DataRow newRow = result.NewRow();
                     newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
 
-                    newRow["Amountto_Electricity_RawBatch"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_RawBatch"];
-                    newRow["Amountto_Electricity_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_RawBatchGrinding"];
-                    newRow["Amountto_Electricity_Clinker"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_Clinker"];
-                    newRow["Amountto_Electricity_CoalDust"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_CoalDust"];
-                    newRow["Amountto_Consumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Amountto_Consumption_CoalDust"];
-                    newRow["Amountto_Output_RawBatch"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_RawBatch"];
-                    newRow["Amountto_Output_Clinker"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_Clinker"];
-                    newRow["Amountto_Output_CoalDust"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_CoalDust"];
-                    newRow["Amountto_Output_Cogeneration"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_Cogeneration"];
-                    newRow["Amountto_ElectricityConsumption_RawBatch"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_RawBatch"];
-                    newRow["Amountto_ElectricityConsumption_RawBatchGrinding"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_RawBatchGrinding"];
-                    newRow["Amountto_ElectricityConsumption_Clinker"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_Clinker"];
-                    newRow["Amountto_ElectricityConsumption_CoalDust"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_CoalDust"];
-                    newRow["Amountto_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Amountto_ComprehensiveElectricityConsumption"];
-                    newRow["Amountto_ComprehensiveCoalConsumption"] = (decimal)temp1.Rows[i - 1]["Amountto_ComprehensiveCoalConsumption"];
+                    newRow["Amountto_Electricity_RawBatch"] = temp1.Rows[i - 1]["Amountto_Electricity_RawBatch"];
+                    newRow["Amountto_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Amountto_Electricity_RawBatchGrinding"];
+                    newRow["Amountto_Electricity_Clinker"] = temp1.Rows[i - 1]["Amountto_Electricity_Clinker"];
+                    newRow["Amountto_Electricity_CoalDust"] = temp1.Rows[i - 1]["Amountto_Electricity_CoalDust"];
+                    newRow["Amountto_Consumption_CoalDust"] = temp1.Rows[i - 1]["Amountto_Consumption_CoalDust"];
+                    newRow["Amountto_Output_RawBatch"] = temp1.Rows[i - 1]["Amountto_Output_RawBatch"];
+                    newRow["Amountto_Output_Clinker"] = temp1.Rows[i - 1]["Amountto_Output_Clinker"];
+                    newRow["Amountto_Output_CoalDust"] = temp1.Rows[i - 1]["Amountto_Output_CoalDust"];
+                    newRow["Amountto_Output_Cogeneration"] = temp1.Rows[i - 1]["Amountto_Output_Cogeneration"];
+                    newRow["Amountto_ElectricityConsumption_RawBatch"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_RawBatch"];
+                    newRow["Amountto_ElectricityConsumption_RawBatchGrinding"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_RawBatchGrinding"];
+                    newRow["Amountto_ElectricityConsumption_Clinker"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_Clinker"];
+                    newRow["Amountto_ElectricityConsumption_CoalDust"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_CoalDust"];
+                    newRow["Amountto_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Amountto_ComprehensiveElectricityConsumption"];
+                    newRow["Amountto_ComprehensiveCoalConsumption"] = temp1.Rows[i - 1]["Amountto_ComprehensiveCoalConsumption"];
 
                     result.Rows.Add(newRow);
                 }

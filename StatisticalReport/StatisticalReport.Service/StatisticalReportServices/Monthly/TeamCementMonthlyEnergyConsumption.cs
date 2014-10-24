@@ -41,55 +41,55 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["甲班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Cement"];
-                        newRow["TeamA_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
-                        newRow["TeamA_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
-                        newRow["TeamA_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
-                        newRow["TeamA_Output_Cement"] = (decimal)temp1.Rows[i - 1]["First_Output_Cement"];
-                        newRow["TeamA_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Output_BagsBulk"];
-                        newRow["TeamA_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
-                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_Electricity_Cement"] = temp1.Rows[i - 1]["First_Electricity_Cement"];
+                        newRow["TeamA_Electricity_CementGrinding"] = temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
+                        newRow["TeamA_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
+                        newRow["TeamA_Electricity_BagsBulk"] = temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
+                        newRow["TeamA_Output_Cement"] = temp1.Rows[i - 1]["First_Output_Cement"];
+                        newRow["TeamA_Output_BagsBulk"] = temp1.Rows[i - 1]["First_Output_BagsBulk"];
+                        newRow["TeamA_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
+                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Cement"];
-                        newRow["TeamB_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
-                        newRow["TeamB_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
-                        newRow["TeamB_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
-                        newRow["TeamB_Output_Cement"] = (decimal)temp1.Rows[i - 1]["First_Output_Cement"];
-                        newRow["TeamB_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Output_BagsBulk"];
-                        newRow["TeamB_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
-                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_Electricity_Cement"] = temp1.Rows[i - 1]["First_Electricity_Cement"];
+                        newRow["TeamB_Electricity_CementGrinding"] = temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
+                        newRow["TeamB_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
+                        newRow["TeamB_Electricity_BagsBulk"] = temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
+                        newRow["TeamB_Output_Cement"] = temp1.Rows[i - 1]["First_Output_Cement"];
+                        newRow["TeamB_Output_BagsBulk"] = temp1.Rows[i - 1]["First_Output_BagsBulk"];
+                        newRow["TeamB_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
+                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Cement"];
-                        newRow["TeamC_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
-                        newRow["TeamC_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
-                        newRow["TeamC_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
-                        newRow["TeamC_Output_Cement"] = (decimal)temp1.Rows[i - 1]["First_Output_Cement"];
-                        newRow["TeamC_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Output_BagsBulk"];
-                        newRow["TeamC_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
-                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_Electricity_Cement"] = temp1.Rows[i - 1]["First_Electricity_Cement"];
+                        newRow["TeamC_Electricity_CementGrinding"] = temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
+                        newRow["TeamC_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
+                        newRow["TeamC_Electricity_BagsBulk"] = temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
+                        newRow["TeamC_Output_Cement"] = temp1.Rows[i - 1]["First_Output_Cement"];
+                        newRow["TeamC_Output_BagsBulk"] = temp1.Rows[i - 1]["First_Output_BagsBulk"];
+                        newRow["TeamC_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
+                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["甲班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["First_Electricity_Cement"];
-                        newRow["TeamD_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
-                        newRow["TeamD_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
-                        newRow["TeamD_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
-                        newRow["TeamD_Output_Cement"] = (decimal)temp1.Rows[i - 1]["First_Output_Cement"];
-                        newRow["TeamD_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_Output_BagsBulk"];
-                        newRow["TeamD_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
-                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_Electricity_Cement"] = temp1.Rows[i - 1]["First_Electricity_Cement"];
+                        newRow["TeamD_Electricity_CementGrinding"] = temp1.Rows[i - 1]["First_Electricity_CementGrinding"];
+                        newRow["TeamD_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["First_Electricity_AdmixturePreparation"];
+                        newRow["TeamD_Electricity_BagsBulk"] = temp1.Rows[i - 1]["First_Electricity_BagsBulk"];
+                        newRow["TeamD_Output_Cement"] = temp1.Rows[i - 1]["First_Output_Cement"];
+                        newRow["TeamD_Output_BagsBulk"] = temp1.Rows[i - 1]["First_Output_BagsBulk"];
+                        newRow["TeamD_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["First_ElectricityConsumption_Cement"];
+                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["First_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["First_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["First_ComprehensiveElectricityConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -103,55 +103,55 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["乙班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Cement"];
-                        newRow["TeamA_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
-                        newRow["TeamA_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
-                        newRow["TeamA_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
-                        newRow["TeamA_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cement"];
-                        newRow["TeamA_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Output_BagsBulk"];
-                        newRow["TeamA_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
-                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_Electricity_Cement"] = temp1.Rows[i - 1]["Second_Electricity_Cement"];
+                        newRow["TeamA_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
+                        newRow["TeamA_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
+                        newRow["TeamA_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
+                        newRow["TeamA_Output_Cement"] = temp1.Rows[i - 1]["Second_Output_Cement"];
+                        newRow["TeamA_Output_BagsBulk"] = temp1.Rows[i - 1]["Second_Output_BagsBulk"];
+                        newRow["TeamA_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
+                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Cement"];
-                        newRow["TeamB_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
-                        newRow["TeamB_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
-                        newRow["TeamB_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
-                        newRow["TeamB_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cement"];
-                        newRow["TeamB_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Output_BagsBulk"];
-                        newRow["TeamB_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
-                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_Electricity_Cement"] = temp1.Rows[i - 1]["Second_Electricity_Cement"];
+                        newRow["TeamB_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
+                        newRow["TeamB_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
+                        newRow["TeamB_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
+                        newRow["TeamB_Output_Cement"] = temp1.Rows[i - 1]["Second_Output_Cement"];
+                        newRow["TeamB_Output_BagsBulk"] = temp1.Rows[i - 1]["Second_Output_BagsBulk"];
+                        newRow["TeamB_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
+                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Cement"];
-                        newRow["TeamC_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
-                        newRow["TeamC_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
-                        newRow["TeamC_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
-                        newRow["TeamC_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cement"];
-                        newRow["TeamC_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Output_BagsBulk"];
-                        newRow["TeamC_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
-                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_Electricity_Cement"] = temp1.Rows[i - 1]["Second_Electricity_Cement"];
+                        newRow["TeamC_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
+                        newRow["TeamC_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
+                        newRow["TeamC_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
+                        newRow["TeamC_Output_Cement"] = temp1.Rows[i - 1]["Second_Output_Cement"];
+                        newRow["TeamC_Output_BagsBulk"] = temp1.Rows[i - 1]["Second_Output_BagsBulk"];
+                        newRow["TeamC_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
+                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_Cement"];
-                        newRow["TeamD_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
-                        newRow["TeamD_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
-                        newRow["TeamD_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
-                        newRow["TeamD_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Second_Output_Cement"];
-                        newRow["TeamD_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_Output_BagsBulk"];
-                        newRow["TeamD_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
-                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_Electricity_Cement"] = temp1.Rows[i - 1]["Second_Electricity_Cement"];
+                        newRow["TeamD_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Second_Electricity_CementGrinding"];
+                        newRow["TeamD_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Second_Electricity_AdmixturePreparation"];
+                        newRow["TeamD_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Second_Electricity_BagsBulk"];
+                        newRow["TeamD_Output_Cement"] = temp1.Rows[i - 1]["Second_Output_Cement"];
+                        newRow["TeamD_Output_BagsBulk"] = temp1.Rows[i - 1]["Second_Output_BagsBulk"];
+                        newRow["TeamD_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_Cement"];
+                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Second_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Second_ComprehensiveElectricityConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -165,55 +165,55 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
                     if (teamDictionary["乙班"] == "A组")
                     {
-                        newRow["TeamA_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Cement"];
-                        newRow["TeamA_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
-                        newRow["TeamA_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
-                        newRow["TeamA_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
-                        newRow["TeamA_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cement"];
-                        newRow["TeamA_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Output_BagsBulk"];
-                        newRow["TeamA_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
-                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamA_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamA_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
+                        newRow["TeamA_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
+                        newRow["TeamA_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
+                        newRow["TeamA_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
+                        newRow["TeamA_Output_Cement"] = temp1.Rows[i - 1]["Third_Output_Cement"];
+                        newRow["TeamA_Output_BagsBulk"] = temp1.Rows[i - 1]["Third_Output_BagsBulk"];
+                        newRow["TeamA_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
+                        newRow["TeamA_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamA_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "B组")
                     {
-                        newRow["TeamB_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Cement"];
-                        newRow["TeamB_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
-                        newRow["TeamB_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
-                        newRow["TeamB_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
-                        newRow["TeamB_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cement"];
-                        newRow["TeamB_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Output_BagsBulk"];
-                        newRow["TeamB_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
-                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamB_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamB_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
+                        newRow["TeamB_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
+                        newRow["TeamB_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
+                        newRow["TeamB_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
+                        newRow["TeamB_Output_Cement"] = temp1.Rows[i - 1]["Third_Output_Cement"];
+                        newRow["TeamB_Output_BagsBulk"] = temp1.Rows[i - 1]["Third_Output_BagsBulk"];
+                        newRow["TeamB_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
+                        newRow["TeamB_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamB_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "C组")
                     {
-                        newRow["TeamC_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Cement"];
-                        newRow["TeamC_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
-                        newRow["TeamC_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
-                        newRow["TeamC_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
-                        newRow["TeamC_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cement"];
-                        newRow["TeamC_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Output_BagsBulk"];
-                        newRow["TeamC_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
-                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamC_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamC_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
+                        newRow["TeamC_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
+                        newRow["TeamC_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
+                        newRow["TeamC_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
+                        newRow["TeamC_Output_Cement"] = temp1.Rows[i - 1]["Third_Output_Cement"];
+                        newRow["TeamC_Output_BagsBulk"] = temp1.Rows[i - 1]["Third_Output_BagsBulk"];
+                        newRow["TeamC_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
+                        newRow["TeamC_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamC_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
                     else if (teamDictionary["乙班"] == "D组")
                     {
-                        newRow["TeamD_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_Cement"];
-                        newRow["TeamD_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
-                        newRow["TeamD_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
-                        newRow["TeamD_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
-                        newRow["TeamD_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Third_Output_Cement"];
-                        newRow["TeamD_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_Output_BagsBulk"];
-                        newRow["TeamD_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
-                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
-                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
-                        newRow["TeamD_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
+                        newRow["TeamD_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
+                        newRow["TeamD_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
+                        newRow["TeamD_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Third_Electricity_AdmixturePreparation"];
+                        newRow["TeamD_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Third_Electricity_BagsBulk"];
+                        newRow["TeamD_Output_Cement"] = temp1.Rows[i - 1]["Third_Output_Cement"];
+                        newRow["TeamD_Output_BagsBulk"] = temp1.Rows[i - 1]["Third_Output_BagsBulk"];
+                        newRow["TeamD_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_Cement"];
+                        newRow["TeamD_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_CementGrinding"];
+                        newRow["TeamD_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
+                        newRow["TeamD_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
 
                     result.Rows.Add(newRow);
@@ -224,16 +224,16 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                     DataRow newRow = result.NewRow();
                     newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
 
-                    newRow["Amountto_Electricity_Cement"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_Cement"];
-                    newRow["Amountto_Electricity_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_CementGrinding"];
-                    newRow["Amountto_Electricity_AdmixturePreparation"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_AdmixturePreparation"];
-                    newRow["Amountto_Electricity_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Amountto_Electricity_BagsBulk"];
-                    newRow["Amountto_Output_Cement"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_Cement"];
-                    newRow["Amountto_Output_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Amountto_Output_BagsBulk"];
-                    newRow["Amountto_ElectricityConsumption_Cement"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_Cement"];
-                    newRow["Amountto_ElectricityConsumption_CementGrinding"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_CementGrinding"];
-                    newRow["Amountto_ElectricityConsumption_BagsBulk"] = (decimal)temp1.Rows[i - 1]["Amountto_ElectricityConsumption_BagsBulk"];
-                    newRow["Amountto_ComprehensiveElectricityConsumption"] = (decimal)temp1.Rows[i - 1]["Amountto_ComprehensiveElectricityConsumption"];
+                    newRow["Amountto_Electricity_Cement"] = temp1.Rows[i - 1]["Amountto_Electricity_Cement"];
+                    newRow["Amountto_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Amountto_Electricity_CementGrinding"];
+                    newRow["Amountto_Electricity_AdmixturePreparation"] = temp1.Rows[i - 1]["Amountto_Electricity_AdmixturePreparation"];
+                    newRow["Amountto_Electricity_BagsBulk"] = temp1.Rows[i - 1]["Amountto_Electricity_BagsBulk"];
+                    newRow["Amountto_Output_Cement"] = temp1.Rows[i - 1]["Amountto_Output_Cement"];
+                    newRow["Amountto_Output_BagsBulk"] = temp1.Rows[i - 1]["Amountto_Output_BagsBulk"];
+                    newRow["Amountto_ElectricityConsumption_Cement"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_Cement"];
+                    newRow["Amountto_ElectricityConsumption_CementGrinding"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_CementGrinding"];
+                    newRow["Amountto_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Amountto_ElectricityConsumption_BagsBulk"];
+                    newRow["Amountto_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Amountto_ComprehensiveElectricityConsumption"];
 
                     result.Rows.Add(newRow);
                 }

@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace StatisticalReport.Service.StatisticalReportServices.Monthly                        //zcs
+namespace StatisticalReport.Service.StatisticalReportServices.Monthly                        //cdy
 {
     public class CementMonthlyElectricityConsumption
     {
@@ -26,12 +26,12 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
         /// <param name="date"></param>
         /// <param name="aimTableName"></param>
         /// <returns></returns>
-        public DataTable TableQuery(string organizeID, string date, string aimTableName)
+        public static DataTable TableQuery(string organizeID, string date)
         {
             DataTable Table4 = _tzHelper.CreateTableStructure("report_CementMonthlyElectricityConsumption");
             DataTable Temp = Table4.Clone();
-            DataTable table_cl = _tzHelper.GetReportData("tz_Report", organizeID, date, "report_CementMillMonthlyOutput");
-            DataTable table_dl = _tzHelper.GetReportData("tz_Report", organizeID, date, "report_CementMillMonthlyElectricity_sum");
+            DataTable table_cl = _tzHelper.GetReportData("tz_Report", organizeID, date, "table_CementMillMonthlyOutput");
+            DataTable table_dl = _tzHelper.GetReportData("tz_Report", organizeID, date, "table_CementMillMonthlyElectricity_sum");
             for (int i = 1; i <= 31; i++)
             {
                 Temp.Clear();
@@ -43,12 +43,12 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
                     {
                         DataRow row = Temp.NewRow();
                         string str = dr["vDate"].ToString();
-                        row["vDate"] = dr["vDate"];
+                        row["vDate"] =  dr["vDate"];
                         row["CementTypes"] = dr["CementTypes"];
-                        row["First_Output"] = dr["CementProductionFirstShift"];
-                        row["Second_Output"] = dr["CementProductionSecondShift"];
-                        row["Third_Output"] = dr["CementProductionThirdShift"];
-                        row["Amountto_Output"] = dr["CementProductionSum"];
+                        row["First_Output"] = Convert.ToInt64(dr["CementProductionFirstShift"]);
+                        row["Second_Output"] = Convert.ToInt64(dr["CementProductionSecondShift"]);
+                        row["Third_Output"] = Convert.ToInt64(dr["CementProductionThirdShift"]);
+                        row["Amountto_Output"] = Convert.ToInt64(dr["CementProductionSum"]);
                         Temp.Rows.Add(row);
                     }
                     foreach (DataRow dr in Rows_dl)//填充电量
@@ -56,10 +56,10 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
                         DataRow row = Temp.NewRow();
                         row["vDate"] = dr["vDate"];
                         row["CementTypes"] = dr["CementTypes"];
-                        row["First_Electricity"] = dr["AmounttoFirstShift"];
-                        row["Second_Electricity"] = dr["AmounttoSecondShift"];
-                        row["Third_Electricity"] = dr["AmounttoThirdShift"];
-                        row["Amountto_Electricity"] = dr["AmounttoSum"];
+                        row["First_Electricity"] = Convert.ToInt64(dr["AmounttoFirstShift"]);
+                        row["Second_Electricity"] = Convert.ToInt64(dr["AmounttoSecondShift"]);
+                        row["Third_Electricity"] = Convert.ToInt64(dr["AmounttoThirdShift"]);
+                        row["Amountto_Electricity"] = Convert.ToInt64(dr["AmounttoSum"]);
                         Temp.Rows.Add(row);
                     }
                     DataTable temp1 = ReportHelper.MyTotalOn(Temp, "CementTypes", "First_Output,First_Electricity,Second_Output,Second_Electricity,Third_Output,Third_Electricity,Amountto_Output,Amountto_Electricity");
@@ -90,37 +90,74 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             int num = Table4.Rows.Count;
             for (int i = 0; i < num; i++)
             {
-                if (Table4.Rows[i]["First_Electricity"] is DBNull)
-                { Table4.Rows[i]["First_Electricity"] = 0; }
-                if (Table4.Rows[i]["First_Output"] is DBNull)
-                { Table4.Rows[i]["First_Output"] = 0; }
-                if (Table4.Rows[i]["Second_Electricity"] is DBNull)
-                { Table4.Rows[i]["Second_Electricity"] = 0; }
-                if (Table4.Rows[i]["Second_Output"] is DBNull)
-                { Table4.Rows[i]["Second_Output"] = 0; }
-                if (Table4.Rows[i]["Third_Electricity"] is DBNull)
-                { Table4.Rows[i]["Third_Electricity"] = 0; }
-                if (Table4.Rows[i]["Third_Output"] is DBNull)
-                { Table4.Rows[i]["Third_Output"] = 0; }
-                if (Table4.Rows[i]["Amountto_Electricity"] is DBNull)
-                { Table4.Rows[i]["Amountto_Electricity"] = 0; }
-                if (Table4.Rows[i]["Amountto_Output"] is DBNull)
-                { Table4.Rows[i]["Amountto_Output"] = 0; }
-                Table4.Rows[i]["First_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["First_Electricity"]) / Convert.ToDouble(Table4.Rows[i]["First_Output"]);
-                Table4.Rows[i]["Second_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Second_Electricity"]) / Convert.ToDouble(Table4.Rows[i]["Second_Output"]);
-                Table4.Rows[i]["Third_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Third_Electricity"]) / Convert.ToDouble(Table4.Rows[i]["Third_Output"]);
-                Table4.Rows[i]["Amountto_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Amountto_Electricity"]) / Convert.ToDouble(Table4.Rows[i]["Amountto_Output"]);
+              
+                if (0 != MyToDecimal(Table4.Rows[i]["First_Output"]))
+                { 
+                    Table4.Rows[i]["First_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["First_Electricity"]) / MyToDecimal(Table4.Rows[i]["First_Output"]);
+                }
+                if (0 != MyToDecimal(Table4.Rows[i]["Second_Output"]))
+                {
+                    Table4.Rows[i]["Second_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Second_Electricity"]) / MyToDecimal(Table4.Rows[i]["Second_Output"]);
+                }
+                if (0 != MyToDecimal(Table4.Rows[i]["Third_Output"]))
+                {
+                    Table4.Rows[i]["Third_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Third_Electricity"]) / MyToDecimal(Table4.Rows[i]["Third_Output"]);
+                }
+                if (0 != MyToDecimal(Table4.Rows[i]["Amountto_Output"]))
+                {
+                    Table4.Rows[i]["Amountto_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Amountto_Electricity"]) / MyToDecimal(Table4.Rows[i]["Amountto_Output"]);
+                }
                 string pz = Table4.Rows[i]["CementTypes"].ToString().Trim();
                 if ("合计" != pz)
                 {
                     Table4.Rows[i]["ConvertCoefficient"] = _tzHelper.GetConvertCoefficient(pz); //Dictionary_zhxh[pz];
-                    Table4.Rows[i]["First_Convert_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["First_ElectricityConsumption"]) / Convert.ToDouble(Table4.Rows[i]["ConvertCoefficient"]);
-                    Table4.Rows[i]["Second_Convert_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Second_ElectricityConsumption"]) / Convert.ToDouble(Table4.Rows[i]["ConvertCoefficient"]);
-                    Table4.Rows[i]["Third_Convert_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Third_ElectricityConsumption"]) / Convert.ToDouble(Table4.Rows[i]["ConvertCoefficient"]);
-                    Table4.Rows[i]["Amountto_Convert_ElectricityConsumption"] = Convert.ToDouble(Table4.Rows[i]["Amountto_ElectricityConsumption"]) / Convert.ToDouble(Table4.Rows[i]["ConvertCoefficient"]);
+                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    {
+                        if(Table4.Rows[i]["First_ElectricityConsumption"] is DBNull)
+                        {
+                            Table4.Rows[i]["First_ElectricityConsumption"]=0;
+                        }
+                        Table4.Rows[i]["First_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["First_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                    }
+                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    {
+                        if (Table4.Rows[i]["Second_ElectricityConsumption"] is DBNull)
+                        {
+                            Table4.Rows[i]["Second_ElectricityConsumption"] = 0;
+                        }
+                        Table4.Rows[i]["Second_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Second_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                    }
+                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    {
+                        if (Table4.Rows[i]["Third_ElectricityConsumption"] is DBNull)
+                        {
+                            Table4.Rows[i]["Third_ElectricityConsumption"] = 0;
+                        }
+                        Table4.Rows[i]["Third_Convert_ElectricityConsumption"] =  MyToDecimal(Table4.Rows[i]["Third_ElectricityConsumption"]) /  MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                    }
+                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    {
+                        if (Table4.Rows[i]["Amountto_ElectricityConsumption"] is DBNull)
+                        {
+                            Table4.Rows[i]["Amountto_ElectricityConsumption"] = 0;
+                        }
+                        Table4.Rows[i]["Amountto_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Amountto_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                    }
                 }
             }
             return Table4;
+        }
+        public static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+            }
         }
     }
 }
