@@ -34,14 +34,14 @@ namespace StatisticalReport.Infrastructure.Report
         /// </summary>
         /// <param name="CementTypes"></param>
         /// <returns></returns>
-        public double GetConvertCoefficient(string CementTypes)
+        public decimal GetConvertCoefficient(string CementTypes)
         {
             Query query = new Query("CementTypesAndConvertCoefficient");
             DataTable table_zhxs = _dataFactory.Query(query);
             DataColumn[] Key = { table_zhxs.Columns["CementTypes"] };
             table_zhxs.PrimaryKey = Key;
             DataRow row = table_zhxs.Rows.Find(CementTypes);
-            double result = Convert.ToDouble(row["ConvertCoefficient"]);
+            decimal result = Convert.ToDecimal(row["ConvertCoefficient"]);
             return result;
         }
         /// <summary>
