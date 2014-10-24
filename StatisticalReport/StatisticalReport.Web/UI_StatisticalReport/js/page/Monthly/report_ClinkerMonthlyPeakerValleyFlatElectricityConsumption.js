@@ -1,15 +1,19 @@
 ﻿$(function () {
     //var m_UserName = $('#HiddenField_UserName').val();
-    loadGridData('first');
+    //loadGridData('first');
+    InitializeGrid('');
 });
+
 function loadGridData(myLoadType) {
 
+    var organizationId = "df863854-89ae-46e6-80e8-96f6db6471b4";
+    var datetime = "2014-10";
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     $.ajax({
         type: "POST",
         url: "report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx/GetReportData",
-        data: "",
+        data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -119,31 +123,27 @@ function PrintFileFun() {
 }
 
 function QueryReportFun() {
-    var OrganizationID = $('#OrganizationID').val();
-    var Datetime = $('#datetime').datetimebox('getValue');
-    alert(OrganizationID + ', ' + Datetime);
+    var organizationID = $('#organizationId').val();
+    var datetime = $('#datetime').datetimebox('getValue').substr(0, 7);
+    if (organizationID == "" || datetime == "") {
+        $.messager.alert('警告', '请选择生产线和时间');
+        return;
+    }
+
+    loadGridData('first');
 }
 
 // datetime spinner
 function onOrganisationTreeClick(node) {
     $('#productLineName').val(node.text);
-    $('#OrganizationID').val(node.OrganizationID);
+    $('#organizationId').val(node.OrganizationID);
 }
 
-function ddformatter(date) {
-    if (!date) { return ''; }
-    var y = date.getFullYear();
-    var m = date.getMonth() + 1;
-    return y + '-' + (m < 10 ? ('0' + m) : m);
-}
-function ddparser(s) {
-    if (!s) { return null; }
-    var ss = s.split('-');
-    var y = parseInt(ss[0], 10);
-    var m = parseInt(ss[1], 10);
-    if (!isNaN(y) && !isNaN(m)) {
-        return new Date(y, m - 1, 1);
-    } else {
-        return new Date();
-    }
-}
+$(function () {
+    $('.combo-arrow').click(function () {
+        $('.calendar-title > span').click();
+        $('.calendar-menu-month').click(function () {
+            $("tr.calendar-first > .calendar-last").click();
+        });
+    });
+});

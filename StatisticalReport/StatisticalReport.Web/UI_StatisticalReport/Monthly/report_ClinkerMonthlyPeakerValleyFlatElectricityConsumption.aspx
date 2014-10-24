@@ -37,7 +37,7 @@
 		                <table>
 			                <tr>
 				                <td>生产线：</td>
-		                        <td><input id="productLineName" readonly="true" /><input id="OrganizationID" readonly="true" style="display:none;"/></td>
+		                        <td><input id="productLineName" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
 				                <td><input id="datetime" type="text" class="easyui-datebox" required="required" /></td>
 				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 

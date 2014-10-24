@@ -45,9 +45,10 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
         /// </summary>
         /// <returns>column的json字符串</returns>
         [WebMethod]
-        public static string GetReportData()
+        public static string GetReportData(string organizationId, string datetime)
         {
-            myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
+            //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
+            myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 "\\ReportHeaderTemplate\\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.xml", myDataTable);
             return m_UserInfoJson;
