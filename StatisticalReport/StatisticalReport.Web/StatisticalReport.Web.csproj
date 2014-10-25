@@ -1561,6 +1561,11 @@
     <Content Include="lib\pllib\syntaxhighlighter\styles\shThemejqPlot.min.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementMilYearlyEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyProcessEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamCementYearlyEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamClinkerYearlyProcessEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementYearlyElectricityConsumption.aspx" />
