@@ -20,7 +20,7 @@
 
     <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
 
-    <script type="text/javascript" src="../js/page/Monthly/report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/page/Yearly/report_ClinkerYearlyProcessEnergyConsumption.js" charset="utf-8"></script>
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
