@@ -1562,6 +1562,7 @@
     <Content Include="lib\pllib\themes\jquery.jqplot.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
     <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1585,6 +1586,13 @@
     </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
       <DependentUpon>report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx.cs">
+      <DependentUpon>report_CementMilYearlyEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_CementMilYearlyEnergyConsumption.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1619,7 +1627,6 @@
     <Folder Include="UI_StatisticalReport\images\common\" />
     <Folder Include="UI_StatisticalReport\images\page\" />
     <Folder Include="UI_StatisticalReport\js\common\" />
-    <Folder Include="UI_StatisticalReport\Yearly\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
