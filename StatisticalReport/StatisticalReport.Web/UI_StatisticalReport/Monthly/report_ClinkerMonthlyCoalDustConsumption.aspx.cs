@@ -1,21 +1,19 @@
-﻿using System;
+﻿using StatisticalReport.Service.StatisticalReportServices;
+using StatisticalReport.Service.StatisticalReportServices.Monthly;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Services;
-using System.Net;
-using System.IO;
-using System.Data;
-using StatisticalReport.Service.StatisticalReportServices;
-using StatisticalReport.Service.StatisticalReportServices.Monthly;
 
 namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 {
-    public partial class report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption : WebStyleBaseForEnergy.webStyleBase
+    public partial class report_ClinkerMonthlyCoalDustConsumption : WebStyleBaseForEnergy.webStyleBase
     {
-        private const string REPORT_TEMPLATE_PATH = "\\ReportHeaderTemplate\\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.xml";
+        private const string REPORT_TEMPLATE_PATH = "\\ReportHeaderTemplate\\report_ClinkerMonthlyCoalDustConsumption.xml";
         private static DataTable myDataTable;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +22,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 
             if (!IsPostBack)
             {
-               
+
             }
 
             ///以下是接收js脚本中post过来的参数
@@ -49,7 +47,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
         public static string GetReportData(string organizationId, string datetime)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery(organizationId, datetime);
+            myDataTable = ClinkerMonthlyCoalDustConsumption.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;

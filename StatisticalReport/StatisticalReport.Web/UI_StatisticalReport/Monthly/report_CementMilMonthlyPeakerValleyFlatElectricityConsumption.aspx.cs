@@ -1,21 +1,19 @@
-﻿using System;
+﻿using StatisticalReport.Service.StatisticalReportServices;
+using StatisticalReport.Service.StatisticalReportServices.Monthly;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Services;
-using System.Net;
-using System.IO;
-using System.Data;
-using StatisticalReport.Service.StatisticalReportServices;
-using StatisticalReport.Service.StatisticalReportServices.Monthly;
 
 namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 {
-    public partial class report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption : WebStyleBaseForEnergy.webStyleBase
+    public partial class report_CementMilMonthlyPeakerValleyFlatElectricityConsumption : WebStyleBaseForEnergy.webStyleBase
     {
-        private const string REPORT_TEMPLATE_PATH = "\\ReportHeaderTemplate\\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.xml";
+        private const string REPORT_TEMPLATE_PATH = "\\ReportHeaderTemplate\\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.xml";
         private static DataTable myDataTable;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +22,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 
             if (!IsPostBack)
             {
-               
+
             }
 
             ///以下是接收js脚本中post过来的参数
@@ -37,7 +35,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
                 string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
                 string m_HtmlData = StatisticalReportHelper.CreateExportHtmlTable(mFileRootPath +
                     REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
-                StatisticalReportHelper.ExportExcelFile("xls", "孰料生产(峰谷平)用电月统计分析报表.xls", m_HtmlData);
+                StatisticalReportHelper.ExportExcelFile("xls", "水泥磨(峰谷平)用电月统计分析报表.xls", m_HtmlData);
             }
         }
 
@@ -49,7 +47,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
         public static string GetReportData(string organizationId, string datetime)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery(organizationId, datetime);
+            myDataTable = CementMilMonthlyPeakerValleyFlatElectricityConsumption.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;

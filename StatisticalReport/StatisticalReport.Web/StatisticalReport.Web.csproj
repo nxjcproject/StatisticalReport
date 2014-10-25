@@ -66,7 +66,16 @@
     <Content Include="Common\OrganisationService.asmx" />
     <Content Include="Common\OrganisationTree.ascx" />
     <Content Include="js\common\PrintFile.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_CementMilMonthlyEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_CementMonthlyElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyCoalDustConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_TeamCementMonthlyEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Report_Example.js" />
     <Content Include="lib\ealib\changelog.txt" />
     <Content Include="lib\ealib\easyloader.js" />
@@ -1561,8 +1570,17 @@
     <Content Include="lib\pllib\syntaxhighlighter\styles\shThemejqPlot.min.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
+    <Content Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_CementMonthlyElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyCoalDustConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_TeamCementMonthlyEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1580,12 +1598,75 @@
       <DependentUpon>OrganisationTree.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyEnergyConsumption.aspx.cs">
+      <DependentUpon>report_CementMilMonthlyEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_CementMilMonthlyEnergyConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
+      <DependentUpon>report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
+      <DependentUpon>report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMonthlyElectricityConsumption.aspx.cs">
+      <DependentUpon>report_CementMonthlyElectricityConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CementMonthlyElectricityConsumption.aspx.designer.cs">
+      <DependentUpon>report_CementMonthlyElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyCoalDustConsumption.aspx.cs">
+      <DependentUpon>report_ClinkerMonthlyCoalDustConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyCoalDustConsumption.aspx.designer.cs">
+      <DependentUpon>report_ClinkerMonthlyCoalDustConsumption.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
       <DependentUpon>report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
       <DependentUpon>report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.aspx.cs">
+      <DependentUpon>report_ClinkerMonthlyProcessEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_ClinkerMonthlyProcessEnergyConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
+      <DependentUpon>report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
+      <DependentUpon>report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
+      <DependentUpon>report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
+      <DependentUpon>report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_TeamCementMonthlyEnergyConsumption.aspx.cs">
+      <DependentUpon>report_TeamCementMonthlyEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_TeamCementMonthlyEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_TeamCementMonthlyEnergyConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx.cs">
+      <DependentUpon>report_TeamClinkerMonthlyProcessEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_TeamClinkerMonthlyProcessEnergyConsumption.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx.cs">
       <DependentUpon>report_CementMilYearlyEnergyConsumption.aspx</DependentUpon>
