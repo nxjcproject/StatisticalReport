@@ -46,7 +46,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     dateTime = date + "-" + i.ToString();
                 }
 
-                DataTable temp = TeamClinkerYearlyProcessEnergyConsumption.TableQuery(organizationID, dateTime);
+                DataTable temp = TeamClinkerMonthlyProcessEnergyConsumption.TableQuery(organizationID, dateTime);
                 result.ImportRow(temp.Rows[temp.Rows.Count - 1]);
             }
             for (int i = 0; i < result.Rows.Count; i++)

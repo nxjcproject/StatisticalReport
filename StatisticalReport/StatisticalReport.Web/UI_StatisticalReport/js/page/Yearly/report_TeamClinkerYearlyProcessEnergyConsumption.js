@@ -121,7 +121,7 @@ function PrintFileFun() {
 
 function QueryReportFun() {
     var organizationID = $('#organizationId').val();
-    var datetime = $('#datetime').datetimebox('getValue').substr(0, 7);
+    var datetime = $('#datetime').datetimebox('getValue').substr(0, 4);
     if (organizationID == "" || datetime == "") {
         $.messager.alert('警告', '请选择生产线和时间');
         return;
