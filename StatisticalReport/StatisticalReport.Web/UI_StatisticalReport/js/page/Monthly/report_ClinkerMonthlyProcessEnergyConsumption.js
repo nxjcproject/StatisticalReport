@@ -4,10 +4,8 @@
     InitializeGrid('');
 });
 
-function loadGridData(myLoadType) {
+function loadGridData(myLoadType, organizationId, datetime) {
 
-    var organizationId = "df863854-89ae-46e6-80e8-96f6db6471b4";
-    var datetime = "2014-10";
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     $.ajax({
@@ -130,7 +128,7 @@ function QueryReportFun() {
         return;
     }
 
-    loadGridData('first');
+    loadGridData('first',organizationID,datetime);
 }
 
 // datetime spinner

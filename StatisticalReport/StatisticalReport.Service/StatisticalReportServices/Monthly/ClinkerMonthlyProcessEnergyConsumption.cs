@@ -75,11 +75,11 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 temp1.Rows.Add(newRow);
             }
 
-            string column = "First_Electricity_RawBatch,First_Electricity_RawBatchGrinding,First_Electricity_Clinker,First_Electricity_CoalDust" +
-                "Second_Electricity_RawBatch,Second_Electricity_RawBatchGrinding,Second_Electricity_Clinker,Second_Electricity_CoalDust" +
-                "Third_Electricity_RawBatch,Third_Electricity_RawBatchGrinding,Third_Electricity_Clinker,Third_Electricity_CoalDust" +
-                "First_Consumption_CoalDust,First_Output_RawBatch,First_Output_Clinker,First_Output_CoalDust,First_Output_Cogeneration" +
-                "Second_Consumption_CoalDust,Second_Output_RawBatch,Second_Output_Clinker,Second_Output_CoalDust,Second_Output_Cogeneration" +
+            string column = "First_Electricity_RawBatch,First_Electricity_RawBatchGrinding,First_Electricity_Clinker,First_Electricity_CoalDust," +
+                "Second_Electricity_RawBatch,Second_Electricity_RawBatchGrinding,Second_Electricity_Clinker,Second_Electricity_CoalDust," +
+                "Third_Electricity_RawBatch,Third_Electricity_RawBatchGrinding,Third_Electricity_Clinker,Third_Electricity_CoalDust," +
+                "First_Consumption_CoalDust,First_Output_RawBatch,First_Output_Clinker,First_Output_CoalDust,First_Output_Cogeneration," +
+                "Second_Consumption_CoalDust,Second_Output_RawBatch,Second_Output_Clinker,Second_Output_CoalDust,Second_Output_Cogeneration," +
                 "Third_Consumption_CoalDust,Third_Output_RawBatch,Third_Output_Clinker,Third_Output_CoalDust,Third_Output_Cogeneration";
             temp1 = ReportHelper.MyTotalOn(temp1, "vDate", column);
             //ReportHelper.GetTotal(temp1, "vDate", column);

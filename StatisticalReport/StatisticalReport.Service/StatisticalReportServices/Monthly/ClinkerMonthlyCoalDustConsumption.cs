@@ -23,7 +23,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
         {
             DataTable temp1 = _tzHelper.CreateTableStructure("report_ClinkerMonthlyCoalDustConsumption");
 
-            DataTable temp2 = _tzHelper.GetReportData("tz_Report", organizationID, date, "report_ClinkerMonthlyOutput");
+            DataTable temp2 = _tzHelper.GetReportData("tz_Report", organizationID, date, "table_ClinkerMonthlyOutput");
             foreach (DataRow dr in temp2.Rows)
             {
                 DataRow newRow = temp1.NewRow();

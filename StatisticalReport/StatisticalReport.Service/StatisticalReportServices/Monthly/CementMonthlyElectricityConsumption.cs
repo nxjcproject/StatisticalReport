@@ -35,8 +35,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             for (int i = 1; i <= 31; i++)
             {
                 Temp.Clear();
-                DataRow[] Rows_cl = table_cl.Select("vDate=" + i);//取出本月i号的产量行
-                DataRow[] Rows_dl = table_dl.Select("vDate=" + i);//取出本月i号的电量行
+                string day = ReportHelper.MyToString(i, 2, 0);
+                DataRow[] Rows_cl = table_cl.Select("vDate='" + day+"'");//取出本月i号的产量行
+                DataRow[] Rows_dl = table_dl.Select("vDate='" + day + "'");//取出本月i号的电量行
                 if (0 != Rows_cl.Length && 0 != Rows_dl.Length)
                 {
                     foreach (DataRow dr in Rows_cl)//填充产量

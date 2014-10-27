@@ -4,15 +4,12 @@
     InitializeGrid('');
 });
 
-function loadGridData(myLoadType) {
-
-    var organizationId = "df863854-89ae-46e6-80e8-96f6db6471b4";
-    var datetime = "2014-10";
+function loadGridData(myLoadType, organizationId, datetime) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     $.ajax({
         type: "POST",
-        url: "report_ClinkerMonthlyProcessEnergyConsumption.aspx/GetReportData",
+        url: "report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx/GetReportData",
         data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -62,7 +59,7 @@ function ExportFileFun() {
     form.attr('style', 'display:none');   //在form表单中添加查询参数
     form.attr('target', '');
     form.attr('method', 'post');
-    form.attr('action', "report_ClinkerMonthlyProcessEnergyConsumption.aspx");
+    form.attr('action', "report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx");
 
     var input_Method = $('<input>');
     input_Method.attr('type', 'hidden');
@@ -110,7 +107,7 @@ function RefreshFun() {
 function PrintFileFun() {
     $.ajax({
         type: "POST",
-        url: "report_ClinkerMonthlyProcessEnergyConsumption.aspx/PrintFile",
+        url: "report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx/PrintFile",
         data: "",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -130,7 +127,7 @@ function QueryReportFun() {
         return;
     }
 
-    loadGridData('first');
+    loadGridData('first', organizationID, datetime);
 }
 
 // datetime spinner

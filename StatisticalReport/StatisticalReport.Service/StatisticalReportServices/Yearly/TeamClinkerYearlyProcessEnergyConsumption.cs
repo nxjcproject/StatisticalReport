@@ -39,11 +39,11 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 string dateTime;
                 if (i < 10)
                 {
-                    dateTime = date + "0" + i.ToString();
+                    dateTime = date + "-" + "0" + i.ToString();
                 }
                 else
                 {
-                    dateTime = date + i.ToString();
+                    dateTime = date + "-" + i.ToString();
                 }
 
                 DataTable temp = TeamClinkerYearlyProcessEnergyConsumption.TableQuery(organizationID, dateTime);

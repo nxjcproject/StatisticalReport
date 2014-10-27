@@ -36,7 +36,7 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public decimal GetConvertCoefficient(string CementTypes)
         {
-            Query query = new Query("CementTypesAndConvertCoefficient");
+            Query query = new Query("system_CementTypesAndConvertCoefficient");
             DataTable table_zhxs = _dataFactory.Query(query);
             DataColumn[] Key = { table_zhxs.Columns["CementTypes"] };
             table_zhxs.PrimaryKey = Key;
@@ -56,7 +56,7 @@ namespace StatisticalReport.Infrastructure.Report
         {
             IDictionary<string, string> result = new Dictionary<string, string>();
 
-            string sqlString = "SELECT Shifts, WorkingTeam FROM shift_WorkingTeamShiftLog WHERE OrganizationID=" + organizationID + " AND YEAR(ShiftDate)=" + year + " AND MONTH(ShiftDate)=" + month +
+            string sqlString = "SELECT Shifts, WorkingTeam FROM shift_WorkingTeamShiftLog WHERE OrganizationID='" + organizationID + "' AND YEAR(ShiftDate)=" + year + " AND MONTH(ShiftDate)=" + month +
                     " AND DAY(ShiftDate)=" + day;
 
             DataTable dt = _dataFactory.Query(sqlString);

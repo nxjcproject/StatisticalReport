@@ -9,7 +9,7 @@ using System.Net;
 using System.IO;
 using System.Data;
 using StatisticalReport.Service.StatisticalReportServices;
-using StatisticalReport.Service.StatisticalReportServices.Monthly;
+using StatisticalReport.Service.StatisticalReportServices.Yearly;
 
 namespace StatisticalReport.Web.UI_StatisticalReport.Yearly
 {
@@ -36,7 +36,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Yearly
                 string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
                 string m_HtmlData = StatisticalReportHelper.CreateExportHtmlTable(mFileRootPath +
                     "\\ReportHeaderTemplate\\report_TeamClinkerYearlyProcessEnergyConsumption.xml", myDataTable, m_TagData);
-                StatisticalReportHelper.ExportExcelFile("xls", "导出报表1.xls", m_HtmlData);
+                StatisticalReportHelper.ExportExcelFile("xls", "班组熟料生产能耗年统计分析报表.xls", m_HtmlData);
             }
         }
 
@@ -48,7 +48,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Yearly
         public static string GetReportData(string organizationId, string datetime)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery(organizationId, datetime);
+            myDataTable = TeamClinkerYearlyProcessEnergyConsumption.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 "\\ReportHeaderTemplate\\report_TeamClinkerYearlyProcessEnergyConsumption.xml", myDataTable);
             return m_UserInfoJson;

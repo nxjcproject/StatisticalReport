@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="report_CementMilYearlyEnergyConsumption.aspx.cs" Inherits="StatisticalReport.Web.UI_StatisticalReport.Yearly.report_CementMilYearlyEnergyConsumption" %>
+<%@ Register Src="~/Common/OrganisationTree.ascx" TagPrefix="uc1" TagName="OrganisationTree" %>
 
 <!DOCTYPE html>
 

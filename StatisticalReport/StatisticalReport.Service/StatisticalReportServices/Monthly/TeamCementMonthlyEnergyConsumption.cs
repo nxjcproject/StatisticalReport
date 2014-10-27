@@ -158,12 +158,12 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 }
                 #endregion
                 #region 丙班
-                if (teamDictionary.Keys.Contains("乙班"))
+                if (teamDictionary.Keys.Contains("丙班"))
                 {
                     DataRow newRow = result.NewRow();
                     newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
 
-                    if (teamDictionary["乙班"] == "A组")
+                    if (teamDictionary["丙班"] == "A组")
                     {
                         newRow["TeamA_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
                         newRow["TeamA_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
@@ -176,7 +176,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                         newRow["TeamA_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
                         newRow["TeamA_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
-                    else if (teamDictionary["乙班"] == "B组")
+                    else if (teamDictionary["丙班"] == "B组")
                     {
                         newRow["TeamB_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
                         newRow["TeamB_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
@@ -189,7 +189,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                         newRow["TeamB_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
                         newRow["TeamB_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
-                    else if (teamDictionary["乙班"] == "C组")
+                    else if (teamDictionary["丙班"] == "C组")
                     {
                         newRow["TeamC_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
                         newRow["TeamC_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
@@ -202,7 +202,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                         newRow["TeamC_ElectricityConsumption_BagsBulk"] = temp1.Rows[i - 1]["Third_ElectricityConsumption_BagsBulk"];
                         newRow["TeamC_ComprehensiveElectricityConsumption"] = temp1.Rows[i - 1]["Third_ComprehensiveElectricityConsumption"];
                     }
-                    else if (teamDictionary["乙班"] == "D组")
+                    else if (teamDictionary["丙班"] == "D组")
                     {
                         newRow["TeamD_Electricity_Cement"] = temp1.Rows[i - 1]["Third_Electricity_Cement"];
                         newRow["TeamD_Electricity_CementGrinding"] = temp1.Rows[i - 1]["Third_Electricity_CementGrinding"];
@@ -240,15 +240,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 #endregion
             }
 
-            string column = "TeamA_Electricity_Cement,TeamA_Electricity_CementGrinding,TeamA_Electricity_AdmixturePreparation,TeamA_Electricity_BagsBulk,TeamA_Output_Cement,TeamA_Output_BagsBulk" +
-                "TeamA_ElectricityConsumption_Cement,TeamA_ElectricityConsumption_CementGrinding,TeamA_ElectricityConsumption_BagsBulk,TeamA_ComprehensiveElectricityConsumption" +
-                "TeamB_Electricity_Cement,TeamB_Electricity_CementGrinding,TeamB_Electricity_AdmixturePreparation,TeamB_Electricity_BagsBulk,TeamB_Output_Cement,TeamB_Output_BagsBulk" +
-                "TeamB_ElectricityConsumption_Cement,TeamB_ElectricityConsumption_CementGrinding,TeamB_ElectricityConsumption_BagsBulk,TeamB_ComprehensiveElectricityConsumption" +
-                "TeamC_Electricity_Cement,TeamC_Electricity_CementGrinding,TeamC_Electricity_AdmixturePreparation,TeamC_Electricity_BagsBulk,TeamC_Output_Cement,TeamC_Output_BagsBulk" +
-                "TeamC_ElectricityConsumption_Cement,TeamC_ElectricityConsumption_CementGrinding,TeamC_ElectricityConsumption_BagsBulk,TeamC_ComprehensiveElectricityConsumption" +
-                "TeamD_Electricity_Cement,TeamD_Electricity_CementGrinding,TeamD_Electricity_AdmixturePreparation,TeamD_Electricity_BagsBulk,TeamD_Output_Cement,TeamD_Output_BagsBulk" +
-                "TeamD_ElectricityConsumption_Cement,TeamD_ElectricityConsumption_CementGrinding,TeamD_ElectricityConsumption_BagsBulk,TeamD_ComprehensiveElectricityConsumption" +
-                "Amountto_Electricity_Cement,Amountto_Electricity_CementGrinding,Amountto_Electricity_AdmixturePreparation,Amountto_Electricity_BagsBulk,Amountto_Output_Cement" +
+            string column = "TeamA_Electricity_Cement,TeamA_Electricity_CementGrinding,TeamA_Electricity_AdmixturePreparation,TeamA_Electricity_BagsBulk,TeamA_Output_Cement,TeamA_Output_BagsBulk," +
+                "TeamA_ElectricityConsumption_Cement,TeamA_ElectricityConsumption_CementGrinding,TeamA_ElectricityConsumption_BagsBulk,TeamA_ComprehensiveElectricityConsumption," +
+                "TeamB_Electricity_Cement,TeamB_Electricity_CementGrinding,TeamB_Electricity_AdmixturePreparation,TeamB_Electricity_BagsBulk,TeamB_Output_Cement,TeamB_Output_BagsBulk," +
+                "TeamB_ElectricityConsumption_Cement,TeamB_ElectricityConsumption_CementGrinding,TeamB_ElectricityConsumption_BagsBulk,TeamB_ComprehensiveElectricityConsumption," +
+                "TeamC_Electricity_Cement,TeamC_Electricity_CementGrinding,TeamC_Electricity_AdmixturePreparation,TeamC_Electricity_BagsBulk,TeamC_Output_Cement,TeamC_Output_BagsBulk," +
+                "TeamC_ElectricityConsumption_Cement,TeamC_ElectricityConsumption_CementGrinding,TeamC_ElectricityConsumption_BagsBulk,TeamC_ComprehensiveElectricityConsumption," +
+                "TeamD_Electricity_Cement,TeamD_Electricity_CementGrinding,TeamD_Electricity_AdmixturePreparation,TeamD_Electricity_BagsBulk,TeamD_Output_Cement,TeamD_Output_BagsBulk," +
+                "TeamD_ElectricityConsumption_Cement,TeamD_ElectricityConsumption_CementGrinding,TeamD_ElectricityConsumption_BagsBulk,TeamD_ComprehensiveElectricityConsumption," +
+                "Amountto_Electricity_Cement,Amountto_Electricity_CementGrinding,Amountto_Electricity_AdmixturePreparation,Amountto_Electricity_BagsBulk,Amountto_Output_Cement," +
                 "Amountto_Output_BagsBulk,Amountto_ElectricityConsumption_Cement,Amountto_ElectricityConsumption_CementGrinding,Amountto_ElectricityConsumption_BagsBulk,Amountto_ComprehensiveElectricityConsumption";
             result = ReportHelper.MyTotalOn(result, "vDate", column);
             ReportHelper.GetTotal(result, "vDate", column);
