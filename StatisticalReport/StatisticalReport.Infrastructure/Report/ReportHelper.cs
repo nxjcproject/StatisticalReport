@@ -84,13 +84,15 @@ namespace StatisticalReport.Infrastructure.Report
             //MyTableSort mts = new MyTableSort(T[0]);
             return SortTable(T[0], SortArray);
         }
+
+        #region 添加合计行   zcs
         /// <summary>
         /// 添加合计行
         /// </summary>
         /// <param name="table"></param>
         /// <param name="referenceField"></param>
         /// <param name="totalField"></param>
-        public static void GetTotal(DataTable table, string referenceField, string totalField)
+        public static void GetTotal(DataTable table, string referenceField, string totalField)     //zcs
         {
             string[] TotalArray = totalField.Split(',', '，');
 
@@ -111,6 +113,65 @@ namespace StatisticalReport.Infrastructure.Report
             }
             table.Rows.Add(totalRow);
         }
+        #endregion
+
+        #region 修改DataTable列的数据类型  zcs
+        /// <summary>
+        /// 将DataTable中的decimal列修改为Int64
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static DataTable ReportDataToInteger(DataTable source)
+        {
+            DataTable result = ConvertColumnType(source);
+
+            foreach (DataRow item in source.Rows)
+            {
+                DataRow dr = result.NewRow();
+                CopyDatas(dr, item);
+            }
+
+            return result;
+        }
+        /// <summary>
+        /// 复制数据
+        /// </summary>
+        /// <param name="targetRow"></param>
+        /// <param name="sourceRow"></param>
+        private static void CopyDatas(DataRow targetRow, DataRow sourceRow)
+        {
+            for (int i = 0; i < sourceRow.ItemArray.Count(); i++)
+            {
+                targetRow[i] = sourceRow[i];
+            }
+        }
+        /// <summary>
+        /// 转换列的数据类型
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        private static DataTable ConvertColumnType(DataTable source)
+        {
+            DataTable result = new DataTable();
+
+            foreach (DataColumn item in source.Columns)
+            {
+                if (item.DataType != typeof(decimal))
+                {
+                    DataColumn dc = new DataColumn(item.ColumnName, item.DataType);
+                    result.Columns.Add(dc);
+                }
+                else
+                {
+                    DataColumn dc = new DataColumn(item.ColumnName, typeof(Int64));
+                    result.Columns.Add(dc);
+                }
+            }
+
+            return result;
+        }
+        #endregion
+
         /// <summary>
         /// 分组合计，没有层次
         /// </summary>
