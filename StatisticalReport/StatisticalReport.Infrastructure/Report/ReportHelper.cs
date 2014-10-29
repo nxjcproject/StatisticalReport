@@ -9,8 +9,9 @@ namespace StatisticalReport.Infrastructure.Report
 {
     public class ReportHelper
     {
+        #region  添加合计 分层次 cdy
         /// <summary>
-        /// 按照sortStr在totalStr上合计。
+        /// 按照sortStr在totalStr上合计。添加行合计
         /// </summary>
         /// <param name="table"></param>
         /// <param name="sortStr"></param>
@@ -84,6 +85,96 @@ namespace StatisticalReport.Infrastructure.Report
             //MyTableSort mts = new MyTableSort(T[0]);
             return SortTable(T[0], SortArray);
         }
+
+        /// <summary>
+        /// 除去specialField字段外的所有的字段都要做合计, 添加最后一列合计列
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="sortStr"></param>
+        /// <returns></returns>
+        public static DataTable MyTotalOnAll(DataTable table, string sortStr, params string[] specialField)
+        {
+            string[] SortArray = sortStr.Split(',', '，');
+            List<string> list = new List<string>();
+            foreach (DataColumn dc in table.Columns)//table中的所有的字段加入到list中
+            {
+                list.Add(dc.ToString());
+            }
+            foreach (string str in specialField)//从list中除去specialField字段，从而得到需要total的字段
+            {
+                list.Remove(str);
+            }
+            int m = list.Count;//需要合计列的个数
+            string[] TotalArray = new string[m];
+            for (int i = 0; i < m; i++)
+            {
+                TotalArray[i] = list.ElementAt(i);
+            }
+            DataTable Table = SortTable(table, SortArray);
+            int n = SortArray.Length;//需要排序列的个数
+            //int m = TotalArray.Length;//需要合计列的个数
+            int RowsNum = Table.Rows.Count;
+            string Compare = "shshjs";
+            DataTable[] T = new DataTable[n];
+            for (int a = 0; a < n; a++)
+            {
+                T[a] = Table.Clone();
+            }
+            for (int t = 0; t < n; t++)
+            {
+                string str;
+                int j = 0;
+                int k = 0;
+                int p = 0;
+                foreach (DataRow dr1 in Table.Rows)
+                {
+                    p++;
+                    str = dr1[SortArray[n - 1 - t]].ToString().Trim();//去掉前后的空格
+                    //string str44 = dr1[1].ToString();
+                    if (str != Compare)//不同的情况下
+                    {
+                        Compare = str;
+                        DataRow row = dr1;
+                        k++;//新生产表的行数
+                        j = k - 1;//新表最后一行的索引号
+                        for (int i = 0; i < t; i++)
+                        {
+                            //row[n-i-1] = null; 
+                            row[SortArray[n - 1 - i]] = null;
+                        }
+                        T[t].Rows.Add(row.ItemArray);
+                    }
+                    else//相同的情况下
+                    {
+
+                        DataRow row = T[t].NewRow();
+                        for (int i = 0; i < m; i++)
+                        {
+                            row = T[t].Rows[k - 1];//T1的最后一行
+                            if (T[t].Rows[k - 1][TotalArray[i]] is DBNull)//数据库中的空在程序中为DBNull
+                            {
+                                T[t].Rows[k - 1][TotalArray[i]] = 0;
+                            }
+                            if (dr1[TotalArray[i]] is DBNull)
+                            {
+                                dr1[TotalArray[i]] = 0;
+                            }
+                            T[t].Rows[k - 1][TotalArray[i]] = Convert.ToDouble(T[t].Rows[k - 1][TotalArray[i]]) + Convert.ToDouble(dr1[TotalArray[i]]);
+                        }
+                    }
+                }
+
+            }
+            for (int i = 0; i < n - 1; i++)
+            {
+                //T[n-1].Merge(T[n-i-2]);
+                T[0].Merge(T[i + 1]);
+            }
+            //return T[0];
+            //MyTableSort mts = new MyTableSort(T[0]);
+            return SortTable(T[0], SortArray);
+        }
+        #endregion
 
         #region 添加合计行   zcs
         /// <summary>
@@ -172,6 +263,46 @@ namespace StatisticalReport.Infrastructure.Report
         }
         #endregion
 
+        #region  分组合计，不分层次 cdy
+        /// <summary>
+        /// 给目标表添加合计
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        public static DataTable ReportAddToSumRow(DataTable table)
+        {
+            table.Columns.Remove("ID");
+            table.Columns.Remove("KeyID");
+            DataTable tableOfSum = ReportHelper.MyTotalOnAll(table, "CementTypes", "vDate", "CementTypes");//最后的合计部分
+            foreach (DataRow dr in tableOfSum.Rows)
+            {
+                dr["vDate"] = "总总合计";
+            }
+            DataTable temp = table.Copy();
+            temp.Merge(tableOfSum);
+            DataTable dayOfSum = ReportHelper.GroupByTotalAll(temp, "vDate", "vDate", "CementTypes");//每日后面的合计和总合计后面的合计
+            foreach (DataRow dr in dayOfSum.Rows)
+            {
+                dr["CementTypes"] = "总总合计";
+            }
+            DataTable resultTableNoSort = new DataTable();
+            resultTableNoSort.Merge(temp);
+            resultTableNoSort.Merge(dayOfSum);
+            DataTable resulttable = ReportHelper.SortTable(resultTableNoSort, "vDate,CementTypes");
+
+            foreach (DataRow dr in resulttable.Rows)
+            {
+                if (dr["vDate"].ToString() == "总总合计")
+                {
+                    dr["vDate"] = "合计";
+                }
+                if (dr["CementTypes"].ToString() == "总总合计")
+                {
+                    dr["CementTypes"] = "合计";
+                }
+            }
+            return resulttable;
+        }
         /// <summary>
         /// 分组合计，没有层次
         /// </summary>
@@ -240,8 +371,93 @@ namespace StatisticalReport.Infrastructure.Report
             }
             return temp;
         }
+
         /// <summary>
-        /// 
+        /// 分组合计全部字段，没有层次
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="sortStr"></param>
+        /// <param name="totalStr"></param>
+        /// <returns></returns>
+        public static DataTable GroupByTotalAll(DataTable table, string sortStr, params string[] specialField)//分组合计
+        {
+            string[] SortArray = sortStr.Split(',', '，');
+            List<string> list = new List<string>();
+            foreach (DataColumn dc in table.Columns)//table中的所有的字段加入到list中
+            {
+                list.Add(dc.ToString());
+            }
+            foreach (string str in specialField)//从list中除去specialField字段，从而得到需要total的字段
+            {
+                list.Remove(str);
+            }
+            int m = list.Count;//需要合计列的个数
+            string[] TotalArray = new string[m];
+            for (int i = 0; i < m; i++)
+            {
+                TotalArray[i] = list.ElementAt(i);
+            }
+            DataTable Table = SortTable(table, SortArray);
+            DataTable temp = Table.Clone();
+            int n = SortArray.Length;//需要排序列的个数
+            //int m = TotalArray.Length;//需要合计列的个数
+            int RowsNum = Table.Rows.Count;
+            string[] Compare = new string[n];
+            string[] strs = new string[n];
+            for (int i = 0; i < n; i++)
+            {
+                strs[i] = "_sdffas";
+            }
+
+            int k = 0;
+            foreach (DataRow dr in Table.Rows)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    strs[i] = dr[SortArray[i]].ToString().Trim();//去掉前后的空格
+                    //str2 = dr[SortArray[1]].ToString().Trim();//去掉前后的空格
+                }
+                if (CompareArray(strs, Compare))//相同的情况下
+                {
+                    DataRow row = temp.NewRow();
+                    for (int i = 0; i < m; i++)
+                    {
+                        row = temp.Rows[k - 1];//T1的最后一行
+
+                        if (Table.Rows[k - 1][TotalArray[i]] is DBNull)//数据库中的空在程序中为DBNull
+                        {
+                            Table.Rows[k - 1][TotalArray[i]] = 0;
+                        }
+                        if (dr[TotalArray[i]] is DBNull)
+                        {
+                            dr[TotalArray[i]] = 0;
+                        }
+                        if (temp.Rows[k - 1][TotalArray[i]] is DBNull)
+                        { temp.Rows[k - 1][TotalArray[i]] = 0; }
+                        if (dr[TotalArray[i]] is DBNull)
+                        { dr[TotalArray[i]] = 0; }
+                        temp.Rows[k - 1][TotalArray[i]] = Convert.ToDouble(temp.Rows[k - 1][TotalArray[i]]) + Convert.ToDouble(dr[TotalArray[i]]);
+                    }
+                }
+                else//不同的情况下
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        Compare[i] = strs[i];
+                    }
+                    //    Compare1 = str1;
+                    //Compare2 = str2;
+                    DataRow row = dr;
+                    k++;//新生产表的行数
+                    temp.Rows.Add(row.ItemArray);
+                }
+            }
+            return temp;
+        }
+        #endregion
+
+        /// <summary>
+        /// 比较数组
         /// </summary>
         /// <param name="array1"></param>
         /// <param name="array2"></param>
@@ -266,6 +482,8 @@ namespace StatisticalReport.Infrastructure.Report
                 return false;
             }
         }
+
+        #region DataTable排序 cdy
         /// <summary>
         /// 以默认升序方式排列
         /// </summary>
@@ -322,6 +540,7 @@ namespace StatisticalReport.Infrastructure.Report
             return NewTable;
 
         }
+        #endregion
 
         /// <summary>
         /// 格式化数据类型为字符串类型，补全小数位数和整数位数
