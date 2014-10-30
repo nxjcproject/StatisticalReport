@@ -1574,6 +1574,24 @@
     <Content Include="lib\pllib\syntaxhighlighter\styles\shThemejqPlot.min.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.css" />
     <Content Include="lib\pllib\themes\jquery.jqplot.min.css" />
+    <Content Include="UI_StatisticalReport\js\page\VBDaily\table_AmmeterPeakerValleyFlatDay.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBDaily\table_FormulaDay.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBDaily\table_PublicFormulaDay.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBDaily\table_PublicFormulaGroupDay.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_AmmeterPeakerValleyFlatMonth.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_CementMillMonthlyElectricity_sum.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_CementMillMonthlyOutput.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_ClinkerMonthlyElectricity_sum.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_ClinkerMonthlyOutput.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_FormulaMonth.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBMonthly\table_PublicFormulaMonth.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_AmmeterPeakerValleyFlatYear.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_CementMillYearlyElectricity_sum.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_CementMillYearlyOutput.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_ClinkerYearlyElectricity_sum.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_ClinkerYearlyOutput.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_FormulaYear.js" />
+    <Content Include="UI_StatisticalReport\js\page\VBYearly\table_PublicFormulaYear.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementMilYearlyEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyElectricityConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyProcessEnergyConsumption.js" />
@@ -1589,6 +1607,24 @@
     <Content Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_TeamCementMonthlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\VBDaily\table_AmmeterPeakerValleyFlatDay.aspx" />
+    <Content Include="UI_StatisticalReport\VBDaily\table_FormulaDay.aspx" />
+    <Content Include="UI_StatisticalReport\VBDaily\table_PublicFormulaDay.aspx" />
+    <Content Include="UI_StatisticalReport\VBDaily\table_PublicFormulaGroupDay.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_AmmeterPeakerValleyFlatMonth.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyElectricity_sum.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyOutput.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyElectricity_sum.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyOutput.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_FormulaMonth.aspx" />
+    <Content Include="UI_StatisticalReport\VBMonthly\table_PublicFormulaMonth.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_AmmeterPeakerValleyFlatYear.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyElectricity_sum.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyOutput.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyElectricity_sum.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyOutput.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_FormulaYear.aspx" />
+    <Content Include="UI_StatisticalReport\VBYearly\table_PublicFormulaYear.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementYearlyElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyProcessEnergyConsumption.aspx" />
@@ -1694,6 +1730,125 @@
     </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx.designer.cs">
       <DependentUpon>report_TeamClinkerMonthlyProcessEnergyConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_AmmeterPeakerValleyFlatDay.aspx.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatDay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_AmmeterPeakerValleyFlatDay.aspx.designer.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_FormulaDay.aspx.cs">
+      <DependentUpon>table_FormulaDay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_FormulaDay.aspx.designer.cs">
+      <DependentUpon>table_FormulaDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_PublicFormulaDay.aspx.cs">
+      <DependentUpon>table_PublicFormulaDay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_PublicFormulaDay.aspx.designer.cs">
+      <DependentUpon>table_PublicFormulaDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_PublicFormulaGroupDay.aspx.cs">
+      <DependentUpon>table_PublicFormulaGroupDay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBDaily\table_PublicFormulaGroupDay.aspx.designer.cs">
+      <DependentUpon>table_PublicFormulaGroupDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_AmmeterPeakerValleyFlatMonth.aspx.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatMonth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_AmmeterPeakerValleyFlatMonth.aspx.designer.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatMonth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyElectricity_sum.aspx.cs">
+      <DependentUpon>table_CementMillMonthlyElectricity_sum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyElectricity_sum.aspx.designer.cs">
+      <DependentUpon>table_CementMillMonthlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyOutput.aspx.cs">
+      <DependentUpon>table_CementMillMonthlyOutput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_CementMillMonthlyOutput.aspx.designer.cs">
+      <DependentUpon>table_CementMillMonthlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyElectricity_sum.aspx.cs">
+      <DependentUpon>table_ClinkerMonthlyElectricity_sum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyElectricity_sum.aspx.designer.cs">
+      <DependentUpon>table_ClinkerMonthlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyOutput.aspx.cs">
+      <DependentUpon>table_ClinkerMonthlyOutput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_ClinkerMonthlyOutput.aspx.designer.cs">
+      <DependentUpon>table_ClinkerMonthlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_FormulaMonth.aspx.cs">
+      <DependentUpon>table_FormulaMonth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_FormulaMonth.aspx.designer.cs">
+      <DependentUpon>table_FormulaMonth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_PublicFormulaMonth.aspx.cs">
+      <DependentUpon>table_PublicFormulaMonth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBMonthly\table_PublicFormulaMonth.aspx.designer.cs">
+      <DependentUpon>table_PublicFormulaMonth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_AmmeterPeakerValleyFlatYear.aspx.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_AmmeterPeakerValleyFlatYear.aspx.designer.cs">
+      <DependentUpon>table_AmmeterPeakerValleyFlatYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyElectricity_sum.aspx.cs">
+      <DependentUpon>table_CementMillYearlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyElectricity_sum.aspx.designer.cs">
+      <DependentUpon>table_CementMillYearlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyOutput.aspx.cs">
+      <DependentUpon>table_CementMillYearlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_CementMillYearlyOutput.aspx.designer.cs">
+      <DependentUpon>table_CementMillYearlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyElectricity_sum.aspx.cs">
+      <DependentUpon>table_ClinkerYearlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyElectricity_sum.aspx.designer.cs">
+      <DependentUpon>table_ClinkerYearlyElectricity_sum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyOutput.aspx.cs">
+      <DependentUpon>table_ClinkerYearlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_ClinkerYearlyOutput.aspx.designer.cs">
+      <DependentUpon>table_ClinkerYearlyOutput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_FormulaYear.aspx.cs">
+      <DependentUpon>table_FormulaYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_FormulaYear.aspx.designer.cs">
+      <DependentUpon>table_FormulaYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_PublicFormulaYear.aspx.cs">
+      <DependentUpon>table_PublicFormulaYear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\VBYearly\table_PublicFormulaYear.aspx.designer.cs">
+      <DependentUpon>table_PublicFormulaYear.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx.cs">
       <DependentUpon>report_CementMilYearlyEnergyConsumption.aspx</DependentUpon>
