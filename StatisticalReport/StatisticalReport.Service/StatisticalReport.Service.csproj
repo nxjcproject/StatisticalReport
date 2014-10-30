@@ -77,6 +77,24 @@
     <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyProcessEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamCementYearlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamClinkerYearlyProcessEnergyConsumption.cs" />
+    <Compile Include="VBReport\Daily\AmmeterPeakerValleyFlatDay.cs" />
+    <Compile Include="VBReport\Daily\FormulaDay.cs" />
+    <Compile Include="VBReport\Daily\PublicFormulaDay.cs" />
+    <Compile Include="VBReport\Daily\PublicFormulaGroupDay.cs" />
+    <Compile Include="VBReport\Monthly\AmmeterPeakerValleyFlatMonth.cs" />
+    <Compile Include="VBReport\Monthly\CementMillMonthlyElectricity_sum.cs" />
+    <Compile Include="VBReport\Monthly\CementMillMonthlyOutput.cs" />
+    <Compile Include="VBReport\Monthly\ClinkerMonthlyElectricity_sum.cs" />
+    <Compile Include="VBReport\Monthly\ClinkerMonthlyOutput.cs" />
+    <Compile Include="VBReport\Monthly\FormulaMonth.cs" />
+    <Compile Include="VBReport\Monthly\PublicFormulaMonth.cs" />
+    <Compile Include="VBReport\Yearly\AmmeterPeakerValleyFlatYear.cs" />
+    <Compile Include="VBReport\Yearly\CementMillYearlyElectricity_sum.cs" />
+    <Compile Include="VBReport\Yearly\CementMillYearlyOutput.cs" />
+    <Compile Include="VBReport\Yearly\ClinkerYearlyElectricity_sum.cs" />
+    <Compile Include="VBReport\Yearly\ClinkerYearlyOutput.cs" />
+    <Compile Include="VBReport\Yearly\FormulaYear.cs" />
+    <Compile Include="VBReport\Yearly\PublicFormulaYear.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StatisticalReport.Infrastructure\StatisticalReport.Infrastructure.csproj">
@@ -84,11 +102,7 @@
       <Name>StatisticalReport.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VBReport\Daily\" />
-    <Folder Include="VBReport\Monthly\" />
-    <Folder Include="VBReport\Yearly\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

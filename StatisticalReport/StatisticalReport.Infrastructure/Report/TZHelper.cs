@@ -97,10 +97,10 @@ namespace StatisticalReport.Infrastructure.Report
         /// <summary>
         /// 获得报表详细信息
         /// </summary>
-        /// <param name="tzName"></param>
-        /// <param name="organizationID"></param>
-        /// <param name="date"></param>
-        /// <param name="tableName"></param>
+        /// <param name="tzName">主表名称</param>
+        /// <param name="organizationID">组织机构代码</param>
+        /// <param name="date">日期</param>
+        /// <param name="tableName">从表名称</param>
         /// <returns></returns>
         public DataTable GetReportData(string tzName, string organizationID, string date, string tableName, string criterionString)
         {

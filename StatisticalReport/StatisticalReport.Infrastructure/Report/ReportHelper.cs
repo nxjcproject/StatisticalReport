@@ -239,7 +239,7 @@ namespace StatisticalReport.Infrastructure.Report
         /// <summary>
         /// 转换列的数据类型
         /// </summary>
-        /// <param name="source"></param>
+        /// <param name="source">数据源表</param>
         /// <returns></returns>
         private static DataTable ConvertColumnType(DataTable source)
         {
