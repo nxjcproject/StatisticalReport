@@ -9,7 +9,7 @@ function loadGridData(myLoadType, organizationId, datetime) {
     var m_MsgData;
     $.ajax({
         type: "POST",
-        url: "table_PublicFormulaMonth.aspx/GetReportData",
+        url: "table_FormulaMonth.aspx/GetReportData",
         data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -59,7 +59,7 @@ function ExportFileFun() {
     form.attr('style', 'display:none');   //在form表单中添加查询参数
     form.attr('target', '');
     form.attr('method', 'post');
-    form.attr('action', "table_PublicFormulaMonth.aspx");
+    form.attr('action', "table_FormulaMonth.aspx");
 
     var input_Method = $('<input>');
     input_Method.attr('type', 'hidden');
@@ -107,7 +107,7 @@ function RefreshFun() {
 function PrintFileFun() {
     $.ajax({
         type: "POST",
-        url: "table_PublicFormulaMonth.aspx/PrintFile",
+        url: "table_FormulaMonth.aspx/PrintFile",
         data: "",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -121,7 +121,7 @@ function PrintFileFun() {
 
 function QueryReportFun() {
     var organizationID = $('#organizationId').val();
-    var datetime = $('#datetime').datetimebox('getValue');
+    var datetime = $('#datetime').datetimebox('getValue').substr(0, 7);
     if (organizationID == "" || datetime == "") {
         $.messager.alert('警告', '请选择生产线和时间');
         return;
@@ -135,3 +135,13 @@ function onOrganisationTreeClick(node) {
     $('#productLineName').val(node.text);
     $('#organizationId').val(node.OrganizationID);
 }
+
+// 日期选择按月
+$(function () {
+    $('.combo-arrow').click(function () {
+        $('.calendar-title > span').click();
+        $('.calendar-menu-month').click(function () {
+            $("tr.calendar-first > .calendar-last").click();
+        });
+    });
+});

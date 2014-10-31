@@ -20,7 +20,7 @@ namespace StatisticalReport.Service.VBReport.Yearly
         }
         public static DataTable TableQuery(string organizationID, string date)
         {
-            DataTable sourceTable = _tzHelper.GetReportData("tz_Report", organizationID, date, "table_ForumulaYear");
+            DataTable sourceTable = _tzHelper.GetReportData("tz_Report", organizationID, date, "table_FormulaYear");
             DataTable resultTable = ReportHelper.ReportDataToInteger(sourceTable);
 
             return resultTable;

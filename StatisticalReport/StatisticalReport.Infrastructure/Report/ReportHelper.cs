@@ -220,6 +220,7 @@ namespace StatisticalReport.Infrastructure.Report
             {
                 DataRow dr = result.NewRow();
                 CopyDatas(dr, item);
+                result.Rows.Add(dr);
             }
 
             return result;

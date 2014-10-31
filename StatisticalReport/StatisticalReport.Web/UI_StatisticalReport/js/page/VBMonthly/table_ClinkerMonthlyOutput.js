@@ -121,7 +121,7 @@ function PrintFileFun() {
 
 function QueryReportFun() {
     var organizationID = $('#organizationId').val();
-    var datetime = $('#datetime').datetimebox('getValue');
+    var datetime = $('#datetime').datetimebox('getValue').substr(0, 7);
     if (organizationID == "" || datetime == "") {
         $.messager.alert('警告', '请选择生产线和时间');
         return;
@@ -135,3 +135,13 @@ function onOrganisationTreeClick(node) {
     $('#productLineName').val(node.text);
     $('#organizationId').val(node.OrganizationID);
 }
+
+// 日期选择按月
+$(function () {
+    $('.combo-arrow').click(function () {
+        $('.calendar-title > span').click();
+        $('.calendar-menu-month').click(function () {
+            $("tr.calendar-first > .calendar-last").click();
+        });
+    });
+});

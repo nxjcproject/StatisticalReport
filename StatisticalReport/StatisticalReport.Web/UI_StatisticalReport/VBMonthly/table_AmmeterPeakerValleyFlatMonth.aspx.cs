@@ -1,5 +1,5 @@
 ﻿using StatisticalReport.Service.StatisticalReportServices;
-using StatisticalReport.Service.StatisticalReportServices.Daily;
+using StatisticalReport.Service.VBReport.Monthly;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,7 +47,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.VBMonthly
         public static string GetReportData(string organizationId, string datetime)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = CementMilEnergyConsumption_TargetCompletion.TableQuery(organizationId, datetime);
+            myDataTable = AmmeterPeakerValleyFlatMonth.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;

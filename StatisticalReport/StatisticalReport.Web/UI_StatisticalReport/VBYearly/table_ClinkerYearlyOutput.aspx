@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="table_ClinkerYearlyOutput.aspx.cs" Inherits="StatisticalReport.Web.UI_StatisticalReport.VBYearly.table_ClinkerYearlyOutput" %>
+<%@ Register Src="~/Common/OrganisationTree.ascx" TagPrefix="uc1" TagName="OrganisationTree" %>
 
 <!DOCTYPE html>
 

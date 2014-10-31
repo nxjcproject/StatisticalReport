@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="table_FormulaDay.aspx.cs" Inherits="StatisticalReport.Web.UI_StatisticalReport.VBDaily.table_FormulaDay" %>
+<%@ Register Src="~/Common/OrganisationTree.ascx" TagPrefix="uc1" TagName="OrganisationTree" %>
 
 <!DOCTYPE html>
 
