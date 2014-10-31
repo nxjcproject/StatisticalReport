@@ -19,6 +19,9 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public static DataTable MyTotalOn(DataTable table, string sortStr, string totalStr)//字符串sortStr,totalStr应用英文逗号分隔
         {
+            if (table.Rows.Count == 0)
+                return table;
+
             string[] SortArray = sortStr.Split(',', '，');
             string[] TotalArray = totalStr.Split(',', '，');
             DataTable Table = SortTable(table, SortArray);
@@ -94,6 +97,9 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public static DataTable MyTotalOnAll(DataTable table, string sortStr, params string[] specialField)
         {
+            if (table.Rows.Count == 0)
+                return table;
+
             string[] SortArray = sortStr.Split(',', '，');
             List<string> list = new List<string>();
             foreach (DataColumn dc in table.Columns)//table中的所有的字段加入到list中
@@ -272,6 +278,9 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public static DataTable ReportAddToSumRow(DataTable table)
         {
+            if (table.Rows.Count == 0)
+                return table;
+
             table.Columns.Remove("ID");
             table.Columns.Remove("KeyID");
             DataTable tableOfSum = ReportHelper.MyTotalOnAll(table, "CementTypes", "vDate", "CementTypes");//最后的合计部分
@@ -313,6 +322,9 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public static DataTable GroupByTotal(DataTable table, string sortStr, string totalStr)//分组合计
         {
+            if (table.Rows.Count == 0)
+                return table;
+
             string[] SortArray = sortStr.Split(',', '，');
             string[] TotalArray = totalStr.Split(',', '，');
             DataTable Table = SortTable(table, SortArray);
@@ -382,6 +394,9 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public static DataTable GroupByTotalAll(DataTable table, string sortStr, params string[] specialField)//分组合计
         {
+            if (table.Rows.Count == 0)
+                return table;
+
             string[] SortArray = sortStr.Split(',', '，');
             List<string> list = new List<string>();
             foreach (DataColumn dc in table.Columns)//table中的所有的字段加入到list中
