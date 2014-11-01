@@ -71,7 +71,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             //第一步
             DataTable temp = tzHelper.CreateTableStructure("report_CementMilEnergyConsumption_TargetCompletion");//获得目标表结构
             //获得水泥生产线能耗计划报表(年)
-            DataTable table = tzHelper.GetReportData("tz_Report", organizeID, year, "report_CementMillProductionLineProductionLineEnergyConsumptionSchedule");
+            DataTable table = tzHelper.GetReportData("tz_Report", organizeID, year, "report_CementMillProductionLineEnergyConsumptionSchedule");
             foreach (DataRow dr in table.Rows)
             {
                 DataRow row = temp.NewRow();

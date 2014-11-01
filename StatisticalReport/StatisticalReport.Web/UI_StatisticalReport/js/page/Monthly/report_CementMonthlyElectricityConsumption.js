@@ -22,9 +22,16 @@ function loadGridData(myLoadType, organizationId, datetime) {
                 m_MsgData = jQuery.parseJSON(msg.d);
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
             }
-        }
+        },
+        error: handleError
     });
 }
+
+function handleError() {
+    $('#gridMain_ReportTemplate').datagrid('loadData', []);
+    $.messager.alert('失败', '获取数据失败');
+}
+
 function InitializeGrid(myData) {
 
     $('#gridMain_ReportTemplate').datagrid({
