@@ -1,5 +1,5 @@
-﻿/**
- * jQuery EasyUI 1.3.6
+/**
+ * jQuery EasyUI 1.4.1
  * 
  * Copyright (c) 2009-2014 www.jeasyui.com. All rights reserved.
  *
@@ -98,6 +98,9 @@ _1e.onUnselect.call(_1c,_1e.finder.getRow(_1c,_1d));
 function _1a(_21,_22,_23){
 var _24=$.data(_21,"combobox").options;
 var _25=$(_21).combo("panel");
+if(!$.isArray(_22)){
+_22=_22.split(_24.separator);
+}
 _25.find("div.combobox-item-selected").removeClass("combobox-item-selected");
 var vv=[],ss=[];
 for(var i=0;i<_22.length;i++){
@@ -318,7 +321,7 @@ _2e(this);
 };
 $.fn.combobox.methods={options:function(jq){
 var _4e=jq.combo("options");
-return $.extend($.data(jq[0],"combobox").options,{originalValue:_4e.originalValue,disabled:_4e.disabled,readonly:_4e.readonly});
+return $.extend($.data(jq[0],"combobox").options,{width:_4e.width,height:_4e.height,originalValue:_4e.originalValue,disabled:_4e.disabled,readonly:_4e.readonly});
 },getData:function(jq){
 return $.data(jq[0],"combobox").data;
 },setValues:function(jq,_4f){

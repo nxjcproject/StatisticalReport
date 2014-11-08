@@ -14,12 +14,12 @@
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css"/>
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css"/>
 
-	<script type="text/javascript" src="/lib/ealib/jquery-1.8.3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/lib/ealib/extend/jquery.PrintArea.js" charset="utf-8"></script> 
-    <script type="text/javascript" src="/lib/ealib/extend/jquery.jqprint-0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/lib/ealib/extend/jquery.jqprint.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
 
@@ -37,9 +37,9 @@
 		                <table>
 			                <tr>
 				                <td>生产线：</td>
-		                        <td><input id="productLineName" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
-				                <td><input id="datetime" type="text" class="easyui-datebox" required="required" /></td>
+				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>
 				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
                                         onclick="QueryReportFun();">查询</a>
                                 </td>
@@ -66,7 +66,7 @@
                 </tr>
 	        </table>
         </div>
-        <div data-options="region:'center', fit:true,border:false">
+        <div data-options="region:'center',border:false">
             <table id="gridMain_ReportTemplate" data-options="fit:true,border:false"></table>
         </div>
     </div>

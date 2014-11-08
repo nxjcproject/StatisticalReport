@@ -128,7 +128,7 @@ function PrintFileFun() {
 
 function QueryReportFun() {
     var organizationID = $('#organizationId').val();
-    var datetime = $('#datetime').datetimebox('getValue').substr(0, 4);
+    var datetime = $('#datetime').datetimespinner('getValue');
     if (organizationID == "" || datetime == "") {
         $.messager.alert('警告', '请选择生产线和时间');
         return;
@@ -137,17 +137,22 @@ function QueryReportFun() {
     loadGridData('first', organizationID, datetime);
 }
 
-// datetime spinner
 function onOrganisationTreeClick(node) {
-    $('#productLineName').val(node.text);
+    $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationID);
 }
 
-$(function () {
-    $('.combo-arrow').click(function () {
-        $('.calendar-title > span').click();
-        $('.calendar-menu-month').click(function () {
-            $("tr.calendar-first > .calendar-last").click();
-        });
-    });
-});
+// datetime spinner
+function formatter2(date) {
+    if (!date) { return ''; }
+    var y = date.getFullYear();
+    return y + '';
+}
+function parser2(s) {
+    if (!s) { return null; }
+    if (!isNaN(s)) {
+        return new Date(s, 0, 1);
+    } else {
+        return new Date();
+    }
+}

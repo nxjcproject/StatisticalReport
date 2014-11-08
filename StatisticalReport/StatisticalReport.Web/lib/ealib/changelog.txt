@@ -1,4 +1,49 @@
+Version 1.4.1
+-------------
+* Bug
+ * combogrid: The combogrid has different height than other combo components. fixed.
+ * datagrid: The row element loses some class style value after calling 'updateRow' method. fixed.
+ * menubutton: Calling 'enable' method on a disabled button can not work well. fixed.
+ * form: The filebox components in the form do not work correctly after calling 'clear' method. fixed.
+* Improvement
+ * tabs: The 'update' method accepts 'type' option that allows the user to update the header,body,or both.
+ * panel: Add 'openAnimation','openDuration','closeAnimation' and 'closeDuration' properties to set the animation for opening or closing a panel.
+ * panel: Add 'footer' property that allows the user to add a footer bar to the bottom of panel.
+ * datagrid: Calling 'endEdit' method will accept the editing value correctly.
+ * datagrid: Add 'onBeforeSelect','onBeforeCheck','onBeforeUnselect','onBeforeUncheck' events.
+ * propertygrid: The user can edit a row by calling 'beginEdit' method.
+ * datebox: Add 'cloneFrom' method to create the datebox component quickly.
+ * datetimebox: Add 'cloneFrom' method to create the datetimebox component quickly.
+
+Version 1.4
+-------------
+* Bug
+ * menu: The menu should not has a correct height when removed a menu item. fixed.
+ * datagrid: The 'fitColumns' method does not work normally when the datarid width is too small. fixed.
+* Improvement
+ * The fluid/percentange size is supported now for all easyui components.
+ * menu: Add 'showItem', 'hideItem' and 'resize' methods.
+ * menu: Auto resize the height upon the window size.
+ * menu: Add 'duration' property that allows the user to define duration time in milliseconds to hide menu.
+ * validatebox: Add 'onBeforeValidate' and 'onValidate' events.
+ * combo: Extended from textbox now.
+ * combo: Add 'panelMinWidth','panelMaxWidth','panelMinHeight' and 'panelMaxHeight' properties.
+ * searchbox: Extended from textbox now.
+ * tree: The 'getRoot' method will return the top parent node of a specified node if pass a 'nodeEl' parameter.
+ * tree: Add 'queryParams' property.
+ * datetimebox: Add 'spinnerWidth' property.
+ * panel: Add 'doLayout' method to cause the panel to lay out its components.
+ * panel: Add 'clear' method to clear the panel's content.
+ * datagrid: The user is allowed to assign percent width to columns.
+ * form: Add 'ajax','novalidate' and 'queryParams' properties.
+ * linkbutton: Add 'resize' method.
+* New Plugins
+ * textbox: A enhanced input field that allows users build their form easily.
+ * datetimespinner: A date and time spinner that allows to pick a specific day.
+ * filebox: The filebox component represents a file field of the forms.
+
 Version 1.3.6
+-------------
 * Bug
  * treegrid: The 'getChecked' method can not return correct checked rows. fixed.
  * tree: The checkbox does not display properly on async tree when 'onlyLeafCheck' property is true. fixed.
