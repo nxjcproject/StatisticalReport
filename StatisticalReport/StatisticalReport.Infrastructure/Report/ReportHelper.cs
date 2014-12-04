@@ -473,6 +473,22 @@ namespace StatisticalReport.Infrastructure.Report
         #endregion
 
         /// <summary>
+        /// 返回_table表中字段名为_fieldName，值为_str的行号，没有则返回-1
+        /// </summary>
+        /// <param name="_table">表</param>
+        /// <param name="_fieldName">字段名</param>
+        /// <param name="_str">字段值</param>
+        /// <returns></returns>
+        public static int GetNoRow(DataTable _table, string _fieldName, string _str)
+        {
+            string sql = string.Format("{0}='{1}'", _fieldName, _str);
+            DataRow[] rows = _table.Select(sql);
+            int result = rows.Count() > 0 ? _table.Rows.IndexOf(rows[0]) : -1;
+            return result;
+        }
+
+
+        /// <summary>
         /// 比较数组
         /// </summary>
         /// <param name="array1"></param>

@@ -70,17 +70,24 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             }
             //第一步
             DataTable temp = tzHelper.CreateTableStructure("report_CementMilEnergyConsumption_TargetCompletion");//获得目标表结构
+            DataColumn dc = new DataColumn("QuotasID", System.Type.GetType("System.String"));
+            temp.Columns.Add(dc);
             //获得水泥生产线能耗计划报表(年)
-            DataTable table = tzHelper.GetReportData("tz_Report", organizeID, year, "report_CementMillProductionLineEnergyConsumptionSchedule");
+            DataTable table = tzHelper.GetReportData("tz_Plan", organizeID, year, "plan_EnergyConsumptionYearlyPlan");
             foreach (DataRow dr in table.Rows)
             {
                 DataRow row = temp.NewRow();
-                row["Name"] = dr["IndicatorName"];
+                row["Name"] = dr["QuotasName"];
                 row["Monthly_Target"] = dr[filedNameOfMounth];
-                row["Yearly_Target"] = dr["Annual"];
+                row["Yearly_Target"] = dr["Totals"];
+                row["QuotasID"] = dr["QuotasID"];
                 temp.Rows.Add(row);
             }
 
+
+            int CementOutput = ReportHelper.GetNoRow(temp, "QuotasID", "CementOutput");//水泥产量(万吨)
+            int EnergyConsumptionPreCement = ReportHelper.GetNoRow(temp, "QuotasID", "EnergyConsumptionPreCement");//吨水泥电耗(kwh/t)
+            int CementMillEnergyConsumption = ReportHelper.GetNoRow(temp, "QuotasID", "CementMillEnergyConsumption");//水泥磨电耗(kwh/t)
             //第二步
             //获得水泥生产线产量及消耗统计报表月报（水泥生产线报表没有最后的合计行）
             DataTable table_MounthCL = tzHelper.GetReportData("tz_Report", organizeID, year + "-" + mounth, "table_CementMillMonthlyOutput");
@@ -99,12 +106,12 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             //水泥产量（本日完成）
             if (row_DayCLs.Count() != 0)
             {
-                temp.Rows[0]["Today_Completion"] = row_DayCLs[0]["CementProductionSum"];
+                temp.Rows[CementOutput]["Today_Completion"] = row_DayCLs[0]["CementProductionSum"];
             }
             //水泥产量（本月累计）
             if (row_DayCLs.Count() != 0)
             {
-                temp.Rows[0]["Monthly_Accumulative"] = row_sumMounthCLs[0]["CementProductionSum"];
+                temp.Rows[CementOutput]["Monthly_Accumulative"] = row_sumMounthCLs[0]["CementProductionSum"];
             }
 
             //第三步
@@ -120,7 +127,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             //水泥产量（本年累计）
             if (row_sumYearCLs.Count() != 0)
             {
-                temp.Rows[0]["Yearly_Accumulative"] = row_sumYearCLs[0]["CementProductionSum"];
+                temp.Rows[CementOutput]["Yearly_Accumulative"] = row_sumYearCLs[0]["CementProductionSum"];
             }
 
             //第四步
@@ -139,23 +146,23 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             //吨水泥电耗（本日完成）
             if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && 0 != MyToDecimal(row_DayCLs[0]["CementProductionSum"]))
             {
-                temp.Rows[1]["Today_Completion"] = Convert.ToInt64((decimal)(row_days[0]["AmounttoSum"])
+                temp.Rows[EnergyConsumptionPreCement]["Today_Completion"] = Convert.ToInt64((decimal)(row_days[0]["AmounttoSum"])
                     / (decimal)(row_DayCLs[0]["CementProductionSum"]));
             }
             //吨水泥电耗（本月累计）
-            if (row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]) != 0 && MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"])!=0)
+            if (row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]) != 0 && MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"]) != 0)
             {
-                temp.Rows[1]["Monthly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]));
+                temp.Rows[EnergyConsumptionPreCement]["Monthly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]));
             }
             //水泥磨电耗（本日完成）
             if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && MyToDecimal(row_DayCLs[0]["CementProductionSum"]) != 0)
             {
-                temp.Rows[2]["Today_Completion"] = Convert.ToInt64(MyToDecimal(row_days[0]["CementGrindingSum"]) / MyToDecimal(row_DayCLs[0]["CementProductionSum"]));
+                temp.Rows[CementMillEnergyConsumption]["Today_Completion"] = Convert.ToInt64(MyToDecimal(row_days[0]["CementGrindingSum"]) / MyToDecimal(row_DayCLs[0]["CementProductionSum"]));
             }
             //水泥磨电耗（本月累计）
-            if (row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]) != 0 && MyToDecimal(row_sumMounthDLs[0]["CementGrindingSum"])!=0)
+            if (row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]) != 0 && MyToDecimal(row_sumMounthDLs[0]["CementGrindingSum"]) != 0)
             {
-                temp.Rows[2]["Monthly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumMounthDLs[0]["CementGrindingSum"]) / MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]));
+                temp.Rows[CementMillEnergyConsumption]["Monthly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumMounthDLs[0]["CementGrindingSum"]) / MyToDecimal(row_sumMounthCLs[0]["CementProductionSum"]));
             }
 
 
@@ -172,7 +179,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             {
                 if (row_sumYearDLs.Count() != 0 && MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]) != 0)
                 {
-                    temp.Rows[1]["Yearly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumYearDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]));
+                    temp.Rows[EnergyConsumptionPreCement]["Yearly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumYearDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]));
                 }
             }
             //水泥磨电耗（本年累计）
@@ -180,15 +187,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             {
                 if (row_sumYearDLs.Count() != 0 && MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]) != 0)
                 {
-                    temp.Rows[2]["Yearly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumYearDLs[0]["CementGrindingSum"]) / MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]));
+                    temp.Rows[CementMillEnergyConsumption]["Yearly_Accumulative"] = Convert.ToInt64(MyToDecimal(row_sumYearDLs[0]["CementGrindingSum"]) / MyToDecimal(row_sumYearCLs[0]["CementProductionSum"]));
                 }
             }
             foreach (DataRow dr in temp.Rows)
             {
-                if(dr["Monthly_Accumulative"] is DBNull)
+                if (dr["Monthly_Accumulative"] is DBNull)
                 { dr["Monthly_Accumulative"] = 0; }
                 if (dr["Yearly_Accumulative"] is DBNull)
-                { dr["Yearly_Accumulative"] = 0; }  
+                { dr["Yearly_Accumulative"] = 0; }
                 dr["Monthly_Gap"] = Convert.ToInt64(MyToDecimal(dr["Monthly_Target"]) - MyToDecimal(dr["Monthly_Accumulative"]));
                 dr["Yearly_Gap"] = Convert.ToInt64(MyToDecimal(dr["Yearly_Target"]) - MyToDecimal(dr["Yearly_Accumulative"]));
             }
