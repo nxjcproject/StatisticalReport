@@ -127,6 +127,10 @@ function PrintFileFun() {
 }
 
 function QueryReportFun() {
+    if (node.id.length != 7) {
+        $.messager.alert('提示', '请选择生产线级节点');
+        return;
+    }
     var organizationID = $('#organizationId').val();
     var datetime = $('#datetime').datetimespinner('getValue');
     if (organizationID == "" || datetime == "") {

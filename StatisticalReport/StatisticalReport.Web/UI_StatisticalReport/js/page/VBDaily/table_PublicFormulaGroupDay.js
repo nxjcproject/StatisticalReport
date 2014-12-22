@@ -139,6 +139,10 @@ function QueryReportFun() {
 
 
 function onOrganisationTreeClick(node) {
+    if (node.id.length != 5) {
+        $.messager.alert('提示', '请选择分厂级节点');
+        return;
+    }
     $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationID);
 }

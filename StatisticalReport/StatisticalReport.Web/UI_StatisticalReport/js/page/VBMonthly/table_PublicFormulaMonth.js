@@ -9,7 +9,7 @@ function loadGridData(myLoadType, organizationId, datetime) {
     var m_MsgData;
     $.ajax({
         type: "POST",
-        url: "table_FormulaMonth.aspx/GetReportData",
+        url: "table_PublicFormulaMonth.aspx/GetReportData",
         data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -114,7 +114,7 @@ function RefreshFun() {
 function PrintFileFun() {
     $.ajax({
         type: "POST",
-        url: "table_FormulaMonth.aspx/PrintFile",
+        url: "table_PublicFormulaMonth.aspx/PrintFile",
         data: "",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -138,6 +138,10 @@ function QueryReportFun() {
 }
 
 function onOrganisationTreeClick(node) {
+    if (node.id.length != 5) {
+        $.messager.alert('提示', '请选择分厂级节点');
+        return;
+    }
     $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationID);
 }
