@@ -205,6 +205,9 @@ namespace StatisticalReport.Infrastructure.Report
             {
                 foreach (string item in TotalArray)
                 {
+                    if (totalRow[item] == DBNull.Value || dr[item] == DBNull.Value)
+                        continue;
+
                     totalRow[item] = Convert.ToDouble(totalRow[item]) + Convert.ToDouble(dr[item]);
                 }
             }
