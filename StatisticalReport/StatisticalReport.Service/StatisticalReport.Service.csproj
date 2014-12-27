@@ -74,6 +74,8 @@
     <Compile Include="StatisticalReportServices\StatisticalReportHelper.cs" />
     <Compile Include="StatisticalReportServices\Yearly\CementMilYearlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\CementYearlyElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\CementYearlyPerUnitDistributionPowerConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyPerUnitDistributionEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyProcessEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamCementYearlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamClinkerYearlyProcessEnergyConsumption.cs" />

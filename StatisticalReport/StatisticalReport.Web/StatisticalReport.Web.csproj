@@ -61,11 +61,22 @@
     <Reference Include="WebStyleBaseForEnergy">
       <HintPath>..\..\Lib\WebStyleBaseForEnergy.dll</HintPath>
     </Reference>
+    <Reference Include="WebUserContorls.Web">
+      <HintPath>..\..\Lib\WebUserContorls.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="WebUserControls.Infrastructure">
+      <HintPath>..\..\Lib\WebUserControls.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="WebUserControls.Service">
+      <HintPath>..\..\Lib\WebUserControls.Service.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Common\OrganisationService.asmx" />
     <Content Include="Common\OrganisationTree.ascx" />
     <Content Include="js\common\PrintFile.js" />
+    <Content Include="lib\ealib\extend\editCell.js" />
+    <Content Include="lib\ealib\extend\jquery.jqprint.js" />
     <Content Include="UI_StatisticalReport\Daily\report_CementMilEnergyConsumption_TargetCompletion.aspx" />
     <Content Include="UI_StatisticalReport\Daily\report_ClinkerEnergyConsumption_TargetCompletion.aspx" />
     <Content Include="UI_StatisticalReport\js\page\Daily\report_CementMilEnergyConsumption_TargetCompletion.js" />
@@ -1593,9 +1604,11 @@
     <Content Include="UI_StatisticalReport\js\page\VBYearly\table_PublicFormulaYear.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementMilYearlyEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyProcessEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamCementYearlyEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamClinkerYearlyProcessEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.js" />
     <Content Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_CementMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_CementMonthlyElectricityConsumption.aspx" />
@@ -1627,6 +1640,8 @@
     <Content Include="UI_StatisticalReport\VBYearly\table_PublicFormulaYear.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementMilYearlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_CementYearlyElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyProcessEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_TeamCementYearlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_TeamClinkerYearlyProcessEnergyConsumption.aspx" />
@@ -1877,6 +1892,20 @@
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_CementYearlyElectricityConsumption.aspx.designer.cs">
       <DependentUpon>report_CementYearlyElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.aspx.cs">
+      <DependentUpon>report_CementYearlyPerUnitDistributionPowerConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.aspx.designer.cs">
+      <DependentUpon>report_CementYearlyPerUnitDistributionPowerConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx.cs">
+      <DependentUpon>report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx.designer.cs">
+      <DependentUpon>report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyProcessEnergyConsumption.aspx.cs">
       <DependentUpon>report_ClinkerYearlyProcessEnergyConsumption.aspx</DependentUpon>
