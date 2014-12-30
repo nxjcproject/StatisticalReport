@@ -29,19 +29,19 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)(dr["vDate"]);
                 newRow["First_Electricity_Cement"] = dr["AmounttoCementPreparationFirstShift"];
-                newRow["First_Electricity_CementGrinding"] = Convert.ToInt64(dr["CementGrindingFirstShift"]);
-                newRow["First_Electricity_AdmixturePreparation"] = Convert.ToInt64(dr["AdmixturePreparationFirstShift"]);
-                newRow["First_Electricity_BagsBulk"] = Convert.ToInt64(dr["AmounttoCementPackagingFirstShift"]);
+                newRow["First_Electricity_CementGrinding"] = MyToInt64(dr["CementGrindingFirstShift"]);
+                newRow["First_Electricity_AdmixturePreparation"] = MyToInt64(dr["AdmixturePreparationFirstShift"]);
+                newRow["First_Electricity_BagsBulk"] = MyToInt64(dr["AmounttoCementPackagingFirstShift"]);
 
-                newRow["Second_Electricity_Cement"] = Convert.ToInt64(dr["AmounttoCementPreparationSecondShift"]);
-                newRow["Second_Electricity_CementGrinding"] = Convert.ToInt64(dr["CementGrindingSecondShift"]);
-                newRow["Second_Electricity_AdmixturePreparation"] = Convert.ToInt64(dr["AdmixturePreparationSecondShift"]);
-                newRow["Second_Electricity_BagsBulk"] = Convert.ToInt64(dr["AmounttoCementPackagingSecondShift"]);
+                newRow["Second_Electricity_Cement"] = MyToInt64(dr["AmounttoCementPreparationSecondShift"]);
+                newRow["Second_Electricity_CementGrinding"] = MyToInt64(dr["CementGrindingSecondShift"]);
+                newRow["Second_Electricity_AdmixturePreparation"] = MyToInt64(dr["AdmixturePreparationSecondShift"]);
+                newRow["Second_Electricity_BagsBulk"] = MyToInt64(dr["AmounttoCementPackagingSecondShift"]);
 
-                newRow["Third_Electricity_Cement"] = Convert.ToInt64(dr["AmounttoCementPreparationThirdShift"]);
-                newRow["Third_Electricity_CementGrinding"] = Convert.ToInt64(dr["CementGrindingThirdShift"]);
-                newRow["Third_Electricity_AdmixturePreparation"] = Convert.ToInt64(dr["AdmixturePreparationThirdShift"]);
-                newRow["Third_Electricity_BagsBulk"] = Convert.ToInt64(dr["AmounttoCementPackagingThirdShift"]);
+                newRow["Third_Electricity_Cement"] = MyToInt64(dr["AmounttoCementPreparationThirdShift"]);
+                newRow["Third_Electricity_CementGrinding"] = MyToInt64(dr["CementGrindingThirdShift"]);
+                newRow["Third_Electricity_AdmixturePreparation"] = MyToInt64(dr["AdmixturePreparationThirdShift"]);
+                newRow["Third_Electricity_BagsBulk"] = MyToInt64(dr["AmounttoCementPackagingThirdShift"]);
 
                 temp1.Rows.Add(newRow);
             }
@@ -51,13 +51,13 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             {
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)dr["vDate"];
-                newRow["First_Output_Cement"] = Convert.ToInt64(dr["CementProductionFirstShift"]);
+                newRow["First_Output_Cement"] = MyToInt64(dr["CementProductionFirstShift"]);
                 //newRow["First_Output_BagsBulk"] = (decimal)dr[""];
 
-                newRow["Second_Output_Cement"] = Convert.ToInt64(dr["CementProductionSecondShift"]);
+                newRow["Second_Output_Cement"] = MyToInt64(dr["CementProductionSecondShift"]);
                 //newRow["Second_Output_BagsBulk"] = (decimal)dr[""];
 
-                newRow["Third_Output_Cement"] = Convert.ToInt64(dr["CementProductionThirdShift"]);
+                newRow["Third_Output_Cement"] = MyToInt64(dr["CementProductionThirdShift"]);
                 //newRow["Third_Output_BagsBulk"] = (decimal)dr[""];
 
                 temp1.Rows.Add(newRow);
@@ -72,33 +72,59 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
 
             foreach (DataRow dr in temp1.Rows)
             {
-                if (Convert.ToInt64(dr["First_Output_Cement"]) != 0)
+                if (MyToInt64(dr["First_Output_Cement"]) != 0)
                 {
                     dr["First_ElectricityConsumption_Cement"] = Convert.ToDecimal(dr["First_Electricity_Cement"]) / Convert.ToDecimal(dr["First_Output_Cement"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_Cement"]) != 0)
+                if (MyToInt64(dr["Second_Output_Cement"]) != 0)
                 {
                     dr["Second_ElectricityConsumption_Cement"] = Convert.ToDecimal(dr["Second_Electricity_Cement"]) / Convert.ToDecimal(dr["Second_Output_Cement"]);
                 }
-                if (Convert.ToInt64(dr["Third_Output_Cement"]) != 0)
+                if (MyToInt64(dr["Third_Output_Cement"]) != 0)
                 {
                     dr["Third_ElectricityConsumption_Cement"] = Convert.ToDecimal(dr["Third_Electricity_Cement"]) / Convert.ToDecimal(dr["Third_Output_Cement"]);
                 }
 
-                dr["Amountto_Electricity_Cement"] = Convert.ToInt64(dr["First_Electricity_Cement"]) + Convert.ToInt64(dr["Second_Electricity_Cement"]) + Convert.ToInt64(dr["Third_Electricity_Cement"]);
-                dr["Amountto_Electricity_CementGrinding"] = Convert.ToInt64(dr["First_Electricity_CementGrinding"]) + Convert.ToInt64(dr["Second_Electricity_CementGrinding"]) + Convert.ToInt64(dr["Third_Electricity_CementGrinding"]);
-                dr["Amountto_Electricity_AdmixturePreparation"] = Convert.ToInt64(dr["First_Electricity_AdmixturePreparation"]) + Convert.ToInt64(dr["Second_Electricity_AdmixturePreparation"]) + Convert.ToInt64(dr["Third_Electricity_AdmixturePreparation"]);
-                dr["Amountto_Electricity_BagsBulk"] = Convert.ToInt64(dr["First_Electricity_BagsBulk"]) + Convert.ToInt64(dr["Second_Electricity_BagsBulk"]) + Convert.ToInt64(dr["Third_Electricity_BagsBulk"]);
-                dr["Amountto_Output_Cement"] = Convert.ToInt64(dr["First_Output_Cement"]) + Convert.ToInt64(dr["Second_Output_Cement"]) + Convert.ToInt64(dr["Third_Output_Cement"]);
+                dr["Amountto_Electricity_Cement"] = MyToInt64(dr["First_Electricity_Cement"]) + MyToInt64(dr["Second_Electricity_Cement"]) + MyToInt64(dr["Third_Electricity_Cement"]);
+                dr["Amountto_Electricity_CementGrinding"] = MyToInt64(dr["First_Electricity_CementGrinding"]) + MyToInt64(dr["Second_Electricity_CementGrinding"]) + MyToInt64(dr["Third_Electricity_CementGrinding"]);
+                dr["Amountto_Electricity_AdmixturePreparation"] = MyToInt64(dr["First_Electricity_AdmixturePreparation"]) + MyToInt64(dr["Second_Electricity_AdmixturePreparation"]) + MyToInt64(dr["Third_Electricity_AdmixturePreparation"]);
+                dr["Amountto_Electricity_BagsBulk"] = MyToInt64(dr["First_Electricity_BagsBulk"]) + MyToInt64(dr["Second_Electricity_BagsBulk"]) + MyToInt64(dr["Third_Electricity_BagsBulk"]);
+                dr["Amountto_Output_Cement"] = MyToInt64(dr["First_Output_Cement"]) + MyToInt64(dr["Second_Output_Cement"]) + MyToInt64(dr["Third_Output_Cement"]);
                 //dr["Amountto_Output_BagsBulk"] = (decimal)dr["First_ElectricityConsumption"] + (decimal)dr["Second_ElectricityConsumption"] + (decimal)dr["Third_ElectricityConsumption"];
 
-                if (Convert.ToInt64(dr["Amountto_Output_Cement"]) != 0)
+                if (MyToInt64(dr["Amountto_Output_Cement"]) != 0)
                 {
                     dr["Amountto_ElectricityConsumption_Cement"] = Convert.ToDecimal(dr["Amountto_Electricity_Cement"]) / Convert.ToDecimal(dr["Amountto_Output_Cement"]);
                 }
             }
 
             return temp1;
+        }
+
+        public static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+            }
+        }
+
+        public static Int64 MyToInt64(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToInt64(obj);
+            }
+            else
+            {
+                return Convert.ToInt64(obj);
+            }
         }
     }
 }

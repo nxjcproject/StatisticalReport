@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <FormTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <mForm>
     <mTable>
@@ -9,7 +9,7 @@
             <mBorderTopWidth>0</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>489.75</mWidth>
+            <mWidth>589.75</mWidth>
             <mHeight>20.25</mHeight>
             <mFontSize>16</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -45,7 +45,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>81.75</mWidth>
+            <mWidth>181.75</mWidth>
             <mHeight>14.25</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4130</mTextAlign>
