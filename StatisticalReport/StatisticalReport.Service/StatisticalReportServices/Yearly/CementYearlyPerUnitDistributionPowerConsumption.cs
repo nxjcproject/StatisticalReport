@@ -22,37 +22,32 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             _dataFactory = new SqlServerDataFactory(connectionString);
         }
 
-        public static DataTable TableQuery(string _organizeID, string _clinkerOrganizeId, string _year)
+        public static DataTable TableQuery(string cementOrganizationId, string clinkerOrganizationId, string _year)
         {
             //////////////////////////////////////////////////////////////////
             //入口参数
-            string v_begin, v_end;
-            v_begin = _year + "-01";
-            v_end = _year + "-" + DateTime.Now.ToString("MM");    //从1月到当前月
-            string organizeID = _organizeID;
-
-            //熟料生产线id,如果用户未选相关“熟料生产线”，则 Clinker_organizeID = ""
-            string Clinker_organizeID = _clinkerOrganizeId;      //熟料生产线id
+            string v_begin = _year + "-01";                                 // 从一月份开始
+            string v_end = _year + "-" + DateTime.Now.ToString("MM");       // 到当前月结束
 
             // 1．	创建temp_result
             DataTable temp_result = tzHelper.CreateTableStructure("report_CementYearlyPerUnitDistributionPowerConsumption");
+
             DateTime v_date = DateTime.Parse(v_begin);
-            string v_date_string;
+
             while (v_date <= DateTime.Parse(v_end))
             {
-                v_date_string = v_date.ToString("yyyy-MM");
                 DataRow row = temp_result.NewRow();
-                row["vDate"] = v_date_string;
+                row["vDate"] = v_date.ToString("yyyy-MM");
                 row["Type"] = 1;  //	[Type] [int] NULL,    	-- 分月/累计：1--分月；2--累计	
 
                 //////////////////////////////////////////////////
-                //以下为简化计算中处理空值的麻烦，置初值
-                row["ElectricityConsumption"] = 0;   //用电量
-                row["Clinker_ComprehensiveElectricityConsumption"] = 0;   //熟料综合电耗
-                row["Clinker_ComparableComprehensiveCoalDustConsumption"] = 0;   //可比熟料综合煤耗
-                row["CementProductionSum"] = 0;   // 水泥产量
-                row["ClinkerConsumptionSum"] = 0;   //熟料消耗量
-                row["CementIntensity"] = 0;   //各品种水泥平均强度
+                // 以下为简化计算中处理空值的麻烦，置初值
+                row["ElectricityConsumption"] = 0;                              // 用电量
+                row["Clinker_ComprehensiveElectricityConsumption"] = 0;         // 熟料综合电耗
+                row["Clinker_ComparableComprehensiveCoalDustConsumption"] = 0;  // 可比熟料综合煤耗
+                row["CementProductionSum"] = 0;                                 // 水泥产量
+                row["ClinkerConsumptionSum"] = 0;                               // 熟料消耗量
+                row["CementIntensity"] = 0;                                     // 各品种水泥平均强度
 
                 temp_result.Rows.Add(row);
                 v_date = v_date.AddMonths(1);
@@ -60,12 +55,12 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //  2．读入信息	 
             int No1_Row;
-            DataTable temp1;
+
             //从水泥（分品种）粉磨产量及消耗统计年报表,读入水泥产量、熟料消耗量
             //需增加月合计
-            DataTable temp;
-            temp = tzHelper.GetReportData("tz_Report", organizeID, v_begin.Substring(0, 4), "table_CementMillYearlyOutput");
-            temp1 = ReportHelper.MyTotalOn(temp, "vDate", "CementProductionSum,ClinkerConsumptionSum");   //月合计
+            DataTable temp = tzHelper.GetReportData("tz_Report", cementOrganizationId, v_begin.Substring(0, 4), "table_CementMillYearlyOutput");
+            DataTable temp1 = ReportHelper.MyTotalOn(temp, "vDate", "CementProductionSum,ClinkerConsumptionSum");   //月合计
+
             foreach (DataRow dr in temp1.Rows)
             {
                 No1_Row = ReportHelper.GetNoRow(temp_result, "vDate", v_begin.Substring(0, 5) + Convert.ToString(dr["vDate"]));    //只有"月"的日期，变成“2014-01”
@@ -102,7 +97,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //从水泥（分品种）粉磨用电量统计年报表,读入用电量
             //需增加月合计
-            temp = tzHelper.GetReportData("tz_Report", organizeID, v_begin.Substring(0, 4), "table_CementMillYearlyElectricity_sum");
+            temp = tzHelper.GetReportData("tz_Report", cementOrganizationId, v_begin.Substring(0, 4), "table_CementMillYearlyElectricity_sum");
             temp1 = ReportHelper.MyTotalOn(temp, "vDate", "AmounttoSum");   //月合计
             foreach (DataRow dr in temp1.Rows)
             {
@@ -115,9 +110,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             }
 
             //从熟料生产线单位产品能耗表,读入熟料综合电耗、可比熟料综合煤耗
-            if (Clinker_organizeID != "")
+            if (clinkerOrganizationId != "")
             {
-                temp1 = tzHelper.GetReportData("tz_Report", Clinker_organizeID, v_begin.Substring(0, 4), "report_ClinkerYearlyPerUnitDistributionEnergyConsumption");
+                temp1 = tzHelper.GetReportData("tz_Report", clinkerOrganizationId, v_begin.Substring(0, 4), "report_ClinkerYearlyPerUnitDistributionEnergyConsumption");
                 foreach (DataRow dr in temp1.Rows)
                 {
                     No1_Row = ReportHelper.GetNoRow(temp_result, "vDate", Convert.ToString(dr["vDate"]));
@@ -133,7 +128,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             ///////////////////////////////////////////////////////////////////
             //返回结果
-            if (temp1.Rows.Count == 0 && Clinker_organizeID != "")
+            if (temp1.Rows.Count == 0 && clinkerOrganizationId != "")
             {
                 //return ("无法从熟料生产线可比单位产品能耗表中获取熟料综合电耗、可比熟料综合煤耗等信息！");
                 //return(temp_result) 只显示月份和读取的8列
@@ -144,6 +139,13 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             }
 
             return temp_result;
+        }
+
+
+        public static DataTable Read(string cementOrganizationId, string clinkerOrganizationId, string _year)
+        {
+            // 如果已有保存数据，读取保存数据
+            return tzHelper.GetReportData("tz_Report", cementOrganizationId, _year, "report_CementYearlyPerUnitDistributionPowerConsumption");
         }
 
         public static DataTable Calculate(string organiztionId, string clinkerOrganizationId, string year, DataTable data)
@@ -165,8 +167,6 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
             //    读入编辑结果
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
             // 2. 求累计， 存入temp_Accumulative
@@ -305,13 +305,6 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             // 更新数据
             for (int i = data.Rows.Count - 1; i >= 0; i--)
             {
-                //// 删除累计提示行
-                //if ((int)data.Rows[i]["Type"] == 3)
-                //{
-                //    data.Rows.RemoveAt(i);
-                //    continue;
-                //}
-
                 // 建立ID
                 data.Rows[i]["ID"] = Guid.NewGuid();
                 // 更新KeyID

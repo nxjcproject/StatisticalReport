@@ -85,9 +85,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily             
             }
 
 
-            int CementOutput = ReportHelper.GetNoRow(temp, "QuotasID", "CementOutput");//水泥产量(万吨)
-            int EnergyConsumptionPreCement = ReportHelper.GetNoRow(temp, "QuotasID", "EnergyConsumptionPreCement");//吨水泥电耗(kwh/t)
-            int CementMillEnergyConsumption = ReportHelper.GetNoRow(temp, "QuotasID", "CementMillEnergyConsumption");//水泥磨电耗(kwh/t)
+            int CementOutput = ReportHelper.GetNoRow(temp, "QuotasID", "水泥产量");//水泥产量(万吨)
+            int EnergyConsumptionPreCement = ReportHelper.GetNoRow(temp, "QuotasID", "水泥电耗");//吨水泥电耗(kwh/t)
+            int CementMillEnergyConsumption = ReportHelper.GetNoRow(temp, "QuotasID", "水泥磨电耗");//水泥磨电耗(kwh/t)
             //第二步
             //获得水泥生产线产量及消耗统计报表月报（水泥生产线报表没有最后的合计行）
             DataTable table_MounthCL = tzHelper.GetReportData("tz_Report", organizeID, year + "-" + mounth, "table_CementMillMonthlyOutput");

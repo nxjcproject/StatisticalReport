@@ -22,59 +22,56 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             _dataFactory = new SqlServerDataFactory(connectionString);
         }
 
-        public static DataTable TableQuery(string _organizeID, string _year)
+        public static DataTable TableQuery(string organizationId, string _year)
         {
-            string v_begin, v_end;
-            v_begin = _year + "-01";
-            v_end = _year + "-" + DateTime.Now.ToString("MM");    //从1月到当前月
-            string organizeID = _organizeID;
-
-
+            string v_begin = _year + "-01";                                 // 从一月份开始
+            string v_end = _year + "-" + DateTime.Now.ToString("MM");       // 到当前月结束
 
             // 1. 从erp中导入v_begin=”2013-11”，v_end=”2014-03”范围内的煤粉低位发热量、点火用油和熟料强度——〉temp_erp
-            string sqlQuery = "select * from [temp_erp] where [OrganizationID] = '" + _organizeID + "'";
+            string sqlQuery = "select * from [temp_erp] where [OrganizationID] = '" + organizationId + "'";
             DataTable temp_erp = _dataFactory.Query(sqlQuery);
 
-
             // 2.	获取v_begin，v_end范围内生产线数据——〉temp_result
-            DataTable temp_result;
-            temp_result = tzHelper.CreateTableStructure("report_ClinkerYearlyPerUnitDistributionEnergyConsumption");
-            DataTable temp1;
+            DataTable temp_result = tzHelper.CreateTableStructure("report_ClinkerYearlyPerUnitDistributionEnergyConsumption");
+
             DateTime v_date = DateTime.Parse(v_begin);
-            string v_date_string;
+
             while (v_date <= DateTime.Parse(v_end))
             {
-                v_date_string = v_date.ToString("yyyy-MM");
                 DataRow row = temp_result.NewRow();
-                row["vDate"] = v_date_string;
+                row["vDate"] = v_date.ToString("yyyy-MM");
                 row["Type"] = 1;  //	[Type] [int] NULL,    	-- 分月/累计：1--分月；2--累计	
 
                 //////////////////////////////////////////////////
-                //以下为简化计算中处理空值的麻烦，置初值
-                row["CoalDust"] = 0;   //入窑煤粉量
-                row["CogenerationProduction"] = 0;   //余热发电量
-                row["CogenerationSelfUse"] = 0;   //余热发电自用电量
-                row["ClinkerOutput"] = 0;   //熟料产量
-                row["ElectricityConsumption"] = 0;   //熟料用电量
-                row["Qnet"] = 0;  //煤粉低位发热量
-                row["Diesel"] = 0;  //点火用油
-                row["ClinkerIntensity"] = 0;  //熟料强度              
+                // 以下为简化计算中处理空值的麻烦，置初值
+                row["CoalDust"] = 0;                    // 入窑煤粉量
+                row["CogenerationProduction"] = 0;      // 余热发电量
+                row["CogenerationSelfUse"] = 0;         // 余热发电自用电量
+                row["ClinkerOutput"] = 0;               // 熟料产量
+                row["ElectricityConsumption"] = 0;      // 熟料用电量
+                row["Qnet"] = 0;                        // 煤粉低位发热量
+                row["Diesel"] = 0;                      // 点火用油
+                row["ClinkerIntensity"] = 0;            // 熟料强度              
 
-                temp1 = tzHelper.GetReportData("tz_Report", organizeID, v_date_string.Substring(0, 4), "table_ClinkerYearlyOutput", "vDate='" + v_date_string.Substring(5, 2) + "'");
-                //从熟料生产线产量报表年报table_ClinkerYearlyOutput中，取对应月数据，最多一行
-                foreach (DataRow dr in temp1.Rows)
+                // 从熟料生产线产量报表年报table_ClinkerYearlyOutput中，取对应月数据，最多一行
+                DataTable temp1 = tzHelper.GetReportData("tz_Report", organizationId, v_date.ToString("yyyy"), "table_ClinkerYearlyOutput", "vDate='" + v_date.ToString("MM") + "'");
+                
+                if (temp1.Rows.Count > 0)
                 {
-                    row["CoalDust"] = dr["AmounttoCoalDustConsumptionSum"];   //入窑煤粉量
-                    row["CogenerationProduction"] = dr["PowerGenerationSum"];   //余热发电量
-                    row["CogenerationSelfUse"] = dr["PowerSelfUseSum"];   //余热发电自用电量
-                    row["ClinkerOutput"] = dr["ClinkerProductionSum"];   //熟料产量
+                    row["CoalDust"] = temp1.Rows[0]["AmounttoCoalDustConsumptionSum"];      // 入窑煤粉量
+                    row["CogenerationProduction"] = temp1.Rows[0]["PowerGenerationSum"];    // 余热发电量
+                    row["CogenerationSelfUse"] = temp1.Rows[0]["PowerSelfUseSum"];          // 余热发电自用电量
+                    row["ClinkerOutput"] = temp1.Rows[0]["ClinkerProductionSum"];           // 熟料产量
                 }
-                temp1 = tzHelper.GetReportData("tz_Report", organizeID, v_date_string.Substring(0, 4), "table_ClinkerYearlyElectricity_sum", "vDate='" + v_date_string.Substring(5, 2) + "'");
-                //从熟料生产线合计用电量统计月报表table_ClinkerYearlyElectricity_sum，取对应月数据，最多一行
-                foreach (DataRow dr in temp1.Rows)
+
+                // 从熟料生产线合计用电量统计月报表table_ClinkerYearlyElectricity_sum，取对应月数据，最多一行
+                temp1 = tzHelper.GetReportData("tz_Report", organizationId, v_date.ToString("yyyy"), "table_ClinkerYearlyElectricity_sum", "vDate='" + v_date.ToString("MM") + "'");
+
+                if (temp1.Rows.Count > 0)
                 {
-                    row["ElectricityConsumption"] = dr["AmounttoSum"];   //熟料用电量
+                    row["ElectricityConsumption"] = temp1.Rows[0]["AmounttoSum"];           // 熟料用电量
                 }
+
                 temp_result.Rows.Add(row);
                 v_date = v_date.AddMonths(1);
             }
@@ -95,9 +92,16 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             return temp_result;
         }
 
-        public static DataTable Calculate(string organizationId, string year, DataTable data)
+        public static DataTable Read(string organizationId, string _year)
         {
-            DataTable temp_result = data;
+            // 如果已有保存数据，读取保存数据
+            DataTable temp1 = tzHelper.GetReportData("tz_Report", organizationId, _year, "report_ClinkerYearlyPerUnitDistributionEnergyConsumption");
+            return temp1;
+        }
+
+        public static DataTable Calculate(string organizationId, string year, DataTable temp_result)
+        {
+            // 移除合计行与累计提示行
             for (int i = temp_result.Rows.Count - 1; i >= 0; i--)
             {
                 if ((int)temp_result.Rows[i]["Type"] == 2 || (int)temp_result.Rows[i]["Type"] == 3)
@@ -183,7 +187,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             {
                 if ((int)dr["Type"] == 3)
                     continue;
-                //熟料综合电耗  =  熟料用电量/熟料产量
+                // 熟料综合电耗  =  熟料用电量/熟料产量
                 dr["Clinker_ComprehensiveElectricityConsumption"] = Convert.ToInt64(dr["ClinkerOutput"]) > 0 ?
                     Convert.ToDouble(dr["ElectricityConsumption"]) / Convert.ToDouble(dr["ClinkerOutput"]) : 0;
                 // 可比熟料综合电耗  =  熟料综合电耗*海拔修正系数*熟料强度修正系数
@@ -251,13 +255,6 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             // 更新数据
             for (int i = data.Rows.Count - 1; i >= 0; i--)
             {
-                //// 删除累计提示行
-                //if ((int)data.Rows[i]["Type"] == 3)
-                //{
-                //    data.Rows.RemoveAt(i);
-                //    continue;
-                //}
-
                 // 建立ID
                 data.Rows[i]["ID"] = Guid.NewGuid();
                 // 更新KeyID

@@ -86,116 +86,129 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
             //Dictionary<int, decimal> peakValleyFlatElectrovalence = _tzHelper.GetPeakValleyFlatElectrovalence(organizationID);
 
+
             foreach (DataRow dr in temp1.Rows)
             {
                 /////////////////////////////////////////////////////生料制备和生料磨电耗//////////////////////////////////////////////////////////////////////////////
-                if (Convert.ToInt64(dr["First_Output_RawBatch"]) != 0)
+                if (MyToDecimal(dr["First_Output_RawBatch"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_RawBatch"] = Convert.ToDecimal(dr["First_Electricity_RawBatch"]) / Convert.ToDecimal(dr["First_Output_RawBatch"]);
-                    dr["First_ElectricityConsumption_RawBatchGrinding"] = Convert.ToDecimal(dr["First_Electricity_RawBatchGrinding"]) / Convert.ToDecimal(dr["First_Output_RawBatch"]);
+                    dr["First_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["First_Electricity_RawBatch"]) / MyToDecimal(dr["First_Output_RawBatch"]);
+                    dr["First_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["First_Output_RawBatch"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_RawBatch"]) != 0)
+                if (MyToDecimal(dr["Second_Output_RawBatch"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_RawBatch"] = Convert.ToDecimal(dr["Second_Electricity_RawBatch"]) / Convert.ToDecimal(dr["Second_Output_RawBatch"]);
-                    dr["Second_ElectricityConsumption_RawBatchGrinding"] = Convert.ToDecimal(dr["Second_Electricity_RawBatchGrinding"]) / Convert.ToDecimal(dr["Second_Output_RawBatch"]);
+                    dr["Second_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Second_Electricity_RawBatch"]) / MyToDecimal(dr["Second_Output_RawBatch"]);
+                    dr["Second_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Second_Output_RawBatch"]);
                 }
-                if (Convert.ToInt64(dr["Third_Output_RawBatch"]) != 0)
+                if (MyToDecimal(dr["Third_Output_RawBatch"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_RawBatch"] = Convert.ToDecimal(dr["Third_Electricity_RawBatch"]) / Convert.ToDecimal(dr["Third_Output_RawBatch"]);
-                    dr["Third_ElectricityConsumption_RawBatchGrinding"] = Convert.ToDecimal(dr["Third_Electricity_RawBatchGrinding"]) / Convert.ToDecimal(dr["Third_Output_RawBatch"]);
+                    dr["Third_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Third_Electricity_RawBatch"]) / MyToDecimal(dr["Third_Output_RawBatch"]);
+                    dr["Third_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Third_Output_RawBatch"]);
                 }
                 ////////////////////////////////////////////////////熟料烧成电耗///////////////////////////////////////////////////////////////////////////
-                if (Convert.ToInt64(dr["First_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_Clinker"] = Convert.ToDecimal(dr["First_Electricity_Clinker"]) / Convert.ToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ElectricityConsumption_Clinker"] = MyToDecimal(dr["First_Electricity_Clinker"]) / MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_Clinker"] = Convert.ToDecimal(dr["Second_Electricity_Clinker"]) / Convert.ToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Second_Electricity_Clinker"]) / MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Third_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_Clinker"] = Convert.ToDecimal(dr["Third_Electricity_Clinker"]) / Convert.ToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Third_Electricity_Clinker"]) / MyToDecimal(dr["Third_Output_Clinker"]);
                 }
                 /////////////////////////////////////////////////////煤磨电耗//////////////////////////////////////////////////////////////////////////////////////
-                if (Convert.ToInt64(dr["First_Output_CoalDust"]) != 0)
+                if (MyToDecimal(dr["First_Output_CoalDust"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_CoalDust"] = Convert.ToDecimal(dr["First_Electricity_CoalDust"]) / Convert.ToDecimal(dr["First_Output_CoalDust"]);
+                    dr["First_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["First_Electricity_CoalDust"]) / MyToDecimal(dr["First_Output_CoalDust"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_CoalDust"]) != 0)
+                if (MyToDecimal(dr["Second_Output_CoalDust"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_CoalDust"] = Convert.ToDecimal(dr["Second_Electricity_CoalDust"]) / Convert.ToDecimal(dr["Second_Output_CoalDust"]);
+                    dr["Second_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Second_Electricity_CoalDust"]) / MyToDecimal(dr["Second_Output_CoalDust"]);
                 }
-                if (Convert.ToInt64(dr["First_Output_CoalDust"]) != 0)
+                if (MyToDecimal(dr["Third_Output_CoalDust"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_CoalDust"] = Convert.ToDecimal(dr["Third_Electricity_CoalDust"]) / Convert.ToDecimal(dr["Third_Output_CoalDust"]);
+                    dr["Third_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Third_Electricity_CoalDust"]) / MyToDecimal(dr["Third_Output_CoalDust"]);
                 }
                 ///////////////////////////////////////////////////吨熟料综合电耗//////////////////////////////////////////////////////////////////////
-                if (Convert.ToInt64(dr["First_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ComprehensiveElectricityConsumption"] = (Convert.ToDecimal(dr["First_Electricity_RawBatch"]) + Convert.ToDecimal(dr["First_Electricity_Clinker"])) / Convert.ToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["First_Electricity_RawBatch"]) + MyToDecimal(dr["First_Electricity_Clinker"])) / MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ComprehensiveElectricityConsumption"] = (Convert.ToDecimal(dr["Second_Electricity_RawBatch"]) + Convert.ToDecimal(dr["Second_Electricity_Clinker"])) / Convert.ToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Second_Electricity_RawBatch"]) + MyToDecimal(dr["Second_Electricity_Clinker"])) / MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Third_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ComprehensiveElectricityConsumption"] = (Convert.ToDecimal(dr["Third_Electricity_RawBatch"]) + Convert.ToDecimal(dr["Third_Electricity_Clinker"])) / Convert.ToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Third_Electricity_RawBatch"]) + MyToDecimal(dr["Third_Electricity_Clinker"])) / MyToDecimal(dr["Third_Output_Clinker"]);
                 }
                 //////////////////////////////////////////////////吨熟料实物煤耗////////////////////////////////////////////////////////////
-                if (Convert.ToInt64(dr["First_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ComprehensiveCoalConsumption"] = Convert.ToDecimal(dr["First_Consumption_CoalDust"]) / Convert.ToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ComprehensiveCoalConsumption"] = MyToDecimal(dr["First_Consumption_CoalDust"]) / MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Second_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ComprehensiveCoalConsumption"] = Convert.ToDecimal(dr["Second_Consumption_CoalDust"]) / Convert.ToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Second_Consumption_CoalDust"]) / MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Third_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ComprehensiveCoalConsumption"] = Convert.ToDecimal(dr["Third_Consumption_CoalDust"]) / Convert.ToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Third_Consumption_CoalDust"]) / MyToDecimal(dr["Third_Output_Clinker"]);
                 }
-
 
                 /////////////////////////////////////////////////日合计//////////////////////////////////////////////////////////////////////
-                dr["Amountto_Electricity_RawBatch"] = Convert.ToInt64(dr["First_Electricity_RawBatch"]) + Convert.ToInt64(dr["Second_Electricity_RawBatch"]) + Convert.ToInt64(dr["Third_Electricity_RawBatch"]);
-                dr["Amountto_Electricity_RawBatchGrinding"] = Convert.ToInt64(dr["First_Electricity_RawBatchGrinding"]) + Convert.ToInt64(dr["Second_Electricity_RawBatchGrinding"]) + Convert.ToInt64(dr["Third_Electricity_RawBatchGrinding"]);
-                dr["Amountto_Electricity_Clinker"] = Convert.ToInt64(dr["First_Electricity_Clinker"]) + Convert.ToInt64(dr["Second_Electricity_Clinker"]) + Convert.ToInt64(dr["Third_Electricity_Clinker"]);
-                dr["Amountto_Electricity_CoalDust"] = Convert.ToInt64(dr["First_Electricity_CoalDust"]) + Convert.ToInt64(dr["Second_Electricity_CoalDust"]) + Convert.ToInt64(dr["Third_Electricity_CoalDust"]);
-                dr["Amountto_Consumption_CoalDust"] = Convert.ToInt64(dr["First_Consumption_CoalDust"]) + Convert.ToInt64(dr["Second_Consumption_CoalDust"]) + Convert.ToInt64(dr["Third_Consumption_CoalDust"]);
-                dr["Amountto_Output_RawBatch"] = Convert.ToInt64(dr["First_Output_RawBatch"]) + Convert.ToInt64(dr["Second_Output_RawBatch"]) + Convert.ToInt64(dr["Third_Output_RawBatch"]);
-                dr["Amountto_Output_Clinker"] = Convert.ToInt64(dr["First_Output_Clinker"]) + Convert.ToInt64(dr["Second_Output_Clinker"]) + Convert.ToInt64(dr["Third_Output_Clinker"]);
-                dr["Amountto_Output_CoalDust"] = Convert.ToInt64(dr["First_Output_CoalDust"]) + Convert.ToInt64(dr["Second_Output_CoalDust"]) + Convert.ToInt64(dr["Third_Output_CoalDust"]);
-                dr["Amountto_Output_Cogeneration"] = Convert.ToInt64(dr["First_Output_Cogeneration"]) + Convert.ToInt64(dr["Second_Output_Cogeneration"]) + Convert.ToInt64(dr["Third_Output_Cogeneration"]);
+                dr["Amountto_Electricity_RawBatch"] = MyToDecimal(dr["First_Electricity_RawBatch"]) + MyToDecimal(dr["Second_Electricity_RawBatch"]) + MyToDecimal(dr["Third_Electricity_RawBatch"]);
+                dr["Amountto_Electricity_RawBatchGrinding"] = MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) + MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) + MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]);
+                dr["Amountto_Electricity_Clinker"] = MyToDecimal(dr["First_Electricity_Clinker"]) + MyToDecimal(dr["Second_Electricity_Clinker"]) + MyToDecimal(dr["Third_Electricity_Clinker"]);
+                dr["Amountto_Electricity_CoalDust"] = MyToDecimal(dr["First_Electricity_CoalDust"]) + MyToDecimal(dr["Second_Electricity_CoalDust"]) + MyToDecimal(dr["Third_Electricity_CoalDust"]);
+                dr["Amountto_Consumption_CoalDust"] = MyToDecimal(dr["First_Consumption_CoalDust"]) + MyToDecimal(dr["Second_Consumption_CoalDust"]) + MyToDecimal(dr["Third_Consumption_CoalDust"]);
+                dr["Amountto_Output_RawBatch"] = MyToDecimal(dr["First_Output_RawBatch"]) + MyToDecimal(dr["Second_Output_RawBatch"]) + MyToDecimal(dr["Third_Output_RawBatch"]);
+                dr["Amountto_Output_Clinker"] = MyToDecimal(dr["First_Output_Clinker"]) + MyToDecimal(dr["Second_Output_Clinker"]) + MyToDecimal(dr["Third_Output_Clinker"]);
+                dr["Amountto_Output_CoalDust"] = MyToDecimal(dr["First_Output_CoalDust"]) + MyToDecimal(dr["Second_Output_CoalDust"]) + MyToDecimal(dr["Third_Output_CoalDust"]);
+                dr["Amountto_Output_Cogeneration"] = MyToDecimal(dr["First_Output_Cogeneration"]) + MyToDecimal(dr["Second_Output_Cogeneration"]) + MyToDecimal(dr["Third_Output_Cogeneration"]);
 
-                if (Convert.ToInt64(dr["Amountto_Output_RawBatch"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_RawBatch"] = Convert.ToDecimal(dr["Amountto_Electricity_RawBatch"]) / Convert.ToDecimal(dr["Amountto_Output_RawBatch"]);
+                    dr["Amountto_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Amountto_Electricity_RawBatch"]) / MyToDecimal(dr["Amountto_Output_RawBatch"]);
                 }
-                if (Convert.ToInt64(dr["Amountto_Output_RawBatch"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_RawBatchGrinding"] = Convert.ToDecimal(dr["Amountto_Electricity_RawBatchGrinding"]) / Convert.ToDecimal(dr["Amountto_Output_RawBatch"]);
+                    dr["Amountto_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Amountto_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Amountto_Output_RawBatch"]);
                 }
-                if (Convert.ToInt64(dr["Amountto_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_Clinker"] = Convert.ToDecimal(dr["Amountto_Electricity_Clinker"]) / Convert.ToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Amountto_Electricity_Clinker"]) / MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Amountto_Output_CoalDust"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_CoalDust"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_CoalDust"] = Convert.ToDecimal(dr["Amountto_Electricity_CoalDust"]) / Convert.ToDecimal(dr["Amountto_Output_CoalDust"]);
+                    dr["Amountto_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Amountto_Electricity_CoalDust"]) / MyToDecimal(dr["Amountto_Output_CoalDust"]);
                 }
-                if (Convert.ToInt64(dr["Amountto_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ComprehensiveElectricityConsumption"] = (Convert.ToDecimal(dr["Amountto_Electricity_RawBatch"]) + Convert.ToDecimal(dr["Amountto_Electricity_Clinker"])) / Convert.ToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Amountto_Electricity_RawBatch"]) + MyToDecimal(dr["Amountto_Electricity_Clinker"])) / MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
-                if (Convert.ToInt64(dr["Amountto_Output_Clinker"]) != 0)
+                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ComprehensiveCoalConsumption"] = Convert.ToDecimal(dr["Amountto_Consumption_CoalDust"]) / Convert.ToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Amountto_Consumption_CoalDust"]) / MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
             }
 
             return temp1;
+        }
+
+        private static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+            }
         }
     }
 }
