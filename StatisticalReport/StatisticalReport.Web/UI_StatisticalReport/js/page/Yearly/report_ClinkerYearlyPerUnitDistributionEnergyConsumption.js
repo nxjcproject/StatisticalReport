@@ -1,6 +1,7 @@
 ﻿var editIndex = undefined;
 
 $(document).ready(function () {
+    $('#lbRead').linkbutton('disable');
     $('#lbQuery').linkbutton('disable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
@@ -13,12 +14,27 @@ function onOrganisationTreeClick(node) {
 
     $('#gridMain_ReportTemplate').datagrid('loadData', []);
 
+    $('#lbRead').linkbutton('enable');
     $('#lbQuery').linkbutton('enable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
 }
 
+// 仅查询存储的
+function ReadClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun() {
+    endEditing();           //关闭正在编辑
 
+    var organizationID = $('#organizationId').val();
+    var datetime = $('#datetime').datetimespinner('getValue');
+    if (organizationID == "" || datetime == "") {
+        $.messager.alert('提示', '请选择生产线和时间');
+        return;
+    }
+
+    ReadClinkerYearlyPerUnitDistributionEnergyConsumptionData('last');
+}
+
+// 查询原始数据
 function QueryClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun() {
     endEditing();           //关闭正在编辑
 
@@ -32,6 +48,43 @@ function QueryClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun() {
     LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData('last');
 }
 
+
+// 仅查询存储的
+function ReadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
+    var organizationID = $('#organizationId').val();
+    var datetime = $('#datetime').datetimespinner('getValue');
+
+    $.messager.progress();
+
+    $.ajax({
+        type: "POST",
+        url: "report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx/ReadClinkerYearlyPerUnitDistributionEnergyConsumptionInfo",
+        data: "{organizationId:'" + organizationID + "',year:'" + datetime + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var m_MsgData = jQuery.parseJSON(msg.d);
+            if (myLoadType == 'first') {
+                InitializeClinkerYearlyPerUnitDistributionEnergyConsumptionGrid(m_MsgData);
+            }
+            else if (myLoadType == 'last') {
+                $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
+
+                $('#lbRead').linkbutton('disable');
+                $('#lbQuery').linkbutton('enable');
+                $('#lbCalc').linkbutton('enable');
+                $('#lbSave').linkbutton('disable');
+            }
+
+            $.messager.progress('close');
+        },
+        error: function (msg) {
+            $.messager.progress('close');
+        }
+    });
+}
+
+// 查询原始数据
 function LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
     var organizationID = $('#organizationId').val();
     var datetime = $('#datetime').datetimespinner('getValue');
@@ -52,8 +105,10 @@ function LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
 
+                $('#lbRead').linkbutton('enable');
                 $('#lbQuery').linkbutton('disable');
                 $('#lbCalc').linkbutton('enable');
+                $('#lbSave').linkbutton('disable');
             }
 
             $.messager.progress('close');
@@ -63,6 +118,7 @@ function LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
         }
     });
 }
+
 function RefreshClinkerYearlyPerUnitDistributionEnergyConsumptionPlanFun() {
     QueryClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun();
 }
@@ -100,6 +156,7 @@ function CalculateClinkerYearlyPerUnitDistributionEnergyConsumptionFun() {
     }
     else {
         alert("请先读入能耗原始数据！");
+        $.messager.progress('close');
     }
 }
 
@@ -133,6 +190,7 @@ function SaveClinkerYearlyPerUnitDistributionEnergyConsumptionFun() {
     }
     else {
         alert("无可以保存的数据！");
+        $.messager.progress('close');
     }
 }
 

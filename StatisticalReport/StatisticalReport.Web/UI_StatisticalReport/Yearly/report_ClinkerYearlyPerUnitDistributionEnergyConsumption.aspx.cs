@@ -26,6 +26,100 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Yearly
             this.OrganisationTree_ProductionLine.PageName = "EnergyConsumptionPlan.aspx";                                     //向web用户控件传递当前调用的页面名称
         }
 
+        /// <summary>
+        /// 查询已保存的
+        /// </summary>
+        /// <param name="organizationId"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public static string ReadClinkerYearlyPerUnitDistributionEnergyConsumptionInfo(string organizationId, string year)
+        {
+            string[] m_ColumnText = new string[] { "ID","KeyID","Type",
+                "月份", 
+                "熟料用电量(kwh)", 
+                "入窑煤粉量(t)", 
+                "煤粉低位发热量(kJ/kg)",
+                "点火用油",
+                "余热发电量(kwh)",
+                "余热自用电(kwh)", 
+                "余热供电量(kwh)", 
+                "熟料产量(t)",
+                "熟料强度(Mpa)", 
+                "熟料强度修正系数",
+                "熟料综合电耗(kwh/t)", 
+                "可比熟料综合电耗(kwh/t)", 
+                "煤耗(kgce/t)", 
+                "油耗 (kgce/t)", 
+                "余热供电折标(kgce/t)",
+                "熟料综合煤耗(kgce/t)", 
+                "可比熟料综合煤耗(kgce/t)",
+                "熟料综合能耗(kgce/t)", 
+                "可比熟料综合能耗(kgce/t)" 
+            };
+
+            int[] m_ColumnWidth = new int[] { 0, 0, 0, 60, 100, 90, 135, 65, 110, 110, 110, 80, 90, 110, 120, 145, 90, 90, 140, 140, 150, 140, 150 };
+            string[] m_FormatString = new string[] { "","","","",
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"熟料用电量(kwh)", 
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"入窑煤粉量(t)", 
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"煤粉低位发热量(kJ/kg)",
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"2\"}",                //"点火用油",
+                "", //"\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"余热发电量(kwh)",
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"余热自用电(kwh)", 
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"余热供电量(kwh)", 
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"0\"}",                //"熟料产量(t)",
+                "\"type\":\"numberbox\", \"options\":{\"precision\":\"1\"}",                //"熟料强度(Mpa)", 
+                "", //"\"type\":\"numberbox\", \"options\":{\"precision\":\"4\"}",                //"熟料强度修正系数",
+                "",                                                                         //"熟料综合电耗(kwh/t)", 
+                "",                                                                         //"可比熟料综合电耗(kwh/t)", 
+                "",                                                                         //"煤耗(kgce/t)", 
+                "",                                                                         //"油耗 (kgce/t)", 
+                "",                                                                         //"余热供电折标(kgce/t)",
+                "",                                                                         //"熟料综合煤耗(kgce/t)", 
+                "",                                                                         //"可比熟料综合煤耗(kgce/t)",
+                "",                                                                         //"熟料综合能耗(kgce/t)", 
+                ""                                                                          //"可比熟料综合能耗(kgce/t)" 
+            };
+
+            DataTable m_ClinkerYearlyPerUnitDistributionEnergyConsumptionInfo = ClinkerYearlyPerUnitDistributionEnergyConsumption.Read(organizationId, year);
+            string m_Rows = EasyUIJsonParser.DataGridJsonParser.GetDataRowJson(m_ClinkerYearlyPerUnitDistributionEnergyConsumptionInfo);
+            StringBuilder m_Columns = new StringBuilder();
+            if (m_Rows == "")
+            {
+                m_Rows = "\"rows\":[],\"total\":0";
+            }
+            m_Columns.Append("\"columns\":[");
+            for (int i = 0; i < m_ClinkerYearlyPerUnitDistributionEnergyConsumptionInfo.Columns.Count; i++)
+            {
+                m_Columns.Append("{");
+                if (m_ColumnWidth[i] == 0)
+                    m_Columns.Append("\"hidden\":true");
+                else
+                    m_Columns.Append("\"width\":\"" + m_ColumnWidth[i] + "\"");
+                m_Columns.Append(", \"title\":\"" + m_ColumnText[i] + "\"");
+                m_Columns.Append(", \"field\":\"" + m_ClinkerYearlyPerUnitDistributionEnergyConsumptionInfo.Columns[i].ColumnName.ToString() + "\"");
+                if (m_FormatString[i] != "")
+                {
+                    m_Columns.Append(", \"editor\":{" + m_FormatString[i] + "}");
+                }
+
+                m_Columns.Append("}");
+                if (i < m_ClinkerYearlyPerUnitDistributionEnergyConsumptionInfo.Columns.Count - 1)
+                {
+                    m_Columns.Append(",");
+                }
+            }
+            m_Columns.Append("]");
+
+            return "{" + m_Rows + "," + m_Columns + "}";
+        }
+
+        /// <summary>
+        /// 查询原始数据
+        /// </summary>
+        /// <param name="organizationId"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         [WebMethod]
         public static string GetClinkerYearlyPerUnitDistributionEnergyConsumptionInfo(string organizationId, string year)
         {
