@@ -88,6 +88,7 @@
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Monthly\report_EnergyConsumptionMonthlyStatisticAnalysis.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_TeamCementMonthlyEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.js" />
@@ -1606,6 +1607,7 @@
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyElectricityConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_ClinkerYearlyProcessEnergyConsumption.js" />
+    <Content Include="UI_StatisticalReport\js\page\Yearly\report_EnergyConsumptionYearlyStatisticAnalysis.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamCementYearlyEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_TeamClinkerYearlyProcessEnergyConsumption.js" />
     <Content Include="UI_StatisticalReport\js\page\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.js" />
@@ -1616,6 +1618,7 @@
     <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_ClinkerMonthlyProcessEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Monthly\report_EnergyConsumptionMonthlyStatisticAnalysis.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_TeamCementMonthlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Monthly\report_TeamClinkerMonthlyProcessEnergyConsumption.aspx" />
@@ -1643,6 +1646,7 @@
     <Content Include="UI_StatisticalReport\Yearly\report_CementYearlyPerUnitDistributionPowerConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyPerUnitDistributionEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyProcessEnergyConsumption.aspx" />
+    <Content Include="UI_StatisticalReport\Yearly\report_EnergyConsumptionYearlyStatisticAnalysis.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_TeamCementYearlyEnergyConsumption.aspx" />
     <Content Include="UI_StatisticalReport\Yearly\report_TeamClinkerYearlyProcessEnergyConsumption.aspx" />
     <Content Include="Web.config">
@@ -1724,6 +1728,13 @@
     </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.designer.cs">
       <DependentUpon>report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_EnergyConsumptionMonthlyStatisticAnalysis.aspx.cs">
+      <DependentUpon>report_EnergyConsumptionMonthlyStatisticAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Monthly\report_EnergyConsumptionMonthlyStatisticAnalysis.aspx.designer.cs">
+      <DependentUpon>report_EnergyConsumptionMonthlyStatisticAnalysis.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Monthly\report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs">
       <DependentUpon>report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx</DependentUpon>
@@ -1913,6 +1924,13 @@
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_ClinkerYearlyProcessEnergyConsumption.aspx.designer.cs">
       <DependentUpon>report_ClinkerYearlyProcessEnergyConsumption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_EnergyConsumptionYearlyStatisticAnalysis.aspx.cs">
+      <DependentUpon>report_EnergyConsumptionYearlyStatisticAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_StatisticalReport\Yearly\report_EnergyConsumptionYearlyStatisticAnalysis.aspx.designer.cs">
+      <DependentUpon>report_EnergyConsumptionYearlyStatisticAnalysis.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Yearly\report_TeamCementYearlyEnergyConsumption.aspx.cs">
       <DependentUpon>report_TeamCementYearlyEnergyConsumption.aspx</DependentUpon>

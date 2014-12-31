@@ -244,5 +244,126 @@ namespace StatisticalReport.Infrastructure.Report
 
             return result;
         }
+
+        /// <summary>
+        /// 返回组织结构表，填加了熟料生产线一级和水泥磨生产线一级。
+        /// </summary>
+        /// <param name="organizationId">organizationId可以为总公司，分公司，分厂级别</param>
+        /// <returns></returns>
+        public DataTable GetCompanyLevelTable(string organizationId)
+        {
+            const int groupLength = 2;
+            const int companyLength = 3;
+            const int factoryLength = 4;
+            string[] levelArray = organizationId.Split('_');
+            int topLevel = levelArray.Count();
+            // 生产线类别，有顺序
+            string[] typeArray = new string[] { "熟料", "水泥磨" };
+            string[] typeDescription = new string[] { "熟料生产线", "水泥磨" };
+
+            // 获取原始数据表
+            DataTable originalTable = _dataFactory.Query("SELECT [LevelCode], [OrganizationID], [Type], [Name] FROM [system_Organization] WHERE [OrganizationID] LIKE '" + organizationId + "%'");
+            //获得传入的组织机构层次码长度(公司级的认为是3，分厂级的认为是5)
+            //int topLevel = originalTable.Select("OrganizationID='" + organizationId+"'")[0]["LevelCode"].ToString().Trim().Length;
+            // 结果表
+            DataTable resultTable = originalTable.Clone();
+            //当传入总公司级别的organizationId         
+
+            //当传入公司级别的organizationId
+            if (groupLength == topLevel || companyLength == topLevel)
+            {
+                // 添加合计行
+                DataRow ammountRow = resultTable.NewRow();
+                if (groupLength == topLevel)//集团级别
+                {
+                    ammountRow["LevelCode"] = "P01";
+                    ammountRow["Name"] = "宁夏建材";
+                    ammountRow["OrganizationID"] = "zc_nxjc";
+                    resultTable.Rows.Add(ammountRow);
+                }
+                else
+                {
+                    ammountRow["LevelCode"] = "P";
+                    ammountRow["Name"] = "";
+                }
+                // 遍历公司级（层次码长度为3的认为是公司级）
+                DataRow[] companyRows = originalTable.Select("LEN(TRIM(LevelCode)) = 3");
+                for (int i = 0; i < companyRows.Length; i++)
+                {
+                    DataRow companyRow = resultTable.NewRow();
+                    companyRow.ItemArray = companyRows[i].ItemArray;                // 复制行
+                    companyRow["LevelCode"] = ammountRow["LevelCode"] + (i + 1).ToString("#00");      // 编辑层次码
+
+                    resultTable.Rows.Add(companyRow);
+
+                    // 遍历当前公司下的分厂级（层次码以公司层次码开头，并且长度为5的认为是分厂级）
+                    DataRow[] factoryRows = originalTable.Select("LEN(TRIM(LevelCode)) = 5 AND LevelCode LIKE '" + companyRows[i]["LevelCode"] + "%'");
+                    for (int j = 0; j < factoryRows.Length; j++)
+                    {
+                        DataRow factoryRow = resultTable.NewRow();
+                        factoryRow.ItemArray = factoryRows[j].ItemArray;
+                        factoryRow["LevelCode"] = companyRow["LevelCode"] + (j + 1).ToString("#00");
+
+                        resultTable.Rows.Add(factoryRow);
+
+                        // 遍历产线类型（按数组顺序）
+                        for (int k = 0; k < typeArray.Length; k++)
+                        {
+                            DataRow typeRow = resultTable.NewRow();
+                            typeRow["LevelCode"] = factoryRow["LevelCode"] + (k + 1).ToString("#00");
+                            typeRow["Name"] = typeDescription[k];
+
+                            resultTable.Rows.Add(typeRow);
+
+                            // 遍历当前分厂下的产线级（层次码以分厂层次码开头，并且有产线类型的认为是产线级）
+                            DataRow[] productLineRows = originalTable.Select("Type = '" + typeArray[k] + "' AND LevelCode LIKE '" + factoryRows[j]["LevelCode"] + "%'");
+                            for (int l = 0; l < productLineRows.Length; l++)
+                            {
+                                DataRow productLineRow = resultTable.NewRow();
+                                productLineRow.ItemArray = productLineRows[l].ItemArray;
+                                productLineRow["LevelCode"] = typeRow["LevelCode"] + (l + 1).ToString("#00");
+
+                                resultTable.Rows.Add(productLineRow);
+                            }
+                        }
+                    }
+                }
+            }
+            //当传入分厂级别的organizationId，此时只有一个分长不用再添加合计行
+            if (factoryLength == topLevel)
+            {
+                // 遍历当前公司下的分厂级（层次码以公司层次码开头，并且长度为5的认为是分厂级）
+                DataRow[] factoryRows = originalTable.Select("LEN(TRIM(LevelCode)) = 5");
+                for (int i = 0; i < factoryRows.Length; i++)
+                {
+                    DataRow factoryRow = resultTable.NewRow();
+                    factoryRow.ItemArray = factoryRows[i].ItemArray;                // 复制行
+                    factoryRow["LevelCode"] = "P" + (i + 1).ToString("#00");      // 编辑层次码
+
+                    resultTable.Rows.Add(factoryRow);
+                    // 遍历产线类型（按数组顺序）
+                    for (int k = 0; k < typeArray.Length; k++)
+                    {
+                        DataRow typeRow = resultTable.NewRow();
+                        typeRow["LevelCode"] = factoryRow["LevelCode"] + (k + 1).ToString("#00");
+                        typeRow["Name"] = typeDescription[k];
+
+                        resultTable.Rows.Add(typeRow);
+
+                        // 遍历当前分厂下的产线级（层次码以分厂层次码开头，并且有产线类型的认为是产线级）
+                        DataRow[] productLineRows = originalTable.Select("Type = '" + typeArray[k] + "' AND LevelCode LIKE '" + factoryRows[i]["LevelCode"] + "%'");
+                        for (int l = 0; l < productLineRows.Length; l++)
+                        {
+                            DataRow productLineRow = resultTable.NewRow();
+                            productLineRow.ItemArray = productLineRows[l].ItemArray;
+                            productLineRow["LevelCode"] = typeRow["LevelCode"] + (l + 1).ToString("#00");
+
+                            resultTable.Rows.Add(productLineRow);
+                        }
+                    }
+                }
+            }
+            return resultTable;
+        }
     }
 }

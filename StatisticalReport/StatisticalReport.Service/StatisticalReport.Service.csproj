@@ -68,6 +68,7 @@
     <Compile Include="StatisticalReportServices\Monthly\ClinkerMonthlyPeakerValleyFlatElectricityConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\ClinkerMonthlyProcessEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\CoalMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Monthly\EnergyConsumptionMonthlyStatisticAnalysis.cs" />
     <Compile Include="StatisticalReportServices\Monthly\RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\TeamCementMonthlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\TeamClinkerMonthlyProcessEnergyConsumption.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="StatisticalReportServices\Yearly\CementYearlyPerUnitDistributionPowerConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyPerUnitDistributionEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\ClinkerYearlyProcessEnergyConsumption.cs" />
+    <Compile Include="StatisticalReportServices\Yearly\EnergyConsumptionYearlyStatisticAnalysis.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamCementYearlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Yearly\TeamClinkerYearlyProcessEnergyConsumption.cs" />
     <Compile Include="VBReport\Daily\AmmeterPeakerValleyFlatDay.cs" />
