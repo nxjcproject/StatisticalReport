@@ -11,6 +11,7 @@ function onOrganisationTreeClick(node) {
     $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationId);
 
+    $('#gridMain_ReportTemplate').datagrid('loadData', []);
 
     $('#lbQuery').linkbutton('enable');
     $('#lbCalc').linkbutton('disable');
