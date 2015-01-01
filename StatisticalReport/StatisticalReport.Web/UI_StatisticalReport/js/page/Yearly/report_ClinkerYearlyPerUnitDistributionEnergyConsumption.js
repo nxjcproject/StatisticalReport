@@ -1,8 +1,6 @@
 ﻿var editIndex = undefined;
 
 $(document).ready(function () {
-    $('#lbRead').linkbutton('disable');
-    $('#lbQuery').linkbutton('disable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
     LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData('first');
@@ -14,8 +12,6 @@ function onOrganisationTreeClick(node) {
 
     $('#gridMain_ReportTemplate').datagrid('loadData', []);
 
-    $('#lbRead').linkbutton('enable');
-    $('#lbQuery').linkbutton('enable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
 }
@@ -70,8 +66,6 @@ function ReadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
 
-                $('#lbRead').linkbutton('disable');
-                $('#lbQuery').linkbutton('enable');
                 $('#lbCalc').linkbutton('enable');
                 $('#lbSave').linkbutton('disable');
             }
@@ -105,8 +99,6 @@ function LoadClinkerYearlyPerUnitDistributionEnergyConsumptionData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
 
-                $('#lbRead').linkbutton('enable');
-                $('#lbQuery').linkbutton('disable');
                 $('#lbCalc').linkbutton('enable');
                 $('#lbSave').linkbutton('disable');
             }

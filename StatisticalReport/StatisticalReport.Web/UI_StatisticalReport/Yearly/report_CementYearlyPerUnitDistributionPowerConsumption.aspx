@@ -35,8 +35,10 @@
 	                <td>
 		                <table>
 			                <tr>
-				                <td>生产线：</td>
+				                <td>水泥磨生产线：</td>
 		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+				                <td>熟料生产线：</td>
+		                        <td><input id="clinkerProductLine" class="easyui-combotree" style="width:180px;" /></td>
 				                <td>时间：</td>
 				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>
 				                <td><a id="lbQuery" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 

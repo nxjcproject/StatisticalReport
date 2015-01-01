@@ -117,5 +117,13 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Yearly
             string result = CementYearlyPerUnitDistributionPowerConsumption.Save(organizationId, clinkerOrganizationId, year, m_DataGridData);
             return "{\"result\":\"" + result + "\"}";
         }
+
+        [WebMethod]
+        public static string GetClinkerListWithCombotreeFormat(string organizationId)
+        {
+            DataTable dt = CementYearlyPerUnitDistributionPowerConsumption.GetClinkerTable(organizationId);
+
+            return EasyUIJsonParser.TreeJsonParser.DataTableToJsonByLevelCodeWithIdColumn(dt, "LevelCode", "OrganizationID", "Name");
+        }
     }
 }

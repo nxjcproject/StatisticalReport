@@ -4,6 +4,7 @@ using StatisticalReport.Infrastructure.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -27,7 +28,11 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             //////////////////////////////////////////////////////////////////
             //入口参数
             string v_begin = _year + "-01";                                 // 从一月份开始
-            string v_end = _year + "-" + DateTime.Now.ToString("MM");       // 到当前月结束
+            string v_end = "";
+            if (int.Parse(_year) >= DateTime.Now.Year)
+                v_end = _year + "-" + DateTime.Now.ToString("MM");          // 到当前月结束
+            else
+                v_end = _year + "-12";
 
             // 1．	创建temp_result
             DataTable temp_result = tzHelper.CreateTableStructure("report_CementYearlyPerUnitDistributionPowerConsumption");
@@ -314,6 +319,20 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             _dataFactory.Save("report_CementYearlyPerUnitDistributionPowerConsumption", data);
 
             return "保存成功";
+        }
+        
+        /// <summary>
+        /// 查询组织机构下的熟料线（组织机构ID需为分厂级或分厂级以上）
+        /// </summary>
+        /// <param name="organizationId"></param>
+        /// <returns></returns>
+        public static DataTable GetClinkerTable(string organizationId)
+        {
+            string command = @" SELECT B.* 
+                                FROM [system_Organization] AS A, [system_Organization] AS B 
+                                WHERE A.[OrganizationID] = @organizationId AND B.[LevelCode] LIKE SUBSTRING(A.[LevelCode], 1, 3) + '%' AND (B.[Type] = '熟料' OR B.[Type] IS NULL)";
+
+            return _dataFactory.Query(command, new SqlParameter("organizationId", organizationId));
         }
     }
 }

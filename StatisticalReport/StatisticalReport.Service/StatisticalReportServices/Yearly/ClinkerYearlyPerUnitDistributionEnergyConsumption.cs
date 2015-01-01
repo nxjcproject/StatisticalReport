@@ -25,7 +25,11 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
         public static DataTable TableQuery(string organizationId, string _year)
         {
             string v_begin = _year + "-01";                                 // 从一月份开始
-            string v_end = _year + "-" + DateTime.Now.ToString("MM");       // 到当前月结束
+            string v_end = "";
+            if (int.Parse(_year) >= DateTime.Now.Year)
+                v_end = _year + "-" + DateTime.Now.ToString("MM");          // 到当前月结束
+            else
+                v_end = _year + "-12";
 
             // 1. 从erp中导入v_begin=”2013-11”，v_end=”2014-03”范围内的煤粉低位发热量、点火用油和熟料强度——〉temp_erp
             string sqlQuery = "select * from [temp_erp] where [OrganizationID] = '" + organizationId + "'";

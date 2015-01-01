@@ -1,7 +1,6 @@
 ﻿var editIndex = undefined;
 
 $(document).ready(function () {
-    $('#lbQuery').linkbutton('disable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
     LoadCementYearlyPerUnitDistributionPowerConsumptionData('first');
@@ -10,14 +9,31 @@ $(document).ready(function () {
 function onOrganisationTreeClick(node) {
     $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationId);
+    // 更新熟料下拉列表
+    InitializeClinkerCombotree();
 
     $('#gridMain_ReportTemplate').datagrid('loadData', []);
 
-    $('#lbQuery').linkbutton('enable');
     $('#lbCalc').linkbutton('disable');
     $('#lbSave').linkbutton('disable');
 }
 
+// 初始化熟料下拉列表
+function InitializeClinkerCombotree() {
+    var organizationID = $('#organizationId').val();
+
+    $.ajax({
+        type: "POST",
+        url: "report_CementYearlyPerUnitDistributionPowerConsumption.aspx/GetClinkerListWithCombotreeFormat",
+        data: "{organizationId:'" + organizationID + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var m_MsgData = jQuery.parseJSON(msg.d);
+            $('#clinkerProductLine').combotree('loadData', m_MsgData);
+        }
+    });
+}
 
 function QueryCementYearlyPerUnitDistributionPowerConsumptionFun() {
     endEditing();           //关闭正在编辑
@@ -34,7 +50,7 @@ function QueryCementYearlyPerUnitDistributionPowerConsumptionFun() {
 
 function LoadCementYearlyPerUnitDistributionPowerConsumptionData(myLoadType) {
     var organizationID = $('#organizationId').val();
-    var clinkerOrganizationId = 'zc_nxjc_qtx_efc_clinker02';
+    var clinkerOrganizationId = $('#clinkerProductLine').combotree('getValue');
     var datetime = $('#datetime').datetimespinner('getValue');
 
     $.messager.progress();
@@ -53,7 +69,6 @@ function LoadCementYearlyPerUnitDistributionPowerConsumptionData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
 
-                $('#lbQuery').linkbutton('disable');
                 $('#lbCalc').linkbutton('enable');
             }
 
