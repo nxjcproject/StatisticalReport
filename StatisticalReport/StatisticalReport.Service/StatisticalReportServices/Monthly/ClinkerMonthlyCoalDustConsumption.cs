@@ -49,15 +49,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
             {
                 if (Convert.ToInt64(dr["First_Clinker_Output"]) != 0)
                 {
-                    dr["First_CoalDustConsumption"] = Convert.ToDecimal(dr["First_sum_CoalDust"]) / Convert.ToDecimal(dr["First_Clinker_Output"]);
+                    dr["First_CoalDustConsumption"] = Convert.ToDecimal(dr["First_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["First_Clinker_Output"]);
                 }
                 if (Convert.ToInt64(dr["Second_Clinker_Output"]) != 0)
                 {
-                    dr["Second_CoalDustConsumption"] = Convert.ToDecimal(dr["Second_sum_CoalDust"]) / Convert.ToDecimal(dr["Second_Clinker_Output"]);
+                    dr["Second_CoalDustConsumption"] = Convert.ToDecimal(dr["Second_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Second_Clinker_Output"]);
                 }
                 if (Convert.ToInt64(dr["Third_Clinker_Output"]) != 0)
                 {
-                    dr["Third_CoalDustConsumption"] = Convert.ToDecimal(dr["Third_sum_CoalDust"]) / Convert.ToDecimal(dr["Third_Clinker_Output"]);
+                    dr["Third_CoalDustConsumption"] = Convert.ToDecimal(dr["Third_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Third_Clinker_Output"]);
                 }
 
                 dr["Amountto_Clinker_Output"] = Convert.ToInt64(dr["First_Clinker_Output"]) + Convert.ToInt64(dr["Second_Clinker_Output"]) + Convert.ToInt64(dr["Third_Clinker_Output"]);
@@ -66,7 +66,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 dr["Amountto_sum_CoalDust"] = Convert.ToInt64(dr["First_sum_CoalDust"]) + Convert.ToInt64(dr["Second_sum_CoalDust"]) + Convert.ToInt64(dr["Third_sum_CoalDust"]);
                 if (Convert.ToInt64(dr["Amountto_Clinker_Output"]) != 0)
                 {
-                    dr["Amountto_CoalDustConsumption"] = Convert.ToDecimal(dr["Amountto_sum_CoalDust"]) / Convert.ToDecimal(dr["Amountto_Clinker_Output"]);
+                    dr["Amountto_CoalDustConsumption"] = Convert.ToDecimal(dr["Amountto_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Amountto_Clinker_Output"]);
                 }
             }
 

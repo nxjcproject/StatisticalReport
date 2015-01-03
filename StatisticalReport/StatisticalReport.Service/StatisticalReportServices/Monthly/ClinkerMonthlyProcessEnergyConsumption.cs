@@ -147,15 +147,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 //////////////////////////////////////////////////吨熟料实物煤耗////////////////////////////////////////////////////////////
                 if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ComprehensiveCoalConsumption"] = MyToDecimal(dr["First_Consumption_CoalDust"]) / MyToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ComprehensiveCoalConsumption"] = MyToDecimal(dr["First_Consumption_CoalDust"])*1000 / MyToDecimal(dr["First_Output_Clinker"]);
                 }
                 if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Second_Consumption_CoalDust"]) / MyToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Second_Consumption_CoalDust"])*1000 / MyToDecimal(dr["Second_Output_Clinker"]);
                 }
                 if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Third_Consumption_CoalDust"]) / MyToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Third_Consumption_CoalDust"])*1000 / MyToDecimal(dr["Third_Output_Clinker"]);
                 }
 
                 /////////////////////////////////////////////////日合计//////////////////////////////////////////////////////////////////////
@@ -183,7 +183,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 }
                 if (MyToDecimal(dr["Amountto_Output_CoalDust"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Amountto_Electricity_CoalDust"]) / MyToDecimal(dr["Amountto_Output_CoalDust"]);
+                    dr["Amountto_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Amountto_Electricity_CoalDust"])*1000 / MyToDecimal(dr["Amountto_Output_CoalDust"]);
                 }
                 if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {

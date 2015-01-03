@@ -168,7 +168,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 //吨熟料实物煤耗-累计
                 if (MyToDecimal(dr["Output_Clinker_Accumulative"])!=0)
                 {
-                    dr["ComprehensiveCoalConsumption_Accumulative"] = MyToDecimal(dr["Consumption_CoalDust_Accumulative"]) / MyToDecimal(dr["Output_Clinker_Accumulative"]);
+                    dr["ComprehensiveCoalConsumption_Accumulative"] = MyToDecimal(dr["Consumption_CoalDust_Accumulative"])*1000 / MyToDecimal(dr["Output_Clinker_Accumulative"]);
                 }
             }
             return temp;
