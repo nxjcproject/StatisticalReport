@@ -28,7 +28,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::NXJC.UI.Web.Common.OrganisationTree OrganisationTree;
+        protected global::WebUserContorls.Web.UI_WebUserControls.OrganizationSelector.OrganisationTree OrganisationTree_ProductionLine;
         
         /// <summary>
         /// formMain 控件。

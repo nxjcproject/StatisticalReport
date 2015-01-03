@@ -140,5 +140,5 @@ function QueryReportFun() {
 // datetime spinner
 function onOrganisationTreeClick(node) {
     $('#productLineName').textbox('setText', node.text);
-    $('#organizationId').val(node.OrganizationID);
+    $('#organizationId').val(node.OrganizationId);
 }

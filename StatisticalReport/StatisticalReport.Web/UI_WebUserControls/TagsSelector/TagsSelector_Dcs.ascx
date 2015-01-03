@@ -157,7 +157,9 @@
             }]],
             toolbar: '#ToolBar_TagsSelector_Dcs_DcsTags',
             onDblClickRow: function (rowIndex, rowData) {
-                GetTagInfo(rowData, DcsDataBaseNameQuery, DcsOrganizationIdQuery);
+                if (typeof (GetTagInfo) == "function") {
+                    GetTagInfo(rowData, DcsDataBaseNameQuery, DcsOrganizationIdQuery);
+                }
             }
         });
         var p = $('#' + myGridId).datagrid('getPager');

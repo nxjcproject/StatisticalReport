@@ -56,7 +56,7 @@
             data: jsonData,
             animate: true,
             lines: true,
-            onClick: function (node) {
+            onDblClick: function (node) {
                 if (typeof (onOrganisationTreeClick) == "function") {
                     onOrganisationTreeClick(node);
                 }

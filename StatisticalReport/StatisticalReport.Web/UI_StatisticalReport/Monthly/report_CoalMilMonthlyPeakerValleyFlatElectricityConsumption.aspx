@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption.aspx.cs" Inherits="StatisticalReport.Web.UI_StatisticalReport.Monthly.report_CoalMilMonthlyPeakerValleyFlatElectricityConsumption" %>
 
-<%@ Register Src="~/Common/OrganisationTree.ascx" TagPrefix="uc1" TagName="OrganisationTree" %>
+<%@ Register Src="../../UI_WebUserControls/OrganizationSelector/OrganisationTree.ascx" TagName="OrganisationTree" TagPrefix="uc1" %>
 
 
 <!DOCTYPE html>
@@ -27,8 +27,8 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',split:true" style="width:200px;padding:10px;">
-            <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
+        <div data-options="region:'west',split:true" style="width:230px;">
+            <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ReportTemplate" style="display: none;">
             <table>
