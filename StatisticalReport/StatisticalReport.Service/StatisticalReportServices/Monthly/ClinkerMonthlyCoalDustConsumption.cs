@@ -47,26 +47,26 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
             foreach (DataRow dr in temp1.Rows)
             {
-                if (Convert.ToInt64(dr["First_Clinker_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["First_Clinker_Output"]) != 0)
                 {
-                    dr["First_CoalDustConsumption"] = Convert.ToDecimal(dr["First_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["First_Clinker_Output"]);
+                    dr["First_CoalDustConsumption"] = ReportHelper.MyToDecimal(dr["First_sum_CoalDust"]) * 1000 / ReportHelper.MyToDecimal(dr["First_Clinker_Output"]);
                 }
-                if (Convert.ToInt64(dr["Second_Clinker_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["Second_Clinker_Output"]) != 0)
                 {
-                    dr["Second_CoalDustConsumption"] = Convert.ToDecimal(dr["Second_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Second_Clinker_Output"]);
+                    dr["Second_CoalDustConsumption"] = ReportHelper.MyToDecimal(dr["Second_sum_CoalDust"]) * 1000 / ReportHelper.MyToDecimal(dr["Second_Clinker_Output"]);
                 }
-                if (Convert.ToInt64(dr["Third_Clinker_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["Third_Clinker_Output"]) != 0)
                 {
-                    dr["Third_CoalDustConsumption"] = Convert.ToDecimal(dr["Third_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Third_Clinker_Output"]);
+                    dr["Third_CoalDustConsumption"] = ReportHelper.MyToDecimal(dr["Third_sum_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Third_Clinker_Output"]);
                 }
 
-                dr["Amountto_Clinker_Output"] = Convert.ToInt64(dr["First_Clinker_Output"]) + Convert.ToInt64(dr["Second_Clinker_Output"]) + Convert.ToInt64(dr["Third_Clinker_Output"]);
-                dr["Amountto_KilnHead_CoalDust"] = Convert.ToInt64(dr["First_KilnHead_CoalDust"]) + Convert.ToInt64(dr["Second_KilnHead_CoalDust"]) + Convert.ToInt64(dr["Third_KilnHead_CoalDust"]);
-                dr["Amountto_KilnTail_CoalDust"] = Convert.ToInt64(dr["First_KilnTail_CoalDust"]) + Convert.ToInt64(dr["Second_KilnTail_CoalDust"]) + Convert.ToInt64(dr["Third_KilnTail_CoalDust"]);
-                dr["Amountto_sum_CoalDust"] = Convert.ToInt64(dr["First_sum_CoalDust"]) + Convert.ToInt64(dr["Second_sum_CoalDust"]) + Convert.ToInt64(dr["Third_sum_CoalDust"]);
-                if (Convert.ToInt64(dr["Amountto_Clinker_Output"]) != 0)
+                dr["Amountto_Clinker_Output"] = ReportHelper.MyToInt64(dr["First_Clinker_Output"]) + ReportHelper.MyToInt64(dr["Second_Clinker_Output"]) + ReportHelper.MyToInt64(dr["Third_Clinker_Output"]);
+                dr["Amountto_KilnHead_CoalDust"] = ReportHelper.MyToInt64(dr["First_KilnHead_CoalDust"]) + ReportHelper.MyToInt64(dr["Second_KilnHead_CoalDust"]) + ReportHelper.MyToInt64(dr["Third_KilnHead_CoalDust"]);
+                dr["Amountto_KilnTail_CoalDust"] = ReportHelper.MyToInt64(dr["First_KilnTail_CoalDust"]) + ReportHelper.MyToInt64(dr["Second_KilnTail_CoalDust"]) + ReportHelper.MyToInt64(dr["Third_KilnTail_CoalDust"]);
+                dr["Amountto_sum_CoalDust"] = ReportHelper.MyToInt64(dr["First_sum_CoalDust"]) + ReportHelper.MyToInt64(dr["Second_sum_CoalDust"]) + ReportHelper.MyToInt64(dr["Third_sum_CoalDust"]);
+                if (ReportHelper.MyToInt64(dr["Amountto_Clinker_Output"]) != 0)
                 {
-                    dr["Amountto_CoalDustConsumption"] = Convert.ToDecimal(dr["Amountto_sum_CoalDust"])*1000 / Convert.ToDecimal(dr["Amountto_Clinker_Output"]);
+                    dr["Amountto_CoalDustConsumption"] = ReportHelper.MyToDecimal(dr["Amountto_sum_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Amountto_Clinker_Output"]);
                 }
             }
 

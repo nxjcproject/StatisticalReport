@@ -117,27 +117,27 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
             {
                 if (row_DayCLs.Count() != 0)
                 {
-                    decimal AmounttoCoal_day = MyToDecimal(row_DayCLs[0]["PowerGenerationSum"]);//取出本日行合计发电量的合计存到变量AmounttoCoal_day中
-                    temp.Rows[GeneratingCapacityPreClinker]["Today_Completion"] = MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_day / MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
+                    decimal AmounttoCoal_day = ReportHelper.MyToDecimal(row_DayCLs[0]["PowerGenerationSum"]);//取出本日行合计发电量的合计存到变量AmounttoCoal_day中
+                    temp.Rows[GeneratingCapacityPreClinker]["Today_Completion"] = ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_day / ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
                 }
                 //吨熟料发电量（本月累计）    
                 if (row_sumMounthCLs.Count() != 0)
                 {
-                    decimal AmounttoCoal_MounthLJ = MyToDecimal(row_sumMounthCLs[0]["PowerGenerationSum"]);//取出合计行合计发电量的合计存到变量AmounttoCoal_MounthLJ中
-                    temp.Rows[GeneratingCapacityPreClinker]["Monthly_Accumulative"] = MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_MounthLJ / MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
+                    decimal AmounttoCoal_MounthLJ = ReportHelper.MyToDecimal(row_sumMounthCLs[0]["PowerGenerationSum"]);//取出合计行合计发电量的合计存到变量AmounttoCoal_MounthLJ中
+                    temp.Rows[GeneratingCapacityPreClinker]["Monthly_Accumulative"] = ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_MounthLJ / ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
                 }
             }
             //吨熟料煤耗（本日完成）
             if (CoalConsumptionPreClinker != -1)
             {
-                if (row_DayCLs.Count() != 0 && MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_DayCLs.Count() != 0 && ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[CoalConsumptionPreClinker]["Today_Completion"] = MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? MyToDecimal(row_DayCLs[0]["AmounttoCoalDustConsumptionSum"]) / MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[CoalConsumptionPreClinker]["Today_Completion"] = ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? ReportHelper.MyToDecimal(row_DayCLs[0]["AmounttoCoalDustConsumptionSum"]) / ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
                 }
                 //吨熟料煤耗（本月累计）
-                if (row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_sumMounthCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[CoalConsumptionPreClinker]["Monthly_Accumulative"] = MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? MyToDecimal(row_sumMounthCLs[0]["AmounttoCoalDustConsumptionSum"]) / MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[CoalConsumptionPreClinker]["Monthly_Accumulative"] = ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? ReportHelper.MyToDecimal(row_sumMounthCLs[0]["AmounttoCoalDustConsumptionSum"]) / ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
                 }
             }
 
@@ -160,15 +160,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
                     temp.Rows[GeneratingCapacity]["Yearly_Accumulative"] = row_sumYearCLs[0]["PowerGenerationSum"];
                 }
                 //吨熟料发电量（本年累计）
-                decimal AmounttoCoal_YearLJ = MyToDecimal(row_sumYearCLs[0]["PowerGenerationSum"]);//取出合计行合计发电量的合计存到变量AmounttoCoal_YearLJ中
+                decimal AmounttoCoal_YearLJ = ReportHelper.MyToDecimal(row_sumYearCLs[0]["PowerGenerationSum"]);//取出合计行合计发电量的合计存到变量AmounttoCoal_YearLJ中
                 if (GeneratingCapacityPreClinker != -1)
                 {
-                    temp.Rows[GeneratingCapacityPreClinker]["Yearly_Accumulative"] = MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_YearLJ / MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[GeneratingCapacityPreClinker]["Yearly_Accumulative"] = ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0 ? AmounttoCoal_YearLJ / ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) : 0;
                 }
                 //吨熟料煤耗
                 if (CoalConsumptionPreClinker != -1)
                 {
-                    temp.Rows[CoalConsumptionPreClinker]["Yearly_Accumulative"] = MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0 ? MyToDecimal(row_sumYearCLs[0]["AmounttoCoalDustConsumptionSum"]) * 1000 / MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[CoalConsumptionPreClinker]["Yearly_Accumulative"] = ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0 ? ReportHelper.MyToDecimal(row_sumYearCLs[0]["AmounttoCoalDustConsumptionSum"]) * 1000 / ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) : 0;
                 }
             }
 
@@ -181,40 +181,40 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
             //吨熟料电耗（本日完成）
             if (EnergyConsumptionPreClinker != -1)
             {
-                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[EnergyConsumptionPreClinker]["Today_Completion"] = MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? MyToDecimal(row_days[0]["AmounttoSum"]) / MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[EnergyConsumptionPreClinker]["Today_Completion"] = ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0 ? ReportHelper.MyToDecimal(row_days[0]["AmounttoSum"]) / ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) : 0;
                 }
                 //吨熟料电耗（本月累计）
-                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[EnergyConsumptionPreClinker]["Monthly_Accumulative"] = MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
+                    temp.Rows[EnergyConsumptionPreClinker]["Monthly_Accumulative"] = ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0 ? ReportHelper.MyToDecimal(row_sumMounthDLs[0]["AmounttoSum"]) / ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) : 0;
                 }
             }
             //生料磨电耗（本日完成）
             if (RawMillEnergyConsumption != -1)
             {
-                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[RawMillEnergyConsumption]["Today_Completion"] = MyToDecimal(row_days[0]["RawBatchGrindingSum"]) / MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]);
+                    temp.Rows[RawMillEnergyConsumption]["Today_Completion"] = ReportHelper.MyToDecimal(row_days[0]["RawBatchGrindingSum"]) / ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]);
                 }
                 //生料磨电耗（本月累计）
-                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[RawMillEnergyConsumption]["Monthly_Accumulative"] = MyToDecimal(row_sumMounthDLs[0]["RawBatchGrindingSum"]) / MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]);
+                    temp.Rows[RawMillEnergyConsumption]["Monthly_Accumulative"] = ReportHelper.MyToDecimal(row_sumMounthDLs[0]["RawBatchGrindingSum"]) / ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]);
                 }
             }
             //煤磨电耗（本日完成）
             if (CoalMillEnergyConsumption != -1)
             {
-                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_days.Count() != 0 && row_DayCLs.Count() != 0 && ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[CoalMillEnergyConsumption]["Today_Completion"] = MyToDecimal(row_days[0]["CoalMillSystemSum"]) / MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]);
+                    temp.Rows[CoalMillEnergyConsumption]["Today_Completion"] = ReportHelper.MyToDecimal(row_days[0]["CoalMillSystemSum"]) / ReportHelper.MyToDecimal(row_DayCLs[0]["ClinkerProductionSum"]);
                 }
                 //煤磨电耗（本月累计）
-                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_sumMounthDLs.Count() != 0 && row_sumMounthCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[CoalMillEnergyConsumption]["Monthly_Accumulative"] = MyToDecimal(row_sumMounthDLs[0]["CoalMillSystemSum"]) / MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]);
+                    temp.Rows[CoalMillEnergyConsumption]["Monthly_Accumulative"] = ReportHelper.MyToDecimal(row_sumMounthDLs[0]["CoalMillSystemSum"]) / ReportHelper.MyToDecimal(row_sumMounthCLs[0]["ClinkerProductionSum"]);
                 }
             }
 
@@ -224,22 +224,22 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
             //吨熟料电耗（本年累计）
             if (EnergyConsumptionPreClinker != -1)
             {
-                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
+                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
                 {
-                    temp.Rows[EnergyConsumptionPreClinker]["Yearly_Accumulative"] = MyToDecimal(row_sumYearDLs[0]["AmounttoSum"]) / MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
+                    temp.Rows[EnergyConsumptionPreClinker]["Yearly_Accumulative"] = ReportHelper.MyToDecimal(row_sumYearDLs[0]["AmounttoSum"]) / ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
                 }
             }
             //生料磨电耗（本年累计）
             if (RawMillEnergyConsumption != -1)
             {
-                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
-                    temp.Rows[RawMillEnergyConsumption]["Yearly_Accumulative"] = MyToDecimal(row_sumYearDLs[0]["RawBatchGrindingSum"]) / MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
+                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
+                    temp.Rows[RawMillEnergyConsumption]["Yearly_Accumulative"] = ReportHelper.MyToDecimal(row_sumYearDLs[0]["RawBatchGrindingSum"]) / ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
             }
             //煤磨电耗（本年累计）
             if (CoalMillEnergyConsumption != -1)
             {
-                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
-                    temp.Rows[CoalMillEnergyConsumption]["Yearly_Accumulative"] = MyToDecimal(row_sumYearDLs[0]["CoalMillSystemSum"]) / MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
+                if (row_sumYearDLs.Count() != 0 && row_sumYearCLs.Count() != 0 && ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]) != 0)
+                    temp.Rows[CoalMillEnergyConsumption]["Yearly_Accumulative"] = ReportHelper.MyToDecimal(row_sumYearDLs[0]["CoalMillSystemSum"]) / ReportHelper.MyToDecimal(row_sumYearCLs[0]["ClinkerProductionSum"]);
             }
             foreach (DataRow dr in temp.Rows)
             {
@@ -247,24 +247,24 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
                 if (dr["Monthly_Accumulative"] is DBNull) { dr["Monthly_Accumulative"] = 0; }
                 if (dr["Yearly_Target"] is DBNull) { dr["Yearly_Target"] = 0; }
                 if (dr["Yearly_Accumulative"] is DBNull) { dr["Yearly_Accumulative"] = 0; }
-                dr["Monthly_Gap"] = MyToDecimal(dr["Monthly_Target"]) - MyToDecimal(dr["Monthly_Accumulative"]);
-                dr["Yearly_Gap"] = MyToDecimal(dr["Yearly_Target"]) - MyToDecimal(dr["Yearly_Accumulative"]);
+                dr["Monthly_Gap"] = ReportHelper.MyToDecimal(dr["Monthly_Target"]) - ReportHelper.MyToDecimal(dr["Monthly_Accumulative"]);
+                dr["Yearly_Gap"] = ReportHelper.MyToDecimal(dr["Yearly_Target"]) - ReportHelper.MyToDecimal(dr["Yearly_Accumulative"]);
             }
 
 
             return temp;
         }
-        public static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //public static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
     }
 }

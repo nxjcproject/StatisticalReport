@@ -43,7 +43,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
                     row["CementTypes"] = dr["CementTypes"];
-                    row["Output_Monthly"] = Convert.ToInt64(dr["CementProductionSum"]);//要改
+                    row["Output_Monthly"] = ReportHelper.MyToInt64(dr["CementProductionSum"]);//要改
                     temp1.Rows.Add(row);
                 }
                 temp_cl.Merge(temp2);//产量并入累计暂存
@@ -52,7 +52,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
                     row["CementTypes"] = dr["CementTypes"];//要改
-                    row["Output_Accumulative"] = Convert.ToInt64(dr["CementProductionSum"]);//要改
+                    row["Output_Accumulative"] = ReportHelper.MyToInt64(dr["CementProductionSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
@@ -73,7 +73,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
                     row["CementTypes"] = dr["CementTypes"];//要改
-                    row["Electricity_Monthly"] = Convert.ToInt64(dr["AmounttoSum"]);//要改
+                    row["Electricity_Monthly"] = ReportHelper.MyToInt64(dr["AmounttoSum"]);//要改
                     temp1.Rows.Add(row);
                 }
                 temp_dl.Merge(temp2);    //电量并入累计暂存
@@ -82,7 +82,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
                     row["CementTypes"] = dr["CementTypes"];//要改
-                    row["Electricity_Accumulative"] = Convert.ToInt64(dr["AmounttoSum"]);//要改
+                    row["Electricity_Accumulative"] = ReportHelper.MyToInt64(dr["AmounttoSum"]);//要改
                     temp1.Rows.Add(row);
                 }
             }
@@ -103,6 +103,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
 
                 if (dr["CementTypes"].ToString() != "总总合计")
                 {
+                    //string test = "asd";//测试
                     decimal ZHXS = _tzHelper.GetConvertCoefficient(PZ);
                     dr["ConvertCoefficient"] = ZHXS;
                 }
@@ -110,23 +111,23 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 {
                     dr["CementTypes"] = "合计";
                 }
-                if (MyToDecimal(dr["Output_Monthly"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Output_Monthly"]) != 0)
                 {
-                    dr["ElectricityConsumption_Monthly"] = MyToDecimal(dr["Electricity_Monthly"]) / MyToDecimal(dr["Output_Monthly"]);
+                    dr["ElectricityConsumption_Monthly"] = ReportHelper.MyToDecimal(dr["Electricity_Monthly"]) / ReportHelper.MyToDecimal(dr["Output_Monthly"]);
                 }
-                if (dr["CementTypes"].ToString() != "合计" && MyToDecimal(dr["ConvertCoefficient"]) != 0)
+                if (dr["CementTypes"].ToString() != "合计" && ReportHelper.MyToDecimal(dr["ConvertCoefficient"]) != 0)
                 {
                     if (dr["ElectricityConsumption_Monthly"] is DBNull)
                     {
                         dr["ElectricityConsumption_Monthly"] = 0;
                     }
-                    dr["Convert_ElectricityConsumption_Monthly"] = MyToDecimal(dr["ElectricityConsumption_Monthly"]) / MyToDecimal(dr["ConvertCoefficient"]);
+                    dr["Convert_ElectricityConsumption_Monthly"] = ReportHelper.MyToDecimal(dr["ElectricityConsumption_Monthly"]) / ReportHelper.MyToDecimal(dr["ConvertCoefficient"]);
                 }
 
 
-                if (MyToDecimal(dr["Output_Accumulative"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Output_Accumulative"]) != 0)
                 {
-                    dr["ElectricityConsumption_Accumulative"] = MyToDecimal(dr["Electricity_Accumulative"]) / MyToDecimal(dr["Output_Accumulative"]);
+                    dr["ElectricityConsumption_Accumulative"] = ReportHelper.MyToDecimal(dr["Electricity_Accumulative"]) / ReportHelper.MyToDecimal(dr["Output_Accumulative"]);
                 }
                 if (dr["CementTypes"].ToString() != "合计")
                 {
@@ -134,24 +135,24 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     {
                         dr["ElectricityConsumption_Accumulative"] = 0;
                     }
-                    dr["Convert_ElectricityConsumption_Accumulative"] = MyToDecimal(dr["ElectricityConsumption_Accumulative"]) / MyToDecimal(dr["ConvertCoefficient"]);                  
+                    dr["Convert_ElectricityConsumption_Accumulative"] = ReportHelper.MyToDecimal(dr["ElectricityConsumption_Accumulative"]) / ReportHelper.MyToDecimal(dr["ConvertCoefficient"]);                  
                 }
 
             }
             return result; 
         }
 
-        public static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-           }
-        }
+        //public static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //   }
+        //}
     }
 }

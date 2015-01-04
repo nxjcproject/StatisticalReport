@@ -36,12 +36,22 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public decimal GetConvertCoefficient(string CementTypes)
         {
+            decimal result;
             Query query = new Query("system_CementTypesAndConvertCoefficient");
             DataTable table_zhxs = _dataFactory.Query(query);
-            DataColumn[] Key = { table_zhxs.Columns["CementTypes"] };
-            table_zhxs.PrimaryKey = Key;
-            DataRow row = table_zhxs.Rows.Find(CementTypes);
-            decimal result = Convert.ToDecimal(row["ConvertCoefficient"]);
+            //DataColumn[] Key = { table_zhxs.Columns["CementTypes"] };
+            //table_zhxs.PrimaryKey = Key;
+            //DataRow row = table_zhxs.Rows.Find(CementTypes);
+            DataRow[] rows = table_zhxs.Select("CementTypes='" + CementTypes + "'");
+            if (rows.Count() == 0)
+            {
+                throw new Exception("未找到水泥品种"+CementTypes);
+            }
+            else
+            {
+                result = Convert.ToDecimal(rows[0]["ConvertCoefficient"]);
+            }
+            //decimal result = Convert.ToDecimal(row["ConvertCoefficient"]);
             return result;
         }
         /// <summary>

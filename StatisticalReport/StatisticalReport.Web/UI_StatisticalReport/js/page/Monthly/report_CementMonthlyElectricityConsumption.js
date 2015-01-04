@@ -23,13 +23,24 @@ function loadGridData(myLoadType, organizationId, datetime) {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
             }
         },
-        error: handleError
+        error: function (XmlHttpRequest, textStatus, errorThrown) {
+            var message = $.parseJSON(XmlHttpRequest.responseText).Message;
+            if (message.substring(0, 7) == '未找到水泥品种') {
+                $('#gridMain_ReportTemplate').datagrid('loadData', []);
+                $.messager.alert('错误', message);
+                
+            }
+            else {
+                $('#gridMain_ReportTemplate').datagrid('loadData', []);
+                $.messager.alert('失败', '获取数据失败');
+            }
+        }
     });
 }
 
-function handleError() {
-    $('#gridMain_ReportTemplate').datagrid('loadData', []);
-    $.messager.alert('失败', '获取数据失败');
+function handleError(XmlHttpRequest, textStatus, errorThrown) {
+        $('#gridMain_ReportTemplate').datagrid('loadData', []);
+        $.messager.alert('失败', '获取数据失败');
 }
 
 function InitializeGrid(myData) {

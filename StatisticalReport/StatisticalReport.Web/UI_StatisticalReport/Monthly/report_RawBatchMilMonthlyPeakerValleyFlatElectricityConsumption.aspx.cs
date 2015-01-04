@@ -30,6 +30,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 #endif
             this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");                         //向web用户控件传递数据授权参数
             this.OrganisationTree_ProductionLine.PageName = "report_RawBatchMilMonthlyPeakerValleyFlatElectricityConsumption.aspx";                                     //向web用户控件传递当前调用的页面名称
+            this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("熟料");
 
             if (!IsPostBack)
             {

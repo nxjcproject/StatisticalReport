@@ -30,20 +30,20 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)(dr["vDate"]);
 
-                newRow["First_Electricity_RawBatch"] = Convert.ToInt64(dr["AmounttoRawBatchPreparationFirstShift"]);
-                newRow["First_Electricity_RawBatchGrinding"] = Convert.ToInt64(dr["RawBatchGrindingFirstShift"]);
-                newRow["First_Electricity_Clinker"] = Convert.ToInt64(dr["AmounttoFiringSystemFirstShift"]);
-                newRow["First_Electricity_CoalDust"] = Convert.ToInt64(dr["CoalMillSystemFirstShift"]);
+                newRow["First_Electricity_RawBatch"] = ReportHelper.MyToInt64(dr["AmounttoRawBatchPreparationFirstShift"]);
+                newRow["First_Electricity_RawBatchGrinding"] = ReportHelper.MyToInt64(dr["RawBatchGrindingFirstShift"]);
+                newRow["First_Electricity_Clinker"] = ReportHelper.MyToInt64(dr["AmounttoFiringSystemFirstShift"]);
+                newRow["First_Electricity_CoalDust"] = ReportHelper.MyToInt64(dr["CoalMillSystemFirstShift"]);
 
-                newRow["Second_Electricity_RawBatch"] = Convert.ToInt64(dr["AmounttoRawBatchPreparationSecondShift"]);
-                newRow["Second_Electricity_RawBatchGrinding"] = Convert.ToInt64(dr["RawBatchGrindingSecondShift"]);
-                newRow["Second_Electricity_Clinker"] = Convert.ToInt64(dr["AmounttoFiringSystemSecondShift"]);
-                newRow["Second_Electricity_CoalDust"] = Convert.ToInt64(dr["CoalMillSystemSecondShift"]);
+                newRow["Second_Electricity_RawBatch"] = ReportHelper.MyToInt64(dr["AmounttoRawBatchPreparationSecondShift"]);
+                newRow["Second_Electricity_RawBatchGrinding"] = ReportHelper.MyToInt64(dr["RawBatchGrindingSecondShift"]);
+                newRow["Second_Electricity_Clinker"] = ReportHelper.MyToInt64(dr["AmounttoFiringSystemSecondShift"]);
+                newRow["Second_Electricity_CoalDust"] = ReportHelper.MyToInt64(dr["CoalMillSystemSecondShift"]);
 
-                newRow["Third_Electricity_RawBatch"] = Convert.ToInt64(dr["AmounttoRawBatchPreparationThirdShift"]);
-                newRow["Third_Electricity_RawBatchGrinding"] = Convert.ToInt64(dr["RawBatchGrindingThirdShift"]);
-                newRow["Third_Electricity_Clinker"] = Convert.ToInt64(dr["AmounttoFiringSystemThirdShift"]);
-                newRow["Third_Electricity_CoalDust"] = Convert.ToInt64(dr["CoalMillSystemThirdShift"]);
+                newRow["Third_Electricity_RawBatch"] = ReportHelper.MyToInt64(dr["AmounttoRawBatchPreparationThirdShift"]);
+                newRow["Third_Electricity_RawBatchGrinding"] = ReportHelper.MyToInt64(dr["RawBatchGrindingThirdShift"]);
+                newRow["Third_Electricity_Clinker"] = ReportHelper.MyToInt64(dr["AmounttoFiringSystemThirdShift"]);
+                newRow["Third_Electricity_CoalDust"] = ReportHelper.MyToInt64(dr["CoalMillSystemThirdShift"]);
 
                 temp1.Rows.Add(newRow);
             }
@@ -54,23 +54,23 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)dr["vDate"];
 
-                newRow["First_Consumption_CoalDust"] = Convert.ToInt64(dr["AmounttoCoalDustConsumptionFirstShift"]);
-                newRow["First_Output_RawBatch"] = Convert.ToInt64(dr["RawBatchProductionFirstShift"]);
-                newRow["First_Output_Clinker"] = Convert.ToInt64(dr["ClinkerProductionFirstShift"]);
-                newRow["First_Output_CoalDust"] = Convert.ToInt64(dr["CoalDustProductionFirstShift"]);
-                newRow["First_Output_Cogeneration"] = Convert.ToInt64(dr["PowerGenerationFirstShift"]);
+                newRow["First_Consumption_CoalDust"] = ReportHelper.MyToInt64(dr["AmounttoCoalDustConsumptionFirstShift"]);
+                newRow["First_Output_RawBatch"] = ReportHelper.MyToInt64(dr["RawBatchProductionFirstShift"]);
+                newRow["First_Output_Clinker"] = ReportHelper.MyToInt64(dr["ClinkerProductionFirstShift"]);
+                newRow["First_Output_CoalDust"] = ReportHelper.MyToInt64(dr["CoalDustProductionFirstShift"]);
+                newRow["First_Output_Cogeneration"] = ReportHelper.MyToInt64(dr["PowerGenerationFirstShift"]);
 
-                newRow["Second_Consumption_CoalDust"] = Convert.ToInt64(dr["AmounttoCoalDustConsumptionSecondShift"]);
-                newRow["Second_Output_RawBatch"] = Convert.ToInt64(dr["RawBatchProductionSecondShift"]);
-                newRow["Second_Output_Clinker"] = Convert.ToInt64(dr["ClinkerProductionSecondShift"]);
-                newRow["Second_Output_CoalDust"] = Convert.ToInt64(dr["CoalDustProductionSecondShift"]);
-                newRow["Second_Output_Cogeneration"] = Convert.ToInt64(dr["PowerGenerationSecondShift"]);
+                newRow["Second_Consumption_CoalDust"] = ReportHelper.MyToInt64(dr["AmounttoCoalDustConsumptionSecondShift"]);
+                newRow["Second_Output_RawBatch"] = ReportHelper.MyToInt64(dr["RawBatchProductionSecondShift"]);
+                newRow["Second_Output_Clinker"] = ReportHelper.MyToInt64(dr["ClinkerProductionSecondShift"]);
+                newRow["Second_Output_CoalDust"] = ReportHelper.MyToInt64(dr["CoalDustProductionSecondShift"]);
+                newRow["Second_Output_Cogeneration"] = ReportHelper.MyToInt64(dr["PowerGenerationSecondShift"]);
 
-                newRow["Third_Consumption_CoalDust"] = Convert.ToInt64(dr["AmounttoCoalDustConsumptionThirdShift"]);
-                newRow["Third_Output_RawBatch"] = Convert.ToInt64(dr["RawBatchProductionThirdShift"]);
-                newRow["Third_Output_Clinker"] = Convert.ToInt64(dr["ClinkerProductionThirdShift"]);
-                newRow["Third_Output_CoalDust"] = Convert.ToInt64(dr["CoalDustProductionThirdShift"]);
-                newRow["Third_Output_Cogeneration"] = Convert.ToInt64(dr["PowerGenerationThirdShift"]);
+                newRow["Third_Consumption_CoalDust"] = ReportHelper.MyToInt64(dr["AmounttoCoalDustConsumptionThirdShift"]);
+                newRow["Third_Output_RawBatch"] = ReportHelper.MyToInt64(dr["RawBatchProductionThirdShift"]);
+                newRow["Third_Output_Clinker"] = ReportHelper.MyToInt64(dr["ClinkerProductionThirdShift"]);
+                newRow["Third_Output_CoalDust"] = ReportHelper.MyToInt64(dr["CoalDustProductionThirdShift"]);
+                newRow["Third_Output_Cogeneration"] = ReportHelper.MyToInt64(dr["PowerGenerationThirdShift"]);
 
                 temp1.Rows.Add(newRow);
             }
@@ -90,125 +90,125 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
             foreach (DataRow dr in temp1.Rows)
             {
                 /////////////////////////////////////////////////////生料制备和生料磨电耗//////////////////////////////////////////////////////////////////////////////
-                if (MyToDecimal(dr["First_Output_RawBatch"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["First_Output_RawBatch"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["First_Electricity_RawBatch"]) / MyToDecimal(dr["First_Output_RawBatch"]);
-                    dr["First_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["First_Output_RawBatch"]);
+                    dr["First_ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["First_Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["First_Output_RawBatch"]);
+                    dr["First_ElectricityConsumption_RawBatchGrinding"] = ReportHelper.MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) / ReportHelper.MyToDecimal(dr["First_Output_RawBatch"]);
                 }
-                if (MyToDecimal(dr["Second_Output_RawBatch"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Second_Output_RawBatch"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Second_Electricity_RawBatch"]) / MyToDecimal(dr["Second_Output_RawBatch"]);
-                    dr["Second_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Second_Output_RawBatch"]);
+                    dr["Second_ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Second_Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Second_Output_RawBatch"]);
+                    dr["Second_ElectricityConsumption_RawBatchGrinding"] = ReportHelper.MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) / ReportHelper.MyToDecimal(dr["Second_Output_RawBatch"]);
                 }
-                if (MyToDecimal(dr["Third_Output_RawBatch"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Third_Output_RawBatch"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Third_Electricity_RawBatch"]) / MyToDecimal(dr["Third_Output_RawBatch"]);
-                    dr["Third_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Third_Output_RawBatch"]);
+                    dr["Third_ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Third_Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Third_Output_RawBatch"]);
+                    dr["Third_ElectricityConsumption_RawBatchGrinding"] = ReportHelper.MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]) / ReportHelper.MyToDecimal(dr["Third_Output_RawBatch"]);
                 }
                 ////////////////////////////////////////////////////熟料烧成电耗///////////////////////////////////////////////////////////////////////////
-                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_Clinker"] = MyToDecimal(dr["First_Electricity_Clinker"]) / MyToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["First_Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Second_Electricity_Clinker"]) / MyToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Second_Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Third_Electricity_Clinker"]) / MyToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Third_Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]);
                 }
                 /////////////////////////////////////////////////////煤磨电耗//////////////////////////////////////////////////////////////////////////////////////
-                if (MyToDecimal(dr["First_Output_CoalDust"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["First_Output_CoalDust"]) != 0)
                 {
-                    dr["First_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["First_Electricity_CoalDust"]) / MyToDecimal(dr["First_Output_CoalDust"]);
+                    dr["First_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["First_Electricity_CoalDust"]) / ReportHelper.MyToDecimal(dr["First_Output_CoalDust"]);
                 }
-                if (MyToDecimal(dr["Second_Output_CoalDust"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Second_Output_CoalDust"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Second_Electricity_CoalDust"]) / MyToDecimal(dr["Second_Output_CoalDust"]);
+                    dr["Second_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Second_Electricity_CoalDust"]) / ReportHelper.MyToDecimal(dr["Second_Output_CoalDust"]);
                 }
-                if (MyToDecimal(dr["Third_Output_CoalDust"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Third_Output_CoalDust"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Third_Electricity_CoalDust"]) / MyToDecimal(dr["Third_Output_CoalDust"]);
+                    dr["Third_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Third_Electricity_CoalDust"]) / ReportHelper.MyToDecimal(dr["Third_Output_CoalDust"]);
                 }
                 ///////////////////////////////////////////////////吨熟料综合电耗//////////////////////////////////////////////////////////////////////
-                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["First_Electricity_RawBatch"]) + MyToDecimal(dr["First_Electricity_Clinker"])) / MyToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ComprehensiveElectricityConsumption"] = (ReportHelper.MyToDecimal(dr["First_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["First_Electricity_Clinker"])) / ReportHelper.MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Second_Electricity_RawBatch"]) + MyToDecimal(dr["Second_Electricity_Clinker"])) / MyToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ComprehensiveElectricityConsumption"] = (ReportHelper.MyToDecimal(dr["Second_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Second_Electricity_Clinker"])) / ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Third_Electricity_RawBatch"]) + MyToDecimal(dr["Third_Electricity_Clinker"])) / MyToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ComprehensiveElectricityConsumption"] = (ReportHelper.MyToDecimal(dr["Third_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Third_Electricity_Clinker"])) / ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]);
                 }
                 //////////////////////////////////////////////////吨熟料实物煤耗////////////////////////////////////////////////////////////
-                if (MyToDecimal(dr["First_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["First_Output_Clinker"]) != 0)
                 {
-                    dr["First_ComprehensiveCoalConsumption"] = MyToDecimal(dr["First_Consumption_CoalDust"])*1000 / MyToDecimal(dr["First_Output_Clinker"]);
+                    dr["First_ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["First_Consumption_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["First_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Second_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]) != 0)
                 {
-                    dr["Second_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Second_Consumption_CoalDust"])*1000 / MyToDecimal(dr["Second_Output_Clinker"]);
+                    dr["Second_ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Second_Consumption_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Third_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]) != 0)
                 {
-                    dr["Third_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Third_Consumption_CoalDust"])*1000 / MyToDecimal(dr["Third_Output_Clinker"]);
+                    dr["Third_ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Third_Consumption_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]);
                 }
 
                 /////////////////////////////////////////////////日合计//////////////////////////////////////////////////////////////////////
-                dr["Amountto_Electricity_RawBatch"] = MyToDecimal(dr["First_Electricity_RawBatch"]) + MyToDecimal(dr["Second_Electricity_RawBatch"]) + MyToDecimal(dr["Third_Electricity_RawBatch"]);
-                dr["Amountto_Electricity_RawBatchGrinding"] = MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) + MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) + MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]);
-                dr["Amountto_Electricity_Clinker"] = MyToDecimal(dr["First_Electricity_Clinker"]) + MyToDecimal(dr["Second_Electricity_Clinker"]) + MyToDecimal(dr["Third_Electricity_Clinker"]);
-                dr["Amountto_Electricity_CoalDust"] = MyToDecimal(dr["First_Electricity_CoalDust"]) + MyToDecimal(dr["Second_Electricity_CoalDust"]) + MyToDecimal(dr["Third_Electricity_CoalDust"]);
-                dr["Amountto_Consumption_CoalDust"] = MyToDecimal(dr["First_Consumption_CoalDust"]) + MyToDecimal(dr["Second_Consumption_CoalDust"]) + MyToDecimal(dr["Third_Consumption_CoalDust"]);
-                dr["Amountto_Output_RawBatch"] = MyToDecimal(dr["First_Output_RawBatch"]) + MyToDecimal(dr["Second_Output_RawBatch"]) + MyToDecimal(dr["Third_Output_RawBatch"]);
-                dr["Amountto_Output_Clinker"] = MyToDecimal(dr["First_Output_Clinker"]) + MyToDecimal(dr["Second_Output_Clinker"]) + MyToDecimal(dr["Third_Output_Clinker"]);
-                dr["Amountto_Output_CoalDust"] = MyToDecimal(dr["First_Output_CoalDust"]) + MyToDecimal(dr["Second_Output_CoalDust"]) + MyToDecimal(dr["Third_Output_CoalDust"]);
-                dr["Amountto_Output_Cogeneration"] = MyToDecimal(dr["First_Output_Cogeneration"]) + MyToDecimal(dr["Second_Output_Cogeneration"]) + MyToDecimal(dr["Third_Output_Cogeneration"]);
+                dr["Amountto_Electricity_RawBatch"] = ReportHelper.MyToDecimal(dr["First_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Second_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Third_Electricity_RawBatch"]);
+                dr["Amountto_Electricity_RawBatchGrinding"] = ReportHelper.MyToDecimal(dr["First_Electricity_RawBatchGrinding"]) + ReportHelper.MyToDecimal(dr["Second_Electricity_RawBatchGrinding"]) + ReportHelper.MyToDecimal(dr["Third_Electricity_RawBatchGrinding"]);
+                dr["Amountto_Electricity_Clinker"] = ReportHelper.MyToDecimal(dr["First_Electricity_Clinker"]) + ReportHelper.MyToDecimal(dr["Second_Electricity_Clinker"]) + ReportHelper.MyToDecimal(dr["Third_Electricity_Clinker"]);
+                dr["Amountto_Electricity_CoalDust"] = ReportHelper.MyToDecimal(dr["First_Electricity_CoalDust"]) + ReportHelper.MyToDecimal(dr["Second_Electricity_CoalDust"]) + ReportHelper.MyToDecimal(dr["Third_Electricity_CoalDust"]);
+                dr["Amountto_Consumption_CoalDust"] = ReportHelper.MyToDecimal(dr["First_Consumption_CoalDust"]) + ReportHelper.MyToDecimal(dr["Second_Consumption_CoalDust"]) + ReportHelper.MyToDecimal(dr["Third_Consumption_CoalDust"]);
+                dr["Amountto_Output_RawBatch"] = ReportHelper.MyToDecimal(dr["First_Output_RawBatch"]) + ReportHelper.MyToDecimal(dr["Second_Output_RawBatch"]) + ReportHelper.MyToDecimal(dr["Third_Output_RawBatch"]);
+                dr["Amountto_Output_Clinker"] = ReportHelper.MyToDecimal(dr["First_Output_Clinker"]) + ReportHelper.MyToDecimal(dr["Second_Output_Clinker"]) + ReportHelper.MyToDecimal(dr["Third_Output_Clinker"]);
+                dr["Amountto_Output_CoalDust"] = ReportHelper.MyToDecimal(dr["First_Output_CoalDust"]) + ReportHelper.MyToDecimal(dr["Second_Output_CoalDust"]) + ReportHelper.MyToDecimal(dr["Third_Output_CoalDust"]);
+                dr["Amountto_Output_Cogeneration"] = ReportHelper.MyToDecimal(dr["First_Output_Cogeneration"]) + ReportHelper.MyToDecimal(dr["Second_Output_Cogeneration"]) + ReportHelper.MyToDecimal(dr["Third_Output_Cogeneration"]);
 
-                if (MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Amountto_Electricity_RawBatch"]) / MyToDecimal(dr["Amountto_Output_RawBatch"]);
+                    dr["Amountto_ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Amountto_Output_RawBatch"]);
                 }
-                if (MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_RawBatch"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_RawBatchGrinding"] = MyToDecimal(dr["Amountto_Electricity_RawBatchGrinding"]) / MyToDecimal(dr["Amountto_Output_RawBatch"]);
+                    dr["Amountto_ElectricityConsumption_RawBatchGrinding"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_RawBatchGrinding"]) / ReportHelper.MyToDecimal(dr["Amountto_Output_RawBatch"]);
                 }
-                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_Clinker"] = MyToDecimal(dr["Amountto_Electricity_Clinker"]) / MyToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Amountto_Output_CoalDust"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_CoalDust"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_CoalDust"] = MyToDecimal(dr["Amountto_Electricity_CoalDust"])*1000 / MyToDecimal(dr["Amountto_Output_CoalDust"]);
+                    dr["Amountto_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Amountto_Output_CoalDust"]);
                 }
-                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ComprehensiveElectricityConsumption"] = (MyToDecimal(dr["Amountto_Electricity_RawBatch"]) + MyToDecimal(dr["Amountto_Electricity_Clinker"])) / MyToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ComprehensiveElectricityConsumption"] = (ReportHelper.MyToDecimal(dr["Amountto_Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Amountto_Electricity_Clinker"])) / ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
-                if (MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {
-                    dr["Amountto_ComprehensiveCoalConsumption"] = MyToDecimal(dr["Amountto_Consumption_CoalDust"]) / MyToDecimal(dr["Amountto_Output_Clinker"]);
+                    dr["Amountto_ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Amountto_Consumption_CoalDust"]) / ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]);
                 }
             }
 
             return temp1;
         }
 
-        private static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //private static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
     }
 }

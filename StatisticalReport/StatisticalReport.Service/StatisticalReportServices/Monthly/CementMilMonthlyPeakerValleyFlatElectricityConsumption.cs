@@ -28,9 +28,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             {
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)(dr["vDate"]);
-                newRow["First_Output"] = MyToInt64(dr["CementProductionFirstShift"]);
-                newRow["Second_Output"] = MyToInt64(dr["CementProductionSecondShift"]);
-                newRow["Third_Output"] = MyToInt64(dr["CementProductionThirdShift"]);
+                newRow["First_Output"] = ReportHelper.MyToInt64(dr["CementProductionFirstShift"]);
+                newRow["Second_Output"] = ReportHelper.MyToInt64(dr["CementProductionSecondShift"]);
+                newRow["Third_Output"] = ReportHelper.MyToInt64(dr["CementProductionThirdShift"]);
                 temp1.Rows.Add(newRow);
             }
 
@@ -39,9 +39,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             {
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)dr["vDate"];
-                newRow["First_Peak_Electricity"] = MyToInt64(dr["AmounttoFirstShift"]);
-                newRow["Second_Peak_Electricity"] = MyToInt64(dr["AmounttoSecondShift"]);
-                newRow["Third_Peak_Electricity"] = MyToInt64(dr["AmounttoThirdShift"]);
+                newRow["First_Peak_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoFirstShift"]);
+                newRow["Second_Peak_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoSecondShift"]);
+                newRow["Third_Peak_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoThirdShift"]);
                 temp1.Rows.Add(newRow);
             }
 
@@ -50,9 +50,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             {
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)dr["vDate"];
-                newRow["First_Valley_Electricity"] = MyToInt64(dr["AmounttoFirstShift"]);
-                newRow["Second_Valley_Electricity"] = MyToInt64(dr["AmounttoSecondShift"]);
-                newRow["Third_Valley_Electricity"] = MyToInt64(dr["AmounttoThirdShift"]);
+                newRow["First_Valley_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoFirstShift"]);
+                newRow["Second_Valley_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoSecondShift"]);
+                newRow["Third_Valley_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoThirdShift"]);
                 temp1.Rows.Add(newRow);
             }
 
@@ -61,9 +61,9 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             {
                 DataRow newRow = temp1.NewRow();
                 newRow["vDate"] = (string)dr["vDate"];
-                newRow["First_Flat_Electricity"] = MyToInt64(dr["AmounttoFirstShift"]);
-                newRow["Second_Flat_Electricity"] = MyToInt64(dr["AmounttoSecondShift"]);
-                newRow["Third_Flat_Electricity"] = MyToInt64(dr["AmounttoThirdShift"]);
+                newRow["First_Flat_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoFirstShift"]);
+                newRow["Second_Flat_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoSecondShift"]);
+                newRow["Third_Flat_Electricity"] = ReportHelper.MyToInt64(dr["AmounttoThirdShift"]);
                 temp1.Rows.Add(newRow);
             }
             string column = "First_Output,Second_Output,Third_Output," +
@@ -76,67 +76,67 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
 
             foreach (DataRow dr in temp1.Rows)
             {
-                dr["First_Sum_Electricity"] = MyToInt64(dr["First_Peak_Electricity"]) + MyToInt64(dr["First_Valley_Electricity"]) + MyToInt64(dr["First_Flat_Electricity"]);
-                dr["Second_Sum_Electricity"] = MyToInt64(dr["Second_Peak_Electricity"]) + MyToInt64(dr["Second_Valley_Electricity"]) + MyToInt64(dr["Second_Flat_Electricity"]);
-                dr["Third_Sum_Electricity"] = MyToInt64(dr["Third_Peak_Electricity"]) + MyToInt64(dr["Third_Valley_Electricity"]) + MyToInt64(dr["Third_Flat_Electricity"]);
+                dr["First_Sum_Electricity"] = ReportHelper.MyToInt64(dr["First_Peak_Electricity"]) + ReportHelper.MyToInt64(dr["First_Valley_Electricity"]) + ReportHelper.MyToInt64(dr["First_Flat_Electricity"]);
+                dr["Second_Sum_Electricity"] = ReportHelper.MyToInt64(dr["Second_Peak_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Valley_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Flat_Electricity"]);
+                dr["Third_Sum_Electricity"] = ReportHelper.MyToInt64(dr["Third_Peak_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Valley_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Flat_Electricity"]);
 
-                if (MyToInt64(dr["First_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["First_Output"]) != 0)
                 {
-                    dr["First_ElectricityConsumption"] = MyToDecimal(dr["First_Sum_Electricity"]) / MyToDecimal(dr["First_Output"]);
+                    dr["First_ElectricityConsumption"] = ReportHelper.MyToDecimal(dr["First_Sum_Electricity"]) / ReportHelper.MyToDecimal(dr["First_Output"]);
                 }
-                if (MyToInt64(dr["Second_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["Second_Output"]) != 0)
                 {
-                    dr["Second_ElectricityConsumption"] = MyToDecimal(dr["Second_Sum_Electricity"]) / MyToDecimal(dr["Second_Output"]);
+                    dr["Second_ElectricityConsumption"] = ReportHelper.MyToDecimal(dr["Second_Sum_Electricity"]) / ReportHelper.MyToDecimal(dr["Second_Output"]);
                 }
-                if (MyToInt64(dr["Third_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["Third_Output"]) != 0)
                 {
-                    dr["Third_ElectricityConsumption"] = MyToDecimal(dr["Third_Sum_Electricity"]) / MyToDecimal(dr["Third_Output"]);
+                    dr["Third_ElectricityConsumption"] = ReportHelper.MyToDecimal(dr["Third_Sum_Electricity"]) / ReportHelper.MyToDecimal(dr["Third_Output"]);
                 }
 
-                dr["First_Cost"] = MyToDecimal(dr["First_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + MyToDecimal(dr["First_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + MyToDecimal(dr["First_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
-                dr["Second_Cost"] = MyToDecimal(dr["Second_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + MyToDecimal(dr["Second_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + MyToDecimal(dr["Second_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
-                dr["Third_Cost"] = MyToDecimal(dr["Third_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + MyToDecimal(dr["Third_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + MyToDecimal(dr["Third_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
+                dr["First_Cost"] = ReportHelper.MyToDecimal(dr["First_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + ReportHelper.MyToDecimal(dr["First_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + ReportHelper.MyToDecimal(dr["First_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
+                dr["Second_Cost"] = ReportHelper.MyToDecimal(dr["Second_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + ReportHelper.MyToDecimal(dr["Second_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + ReportHelper.MyToDecimal(dr["Second_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
+                dr["Third_Cost"] = ReportHelper.MyToDecimal(dr["Third_Peak_Electricity"]) * peakValleyFlatElectrovalence[1] + ReportHelper.MyToDecimal(dr["Third_Valley_Electricity"]) * peakValleyFlatElectrovalence[2] + ReportHelper.MyToDecimal(dr["Third_Flat_Electricity"]) * peakValleyFlatElectrovalence[3];
 
-                dr["Amountto_Output"] = MyToInt64(dr["First_Output"]) + MyToInt64(dr["Second_Output"]) + MyToInt64(dr["Third_Output"]);
-                dr["Amountto_Peak_Electricity"] = MyToInt64(dr["First_Peak_Electricity"]) + MyToInt64(dr["Second_Peak_Electricity"]) + MyToInt64(dr["Third_Peak_Electricity"]);
-                dr["Amountto_Valley_Electricity"] = MyToInt64(dr["First_Valley_Electricity"]) + MyToInt64(dr["Second_Valley_Electricity"]) + MyToInt64(dr["Third_Valley_Electricity"]);
-                dr["Amountto_Flat_Electricity"] = MyToInt64(dr["First_Flat_Electricity"]) + MyToInt64(dr["Second_Flat_Electricity"]) + MyToInt64(dr["Third_Flat_Electricity"]);
-                dr["Amountto_Sum_Electricity"] = MyToInt64(dr["First_Sum_Electricity"]) + MyToInt64(dr["Second_Sum_Electricity"]) + MyToInt64(dr["Third_Sum_Electricity"]);
+                dr["Amountto_Output"] = ReportHelper.MyToInt64(dr["First_Output"]) + ReportHelper.MyToInt64(dr["Second_Output"]) + ReportHelper.MyToInt64(dr["Third_Output"]);
+                dr["Amountto_Peak_Electricity"] = ReportHelper.MyToInt64(dr["First_Peak_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Peak_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Peak_Electricity"]);
+                dr["Amountto_Valley_Electricity"] = ReportHelper.MyToInt64(dr["First_Valley_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Valley_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Valley_Electricity"]);
+                dr["Amountto_Flat_Electricity"] = ReportHelper.MyToInt64(dr["First_Flat_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Flat_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Flat_Electricity"]);
+                dr["Amountto_Sum_Electricity"] = ReportHelper.MyToInt64(dr["First_Sum_Electricity"]) + ReportHelper.MyToInt64(dr["Second_Sum_Electricity"]) + ReportHelper.MyToInt64(dr["Third_Sum_Electricity"]);
                 //dr["Amountto_ElectricityConsumption"] = (decimal)dr["First_ElectricityConsumption"] + (decimal)dr["Second_ElectricityConsumption"] + (decimal)dr["Third_ElectricityConsumption"];
-                if (MyToInt64(dr["Amountto_Output"]) != 0)
+                if (ReportHelper.MyToInt64(dr["Amountto_Output"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption"] = MyToDecimal(dr["Amountto_Sum_Electricity"]) / MyToDecimal(dr["Amountto_Output"]);
+                    dr["Amountto_ElectricityConsumption"] = ReportHelper.MyToDecimal(dr["Amountto_Sum_Electricity"]) / ReportHelper.MyToDecimal(dr["Amountto_Output"]);
                 }
-                dr["Amountto_Cost"] = (decimal)dr["First_Cost"] + (decimal)dr["Second_Cost"] + (decimal)dr["Third_Cost"];
+                dr["Amountto_Cost"] = ReportHelper.MyToDecimal(dr["First_Cost"]) + ReportHelper.MyToDecimal(dr["Second_Cost"]) + ReportHelper.MyToDecimal(dr["Third_Cost"]);
             }
 
             return temp1;
         }
 
-        public static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //public static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
 
-        public static Int64 MyToInt64(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToInt64(obj);
-            }
-            else
-            {
-                return Convert.ToInt64(obj);
-            }
-        }
+        //public static Int64 ReportHelper.MyToInt64(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToInt64(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToInt64(obj);
+        //    }
+        //}
     }
 }

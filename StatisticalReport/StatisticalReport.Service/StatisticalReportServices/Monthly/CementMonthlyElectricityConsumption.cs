@@ -92,73 +92,75 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly           
             for (int i = 0; i < num; i++)
             {
               
-                if (0 != MyToDecimal(Table4.Rows[i]["First_Output"]))
+                if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["First_Output"]))
                 { 
-                    Table4.Rows[i]["First_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["First_Electricity"]) / MyToDecimal(Table4.Rows[i]["First_Output"]);
+                    Table4.Rows[i]["First_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["First_Electricity"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["First_Output"]);
                 }
-                if (0 != MyToDecimal(Table4.Rows[i]["Second_Output"]))
+                if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["Second_Output"]))
                 {
-                    Table4.Rows[i]["Second_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Second_Electricity"]) / MyToDecimal(Table4.Rows[i]["Second_Output"]);
+                    Table4.Rows[i]["Second_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["Second_Electricity"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["Second_Output"]);
                 }
-                if (0 != MyToDecimal(Table4.Rows[i]["Third_Output"]))
+                if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["Third_Output"]))
                 {
-                    Table4.Rows[i]["Third_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Third_Electricity"]) / MyToDecimal(Table4.Rows[i]["Third_Output"]);
+                    Table4.Rows[i]["Third_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["Third_Electricity"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["Third_Output"]);
                 }
-                if (0 != MyToDecimal(Table4.Rows[i]["Amountto_Output"]))
+                if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["Amountto_Output"]))
                 {
-                    Table4.Rows[i]["Amountto_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Amountto_Electricity"]) / MyToDecimal(Table4.Rows[i]["Amountto_Output"]);
+                    Table4.Rows[i]["Amountto_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["Amountto_Electricity"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["Amountto_Output"]);
                 }
                 string pz = Table4.Rows[i]["CementTypes"].ToString().Trim();
                 if ("合计" != pz)
                 {
+
+                   // string test = "dddfd"; //---------测试
                     Table4.Rows[i]["ConvertCoefficient"] = _tzHelper.GetConvertCoefficient(pz); //Dictionary_zhxh[pz];
-                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
                     {
                         if(Table4.Rows[i]["First_ElectricityConsumption"] is DBNull)
                         {
                             Table4.Rows[i]["First_ElectricityConsumption"]=0;
                         }
-                        Table4.Rows[i]["First_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["First_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                        Table4.Rows[i]["First_Convert_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["First_ElectricityConsumption"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
                     }
-                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
                     {
                         if (Table4.Rows[i]["Second_ElectricityConsumption"] is DBNull)
                         {
                             Table4.Rows[i]["Second_ElectricityConsumption"] = 0;
                         }
-                        Table4.Rows[i]["Second_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Second_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                        Table4.Rows[i]["Second_Convert_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["Second_ElectricityConsumption"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
                     }
-                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
                     {
                         if (Table4.Rows[i]["Third_ElectricityConsumption"] is DBNull)
                         {
                             Table4.Rows[i]["Third_ElectricityConsumption"] = 0;
                         }
-                        Table4.Rows[i]["Third_Convert_ElectricityConsumption"] =  MyToDecimal(Table4.Rows[i]["Third_ElectricityConsumption"]) /  MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                        Table4.Rows[i]["Third_Convert_ElectricityConsumption"] =  ReportHelper.MyToDecimal(Table4.Rows[i]["Third_ElectricityConsumption"]) /  ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
                     }
-                    if (0 != MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
+                    if (0 != ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]))
                     {
                         if (Table4.Rows[i]["Amountto_ElectricityConsumption"] is DBNull)
                         {
                             Table4.Rows[i]["Amountto_ElectricityConsumption"] = 0;
                         }
-                        Table4.Rows[i]["Amountto_Convert_ElectricityConsumption"] = MyToDecimal(Table4.Rows[i]["Amountto_ElectricityConsumption"]) / MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
+                        Table4.Rows[i]["Amountto_Convert_ElectricityConsumption"] = ReportHelper.MyToDecimal(Table4.Rows[i]["Amountto_ElectricityConsumption"]) / ReportHelper.MyToDecimal(Table4.Rows[i]["ConvertCoefficient"]);
                     }
                 }
             }
             return Table4;
         }
-        public static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //public static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
     }
 }

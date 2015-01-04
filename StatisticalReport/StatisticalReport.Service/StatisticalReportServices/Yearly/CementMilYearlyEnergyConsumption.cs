@@ -85,10 +85,10 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Electricity_Cement_Monthly"] = Convert.ToInt64(dr["AmounttoCementPreparationSum"]);
-                    row["Electricity_CementGrinding_Monthly"] = Convert.ToInt64(dr["CementGrindingSum"]);
-                    row["Electricity_AdmixturePreparation_Monthly"] = Convert.ToInt64(dr["AdmixturePreparationSum"]);
-                    row["Electricity_BagsBulk_Monthly"] = Convert.ToInt64(dr["AmounttoCementPackagingSum"]);
+                    row["Electricity_Cement_Monthly"] =ReportHelper.MyToInt64(dr["AmounttoCementPreparationSum"]);
+                    row["Electricity_CementGrinding_Monthly"] =ReportHelper.MyToInt64(dr["CementGrindingSum"]);
+                    row["Electricity_AdmixturePreparation_Monthly"] =ReportHelper.MyToInt64(dr["AdmixturePreparationSum"]);
+                    row["Electricity_BagsBulk_Monthly"] =ReportHelper.MyToInt64(dr["AmounttoCementPackagingSum"]);
                     temp1.Rows.Add(row);
                 }
                 temp_dl.Merge(temp2);    //电量并入累计暂存
@@ -96,10 +96,10 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 {
                     DataRow row = temp1.NewRow();
                     row["vDate"] = ReportHelper.MyToString(i, 2, 0);
-                    row["Electricity_Cement_Accumulative"] = Convert.ToInt64(dr["AmounttoCementPreparationSum"]);
-                    row["Electricity_CementGrinding_Accumulative"] = Convert.ToInt64(dr["CementGrindingSum"]);
-                    row["Electricity_AdmixturePreparation_Accumulative"] = Convert.ToInt64(dr["AdmixturePreparationSum"]);
-                    row["Electricity_BagsBulk_Accumulative"] = Convert.ToInt64(dr["AmounttoCementPackagingSum"]);
+                    row["Electricity_Cement_Accumulative"] =ReportHelper.MyToInt64(dr["AmounttoCementPreparationSum"]);
+                    row["Electricity_CementGrinding_Accumulative"] =ReportHelper.MyToInt64(dr["CementGrindingSum"]);
+                    row["Electricity_AdmixturePreparation_Accumulative"] =ReportHelper.MyToInt64(dr["AdmixturePreparationSum"]);
+                    row["Electricity_BagsBulk_Accumulative"] =ReportHelper.MyToInt64(dr["AmounttoCementPackagingSum"]);
                     temp1.Rows.Add(row);
                 }
             }
@@ -112,60 +112,60 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             foreach (DataRow dr in temp.Rows)
             {
                 //电耗—水泥制备-本月
-                if (MyToDecimal(dr["Output_Cement_Monthly"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"]) != 0)
                 {
-                    dr["ElectricityConsumption_Cement_Monthly"] = MyToDecimal(dr["Electricity_Cement_Monthly"]) / MyToDecimal(dr["Output_Cement_Monthly"]);
+                    dr["ElectricityConsumption_Cement_Monthly"] = ReportHelper.MyToDecimal(dr["Electricity_Cement_Monthly"]) / ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"]);
                 }
                 //电耗-水泥制备-累计
-               if(MyToDecimal(dr["Output_Cement_Accumulative"])!=0)
+               if(ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"])!=0)
                {
-                   dr["ElectricityConsumption_Cement_Accumulative"] = MyToDecimal(dr["Electricity_Cement_Accumulative"]) / MyToDecimal(dr["Output_Cement_Accumulative"]);
+                   dr["ElectricityConsumption_Cement_Accumulative"] = ReportHelper.MyToDecimal(dr["Electricity_Cement_Accumulative"]) / ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"]);
                 }
                 //电耗-水泥磨-本月  //用 水泥磨/水泥制备 不知道对不对 
-                if(MyToDecimal(dr["Output_Cement_Monthly"])!=0)
+                if(ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"])!=0)
                 {
-                    dr["ElectricityConsumption_CementGrinding_Monthly"] = MyToDecimal(dr["Electricity_CementGrinding_Monthly"]) / MyToDecimal(dr["Output_Cement_Monthly"]);
+                    dr["ElectricityConsumption_CementGrinding_Monthly"] = ReportHelper.MyToDecimal(dr["Electricity_CementGrinding_Monthly"]) / ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"]);
                 }
                 //电耗-水泥磨-累计
-                if (MyToDecimal(dr["Output_Cement_Accumulative"])!=0)
+                if (ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"])!=0)
                 {
-                    dr["ElectricityConsumption_CementGrinding_Accumulative"] = MyToDecimal(dr["Electricity_CementGrinding_Accumulative"]) / MyToDecimal(dr["Output_Cement_Accumulative"]);
+                    dr["ElectricityConsumption_CementGrinding_Accumulative"] = ReportHelper.MyToDecimal(dr["Electricity_CementGrinding_Accumulative"]) / ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"]);
                 }
 
 
                 //吨水泥综合电耗-本月
-                if (MyToDecimal(dr["Output_Cement_Monthly"])!=0)
+                if (ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"])!=0)
                 {
                     dr["ComprehensiveElectricityConsumption_Monthly"]
-                        = (MyToDecimal(dr["Electricity_Cement_Monthly"])
-                        + MyToDecimal(dr["Electricity_AdmixturePreparation_Monthly"])
-                        + MyToDecimal(dr["Electricity_BagsBulk_Monthly"]))
-                        / MyToDecimal(dr["Output_Cement_Monthly"]);
+                        = (ReportHelper.MyToDecimal(dr["Electricity_Cement_Monthly"])
+                        + ReportHelper.MyToDecimal(dr["Electricity_AdmixturePreparation_Monthly"])
+                        + ReportHelper.MyToDecimal(dr["Electricity_BagsBulk_Monthly"]))
+                        / ReportHelper.MyToDecimal(dr["Output_Cement_Monthly"]);
                 }
                 //吨水泥综合电耗-累计
-                if (MyToDecimal(dr["Output_Cement_Accumulative"]) != 0)
+                if (ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"]) != 0)
                 {
                     dr["ComprehensiveElectricityConsumption_Accumulative"]
-                        = (MyToDecimal(dr["Electricity_Cement_Accumulative"])
-                        + MyToDecimal(dr["Electricity_AdmixturePreparation_Accumulative"])
-                        + MyToDecimal(dr["Electricity_BagsBulk_Accumulative"]))
-                        / MyToDecimal(dr["Output_Cement_Accumulative"]);
+                        = (ReportHelper.MyToDecimal(dr["Electricity_Cement_Accumulative"])
+                        + ReportHelper.MyToDecimal(dr["Electricity_AdmixturePreparation_Accumulative"])
+                        + ReportHelper.MyToDecimal(dr["Electricity_BagsBulk_Accumulative"]))
+                        / ReportHelper.MyToDecimal(dr["Output_Cement_Accumulative"]);
                 }
 
             }
             return temp;
         }
-        public static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //public static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
     }
 }

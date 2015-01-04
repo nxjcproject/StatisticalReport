@@ -117,37 +117,37 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                     foreach (DataRow _row in rows)
                     {
                         //电量-生料制备  
-                        dr["Electricity_RawBatch"] = MyToDecimal(dr["Electricity_RawBatch"]) + MyToDecimal(_row["Electricity_RawBatch"]);
+                        dr["Electricity_RawBatch"] = ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) + ReportHelper.MyToDecimal(_row["Electricity_RawBatch"]);
                         //电量-熟料烧成
-                        dr["Electricity_Clinker"] = MyToDecimal(dr["Electricity_Clinker"]) + MyToDecimal(_row["Electricity_Clinker"]);
+                        dr["Electricity_Clinker"] = ReportHelper.MyToDecimal(dr["Electricity_Clinker"]) + ReportHelper.MyToDecimal(_row["Electricity_Clinker"]);
                         //电量-水泥制备
-                        dr["Electricity_Cement"] = MyToDecimal(dr["Electricity_Cement"]) + MyToDecimal(_row["Electricity_Cement"]);
+                        dr["Electricity_Cement"] = ReportHelper.MyToDecimal(dr["Electricity_Cement"]) + ReportHelper.MyToDecimal(_row["Electricity_Cement"]);
                         //消耗量-煤粉
-                        dr["Consumption_CoalDust"] = MyToDecimal(dr["Consumption_CoalDust"]) + MyToDecimal(_row["Consumption_CoalDust"]);
+                        dr["Consumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Consumption_CoalDust"]) + ReportHelper.MyToDecimal(_row["Consumption_CoalDust"]);
                         //产量-生料制备
-                        dr["Output_RawBatch"] = MyToDecimal(dr["Output_RawBatch"]) + MyToDecimal(_row["Output_RawBatch"]);
+                        dr["Output_RawBatch"] = ReportHelper.MyToDecimal(dr["Output_RawBatch"]) + ReportHelper.MyToDecimal(_row["Output_RawBatch"]);
                         //产量-熟料烧成
-                        dr["Output_Clinker"] = MyToDecimal(dr["Output_Clinker"]) + MyToDecimal(_row["Output_Clinker"]);
+                        dr["Output_Clinker"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) + ReportHelper.MyToDecimal(_row["Output_Clinker"]);
                         //产量-水泥制备
-                        dr["Output_Cement"] = MyToDecimal(dr["Output_Cement"]) + MyToDecimal(_row["Output_Cement"]);
+                        dr["Output_Cement"] = ReportHelper.MyToDecimal(dr["Output_Cement"]) + ReportHelper.MyToDecimal(_row["Output_Cement"]);
                         //产量-余热发电发电量
-                        dr["Output_Cogeneration"] = MyToDecimal(dr["Output_Cogeneration"]) + MyToDecimal(_row["Output_Cogeneration"]);
+                        dr["Output_Cogeneration"] = ReportHelper.MyToDecimal(dr["Output_Cogeneration"]) + ReportHelper.MyToDecimal(_row["Output_Cogeneration"]);
                     }
                 }
                 //处理电耗等数据
                 //电耗-生料制备
-                dr["ElectricityConsumption_RawBatch"] = MyToDecimal(dr["Output_RawBatch"]) != 0 ? MyToDecimal(dr["Electricity_RawBatch"]) / MyToDecimal(dr["Output_RawBatch"]) : 0;
+                dr["ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Output_RawBatch"]) != 0 ? ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Output_RawBatch"]) : 0;
                 //电耗-熟料烧成
-                dr["ElectricityConsumption_Clinker"] = MyToDecimal(dr["Output_Clinker"]) != 0 ? MyToDecimal(dr["Electricity_Clinker"]) / MyToDecimal(dr["Output_Clinker"]) : 0;
+                dr["ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? ReportHelper.MyToDecimal(dr["Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"]) : 0;
                 //电耗-水泥制备
-                dr["ElectricityConsumption_Cement"] = MyToDecimal(dr["Output_Cement"]) != 0 ? MyToDecimal(dr["Electricity_Cement"]) / MyToDecimal(dr["Output_Cement"]) : 0;
+                dr["ElectricityConsumption_Cement"] = ReportHelper.MyToDecimal(dr["Output_Cement"]) != 0 ? ReportHelper.MyToDecimal(dr["Electricity_Cement"]) / ReportHelper.MyToDecimal(dr["Output_Cement"]) : 0;
                 //吨熟料综合电耗
-                dr["ComprehensiveElectricityConsumption"] = MyToDecimal(dr["Output_Clinker"]) != 0 ? (MyToDecimal(dr["Electricity_RawBatch"]) + MyToDecimal(dr["Electricity_Clinker"]))
-                        / MyToDecimal(dr["Output_Clinker"]) : 0;
+                dr["ComprehensiveElectricityConsumption"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? (ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Electricity_Clinker"]))
+                        / ReportHelper.MyToDecimal(dr["Output_Clinker"]) : 0;
                 //吨熟料综合实物煤耗
-                dr["ComprehensiveCoalConsumption"] = MyToDecimal(dr["Output_Clinker"]) != 0 ? MyToDecimal(dr["Consumption_CoalDust"]) * 1000 / MyToDecimal(dr["Output_Clinker"]) : 0;
+                dr["ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? ReportHelper.MyToDecimal(dr["Consumption_CoalDust"]) * 1000 / ReportHelper.MyToDecimal(dr["Output_Clinker"]) : 0;
                 //吨熟料发电量
-                dr["ComprehensiveElectricityOutput"] = MyToDecimal(dr["Output_Clinker"]) != 0 ? MyToDecimal(dr["Output_Cogeneration"]) / MyToDecimal(dr["Output_Clinker"]) : 0;
+                dr["ComprehensiveElectricityOutput"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? ReportHelper.MyToDecimal(dr["Output_Cogeneration"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"]) : 0;
 
             }
 
@@ -155,17 +155,17 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
             return _temp;
         }
 
-        private static decimal MyToDecimal(object obj)
-        {
-            if (obj is DBNull)
-            {
-                obj = 0;
-                return Convert.ToDecimal(obj);
-            }
-            else
-            {
-                return Convert.ToDecimal(obj);
-            }
-        }
+        //private static decimal ReportHelper.MyToDecimal(object obj)
+        //{
+        //    if (obj is DBNull)
+        //    {
+        //        obj = 0;
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //    else
+        //    {
+        //        return Convert.ToDecimal(obj);
+        //    }
+        //}
     }
 }

@@ -638,5 +638,39 @@ namespace StatisticalReport.Infrastructure.Report
                 return resultInt;
             }
         }
+        /// <summary>
+        /// 将obj转换为decimal，如果为DBNull转为0
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static decimal MyToDecimal(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToDecimal(obj);
+            }
+            else
+            {
+                return Convert.ToDecimal(obj);
+            }
+        }
+        /// <summary>
+        /// 将obj转换为Int64，如果为DBNull转为0
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static Int64 MyToInt64(object obj)
+        {
+            if (obj is DBNull)
+            {
+                obj = 0;
+                return Convert.ToInt64(obj);
+            }
+            else
+            {
+                return Convert.ToInt64(obj);
+            }
+        }
     }
 }
