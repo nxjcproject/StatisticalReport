@@ -47,12 +47,13 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                 }
 
                 DataTable temp = TeamClinkerMonthlyProcessEnergyConsumption.TableQuery(organizationID, dateTime);
+                temp.Rows[temp.Rows.Count - 1]["vDate"] = i;
                 result.ImportRow(temp.Rows[temp.Rows.Count - 1]);
             }
-            for (int i = 0; i < result.Rows.Count; i++)
-            {
-                result.Rows[i]["vDate"] = i + 1;
-            }
+            //for (int i = 0; i < result.Rows.Count; i++)
+            //{
+            //    result.Rows[i]["vDate"] = i + 1;
+            //}
             string totalField = "TeamA_Electricity_RawBatch,TeamA_Electricity_RawBatchGrinding,TeamA_Electricity_Clinker,TeamA_Electricity_CoalDust," +
                 "TeamA_Consumption_CoalDust,TeamA_Output_RawBatch,TeamA_Output_Clinker,TeamA_Output_CoalDust,TeamA_Output_Cogeneration,TeamA_ElectricityConsumption_RawBatch," +
                 "TeamA_ElectricityConsumption_RawBatchGrinding,TeamA_ElectricityConsumption_Clinker,TeamA_ElectricityConsumption_CoalDust,TeamA_ComprehensiveElectricityConsumption," +

@@ -30,14 +30,15 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
 
             for (int i = 1; i < temp1.Rows.Count; i++)
             {
-                int day = i;
+                int day = 0;
+                int.TryParse(temp1.Rows[i - 1]["vDate"].ToString().Trim(), out day);
                 IDictionary<string, string> teamDictionary = _tzHelper.GetTeamDictionary(organizationID, year, month, day);
 
                 #region 甲班
                 if (teamDictionary.Keys.Contains("甲班"))
                 {
                     DataRow newRow = result.NewRow();
-                    newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
+                    newRow["vDate"] = temp1.Rows[i - 1]["vDate"];
 
                     if (teamDictionary["甲班"] == "A组")
                     {
@@ -119,7 +120,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 if (teamDictionary.Keys.Contains("乙班"))
                 {
                     DataRow newRow = result.NewRow();
-                    newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
+                    newRow["vDate"] = temp1.Rows[i - 1]["vDate"];
 
                     if (teamDictionary["乙班"] == "A组")
                     {
@@ -201,7 +202,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 if (teamDictionary.Keys.Contains("丙班"))
                 {
                     DataRow newRow = result.NewRow();
-                    newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
+                    newRow["vDate"] = temp1.Rows[i - 1]["vDate"];
 
                     if (teamDictionary["丙班"] == "A组")
                     {
@@ -282,7 +283,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 #region 合计
                 {
                     DataRow newRow = result.NewRow();
-                    newRow["vDate"] = (string)temp1.Rows[i - 1]["vDate"];
+                    newRow["vDate"] = temp1.Rows[i - 1]["vDate"];
 
                     newRow["Amountto_Electricity_RawBatch"] = temp1.Rows[i - 1]["Amountto_Electricity_RawBatch"];
                     newRow["Amountto_Electricity_RawBatchGrinding"] = temp1.Rows[i - 1]["Amountto_Electricity_RawBatchGrinding"];

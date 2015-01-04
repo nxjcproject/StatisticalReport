@@ -54,6 +54,11 @@ namespace StatisticalReport.Infrastructure.Report
         /// <returns></returns>
         public IDictionary<string, string> GetTeamDictionary(string organizationID, int year, int month, int day)
         {
+            string[] orgaString = organizationID.Split('_');
+            if (orgaString.Count() >= 5)
+            {
+                organizationID = orgaString[0] + "_" + orgaString[1] + "_" + orgaString[2] + "_" + orgaString[3];
+            }
             IDictionary<string, string> result = new Dictionary<string, string>();
 
             string sqlString = "SELECT Shifts, WorkingTeam FROM shift_WorkingTeamShiftLog WHERE OrganizationID='" + organizationID + "' AND YEAR(ShiftDate)=" + year + " AND MONTH(ShiftDate)=" + month +
