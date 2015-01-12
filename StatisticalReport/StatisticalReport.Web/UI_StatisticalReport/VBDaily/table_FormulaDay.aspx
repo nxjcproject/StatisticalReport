@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>生产线自定义工序峰谷平用电日统计表</title>
+    <title>生产线自定义工序峰谷平用电统计表</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css"/>
 	<link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css"/>
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css"/>
@@ -38,6 +38,9 @@
 		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
 				                <td><input id="datetime" type="text" class="easyui-datebox" style="width:120px;" required="required" /></td>
+                                <td><input id="Radio1" type="radio" name="reportType" value="日报" checked="checked" />日报</td>
+                                <td><input id="Radio2" type="radio" name="reportType" value="月报" />月报</td>
+                                <td><input id="Radio3" type="radio" name="reportType" value="年报" />年报</td>
 				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
                                         onclick="QueryReportFun();">查询</a>
                                 </td>

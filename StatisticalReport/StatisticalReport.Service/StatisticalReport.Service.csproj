@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalReportServices\Daily\CementMilEnergyConsumption_TargetCompletion.cs" />
     <Compile Include="StatisticalReportServices\Daily\ClinkerEnergyConsumption_TargetCompletion.cs" />
+    <Compile Include="StatisticalReportServices\Daily\EnergyConsumption_TargetCompletion.cs" />
     <Compile Include="StatisticalReportServices\Monthly\CementMilMonthlyEnergyConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\CementMilMonthlyPeakerValleyFlatElectricityConsumption.cs" />
     <Compile Include="StatisticalReportServices\Monthly\CementMonthlyElectricityConsumption.cs" />

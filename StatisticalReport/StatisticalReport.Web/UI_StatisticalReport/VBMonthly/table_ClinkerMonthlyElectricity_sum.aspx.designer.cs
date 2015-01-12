@@ -13,7 +13,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.VBMonthly {
     public partial class table_ClinkerMonthlyElectricity_sum {
         
         /// <summary>
-        /// OrganisationTree 控件。
+        /// OrganisationTree_ProductionLine 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。

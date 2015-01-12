@@ -1,5 +1,6 @@
 ﻿using StatisticalReport.Service.StatisticalReportServices;
 using StatisticalReport.Service.StatisticalReportServices.Monthly;
+using StatisticalReport.Service.StatisticalReportServices.Yearly;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -53,10 +54,22 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
         /// </summary>
         /// <returns>column的json字符串</returns>
         [WebMethod]
-        public static string GetReportData(string organizationId, string datetime)
+        public static string GetReportData(string organizationId, string datetime,string reportType)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = EnergyConsumptionMonthlyStatisticAnalysis.TableQuery(organizationId, datetime);
+            string time;
+            switch (reportType)
+            {
+                case "月报":
+                    time = datetime.Substring(0, 7);
+                    myDataTable = EnergyConsumptionMonthlyStatisticAnalysis.TableQuery(organizationId, time);
+                    break;
+                case "年报":
+                    time = datetime.Substring(0, 4);
+                    myDataTable = EnergyConsumptionYearlyStatisticAnalysis.TableQuery(organizationId, time);
+                    break;
+            }
+            //myDataTable = EnergyConsumptionMonthlyStatisticAnalysis.TableQuery(organizationId, datetime);
             //string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
             //    REPORT_TEMPLATE_PATH, myDataTable);
             string[] m_params={"LevelCode", "Type", "Name", "Electricity_RawBatch", "Electricity_Clinker", "Electricity_Cement",

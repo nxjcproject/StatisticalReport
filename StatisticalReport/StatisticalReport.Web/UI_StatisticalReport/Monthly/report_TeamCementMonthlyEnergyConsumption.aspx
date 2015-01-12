@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>班组水泥粉磨能耗月统计分析</title>
+    <title>班组水泥粉磨能耗(月/年)统计分析</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css"/>
 	<link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css"/>
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css"/>
@@ -40,7 +40,9 @@
 		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
 				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>
-				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+				                <td><input id="Radio2" type="radio" name="reportType" value="月报" checked="checked"/>月报</td>
+                                <td><input id="Radio3" type="radio" name="reportType" value="年报" />年报</td>
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
                                         onclick="QueryReportFun();">查询</a>
                                 </td>
 			                </tr>

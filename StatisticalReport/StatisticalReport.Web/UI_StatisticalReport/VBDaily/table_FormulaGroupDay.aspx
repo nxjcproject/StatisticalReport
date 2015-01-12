@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>生产线自定义工序分班次用电日统计表</title>
+    <title>生产线自定义工序分班次用电统计表</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css"/>
 	<link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css"/>
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css"/>

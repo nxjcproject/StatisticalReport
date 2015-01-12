@@ -7,36 +7,36 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace StatisticalReport.Web.UI_StatisticalReport.VBMonthly {
+namespace StatisticalReport.Web {
     
     
-    public partial class table_FormulaMonth {
+    public partial class Test {
         
         /// <summary>
-        /// OrganisationTree 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::WebUserContorls.Web.UI_WebUserControls.OrganizationSelector.OrganisationTree OrganisationTree_ProductionLine;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// formMain 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formMain;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// HiddenField_UserName 控件。
+        /// GridView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField_UserName;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

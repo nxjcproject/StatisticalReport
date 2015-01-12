@@ -1,16 +1,17 @@
 ﻿$(function () {
     //var m_UserName = $('#HiddenField_UserName').val();
     //loadGridData('first');
+    var reportType = '';
     InitializeGrid('');
 });
 
-function loadGridData(myLoadType, organizationId, datetime) {
+function loadGridData(myLoadType, organizationId, datetime,reportType) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     $.ajax({
         type: "POST",
         url: "table_AmmeterPeakerValleyFlatDay.aspx/GetReportData",
-        data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
+        data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '",reportType:"'+reportType+'"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -127,6 +128,7 @@ function PrintFileFun() {
 }
 
 function QueryReportFun() {
+    reportType = $('input[name="reportType"]:checked').val();
     var organizationID = $('#organizationId').val();
     var datetime = $('#datetime').datetimebox('getValue');
     if (organizationID == "" || datetime == "") {
@@ -134,7 +136,7 @@ function QueryReportFun() {
         return;
     }
 
-    loadGridData('first', organizationID, datetime);
+    loadGridData('first', organizationID, datetime,reportType);
 }
 
 

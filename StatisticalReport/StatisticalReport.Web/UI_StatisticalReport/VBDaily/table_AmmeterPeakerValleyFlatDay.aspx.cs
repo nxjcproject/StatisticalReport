@@ -1,5 +1,7 @@
 ﻿using StatisticalReport.Service.StatisticalReportServices;
 using StatisticalReport.Service.VBReport.Daily;
+using StatisticalReport.Service.VBReport.Monthly;
+using StatisticalReport.Service.VBReport.Yearly;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,7 +47,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.VBDaily
                 string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
                 string m_HtmlData = StatisticalReportHelper.CreateExportHtmlTable(mFileRootPath +
                     REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
-                StatisticalReportHelper.ExportExcelFile("xls", "电表峰谷平用电日统计表.xls", m_HtmlData);
+                StatisticalReportHelper.ExportExcelFile("xls", "电表峰谷平用电统计表.xls", m_HtmlData);
             }
         }
 
@@ -54,10 +56,26 @@ namespace StatisticalReport.Web.UI_StatisticalReport.VBDaily
         /// </summary>
         /// <returns>column的json字符串</returns>
         [WebMethod]
-        public static string GetReportData(string organizationId, string datetime)
+        public static string GetReportData(string organizationId, string datetime ,string reportType)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = AmmeterPeakerValleyFlatDay.TableQuery(organizationId, datetime);
+            string time;
+            switch (reportType)
+            {
+                case "日报":
+                    time = datetime;
+                    myDataTable = AmmeterPeakerValleyFlatDay.TableQuery(organizationId, time);
+                    break;
+                case "月报":
+                    time = datetime.Substring(0, 7);
+                    myDataTable = AmmeterPeakerValleyFlatMonth.TableQuery(organizationId, time);
+                    break;
+                case "年报":
+                    time = datetime.Substring(0, 4);
+                    myDataTable = AmmeterPeakerValleyFlatYear.TableQuery(organizationId, time);
+                    break;
+            }
+            
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;

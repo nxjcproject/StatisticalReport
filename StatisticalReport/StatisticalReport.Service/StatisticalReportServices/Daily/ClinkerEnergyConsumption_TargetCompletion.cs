@@ -99,21 +99,21 @@ namespace StatisticalReport.Service.StatisticalReportServices.Daily           //
             int RawMillEnergyConsumption = ReportHelper.GetNoRow(temp, "QuotasID", "生料磨电耗");
             int CoalMillEnergyConsumption = ReportHelper.GetNoRow(temp, "QuotasID", "煤磨电耗");
             //熟料产量（本日完成） 
-            if (ClinkerOutput != 0)
+            if (ClinkerOutput != -1)
             {
                 temp.Rows[ClinkerOutput]["Today_Completion"] = row_DayCLs.Count() != 0 ? row_DayCLs[0]["ClinkerProductionSum"] : 0;
                 //熟料产量（本月累计）
                 temp.Rows[ClinkerOutput]["Monthly_Accumulative"] = row_sumMounthCLs.Count() != 0 ? row_sumMounthCLs[0]["ClinkerProductionSum"] : 0;
             }
             //发电量（本日完成）
-            if (GeneratingCapacity != 0)
+            if (GeneratingCapacity != -1)
             {
                 temp.Rows[GeneratingCapacity]["Today_Completion"] = row_DayCLs.Count() != 0 ? row_DayCLs[0]["PowerGenerationSum"] : 0;
                 //发电量（本月累计）
                 temp.Rows[GeneratingCapacity]["Monthly_Accumulative"] = row_sumMounthCLs.Count() != 0 ? row_sumMounthCLs[0]["PowerGenerationSum"] : 0;
             }
             //吨熟料发电量（本日完成）
-            if (GeneratingCapacityPreClinker != 0)
+            if (GeneratingCapacityPreClinker != -1)
             {
                 if (row_DayCLs.Count() != 0)
                 {

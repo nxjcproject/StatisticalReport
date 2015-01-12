@@ -1,6 +1,7 @@
 ﻿$(function () {
     //var m_UserName = $('#HiddenField_UserName').val();
     //loadGridData('first');
+    var reportType = '';
     InitializeGrid('');
 });
 
@@ -10,7 +11,7 @@ function loadGridData(myLoadType, organizationId, datetime) {
     $.ajax({
         type: "POST",
         url: "table_PublicFormulaDay.aspx/GetReportData",
-        data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '"}',
+        data: '{organizationId: "' + organizationId + '", datetime: "' + datetime + '",reportType:"' + reportType + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -127,6 +128,7 @@ function PrintFileFun() {
 }
 
 function QueryReportFun() {
+    reportType = $('input[name="reportType"]:checked').val();
     var organizationID = $('#organizationId').val();
     var datetime = $('#datetime').datetimebox('getValue');
     if (organizationID == "" || datetime == "") {

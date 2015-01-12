@@ -10,6 +10,7 @@ using System.IO;
 using System.Data;
 using StatisticalReport.Service.StatisticalReportServices;
 using StatisticalReport.Service.StatisticalReportServices.Monthly;
+using StatisticalReport.Service.StatisticalReportServices.Yearly;
 
 namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
 {
@@ -56,10 +57,22 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Monthly
         /// </summary>
         /// <returns>column的json字符串</returns>
         [WebMethod]
-        public static string GetReportData(string organizationId, string datetime)
+        public static string GetReportData(string organizationId, string datetime, string reportType)
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
-            myDataTable = TeamCementMonthlyEnergyConsumption.TableQuery(organizationId, datetime);
+            string time;
+            switch (reportType)
+            {
+                case "月报":
+                    time = datetime.Substring(0, 7);
+                    myDataTable = TeamCementMonthlyEnergyConsumption.TableQuery(organizationId, time);
+                    break;
+                case "年报":
+                    time = datetime.Substring(0, 4);
+                    myDataTable = TeamCementYearlyEnergyConsumption.TableQuery(organizationId, time);
+                    break;
+            }
+            //myDataTable = TeamCementMonthlyEnergyConsumption.TableQuery(organizationId, datetime);
             string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
                 REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;

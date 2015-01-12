@@ -13,7 +13,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.VBDaily {
     public partial class table_PublicFormulaDay {
         
         /// <summary>
-        /// OrganisationTree 控件。
+        /// OrganisationTree_ProductionLine 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
