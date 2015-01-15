@@ -57,6 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
+    <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />
+    <Compile Include="ComprehensiveReport\CoalConsumptionReportService.cs" />
+    <Compile Include="ComprehensiveReport\ElectricityConsumptionReportService.cs" />
     <Compile Include="OrganizationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalReportServices\Daily\CementMilEnergyConsumption_TargetCompletion.cs" />
@@ -108,7 +112,6 @@
       <Name>StatisticalReport.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

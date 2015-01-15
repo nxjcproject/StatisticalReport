@@ -78,6 +78,14 @@
     <Content Include="lib\ealib\extend\editCell.js" />
     <Content Include="lib\ealib\extend\jquery.jqprint.js" />
     <Content Include="Test.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\ElectricityConsumptionDailyReport.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\ElectricityUsageDailyReport.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\js\page\CoalConsumptionDailyReport.js" />
+    <Content Include="UI_ComprehensiveDailyReport\js\page\ElectricityUsageDailyReport.js" />
+    <Content Include="UI_ComprehensiveDailyReport\js\page\CoalUsageDailyReport.js" />
+    <Content Include="UI_ComprehensiveDailyReport\js\page\ElectricityConsumptionDailyReport.js" />
     <Content Include="UI_StatisticalReport\Daily\report_CementMilEnergyConsumption_TargetCompletion.aspx" />
     <Content Include="UI_StatisticalReport\Daily\report_ClinkerEnergyConsumption_TargetCompletion.aspx" />
     <Content Include="UI_StatisticalReport\js\page\Daily\report_CementMilEnergyConsumption_TargetCompletion.js" />
@@ -1647,6 +1655,34 @@
     </Compile>
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx.cs">
+      <DependentUpon>CoalConsumptionDailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx.designer.cs">
+      <DependentUpon>CoalConsumptionDailyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx.cs">
+      <DependentUpon>CoalUsageDailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx.designer.cs">
+      <DependentUpon>CoalUsageDailyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\ElectricityConsumptionDailyReport.aspx.cs">
+      <DependentUpon>ElectricityConsumptionDailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\ElectricityConsumptionDailyReport.aspx.designer.cs">
+      <DependentUpon>ElectricityConsumptionDailyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\ElectricityUsageDailyReport.aspx.cs">
+      <DependentUpon>ElectricityUsageDailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\ElectricityUsageDailyReport.aspx.designer.cs">
+      <DependentUpon>ElectricityUsageDailyReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_StatisticalReport\Daily\report_CementMilEnergyConsumption_TargetCompletion.aspx.cs">
       <DependentUpon>report_CementMilEnergyConsumption_TargetCompletion.aspx</DependentUpon>
