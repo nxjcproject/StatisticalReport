@@ -1,9 +1,11 @@
 ﻿var companyName = '';
+var firstCompanyName = '';
 $(document).ready(function () {
-    var m_width = $('#AlarmId').width() / 2;
+    var m_width = $('#AlarmId').width() ;
     var m_height = $('#AlarmId').height();
-    $('#EnergyAlarmId').height(m_height).width(m_width-5);
-    $('#MachineHaltAlarmId').height(m_height).width(m_width-5);
+    $('#AlarmContainId').height(m_height).width(m_width);
+    $('#EnergyAlarmId').height(m_height - 10).width(m_width / 2 - 8);
+    $('#MachineHaltAlarmId').height(m_height - 10).width(m_width / 2 - 8);
     var m_MsgData;
     $.ajax({
         type: "POST",
@@ -13,7 +15,9 @@ $(document).ready(function () {
         dataType: "json",
         success: function (msg) {
             m_MsgData = jQuery.parseJSON(msg.d);
+            firstCompanyName = m_MsgData['rows'][0]['公司'];
             $('#completeGridId').datagrid('loadData', m_MsgData['rows']);
+            InitChart(firstCompanyName);
         },
         error: handleError
     });
@@ -41,6 +45,7 @@ $(document).ready(function () {
         },
         error: handleError
     });
+    
 });
 
 function handleError() {
@@ -58,10 +63,64 @@ function updateMachineHaltAlarmChart(data) {
 function onRowDblClick(index, rowData) {
     companyName = rowData["公司"];
     $('#legentId').html(companyName);
+    InitChart(companyName);
+    //$.ajax({
+    //    type: "POST",
+    //    url: "DispatchDailyReport.aspx/GetPlanAndCompelete",
+    //    data:"{companyName:'"+rowData["公司"]+"'}",
+    //    contentType: "application/json; charset=utf-8",
+    //    dataType: "json",
+    //    success: function (msg) {
+    //        var data = JSON.parse(msg.d);
+    //        updateChart(data);
+    //        ////////重复，待以后优化
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "DispatchDailyReport.aspx/GetEnergyAlarm",
+    //            data: '',
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            success: function (msg) {
+    //                m_MsgData = jQuery.parseJSON(msg.d);
+    //                updateEnergyAlarmChart(m_MsgData);
+    //            },
+    //            error: handleError
+    //        });
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "DispatchDailyReport.aspx/GetMachineHaltAlarm",
+    //            data: '',
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            success: function (msg) {
+    //                m_MsgData = jQuery.parseJSON(msg.d);
+    //                updateMachineHaltAlarmChart(m_MsgData);
+    //            },
+    //            error: handleError
+    //        });
+    //    },
+    //    error: handleError
+    //});
+    //$.ajax({
+    //    type: "POST",
+    //    url: "DispatchDailyReport.aspx/GetGapPlanAndComplete",
+    //    data: "{companyName:'" + rowData["公司"] + "'}",
+    //    contentType: "application/json; charset=utf-8",
+    //    dataType: "json",
+    //    success: function (msg) {
+    //        var data = JSON.parse(msg.d);
+    //        updateTable(data);            
+    //    },
+    //    error: handleError
+    //});
+   
+}
+function InitChart(companyName) {
+    $('#legentId').html(companyName);
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetPlanAndCompelete",
-        data:"{companyName:'"+rowData["公司"]+"'}",
+        data: "{companyName:'" + companyName + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -98,16 +157,15 @@ function onRowDblClick(index, rowData) {
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetGapPlanAndComplete",
-        data: "{companyName:'" + rowData["公司"] + "'}",
+        data: "{companyName:'" + companyName + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
             var data = JSON.parse(msg.d);
-            updateTable(data);            
+            updateTable(data);
         },
         error: handleError
     });
-   
 }
 
 
