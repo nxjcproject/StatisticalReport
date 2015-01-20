@@ -74,15 +74,23 @@
   <ItemGroup>
     <Content Include="Common\OrganisationService.asmx" />
     <Content Include="Common\OrganisationTree.ascx" />
+    <Content Include="js\common\components\Charts.js" />
+    <Content Include="js\common\components\DataGrid.js" />
+    <Content Include="js\common\components\GridChart.js" />
+    <Content Include="js\common\components\WindowsDialog.js" />
+    <Content Include="js\common\format\DateTimeFormat.js" />
+    <Content Include="js\common\json2.min.js" />
     <Content Include="js\common\PrintFile.js" />
     <Content Include="lib\ealib\extend\editCell.js" />
     <Content Include="lib\ealib\extend\jquery.jqprint.js" />
     <Content Include="Test.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx" />
+    <Content Include="UI_ComprehensiveDailyReport\DispatchDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\ElectricityConsumptionDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\ElectricityUsageDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\js\page\CoalConsumptionDailyReport.js" />
+    <Content Include="UI_ComprehensiveDailyReport\js\page\DispatchDailyReport.js" />
     <Content Include="UI_ComprehensiveDailyReport\js\page\ElectricityUsageDailyReport.js" />
     <Content Include="UI_ComprehensiveDailyReport\js\page\CoalUsageDailyReport.js" />
     <Content Include="UI_ComprehensiveDailyReport\js\page\ElectricityConsumptionDailyReport.js" />
@@ -1670,6 +1678,13 @@
     <Compile Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx.designer.cs">
       <DependentUpon>CoalUsageDailyReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\DispatchDailyReport.aspx.cs">
+      <DependentUpon>DispatchDailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ComprehensiveDailyReport\DispatchDailyReport.aspx.designer.cs">
+      <DependentUpon>DispatchDailyReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_ComprehensiveDailyReport\ElectricityConsumptionDailyReport.aspx.cs">
       <DependentUpon>ElectricityConsumptionDailyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1901,6 +1916,7 @@
     <Folder Include="Images\common\" />
     <Folder Include="Images\Page\" />
     <Folder Include="js\page\" />
+    <Folder Include="UI_DispatchDailyReport\" />
     <Folder Include="UI_StatisticalReport\css\common\" />
     <Folder Include="UI_StatisticalReport\css\page\" />
     <Folder Include="UI_StatisticalReport\images\common\" />

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
+    <Compile Include="ComprehensiveReport\DispatchDailyReport\DispatchDailyReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\CoalConsumptionReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityConsumptionReportService.cs" />
