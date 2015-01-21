@@ -4,8 +4,10 @@ $(document).ready(function () {
     var m_width = $('#AlarmId').width() ;
     var m_height = $('#AlarmId').height();
     $('#AlarmContainId').height(m_height).width(m_width);
-    $('#EnergyAlarmId').height(m_height - 10).width(m_width / 2 - 8);
-    $('#MachineHaltAlarmId').height(m_height - 10).width(m_width / 2 - 8);
+    //$('.alarmTitle').height(m_height - 15).width(m_width / 2 - 15);
+    $('#EnergyAlarmId').height(m_height - 25).width(m_width / 2 - 15);
+    $('#MachineHaltAlarmId').height(m_height - 25).width(m_width / 2 - 15);
+
     var m_MsgData;
     $.ajax({
         type: "POST",

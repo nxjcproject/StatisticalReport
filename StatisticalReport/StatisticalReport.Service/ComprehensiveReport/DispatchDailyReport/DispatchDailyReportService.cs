@@ -13,7 +13,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
     public static class DispatchDailyReportService
     {
         private static ISqlServerDataFactory _dataFactory;
-
+        private  const int Rate=100000;
         static DispatchDailyReportService()
         {
             _dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
@@ -143,9 +143,9 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                     string itemName=planSourceRow["QuotasID"].ToString().Trim();
                     resultPlanRow[itemName] = planSourceRow[month];
                 }
-                resultPlanRow["熟料产量"] = (decimal)resultPlanRow["熟料产量"] / 100000;
-                resultPlanRow["发电量"] = (decimal)resultPlanRow["发电量"] / 100000;
-                resultPlanRow["水泥产量"] = (decimal)resultPlanRow["水泥产量"] / 100000;
+                resultPlanRow["熟料产量"] = (decimal)resultPlanRow["熟料产量"] / Rate;
+                resultPlanRow["发电量"] = (decimal)resultPlanRow["发电量"] / Rate;
+                resultPlanRow["水泥产量"] = (decimal)resultPlanRow["水泥产量"] / Rate;
 
                 resultPlanRow["吨熟料发电量"] = (decimal)resultPlanRow["吨熟料发电量"] / clinkerNum;
                 resultPlanRow["煤磨电耗"] = (decimal)resultPlanRow["煤磨电耗"] / clinkerNum;
@@ -185,13 +185,13 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                     switch (drow["VariableId"].ToString().Trim())
                     {
                         case "clinker_ClinkerOutput":
-                            row["熟料产量"] = (decimal)drow["Value"]/100000;
+                            row["熟料产量"] = (decimal)drow["Value"] / Rate;
                             break;
                         case "clinkerPreparation_ElectricityQuantity":
-                            row["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * 100000);
+                            row["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * Rate);
                             break;
                         case "clinker_PulverizedCoalInput":
-                            row["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"]*100000);
+                            row["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"] * Rate);
                             break;
                         case "rawMaterialsPreparation_ElectricityQuantity":
                             DataRow[] rawMaterialsoutputRows = sourceTable.Select("VariableId='clinker_MixtureMaterialsOutput'");
@@ -208,10 +208,10 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             }
                             break;
                         case "cement_CementOutput":
-                            row["水泥产量"] = (decimal)drow["Value"]/100000;
+                            row["水泥产量"] = (decimal)drow["Value"] / Rate;
                             break;
                         case "cementGrind_ElectricityQuantity":
-                            row["水泥磨电耗"] =(decimal)row["水泥产量"]==0?0: (decimal)drow["Value"] / ((decimal)row["水泥产量"]*100000);
+                            row["水泥磨电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
                             break;
                     }
                 }
@@ -253,8 +253,8 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 row["项目指标"] = itemName;
                 if (itemName == "熟料产量" || itemName == "发电量" || itemName == "水泥产量")
                 {
-                    row["日平均计划"] = decimal.Parse(((decimal)sourceTable.Rows[0][itemName] / denominatorPlan).ToString("#0.00"));
-                    row["日平均完成"] =decimal.Parse(((decimal)sourceTable.Rows[1][itemName] / denominatorComplet).ToString("#0.00"));
+                    row["日平均计划"] = decimal.Parse(((decimal)sourceTable.Rows[0][itemName] * Rate / denominatorPlan).ToString("#0.00"));
+                    row["日平均完成"] = decimal.Parse(((decimal)sourceTable.Rows[1][itemName] * Rate / denominatorComplet).ToString("#0.00"));
                 }
                 else
                 {

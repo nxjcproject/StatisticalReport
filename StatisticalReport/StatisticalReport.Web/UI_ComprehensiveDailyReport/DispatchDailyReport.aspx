@@ -146,10 +146,10 @@
             </div>
             <div id="AlarmId" data-options="region:'center',border:true">
                 <table id="AlarmContainId" ">
-<%--                    <tr>
-                        <th>能源报警</th>
-                        <th>停机报警</th>
-                    </tr>--%>
+                    <tr>
+                        <th class="alarmTitle" style="text-align:center">能源报警</th>
+                        <th class="alarmTitle" style="text-align:center">停机报警</th>
+                    </tr>
                     <tr>
                         <td  ><div id="EnergyAlarmId"></div></td>
                         <td  ><div id="MachineHaltAlarmId"></div></td>
