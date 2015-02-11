@@ -13,7 +13,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
     public static class DispatchDailyReportService
     {
         private static ISqlServerDataFactory _dataFactory;
-        private  const int Rate=100000;
+        private const int Rate = 100000;
         static DispatchDailyReportService()
         {
             _dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
@@ -30,8 +30,8 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 dc.DefaultValue = 0;
                 destination.Columns.Add(dc);
             }
-            
-            DataTable company=GetCompany();
+
+            DataTable company = GetCompany();
             foreach (DataRow dr in company.Rows)
             {
                 DataRow row = destination.NewRow();
@@ -39,7 +39,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 string organizationId = dr["OrganizationID"].ToString();
                 string sql = @"SELECT SUM([B].[TotalPeakValleyFlatB]) AS Value,[VariableId]
                                     FROM [dbo].[balance_Energy] AS B INNER JOIN [dbo].[tz_Balance] AS A
-	                                ON [A].[BalanceId]=[A].[BalanceId]
+	                                ON [A].[BalanceId]=[B].[KeyId]
 	                                WHERE [B].[OrganizationID] LIKE @organizationId + '%' AND      
 	                                [A].StaticsCycle='day' AND
 	                                [A].[TimeStamp]>=CONVERT(VARCHAR(7),GETDATE(),120)+'01' AND
@@ -118,12 +118,12 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             }
 
             DataTable company = GetCompanyByCompanyName(companyName);
-            
+
             //取计划源表
             foreach (DataRow planRow in company.Rows)
             {
                 DataTable productLineNum = GetCompanyProductLineNumTable(planRow["LevelCode"].ToString());
-                int clinkerNum=(int)productLineNum.Select("Type='熟料'")[0]["Count"];
+                int clinkerNum = (int)productLineNum.Select("Type='熟料'")[0]["Count"];
                 int cementNum = (int)productLineNum.Select("Type='水泥磨'")[0]["Count"];
                 DataRow resultPlanRow = destination.NewRow();
                 DataTable planSourceTable;
@@ -139,8 +139,8 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 string month = InitMonthDictionary()[Int16.Parse(DateTime.Now.ToString("MM"))];
                 foreach (DataRow planSourceRow in planSourceTable.Rows)
                 {
-                    
-                    string itemName=planSourceRow["QuotasID"].ToString().Trim();
+
+                    string itemName = planSourceRow["QuotasID"].ToString().Trim();
                     resultPlanRow[itemName] = planSourceRow[month];
                 }
                 resultPlanRow["熟料产量"] = (decimal)resultPlanRow["熟料产量"] / Rate;
@@ -164,7 +164,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 string organizationId = dr["OrganizationID"].ToString();
                 string sql = @"SELECT SUM([B].[TotalPeakValleyFlatB]) AS Value,[VariableId]
                                     FROM [dbo].[balance_Energy] AS B INNER JOIN [dbo].[tz_Balance] AS A
-	                                ON [A].[BalanceId]=[A].[BalanceId]
+	                                ON [A].[BalanceId]=[B].[KeyId]
 	                                WHERE [B].[OrganizationID] LIKE @organizationId + '%' AND      
 	                                [A].StaticsCycle='day' AND
 	                                [A].[TimeStamp]>=CONVERT(VARCHAR(7),GETDATE(),120)+'01' AND
@@ -195,16 +195,16 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             break;
                         case "rawMaterialsPreparation_ElectricityQuantity":
                             DataRow[] rawMaterialsoutputRows = sourceTable.Select("VariableId='clinker_MixtureMaterialsOutput'");
-                            if (rawMaterialsoutputRows.Count() ==1)
+                            if (rawMaterialsoutputRows.Count() == 1)
                             {
-                                row["生料磨电耗"] =(decimal)rawMaterialsoutputRows[0]["Value"]==0?0: (decimal)drow["Value"] / (decimal)rawMaterialsoutputRows[0]["Value"];
+                                row["生料磨电耗"] = (decimal)rawMaterialsoutputRows[0]["Value"] == 0 ? 0 : (decimal)drow["Value"] / (decimal)rawMaterialsoutputRows[0]["Value"];
                             }
                             break;
                         case "coalPreparation_ElectricityQuantity":
                             DataRow[] coalPreparationoutputRows = sourceTable.Select("VariableId='clinker_MixtureMaterialsOutput'");
                             if (coalPreparationoutputRows.Count() == 1)
                             {
-                                row["煤磨电耗"] =(decimal)coalPreparationoutputRows[0]["Value"]==0?0: (decimal)drow["Value"]/(decimal)coalPreparationoutputRows[0]["Value"];
+                                row["煤磨电耗"] = (decimal)coalPreparationoutputRows[0]["Value"] == 0 ? 0 : (decimal)drow["Value"] / (decimal)coalPreparationoutputRows[0]["Value"];
                             }
                             break;
                         case "cement_CementOutput":
@@ -290,10 +290,10 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 	                                   ON A.OrganizationID=B.OrganizationID 
 	                                   WHERE A.LevelCode LIKE  (SELECT LevelCode FROM [dbo].[system_Organization] WHERE OrganizationID=@organizationId)+'%'                           
                          ";
-                
+
                 SqlParameter parameter = new SqlParameter("organizationId", organizationId);
-                DataTable alarmTable=_dataFactory.Query(sql,parameter);
-                 
+                DataTable alarmTable = _dataFactory.Query(sql, parameter);
+
                 DataRow row = resultTable.NewRow();
                 row["公司名称"] = companyName;
                 row["报警次数"] = alarmTable.Rows[0][0];
@@ -359,7 +359,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
         {
             string sql = "SELECT [A].[Name] AS CompanyName,[A].[OrganizationID],[A].LevelCode FROM [dbo].[system_Organization] AS A WHERE Name=@companyName";
             SqlParameter parameter = new SqlParameter("companyName", companyName);
-            return _dataFactory.Query(sql,parameter);
+            return _dataFactory.Query(sql, parameter);
         }
         /// <summary>
         /// 返回月份对照字典
@@ -367,7 +367,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
         /// <returns></returns>
         private static IDictionary<int, string> InitMonthDictionary()
         {
-            IDictionary<int, string> result=new Dictionary<int,string>();
+            IDictionary<int, string> result = new Dictionary<int, string>();
             result.Add(1, "January");
             result.Add(2, "February");
             result.Add(3, "March");
