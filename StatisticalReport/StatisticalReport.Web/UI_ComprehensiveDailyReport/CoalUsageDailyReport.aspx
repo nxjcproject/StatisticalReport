@@ -48,9 +48,6 @@
 		        <thead>
 			        <tr>
                         <th data-options="field:'VariableName',width:150">项目</th>
-                        <th data-options="field:'PeakB',width:150">峰期</th>
-                        <th data-options="field:'ValleyB',width:150">谷期</th>
-                        <th data-options="field:'FlatB',width:150">平期</th>
                         <th data-options="field:'FirstB',width:150">甲班</th>
                         <th data-options="field:'SecondB',width:150">乙班</th>
                         <th data-options="field:'ThirdB',width:150">丙班</th>

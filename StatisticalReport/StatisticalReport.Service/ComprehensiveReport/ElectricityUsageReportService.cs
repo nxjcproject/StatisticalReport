@@ -40,7 +40,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                                    	       ([C].[VariableId] IN 
                                    		   (SELECT [B].[VariableId]
                                               FROM [NXJC].[dbo].[balance_Energy_Template] AS [B]
-                                             WHERE [B].[TemplateType] = 'ProductionLineEnergy' AND [B].[ValueType] = 'ElectricityQuantity')) AND
+                                             WHERE [B].[TemplateType] = 'ProductionLine' AND [B].[ValueType] = 'ElectricityQuantity')) AND
                                    		   ([C].[OrganizationID] IN 
                                    		   (SELECT [OA].[OrganizationID]
                                               FROM [system_Organization] AS [OA] INNER JOIN
