@@ -18,7 +18,12 @@
     return m_ChartObj;
 }
 
-function GetLineChart(myChartObjId, myData, myTitle) {
+function GetLineChart(myChartObjId, myData, myTitle, temp) {
+    if (myData['columns'][1]['field'].split('-').length > 1) {
+        GetDateXLineChart(myChartObjId, myData, myTitle);
+        return;
+    }
+
     //var line1 = [6.5, 9.2, 14, 19.65, 26.4, 35, 51];
     //var line2 = [3.5, 3.2, 12, 13.65, 41.4, 21, 51]
     var m_ColumnName = "";
@@ -65,8 +70,11 @@ function GetLineChart(myChartObjId, myData, myTitle) {
         // Will animate plot on calls to plot1.replot({resetAxes:true})
         animateReplot: true,
         seriesDefaults: {
-            lineWidth: 2,
+            lineWidth: 1,
             markerOptions: { size: 0 }
+        },
+        axesDefaults: {
+            tickRenderer: $.jqplot.CanvasAxisTickRenderer
         },
         series: m_Labels,
         title: {
@@ -84,7 +92,11 @@ function GetLineChart(myChartObjId, myData, myTitle) {
         },
         axes: {
             xaxis: {
+                //renderer: $.jqplot.CategoryAxisRenderer,
                 tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                tickOptions: {
+                    angle: -30
+                },
                 //ticks: [['1', '一月份'], ['2', '二月份'], ['3', '三月份'], ['4', '四月份'], ['5', '五月份'], ['6', '六月份'], ['7', '七月份']],
                 ticks: m_AxisX,
                 label: myData['Units']['UnitX'],
@@ -117,6 +129,141 @@ function GetLineChart(myChartObjId, myData, myTitle) {
     });
     return ChartJqplot;
 }
+
+
+function GetDateXLineChart(myChartObjId, myData, myTitle) {
+    //var line1 = [6.5, 9.2, 14, 19.65, 26.4, 35, 51];
+    //var line2 = [3.5, 3.2, 12, 13.65, 41.4, 21, 51]
+    var m_ColumnName = "";
+    var m_Rows = myData['rows'];
+    var m_Labels = new Array();
+    var m_AxisX = new Array();
+    var m_MaxBarValue = 0;
+    var formatString = "";
+    ////////////////////////////////获得颜色标签名////////////////////
+    for (var i = 0; i < m_Rows.length; i++) {
+        var m_LabelItem = { label: m_Rows[i][myData['columns'][0]['field']] };
+        m_Labels.push(m_LabelItem);
+    }
+    /////////////////////////////获得x轴坐标名称//////////////////////
+    for (var i = 1; i < myData['columns'].length; i++) {
+        var m_AxisItem = [i, myData['columns'][i]['title']];
+        m_AxisX.push(m_AxisItem);
+    }
+    var m_Lines = new Array();
+    for (var i = 0; i < m_Rows.length; i++) {
+        var m_LineTemp = new Array();
+        for (var j = 1; j < myData['columns'].length; j++) {
+            m_ColumnName = myData['columns'][j]['field'];
+            for (var m_Name in m_Rows[i]) {
+                if (m_ColumnName == m_Name) {
+                    var timeArray = myData['columns'][j]['title'].split('-');
+                    var date = null;
+                    if (timeArray.length == 4) {
+                        date = new Date(timeArray[0], timeArray[1], timeArray[2], timeArray[3]);
+                        formatString = "%Y-%m-%d-%H";
+                    }
+                    else if (timeArray.length == 3) {
+                        date = new Date(timeArray[0], timeArray[1], timeArray[2]);
+                        formatString = "%Y-%m-%d";
+                    }
+                    else if (timeArray.length == 2 && timeArray[0].length == 4) {
+                        date = new Date(timeArray[0], timeArray[1]);
+                        formatString = "%Y-%m";
+                    }
+                    else if (timeArray.length == 2 && timeArray[0].length == 2) {
+                        date = new Date((new Date()).getFullYear(), timeArray[0], timeArray[1]);
+                        formatString = "%m-%d";
+                    }
+
+                    m_LineTemp.push([date.toUTCString(), parseFloat(m_Rows[i][m_Name])]);
+                }
+            }
+        }
+        m_Lines.push(m_LineTemp);
+    }
+    //////////////////////////////找到最大的bar累加和////////////////////////////
+    for (var i = 0; i < m_Rows.length; i++) {
+        for (var j = 1; j < myData['columns'].length; j++) {
+            var m_CurrentValue = parseFloat(m_Rows[i][myData['columns'][j].field]);
+            if (m_CurrentValue > m_MaxBarValue) {
+                m_MaxBarValue = m_CurrentValue;
+            }
+        }
+    }
+    m_MaxBarValue = GetYaxisMax(m_MaxBarValue);
+
+    var ChartJqplot = $.jqplot(myChartObjId, m_Lines, {
+        animate: true,
+        // Will animate plot on calls to plot1.replot({resetAxes:true})
+        animateReplot: true,
+        seriesDefaults: {
+            lineWidth: 1,
+            markerOptions: { size: 0 }
+        },
+        axesDefaults: {
+            tickRenderer: $.jqplot.CanvasAxisTickRenderer
+        },
+        series: m_Labels,
+        title: {
+            text: myTitle,
+            fontFamily: '"Comic Sans MS", cursive',
+            fontSize: '11pt',
+            textColor: '#C7AA4E'
+        },
+        legend: {
+            show: true,
+            fontSize: '3pt',
+            show: true,
+            location: 'e',
+            placement: 'outside'
+        },
+        axes: {
+            xaxis: {
+                renderer: $.jqplot.DateAxisRenderer,
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+                tickOptions: {
+                    formatString: formatString,
+                    angle: -30,
+                    fontSize: '10pt'
+                },
+                label: myData['Units']['UnitX'],
+                labelOptions: {
+                    fontFamily: 'Helvetica',
+                    fontSize: '8pt'
+                },
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+            },
+            yaxis: {
+                renderer: $.jqplot.LogAxisRenderer,
+
+                tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                labelOptions: {
+                    fontFamily: 'Helvetica',
+                    fontSize: '8pt'
+                },
+                tickInterval: m_MaxBarValue / 10,
+                min: 0,
+                max: m_MaxBarValue,
+                pad: 0,
+                label: myData['Units']['UnitY']
+            }
+        },
+        cursor: {
+            show: true,
+            zoom: true
+        }
+    });
+
+    $('#' + myChartObjId).parent().bind('_resize', function (event, ui) {
+        ChartJqplot.replot({ resetAxes: true });
+    });
+
+
+    return ChartJqplot;
+}
+
 function GetBarChart(myChartObjId, myData, myTitle) {
     var m_ColumnName = "";
     var m_Rows = myData['rows'];

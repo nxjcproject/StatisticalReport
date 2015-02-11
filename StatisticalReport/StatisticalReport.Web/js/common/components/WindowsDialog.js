@@ -5,7 +5,11 @@ $(document).ready(function () {
         WindowsObjArray.push("");
     }
 });
-function OpenWindows(myParentObjId, myTitle, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized) {
+function OpenWindows(myParentObjId, myTitle, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized, myResizable) {
+    if (arguments.length == 9) {
+        myResizable = false;
+    }
+
     var m_WindowArrayIndex = GetEmptyWindowArray();
     var m_Title = myTitle + ' 视图' + (m_WindowArrayIndex + 1);
     if (WindowsObjArray.length <= MaxWindowsCount && m_WindowArrayIndex >= 0) {
@@ -16,7 +20,7 @@ function OpenWindows(myParentObjId, myTitle, myWidth, myHeight, myLeft, myTop, m
         var m_HtmlString = '<div id = "' + m_WindowsId + '"></div>';
         $('#' + myParentObjId).append(m_HtmlString);                    //添加一个window
 
-        CreateWindow(m_WindowsId, m_Title, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized);
+        CreateWindow(m_WindowsId, m_Title, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized, myResizable);
         WindowsObjArray[m_WindowArrayIndex] = m_WindowsId;                 //window进入队列
 
         return m_WindowsId;
@@ -26,6 +30,7 @@ function OpenWindows(myParentObjId, myTitle, myWidth, myHeight, myLeft, myTop, m
         return "";
     }
 }
+
 function CreateWindow(myWindowId, myTitle, myWidth, myHeight) {
     $('#' + myWindowId).window({   
         width: myWidth,
@@ -79,7 +84,12 @@ function CreateWindow(myWindowId, myTitle, myWidth, myHeight, myLeft, myTop, myD
         //modal:true  
     });
 }
-function CreateWindow(myWindowId, myTitle, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized) {
+
+function CreateWindow(myWindowId, myTitle, myWidth, myHeight, myLeft, myTop, myDraggable, myMaximizable, myMaximized, myResizable) {
+    if (arguments.length == 9) {
+        myResizable = false;
+    }
+
     $('#' + myWindowId).window({
         width: myWidth,
         height: myHeight,
@@ -88,7 +98,7 @@ function CreateWindow(myWindowId, myTitle, myWidth, myHeight, myLeft, myTop, myD
         top: myTop,
         collapsible: false,
         minimizable: false,
-        resizable: false,
+        resizable: myResizable,
         inline: true,
         draggable: myDraggable,
         maximizable: myMaximizable,
@@ -99,6 +109,7 @@ function CreateWindow(myWindowId, myTitle, myWidth, myHeight, myLeft, myTop, myD
         //modal:true  
     });
 }
+
 function GetEmptyWindowArray() {
     var m_ArrayIndex = -1;
     for (var i = 0; i < MaxWindowsCount; i++) {
