@@ -46,7 +46,7 @@
 <body class="easyui-layout">
     <div data-options="region:'center',border:true">
         <div class="easyui-layout" data-options="fit:true,border:true">
-            <div data-options="region:'north',border:true" style="height: 200px;">
+            <div  data-options="region:'center',border:true">
                 <table id="completeGridId" class="easyui-datagrid" data-options="rownumbers:true,singleSelect:true,fit:true,onDblClickRow:onRowDblClick" title="">
                     <thead>
                         <tr>
@@ -65,13 +65,13 @@
                     </thead>
                 </table>
             </div>
-            <div id="PlanAndCompleteChartId" data-options="region:'center',border:true">
+            <div id="PlanAndCompleteChartId" data-options="region:'south',border:true" style="height: 270px;">
             </div>
         </div>
     </div>
     <div data-options="region:'east',border:true" style="width: 550px;">
         <div class="easyui-layout" data-options="fit:true,border:true">
-            <div data-options="region:'north',border:true" style="height: 200px;">
+            <div data-options="region:'center',border:true" >
                 <fieldset>
                     <legend id="legentId">完成情况</legend>
                     <table class="table" id="GapTableId" style="width: 100%;">
@@ -144,7 +144,7 @@
                     </table>
                 </fieldset>
             </div>
-            <div id="AlarmId" data-options="region:'center',border:true">
+            <div id="AlarmId" data-options="region:'south',border:true" style="height: 270px;">
                 <table id="AlarmContainId" ">
                     <tr>
                         <th class="alarmTitle" style="text-align:center">能源报警</th>

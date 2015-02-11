@@ -39,7 +39,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 string organizationId = dr["OrganizationID"].ToString();
                 string sql = @"SELECT SUM([B].[TotalPeakValleyFlatB]) AS Value,[VariableId]
                                     FROM [dbo].[balance_Energy] AS B INNER JOIN [dbo].[tz_Balance] AS A
-	                                ON [A].[BalanceId]=[A].[BalanceId]
+	                                ON [A].[BalanceId]=[B].[KeyId]
 	                                WHERE [B].[OrganizationID] LIKE @organizationId + '%' AND      
 	                                [A].StaticsCycle='day' AND
 	                                [A].[TimeStamp]>=CONVERT(VARCHAR(7),GETDATE(),120)+'01' AND
@@ -164,7 +164,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 string organizationId = dr["OrganizationID"].ToString();
                 string sql = @"SELECT SUM([B].[TotalPeakValleyFlatB]) AS Value,[VariableId]
                                     FROM [dbo].[balance_Energy] AS B INNER JOIN [dbo].[tz_Balance] AS A
-	                                ON [A].[BalanceId]=[A].[BalanceId]
+	                                ON [A].[BalanceId]=[B].[KeyId]
 	                                WHERE [B].[OrganizationID] LIKE @organizationId + '%' AND      
 	                                [A].StaticsCycle='day' AND
 	                                [A].[TimeStamp]>=CONVERT(VARCHAR(7),GETDATE(),120)+'01' AND
