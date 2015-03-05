@@ -19,7 +19,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx" };
+                List<string> m_DataValidIdItems = new List<string>() {"zc_nxjc_byc" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -29,8 +29,9 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         [WebMethod]
         public static string GetCoalUsageDailyReport()
         {
-            IList<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
-            DataTable dt = CoalUsageReportService.GetCoalUsageDailyByOrganiztionIds(oganizationIds.ToArray());
+            List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
+            IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
+            DataTable dt = CoalUsageReportService.GetCoalUsageDailyByOrganiztionIds(levelCodes.ToArray());
 
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }

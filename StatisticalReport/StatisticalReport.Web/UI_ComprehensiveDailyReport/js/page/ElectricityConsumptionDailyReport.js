@@ -9,7 +9,8 @@ $(document).ready(function () {
         dataType: "json",
         success: function (msg) {
             m_MsgData = jQuery.parseJSON(msg.d);
-            $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
+            InitializeGrid(m_MsgData);
+            //$('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
         },
         error: handleError
     });
@@ -18,13 +19,16 @@ $(document).ready(function () {
 
 function InitializeGrid(myData) {
 
-    $('#gridMain_ReportTemplate').datagrid({
+    $('#gridMain_ReportTemplate').treegrid({
         title: '',
         data: myData,
         dataType: "json",
         striped: true,
         rownumbers: true,
         singleSelect: true,
+
+        idField: "id",
+        treeField: "VariableName",
 
         toolbar: '#toolbar_ReportTemplate'
     });

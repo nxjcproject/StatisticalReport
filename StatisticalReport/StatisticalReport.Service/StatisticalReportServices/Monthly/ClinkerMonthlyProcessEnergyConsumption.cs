@@ -183,7 +183,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 }
                 if (ReportHelper.MyToDecimal(dr["Amountto_Output_CoalDust"]) != 0)
                 {
-                    dr["Amountto_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_CoalDust"])*1000 / ReportHelper.MyToDecimal(dr["Amountto_Output_CoalDust"]);
+                    dr["Amountto_ElectricityConsumption_CoalDust"] = ReportHelper.MyToDecimal(dr["Amountto_Electricity_CoalDust"]) / ReportHelper.MyToDecimal(dr["Amountto_Output_CoalDust"]);
                 }
                 if (ReportHelper.MyToDecimal(dr["Amountto_Output_Clinker"]) != 0)
                 {

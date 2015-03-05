@@ -16,9 +16,9 @@ namespace StatisticalReport.Service.ComprehensiveReport
         /// </summary>
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
         /// <returns></returns>
-        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(string[] organizationIds)
+        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(string[] levelCodes)
         {
-            return GetElectricityConsumptionDailyByOrganiztionIds(organizationIds, DateTime.Now.AddDays(-1));
+            return GetElectricityConsumptionDailyByOrganiztionIds(levelCodes, DateTime.Now.AddDays(-1));
         }
 
         /// <summary>
@@ -27,41 +27,116 @@ namespace StatisticalReport.Service.ComprehensiveReport
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
         /// <param name="time">时间</param>
         /// <returns></returns>
-        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(string[] organizationIds, DateTime time)
+        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(string[] levelCodes, DateTime time)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
 
-            string queryString = @" SELECT [C].*, [A].[TimeStamp]
-                                      FROM [balance_Energy] AS [C] INNER JOIN
-                                           [tz_Balance] AS [A] ON [C].[KeyId] = [A].[BalanceId]
-                                     WHERE ([A].[StaticsCycle] = 'day') AND 
-                                           ([A].[TimeStamp] = '{1}') AND
-                                   	       ([C].[VariableId] IN 
-                                   		   (SELECT [B].[VariableId]
-                                              FROM [NXJC].[dbo].[balance_Energy_Template] AS [B]
-                                             WHERE [B].[TemplateType] = 'ProductionLine' AND [B].[ValueType] = 'ElectricityConsumption')) AND
-                                   		   ([C].[OrganizationID] IN 
-                                   		   (SELECT [OA].[OrganizationID]
-                                              FROM [system_Organization] AS [OA] INNER JOIN
-                                                   [system_Organization] AS [OB] ON [OA].[LevelCode] LIKE ([OB].[LevelCode] + '%')
-                                             WHERE [OB].[OrganizationID] IN ({0})))
-                                ";
+//            string queryString = @" SELECT [C].*, [A].[TimeStamp],[FFD].LevelCode
+//                                      FROM [balance_Energy] AS [C] INNER JOIN
+//                                           [tz_Balance] AS [A] ON [C].[KeyId] = [A].[BalanceId]
+//                                           INNER JOIN [formula_FormulaDetail] AS [FFD] ON [FFD].VariableId+'_ElectricityConsumption'=[C].VariableId
+//                                     WHERE ([A].[StaticsCycle] = 'day') AND 
+//                                           ([A].[TimeStamp] = '{1}') AND
+//                                   	       ([C].[VariableId] IN 
+//                                   		   (SELECT [B].[VariableId]
+//                                              FROM [NXJC].[dbo].[balance_Energy_Template] AS [B]
+//                                             WHERE [B].[ValueType] = 'ElectricityConsumption')) AND
+//                                   		   ([C].[OrganizationID] IN 
+//                                   		   (SELECT [OA].[OrganizationID]
+//                                              FROM [system_Organization] AS [OA] INNER JOIN
+//                                                   [system_Organization] AS [OB] ON [OA].[LevelCode] LIKE ([OB].[LevelCode] + '%')
+//                                             WHERE [OB].[OrganizationID] IN ({0})))
+                                //";
+//            string queryString = @"SELECT [C].*, [A].[TimeStamp],[FFD].LevelCode
+//                             FROM [balance_Energy] AS [C],
+//                                  [tz_Balance] AS [A],
+//                                  [formula_FormulaDetail] AS [FFD],
+//	                        	   [tz_Formula]	AS [TF]							   
+//                            WHERE ([C].[KeyId] = [A].[BalanceId] AND [FFD].VariableId+'_ElectricityConsumption'=[C].VariableId AND
+//	                        [TF].KeyID=[FFD].KeyID AND [TF].OrganizationID=[C].OrganizationID) AND
+//	                        ([A].[StaticsCycle] = 'day') AND 
+//                                  ([A].[TimeStamp] = '{1}') AND
+//                                  ([C].[VariableId] IN 
+//                            	   (SELECT [B].[VariableId]
+//                                     FROM [NXJC].[dbo].[balance_Energy_Template] AS [B]
+//                                    WHERE [B].[ValueType] = 'ElectricityConsumption')) AND
+//                            	   ([C].[OrganizationID] IN 
+//                            	   (SELECT [OA].[OrganizationID]
+//                                     FROM [system_Organization] AS [OA] INNER JOIN
+//                                          [system_Organization] AS [OB] ON [OA].[LevelCode] LIKE ([OB].[LevelCode] + '%')
+//                                    WHERE [OB].[OrganizationID] IN ({0})))";
+            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
+                                        (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
+	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
+	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
+	                                                 WHERE TF.KeyID=FFD.KeyID AND 
+	                                                 -- FFD.LevelType='ProductionLine' AND
+	                                                 TF.Type='2' AND TF.ENABLE='true') AS RST,
+	                                    tz_Balance AS TB,balance_Energy AS BE
+	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
+                                        RST.VariableId+'_ElectricityConsumption'=BE.VariableId AND
+	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
+                                         ) AS FIN
+                                    ON SO.OrganizationID=FIN.OrganizationID 
+                                    INNER JOIN 
+										 (
+										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
+										 ) AS O
+									ON
+									O.OrganizationID=SO.OrganizationID
+                                    WHERE ISNULL(SO.Type,'')<>'余热发电'
+                                     ";
 
-            StringBuilder organiztionIdsParameter = new StringBuilder();
-            foreach (var organizationId in organizationIds)
+            //StringBuilder organiztionIdsParameter = new StringBuilder();
+            //foreach (var organizationId in organizationIds)
+            //{
+            //    organiztionIdsParameter.Append("'");
+            //    organiztionIdsParameter.Append(organizationId);
+            //    organiztionIdsParameter.Append("',");
+            //}
+            //organiztionIdsParameter.Remove(organiztionIdsParameter.Length - 1, 1);
+            StringBuilder levelCodesParameter = new StringBuilder();
+            foreach (var levelCode in levelCodes)
             {
-                organiztionIdsParameter.Append("'");
-                organiztionIdsParameter.Append(organizationId);
-                organiztionIdsParameter.Append("',");
+                levelCodesParameter.Append("A.LevelCode like ");
+                levelCodesParameter.Append("'");
+                levelCodesParameter.Append(levelCode + "%");
+                levelCodesParameter.Append("'");
+                levelCodesParameter.Append(" AND ");
             }
-            organiztionIdsParameter.Remove(organiztionIdsParameter.Length - 1, 1);
+            levelCodesParameter.Remove(levelCodesParameter.Length - 5, 5);
 
 #if DEBUG
-            return dataFactory.Query(string.Format(queryString, organiztionIdsParameter.ToString(), "2015-01-10"));
+            DataTable resultTable = dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), "2015-02-09"));
+            //DataTable resultTable = dataFactory.Query(string.Format(queryString, "2015-02-09"));            
 #else
-            return dataFactory.Query(string.Format(queryString, organiztionIdsParameter.ToString(), time.ToString("yyyy-MM-dd")));
+            DataTable resultTable= dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), time.ToString("yyyy-MM-dd")));
+            //DataTable resultTable = dataFactory.Query(string.Format(queryString,time.ToString("yyyy-MM-dd")));
 #endif
+            DataColumn stateColumn = new DataColumn("state", typeof(string));
+            resultTable.Columns.Add(stateColumn);
+            
+            foreach (DataRow dr in resultTable.Rows)
+            {
+                if (dr["VariableName"] is DBNull || dr["VariableName"].ToString().Trim() == "")
+                {
+                    dr["VariableName"] = dr["Name"].ToString().Trim();
+                }
+                if (dr["FormulaLevelCode"].ToString().Length > 3)
+                {
+                    dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
+                }
+                if (dr["LevelCode"].ToString().Trim().Length ==7)
+                {
+                    dr["state"] = "closed";
+                }
+                else
+                {
+                    dr["state"] = "open";
+                }
+            }
+            return resultTable;
         }
     }
 }

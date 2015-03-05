@@ -19,7 +19,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx" };
+                List<string> m_DataValidIdItems = new List<string>() {"zc_nxjc_byc_byf"};
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -29,10 +29,12 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         [WebMethod]
         public static string GetElectricityConsumptionDailyReport()
         {
-            IList<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
-            DataTable dt = ElectricityConsumptionReportService.GetElectricityConsumptionDailyByOrganiztionIds(oganizationIds.ToArray());
-
-            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
+            List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
+            IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
+            DataTable dt = ElectricityConsumptionReportService.GetElectricityConsumptionDailyByOrganiztionIds(levelCodes.ToArray());
+            //DataTable dt = ElectricityConsumptionReportService.GetElectricityConsumptionDailyByOrganiztionIds();
+            string test=EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
+            return EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
         }
     }
 }

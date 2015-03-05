@@ -44,10 +44,10 @@
         </div>
 
         <div id="reportTable" class="easyui-panel" data-options="region:'center', border:true, collapsible:false, split:false">
-            <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true" title="">
+            <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true" title="">
 		        <thead>
 			        <tr>
-                        <th data-options="field:'VariableName',width:150">项目</th>
+                        <th data-options="field:'VariableName',width:230">项目</th>
                         <th data-options="field:'FirstB',width:150">甲班</th>
                         <th data-options="field:'SecondB',width:150">乙班</th>
                         <th data-options="field:'ThirdB',width:150">丙班</th>
