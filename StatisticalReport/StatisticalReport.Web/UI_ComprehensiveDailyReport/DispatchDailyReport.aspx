@@ -35,6 +35,8 @@
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.pointLabels.min.js"></script>
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.cursor.min.js"></script>
 
+    <%--<script type="text/javascript" src="/lib/pllib/themes/jquery.jqplot.js"></script>
+    <script type="text/javascript" src="/lib/pllib/themes/jjquery.jqplot.min.js"></script>--%>
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
     <script type="text/javascript" src="/js/common/components/Charts.js" charset="utf-8"></script>
@@ -46,7 +48,7 @@
 <body class="easyui-layout">
     <div data-options="region:'center',border:true">
         <div class="easyui-layout" data-options="fit:true,border:true">
-            <div data-options="region:'north',border:true" style="height: 200px;">
+            <div id="completeGridContainId" data-options="region:'center',border:true">
                 <table id="completeGridId" class="easyui-datagrid" data-options="rownumbers:true,singleSelect:true,fit:true,onDblClickRow:onRowDblClick" title="">
                     <thead>
                         <tr>
@@ -65,13 +67,19 @@
                     </thead>
                 </table>
             </div>
-            <div id="PlanAndCompleteChartId" data-options="region:'center',border:true">
+            <div id="PlanAndCompleteChartId" data-options="region:'south',border:true" style="height: 250px;">
+                <div id="chartWindow" class="easyui-window" title="Custom Window Tools" data-options="iconCls:'icon-save',minimizable:false,onMaximize:updateWindowChart,onRestore:updateWindowChart,tools:'#tt'">
+                </div>
+                <div id="imageContainId"></div>
+                <div id="tt">
+                    <a href="javascript:void(0)" class="ext-icon-picture_save"  onclick="chartToImage();"></a>
+                </div>
             </div>
         </div>
     </div>
     <div data-options="region:'east',border:true" style="width: 550px;">
         <div class="easyui-layout" data-options="fit:true,border:true">
-            <div data-options="region:'north',border:true" style="height: 200px;">
+            <div data-options="region:'center',border:true">
                 <fieldset>
                     <legend id="legentId">完成情况</legend>
                     <table class="table" id="GapTableId" style="width: 100%;">
@@ -144,19 +152,24 @@
                     </table>
                 </fieldset>
             </div>
-            <div id="AlarmId" data-options="region:'center',border:true">
-                <table id="AlarmContainId" ">
+            <div id="AlarmId" data-options="region:'south',border:true" style="height: 250px;">
+                <table id="AlarmContainId">
                     <tr>
-                        <th class="alarmTitle" style="text-align:center">能源报警</th>
-                        <th class="alarmTitle" style="text-align:center">停机报警</th>
+                        <th class="alarmTitle" style="text-align: center">能源报警</th>
+                        <th class="alarmTitle" style="text-align: center">停机报警</th>
                     </tr>
                     <tr>
-                        <td  ><div id="EnergyAlarmId"></div></td>
-                        <td  ><div id="MachineHaltAlarmId"></div></td>
+                        <td>
+                            <div id="EnergyAlarmId"></div>
+                        </td>
+                        <td>
+                            <div id="MachineHaltAlarmId"></div>
+                        </td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+
 </body>
 </html>

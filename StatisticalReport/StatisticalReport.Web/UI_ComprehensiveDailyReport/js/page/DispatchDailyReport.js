@@ -1,5 +1,6 @@
 ﻿var companyName = '';
 var firstCompanyName = '';
+var chartData = '';
 $(document).ready(function () {
     var m_width = $('#AlarmId').width() ;
     var m_height = $('#AlarmId').height();
@@ -7,7 +8,7 @@ $(document).ready(function () {
     //$('.alarmTitle').height(m_height - 15).width(m_width / 2 - 15);
     $('#EnergyAlarmId').height(m_height - 25).width(m_width / 2 - 15);
     $('#MachineHaltAlarmId').height(m_height - 25).width(m_width / 2 - 15);
-
+    InitChartWindows();
     var m_MsgData;
     $.ajax({
         type: "POST",
@@ -65,57 +66,7 @@ function updateMachineHaltAlarmChart(data) {
 function onRowDblClick(index, rowData) {
     companyName = rowData["公司"];
     $('#legentId').html(companyName);
-    InitChart(companyName);
-    //$.ajax({
-    //    type: "POST",
-    //    url: "DispatchDailyReport.aspx/GetPlanAndCompelete",
-    //    data:"{companyName:'"+rowData["公司"]+"'}",
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    success: function (msg) {
-    //        var data = JSON.parse(msg.d);
-    //        updateChart(data);
-    //        ////////重复，待以后优化
-    //        $.ajax({
-    //            type: "POST",
-    //            url: "DispatchDailyReport.aspx/GetEnergyAlarm",
-    //            data: '',
-    //            contentType: "application/json; charset=utf-8",
-    //            dataType: "json",
-    //            success: function (msg) {
-    //                m_MsgData = jQuery.parseJSON(msg.d);
-    //                updateEnergyAlarmChart(m_MsgData);
-    //            },
-    //            error: handleError
-    //        });
-    //        $.ajax({
-    //            type: "POST",
-    //            url: "DispatchDailyReport.aspx/GetMachineHaltAlarm",
-    //            data: '',
-    //            contentType: "application/json; charset=utf-8",
-    //            dataType: "json",
-    //            success: function (msg) {
-    //                m_MsgData = jQuery.parseJSON(msg.d);
-    //                updateMachineHaltAlarmChart(m_MsgData);
-    //            },
-    //            error: handleError
-    //        });
-    //    },
-    //    error: handleError
-    //});
-    //$.ajax({
-    //    type: "POST",
-    //    url: "DispatchDailyReport.aspx/GetGapPlanAndComplete",
-    //    data: "{companyName:'" + rowData["公司"] + "'}",
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    success: function (msg) {
-    //        var data = JSON.parse(msg.d);
-    //        updateTable(data);            
-    //    },
-    //    error: handleError
-    //});
-   
+    InitChart(companyName);   
 }
 function InitChart(companyName) {
     $('#legentId').html(companyName);
@@ -127,6 +78,7 @@ function InitChart(companyName) {
         dataType: "json",
         success: function (msg) {
             var data = JSON.parse(msg.d);
+            chartData = data;
             updateChart(data);
             ////////重复，待以后优化
             $.ajax({
@@ -172,24 +124,25 @@ function InitChart(companyName) {
 
 
 function updateChart(data) {
-
+    CreateGridChart(data, 'chartWindow', false, 'Bar');
+    //CreateGridChart(date, 'www', false, 'Line');
     // 更新Chart
 
-    //var imageType = $('#imageType').combobox('getValue');
 
-    var m_WindowContainerId = 'PlanAndCompleteChartId';
-    var m_Maximizable = false;
-    var m_Maximized = true;
+    //var m_WindowContainerId = 'PlanAndCompleteChartId';
+    //var m_Maximizable = true;
+    //var m_Maximized = true;
 
-    var m_WindowsIdArray = GetWindowsIdArray();
-    for (var i = 0; i < m_WindowsIdArray.length; i++) {
-        if (m_WindowsIdArray[i] != "") {
-            ReleaseAllGridChartObj(m_WindowsIdArray[i]);
-        }
-    }
-    CloseAllWindows();
-    var m_Postion = GetWindowPostion(0, m_WindowContainerId);
-    WindowsDialogOpen(data, m_WindowContainerId, false, 'Bar', m_Postion[0], m_Postion[1], m_Postion[2], m_Postion[3], false, m_Maximizable, m_Maximized);
+    //var m_WindowsIdArray = GetWindowsIdArray();
+    //for (var i = 0; i < m_WindowsIdArray.length; i++) {
+    //    if (m_WindowsIdArray[i] != "") {
+    //        ReleaseAllGridChartObj(m_WindowsIdArray[i]);
+    //    }
+    //}
+    //CloseAllWindows();
+    //var m_Postion = GetWindowPostion(0, m_WindowContainerId);
+    
+    //WindowsDialogOpen(data, m_WindowContainerId, false, 'Bar', m_Postion[0], m_Postion[1], m_Postion[2], m_Postion[3], false, m_Maximizable, m_Maximized);
 }
 
 function updateTable(data) {
@@ -286,3 +239,41 @@ function WindowsDialogOpen(myData, myContainerId, myIsShowGrid, myChartType, myW
         }
     });
 }
+
+function InitChartWindows() {
+    var m_top = $('#completeGridContainId').height()+3;
+    var m_width = $('#PlanAndCompleteChartId').width();
+    var m_height = $('#PlanAndCompleteChartId').height();
+    $('#chartWindow').window({
+        title:'计划与完成对比',
+        width: m_width,
+        height: m_height,
+        left: 0,
+        top: m_top,
+        collapsible: false,
+        minimizable: false,
+        resizable: true,
+        inline: true,
+        draggable: false,
+        maximizable: true,
+        maximized: false,
+        iconCls: 'ext-icon-chart_bar',
+        padding: 10,
+        closable:false
+    });   
+}
+
+function updateWindowChart() {
+    //alert("");
+    $('#chartWindow').empty();
+    CreateGridChart(chartData, 'chartWindow', false, 'Bar');
+   
+}
+//将chart转化为图片
+function chartToImage() {
+    //alert("");
+    var j = $('#chartWindow_Chart').jqplotToImageElem();
+    $('#chartWindow').empty();
+    $('#chartWindow').append(j);
+}
+
