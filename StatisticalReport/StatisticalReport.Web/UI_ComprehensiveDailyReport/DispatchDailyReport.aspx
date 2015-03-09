@@ -45,8 +45,8 @@
     <script type="text/javascript" src="/js/common/components/GridChart.js" charset="utf-8"></script>
     <script type="text/javascript" src="/UI_ComprehensiveDailyReport/js/page/DispatchDailyReport.js"></script>
 </head>
-<body class="easyui-layout">
-    <div data-options="region:'center',border:true">
+<body class="easyui-layout" >
+    <div data-options="region:'center',border:true" >
         <div class="easyui-layout" data-options="fit:true,border:true">
             <div id="completeGridContainId" data-options="region:'center',border:true">
                 <table id="completeGridId" class="easyui-datagrid" data-options="rownumbers:true,singleSelect:true,fit:true,onDblClickRow:onRowDblClick" title="">

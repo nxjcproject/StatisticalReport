@@ -48,7 +48,6 @@ $(document).ready(function () {
         },
         error: handleError
     });
-    
 });
 
 function handleError() {
@@ -252,7 +251,7 @@ function InitChartWindows() {
         top: m_top,
         collapsible: false,
         minimizable: false,
-        resizable: true,
+        resizable: false,
         inline: true,
         draggable: false,
         maximizable: true,
