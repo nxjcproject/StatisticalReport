@@ -380,5 +380,61 @@ namespace StatisticalReport.Infrastructure.Report
             }
             return resultTable;
         }
+
+        /// <summary>
+        /// 获得公式报表详细信息
+        /// </summary>
+        /// <param name="tzName"></param>
+        /// <param name="organizationID"></param>
+        /// <param name="date"></param>
+        /// <param name="tableName"></param>
+        /// <param name="formulaKeyID"></param>
+        /// <returns></returns>
+        public DataTable GetFormulaData(string tzName, string organizationID, string date, string tableName, string formulaKeyID)
+        {
+            string keyID = GetKeyIDFrom(tzName, organizationID, date, tableName, formulaKeyID);
+
+            DataTable result;
+            if (keyID != "")
+            {
+                result = GetDetailData(tableName, keyID);
+            }
+            else
+            {
+                result = CreateTableStructure(tableName);
+            }
+
+            return result;
+        }
+        /// <summary>
+        /// 获得公式KeyID
+        /// </summary>
+        /// <param name="tzName"></param>
+        /// <param name="organizationID"></param>
+        /// <param name="date"></param>
+        /// <param name="tableName"></param>
+        /// <param name="formulaKeyID"></param>
+        /// <returns></returns>
+        private string GetKeyIDFrom(string tzName, string organizationID, string date, string tableName, string formulaKeyID)
+        {
+            Query query = new Query(tzName);
+            query.AddCriterion("OrganizationID", organizationID, CriteriaOperator.Equal);
+            query.AddCriterion("Date", date, CriteriaOperator.Equal);
+            query.AddCriterion("TableName", tableName, CriteriaOperator.Equal);
+            query.AddCriterion("formulaKeyID", formulaKeyID, CriteriaOperator.Equal);
+
+            DataTable dt = _dataFactory.Query(query);
+            string result;
+            if (dt.Rows.Count != 0)
+            {
+                result = dt.Rows[0]["KeyID"].ToString();
+            }
+            else
+            {
+                result = "";////////
+            }
+
+            return result;
+        }
     }
 }
