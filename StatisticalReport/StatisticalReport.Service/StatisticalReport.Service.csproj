@@ -34,6 +34,9 @@
     <Reference Include="DataTypeConvert">
       <HintPath>..\..\Lib\DataTypeConvert.dll</HintPath>
     </Reference>
+    <Reference Include="EasyUIJsonParser">
+      <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
+    </Reference>
     <Reference Include="FileIO">
       <HintPath>..\..\Lib\FileIO.dll</HintPath>
     </Reference>
@@ -57,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicDataSummaryReport\DailyBasicElectricityUsageService.cs" />
+    <Compile Include="BasicDataSummaryReport\DailyBasicMaterialWeightService.cs" />
     <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\DispatchDailyReport\DispatchDailyReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />
@@ -113,6 +118,7 @@
       <Name>StatisticalReport.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

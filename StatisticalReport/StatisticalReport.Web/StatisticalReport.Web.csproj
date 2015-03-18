@@ -84,6 +84,10 @@
     <Content Include="lib\ealib\extend\editCell.js" />
     <Content Include="lib\ealib\extend\jquery.jqprint.js" />
     <Content Include="Test.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityUsage.js" />
+    <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicMaterialWeight.js" />
     <Content Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\DispatchDailyReport.aspx" />
@@ -1664,6 +1668,20 @@
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx.cs">
+      <DependentUpon>DailyBasicElectricityUsage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx.designer.cs">
+      <DependentUpon>DailyBasicElectricityUsage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx.cs">
+      <DependentUpon>DailyBasicMaterialWeight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx.designer.cs">
+      <DependentUpon>DailyBasicMaterialWeight.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx.cs">
       <DependentUpon>CoalConsumptionDailyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1916,7 +1934,6 @@
     <Folder Include="Images\common\" />
     <Folder Include="Images\Page\" />
     <Folder Include="js\page\" />
-    <Folder Include="UI_DispatchDailyReport\" />
     <Folder Include="UI_StatisticalReport\css\common\" />
     <Folder Include="UI_StatisticalReport\css\page\" />
     <Folder Include="UI_StatisticalReport\images\common\" />

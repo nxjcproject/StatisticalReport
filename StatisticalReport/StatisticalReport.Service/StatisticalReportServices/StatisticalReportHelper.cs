@@ -18,7 +18,8 @@ namespace StatisticalReport.Service.StatisticalReportServices
                 FormTableConvert.FormTemplate m_FormTableTemplate = (FormTableConvert.FormTemplate)mXmlSerializerIO.XmlSerializerFromFile(myFilePath, typeof(FormTableConvert.FormTemplate));
                 //DataTable m_DataTable = GetDataTable();
                 string m_ColumnsJson = FormTableConvert.TemplateToEasyUIGridJson.ToEasyUIGridJson(m_FormTableTemplate);
-                string m_DataTableJson = DataTypeConvert.DataTableConvertJson.DataTableToJson(myDataTable, "rows", myDataTable.Rows.Count, true);
+                //string m_DataTableJson = DataTypeConvert.DataTableConvertJson.DataTableToJson(myDataTable, "rows", myDataTable.Rows.Count, true);
+                string m_DataTableJson = EasyUIJsonParser.DataGridJsonParser.GetDataRowJson(myDataTable);   //DataTypeConvert.DataTableConvertJson.DataTableToJson(myDataTable, "rows", myDataTable.Rows.Count, true);
                 m_ColumnsJsonData = "{" + m_DataTableJson + "," + m_ColumnsJson + "}";
             }
             return m_ColumnsJsonData;

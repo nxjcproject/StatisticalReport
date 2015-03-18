@@ -52,7 +52,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Yearly
                                       "ComprehensiveCoalConsumption", "ComprehensiveElectricityOutput" };//需要添加的字段
             foreach (string cl_name in columnName)
             {
-                _temp.Columns.Add(cl_name, Type.GetType("System.String"));//将字段添加到_temp表中
+                _temp.Columns.Add(cl_name, Type.GetType("System.Decimal"));//将字段添加到_temp表中
             }
             foreach (DataRow dr in _temp.Rows)
             {

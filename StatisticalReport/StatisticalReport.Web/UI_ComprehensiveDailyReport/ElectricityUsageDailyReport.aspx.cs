@@ -35,7 +35,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
 
             //DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds();
             //return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
-            string test=EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
+            //string test=EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
             return EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
         }
     }

@@ -51,7 +51,7 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                                       "ComprehensiveCoalConsumption", "ComprehensiveElectricityOutput" };//需要添加的字段
             foreach (string cl_name in columnName)
             {
-                _temp.Columns.Add(cl_name, Type.GetType("System.String"));//将字段添加到_temp表中
+                _temp.Columns.Add(cl_name, typeof(decimal));//将字段添加到_temp表中
             }
             foreach (DataRow dr in _temp.Rows)
             {
@@ -135,18 +135,18 @@ namespace StatisticalReport.Service.StatisticalReportServices.Monthly
                 }
                 //处理电耗等数据
                 //电耗-生料制备
-                dr["ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Output_RawBatch"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Output_RawBatch"])).ToString("#0.0000")) : 0;
+                dr["ElectricityConsumption_RawBatch"] = ReportHelper.MyToDecimal(dr["Output_RawBatch"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) / ReportHelper.MyToDecimal(dr["Output_RawBatch"])).ToString("#0.00")) : 0;
                 //电耗-熟料烧成
-                dr["ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.0000")) : 0;
+                dr["ElectricityConsumption_Clinker"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_Clinker"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.00")) : 0;
                 //电耗-水泥制备
-                dr["ElectricityConsumption_Cement"] = ReportHelper.MyToDecimal(dr["Output_Cement"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_Cement"]) / ReportHelper.MyToDecimal(dr["Output_Cement"])).ToString("#0.00000")) : 0;
+                dr["ElectricityConsumption_Cement"] = ReportHelper.MyToDecimal(dr["Output_Cement"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_Cement"]) / ReportHelper.MyToDecimal(dr["Output_Cement"])).ToString("#0.00")) : 0;
                 //吨熟料综合电耗
                 dr["ComprehensiveElectricityConsumption"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ?Decimal.Parse((ReportHelper.MyToDecimal(dr["Electricity_RawBatch"]) + ReportHelper.MyToDecimal(dr["Electricity_Clinker"])
                         / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.0000")) : 0;
                 //吨熟料综合实物煤耗
-                dr["ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Consumption_CoalDust"]) * 1000 / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.0000")) : 0;
+                dr["ComprehensiveCoalConsumption"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Consumption_CoalDust"]) * 1000 / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.00")) : 0;
                 //吨熟料发电量
-                dr["ComprehensiveElectricityOutput"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Output_Cogeneration"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.0000")) : 0;
+                dr["ComprehensiveElectricityOutput"] = ReportHelper.MyToDecimal(dr["Output_Clinker"]) != 0 ? Decimal.Parse((ReportHelper.MyToDecimal(dr["Output_Cogeneration"]) / ReportHelper.MyToDecimal(dr["Output_Clinker"])).ToString("#0.00")) : 0;
 
             }
 
