@@ -21,6 +21,8 @@ namespace StatisticalReport.Service.VBReport.Monthly
         {
             DataTable temp2 = _tzHelper.GetReportData("tz_Report", organizeID, date, "table_ClinkerMonthlyElectricity_sum");
             DataTable temp = ReportHelper.ReportDataToInteger(temp2);
+            temp.Columns.Remove("ID");
+            temp.Columns.Remove("KeyID");
             return temp;
         }
     }
