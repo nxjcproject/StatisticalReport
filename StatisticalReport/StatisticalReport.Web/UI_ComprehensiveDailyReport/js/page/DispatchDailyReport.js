@@ -1,25 +1,41 @@
 ﻿var companyName = '';
 var firstCompanyName = '';
 var chartData = '';
+var date = '';
 $(document).ready(function () {
+    var nowDate = new Date();
+    nowDate.setDate(nowDate.getDate() - 1);
+    starDate = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
+    $("#dateTime").datebox('setValue', starDate);
+
     var m_width = $('#AlarmId').width() ;
     var m_height = $('#AlarmId').height();
     $('#AlarmContainId').height(m_height).width(m_width);
-    //$('.alarmTitle').height(m_height - 15).width(m_width / 2 - 15);
     $('#EnergyAlarmId').height(m_height - 25).width(m_width / 2 - 15);
     $('#MachineHaltAlarmId').height(m_height - 25).width(m_width / 2 - 15);
     InitChartWindows();
+    loadFisrtCompanyData();
+});
+
+function loadFisrtCompanyData() {
+    date = $('#dateTime').datebox('getValue');//datebox('setValue', startDate);
     var m_MsgData;
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetComplete",
-        data: '',
+        data: '{date:"'+date+'"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
             m_MsgData = jQuery.parseJSON(msg.d);
-            firstCompanyName = m_MsgData['rows'][0]['公司'];
-            $('#completeGridId').datagrid('loadData', m_MsgData['rows']);
+            //取出第一行公司的名称
+            firstCompanyName = m_MsgData[0]['Name'];
+            $('#completeGridId').treegrid('loadData', m_MsgData);
+            $('#completeGridId').treegrid('collapseAll');
+            $('#completeGridId').treegrid({
+                toolbar: '#tools'
+            });//全部折叠
+            //根据第一行公司名称加载计划和完成情况模块和差值模块
             InitChart(firstCompanyName);
         },
         error: handleError
@@ -27,7 +43,7 @@ $(document).ready(function () {
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetEnergyAlarm",
-        data: '',
+        data: '{date:"'+date+'"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -39,7 +55,7 @@ $(document).ready(function () {
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetMachineHaltAlarm",
-        data: '',
+        data: '{date:"' + date + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -48,7 +64,7 @@ $(document).ready(function () {
         },
         error: handleError
     });
-});
+}
 
 function handleError() {
     $('#gridMain_ReportTemplate').datagrid('loadData', []);
@@ -62,8 +78,9 @@ function updateMachineHaltAlarmChart(data) {
     CreateGridChart(data, 'MachineHaltAlarmId', false, 'Pie');
 }
 
-function onRowDblClick(index, rowData) {
-    companyName = rowData["公司"];
+function onRowDblClick(rowData) {
+    date = $('#dateTime').datebox('getValue');
+    companyName = rowData["Name"];
     $('#legentId').html(companyName);
     InitChart(companyName);   
 }
@@ -72,45 +89,20 @@ function InitChart(companyName) {
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetPlanAndCompelete",
-        data: "{companyName:'" + companyName + "'}",
+        data: "{date:'"+date+"',companyName:'" + companyName + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
             var data = JSON.parse(msg.d);
             chartData = data;
             updateChart(data);
-            ////////重复，待以后优化
-            $.ajax({
-                type: "POST",
-                url: "DispatchDailyReport.aspx/GetEnergyAlarm",
-                data: '',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                    m_MsgData = jQuery.parseJSON(msg.d);
-                    updateEnergyAlarmChart(m_MsgData);
-                },
-                error: handleError
-            });
-            $.ajax({
-                type: "POST",
-                url: "DispatchDailyReport.aspx/GetMachineHaltAlarm",
-                data: '',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                    m_MsgData = jQuery.parseJSON(msg.d);
-                    updateMachineHaltAlarmChart(m_MsgData);
-                },
-                error: handleError
-            });
         },
         error: handleError
     });
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetGapPlanAndComplete",
-        data: "{companyName:'" + companyName + "'}",
+        data: "{date:'" + date + "',companyName:'" + companyName + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -124,24 +116,6 @@ function InitChart(companyName) {
 
 function updateChart(data) {
     CreateGridChart(data, 'chartWindow', false, 'Bar');
-    //CreateGridChart(date, 'www', false, 'Line');
-    // 更新Chart
-
-
-    //var m_WindowContainerId = 'PlanAndCompleteChartId';
-    //var m_Maximizable = true;
-    //var m_Maximized = true;
-
-    //var m_WindowsIdArray = GetWindowsIdArray();
-    //for (var i = 0; i < m_WindowsIdArray.length; i++) {
-    //    if (m_WindowsIdArray[i] != "") {
-    //        ReleaseAllGridChartObj(m_WindowsIdArray[i]);
-    //    }
-    //}
-    //CloseAllWindows();
-    //var m_Postion = GetWindowPostion(0, m_WindowContainerId);
-    
-    //WindowsDialogOpen(data, m_WindowContainerId, false, 'Bar', m_Postion[0], m_Postion[1], m_Postion[2], m_Postion[3], false, m_Maximizable, m_Maximized);
 }
 
 function updateTable(data) {
@@ -153,12 +127,12 @@ function updateTable(data) {
     var total = 0;
 
     // 遍历data中的元素
-    var array = new Array("项目指标", "日平均计划", "日平均完成", "差值");
-    str = '<tr><th>项目指标</th><th>日平均计划</th><th>日平均完成</th><th>差值</th></tr>';
+    var array = new Array("项目指标", "日完成","月计划", "月累计完成", "月差值");
+    str = '<tr><th>项目指标</th><th>日完成</th><th>月计划</th><th>月累计完成</th><th>月差值</th></tr>';
     for (var i = 0; i < data.total; i++) {
         // 生成表格元素
         str += '<tr>'
-        for (var j = 0; j <= 3;j++)
+        for (var j = 0; j <= 4;j++)
         {
             str += '<td>' + data.rows[i][array[j]] + '</td>';
         }
@@ -276,3 +250,6 @@ function chartToImage() {
     $('#chartWindow').append(j);
 }
 
+function QueryReportFun() {
+    loadFisrtCompanyData();
+}

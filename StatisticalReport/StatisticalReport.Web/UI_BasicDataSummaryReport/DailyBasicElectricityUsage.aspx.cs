@@ -32,15 +32,15 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         }
 
         [WebMethod]
-        public static string GetElectricityUsageDailyReport(string organizationId, DateTime datetime)
+        public static string GetElectricityUsageDailyReport(string organizationId, DateTime startDate, DateTime endDate)
         {
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = DailyBasicElectricityUsageService.GetDailyBasicElectricityUsageByOrganiztionIds(organizationId, datetime);
+            DataTable dt = DailyBasicElectricityUsageService.GetDailyBasicElectricityUsageByOrganiztionIds(organizationId, startDate,endDate);
 
             //DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds();
             //return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
-            string test = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
+            //string test = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
             return EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
         }
     }

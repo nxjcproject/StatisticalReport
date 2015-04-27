@@ -27,11 +27,11 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         }
 
         [WebMethod]
-        public static string GetElectricityUsageDailyReport()
+        public static string GetElectricityUsageDailyReport(DateTime startDate,DateTime endDate)
         {
             List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds(levelCodes.ToArray());
+            DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds(levelCodes.ToArray(),startDate,endDate);
 
             //DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds();
             //return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);

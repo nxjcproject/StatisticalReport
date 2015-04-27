@@ -12,38 +12,16 @@ namespace StatisticalReport.Service.ComprehensiveReport
     public static class CoalConsumptionReportService
     {
         /// <summary>
-        /// 查询所有产线的用煤耗（前一天）
-        /// </summary>
-        /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
-        /// <returns></returns>
-        public static DataTable GetCoalConsumptionDailyByOrganiztionIds(string[] levelCodes)
-        {
-            return GetCoalConsumptionDailyByOrganiztionIds(levelCodes, DateTime.Now.AddDays(-1));
-        }
-
-        /// <summary>
         /// 查询所有产线的用煤耗
         /// </summary>
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
-        /// <param name="time">时间</param>
+        /// <param name="startDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
         /// <returns></returns>
-        public static DataTable GetCoalConsumptionDailyByOrganiztionIds(string[] levelCodes, DateTime time)
+        public static DataTable GetCoalConsumptionDailyByOrganiztionIds(string[] levelCodes, DateTime dateTime)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-
-//            string queryString = @" SELECT [C].*, [A].[TimeStamp]
-//                                      FROM [balance_Energy] AS [C] INNER JOIN
-//                                           [tz_Balance] AS [A] ON [C].[KeyId] = [A].[BalanceId]
-//                                     WHERE ([A].[StaticsCycle] = 'day') AND 
-//                                           ([A].[TimeStamp] = '{1}') AND
-//                                   	       ([C].[VariableId] IN ('clinker_CoalConsumption')) AND
-//                                   	       ([C].[OrganizationID] IN 
-//                                   	       (SELECT [OA].[OrganizationID]
-//                                              FROM [system_Organization] AS [OA] INNER JOIN
-//                                                   [system_Organization] AS [OB] ON [OA].[LevelCode] LIKE ([OB].[LevelCode] + '%')
-//                                             WHERE [OB].[OrganizationID] IN ({0})))
-//                                ";
             string queryString = @" SELECT 
                                     W.CompanyName,
                                     W.FactoryName,
@@ -72,16 +50,9 @@ namespace StatisticalReport.Service.ComprehensiveReport
                                     TB.TimeStamp='{1}' AND
                                     W.FactoryOrganizationID=TB.OrganizationID AND
                                     TB.[OrganizationID]=O.OrganizationID
+                                    --GROUP BY  W.CompanyName,W.FactoryName,TB.OrganizationID,BE.VariableName
                                 ";
 
-            //StringBuilder organiztionIdsParameter = new StringBuilder();
-            //foreach (var organizationId in organizationIds)
-            //{
-            //    organiztionIdsParameter.Append("'");
-            //    organiztionIdsParameter.Append(organizationId);
-            //    organiztionIdsParameter.Append("',");
-            //}
-            //organiztionIdsParameter.Remove(organiztionIdsParameter.Length - 1, 1);
             StringBuilder levelCodesParameter = new StringBuilder();
             foreach (var levelCode in levelCodes)
             {
@@ -89,14 +60,13 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 levelCodesParameter.Append("'");
                 levelCodesParameter.Append(levelCode + "%");
                 levelCodesParameter.Append("'");
-                levelCodesParameter.Append(" AND ");
+                levelCodesParameter.Append(" OR ");
             }
-            levelCodesParameter.Remove(levelCodesParameter.Length - 5, 5);
-#if DEBUG
-            return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), "2015-02-09"));
-#else
-            return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), time.ToString("yyyy-MM-dd")));
-#endif
+            levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
+
+            return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(),dateTime.ToString("yyyy-MM-dd")));
+
+
         }
     }
 }

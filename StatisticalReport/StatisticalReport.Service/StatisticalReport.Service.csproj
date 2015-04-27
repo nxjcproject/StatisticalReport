@@ -37,6 +37,9 @@
     <Reference Include="EasyUIJsonParser">
       <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
     </Reference>
+    <Reference Include="EnergyConsumption">
+      <HintPath>..\..\Lib\EnergyConsumption.dll</HintPath>
+    </Reference>
     <Reference Include="FileIO">
       <HintPath>..\..\Lib\FileIO.dll</HintPath>
     </Reference>
@@ -62,6 +65,7 @@
   <ItemGroup>
     <Compile Include="BasicDataSummaryReport\DailyBasicElectricityUsageService.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicMaterialWeightService.cs" />
+    <Compile Include="BasicDataSummaryReport\ElectricRoomMeterReadingService.cs" />
     <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\DispatchDailyReport\DispatchDailyReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />

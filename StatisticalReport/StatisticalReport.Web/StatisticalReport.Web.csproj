@@ -86,6 +86,8 @@
     <Content Include="Test.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\js\page\ElectricRoomMeterReading.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityUsage.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicMaterialWeight.js" />
     <Content Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx" />
@@ -1681,6 +1683,13 @@
     </Compile>
     <Compile Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx.designer.cs">
       <DependentUpon>DailyBasicMaterialWeight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx.cs">
+      <DependentUpon>ElectricRoomMeterReading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx.designer.cs">
+      <DependentUpon>ElectricRoomMeterReading.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx.cs">
       <DependentUpon>CoalConsumptionDailyReport.aspx</DependentUpon>

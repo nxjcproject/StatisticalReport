@@ -16,7 +16,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
         /// <param name="time">时间</param>
         /// <returns></returns>
-        public static DataTable GetMaterialWeightByOrganiztionIds(string organizationId, DateTime time)
+        public static DataTable GetMaterialWeightByOrganiztionIds(string organizationId, DateTime startDate,DateTime endDate)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
@@ -25,10 +25,10 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                     W.FactoryName,
                                     TB.OrganizationID AS FactoryOrgID,
                                     BE.VariableName AS VariableName,
-                                    BE.FirstB AS FirstB,
-                                    BE.SecondB AS SecondB,
-                                    BE.ThirdB AS ThirdB,
-                                    BE.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
+                                    SUM(BE.FirstB) AS FirstB,
+                                    SUM(BE.SecondB) AS SecondB,
+                                    SUM(BE.ThirdB) AS ThirdB,
+                                    SUM(BE.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
                                     FROM tz_Balance AS TB,
                                     balance_Energy AS BE,
                                       (SELECT C.Name AS CompanyName,
@@ -45,15 +45,19 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                             FROM system_Organization AS A 
                                             WHERE A.LevelCode like (
                                                                     SELECT T.LevelCode FROM system_Organization AS T
-						                                            WHERE T.OrganizationID='{0}'
+						                                            WHERE T.OrganizationID='{2}'
 						                                            )+'%'
 										) AS O
                                     WHERE BE.KeyId=TB.BalanceId AND
                                     BE.ValueType='MaterialWeight' AND
-                                    TB.TimeStamp='{1}' AND
+                                    TB.TimeStamp>='{0}' AND TB.TimeStamp<='{1}' AND
                                     W.FactoryOrganizationID=TB.OrganizationID AND
                                     TB.[OrganizationID]=O.OrganizationID AND
-									BE.VariableName<>'水泥分品种'
+									BE.VariableName<>'水泥分品种' 
+									group by W.CompanyName,
+                                    W.FactoryName,
+                                    TB.OrganizationID,
+                                    VariableName									
                                 ";
             //StringBuilder levelCodesParameter = new StringBuilder();
             //foreach (var levelCode in levelCodes)
@@ -68,7 +72,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 //#if DEBUG
 //            return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), "2015-02-09"));
 //#else
-            return dataFactory.Query(string.Format(queryString, organizationId, time.ToString("yyyy-MM-dd")));
+            return dataFactory.Query(string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"),organizationId));
 //#endif
         }
     }

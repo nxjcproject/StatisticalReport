@@ -26,7 +26,14 @@
 	            <tr>
 	                <td>
 		                <table>
+                            <tr>
+                                <td style="padding-top:5px;padding-left:10px">选择时间：</td>
+                                <td style="padding-top:5px"><input id="dateTime" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+                                        onclick="QueryReportFun();">查询</a></td>
+                            </tr>
 	                        <tr>
+                                
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
                                 </td>

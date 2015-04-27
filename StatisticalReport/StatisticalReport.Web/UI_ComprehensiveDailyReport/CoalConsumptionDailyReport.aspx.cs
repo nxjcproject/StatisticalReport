@@ -27,11 +27,11 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         }
 
         [WebMethod]
-        public static string GetCoalConsumptionDailyReport()
+        public static string GetCoalConsumptionDailyReport(DateTime dateTime)
         {
             List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = CoalConsumptionReportService.GetCoalConsumptionDailyByOrganiztionIds(levelCodes.ToArray());
+            DataTable dt = CoalConsumptionReportService.GetCoalConsumptionDailyByOrganiztionIds(levelCodes.ToArray(),dateTime);
 
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }

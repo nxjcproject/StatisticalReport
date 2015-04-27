@@ -14,11 +14,19 @@ namespace StatisticalReport.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int denominatorPlan = Int16.Parse(DateTime.Now.AddMonths(1).AddDays(-(DateTime.Now.Day)).ToString("dd"));
-            int denominatorComplet = DateTime.Now.Day;
-            DispatchDailyReportService.GetCompanyTargetCompletion();
-            DispatchDailyReportService.GetPlanAndTargetCompletionByCompanyName("青铜峡水泥");
-            DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("青铜峡水泥");
+            //int denominatorPlan = Int16.Parse(DateTime.Now.AddMonths(1).AddDays(-(DateTime.Now.Day)).ToString("dd"));
+            //int denominatorComplet = DateTime.Now.Day;
+            //DispatchDailyReportService.GetCompanyTargetCompletion();
+            //DispatchDailyReportService.GetPlanAndTargetCompletionByCompanyName("青铜峡水泥");
+            //DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("青铜峡水泥");
+
+           // DispatchDailyReportService.GetPlanAndTargetCompletionByCompanyName("白银公司");
+            //DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银公司");
+            DateTime time=new DateTime(2015,04,21);
+           // DispatchDailyReportService.DailyComplete("白银公司", time);
+           // DispatchDailyReportService.DailyComplete("白银公司", time);
+            //DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银公司", time);
+            DispatchDailyReportService.GetTreeTargetComletion(new string[] { "O02", "O03" }, time);
         }
 
         protected void Button1_Click(object sender, EventArgs e)

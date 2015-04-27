@@ -32,11 +32,11 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         }
 
         [WebMethod]
-        public static string GetMaterialWeightDailyReport(string organizationId, DateTime datetime)
+        public static string GetMaterialWeightDailyReport(string organizationId, DateTime startDate, DateTime endDate)
         {
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = DailyBasicMaterialWeightService.GetMaterialWeightByOrganiztionIds(organizationId, datetime);
+            DataTable dt = DailyBasicMaterialWeightService.GetMaterialWeightByOrganiztionIds(organizationId, startDate, endDate);
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }
     }

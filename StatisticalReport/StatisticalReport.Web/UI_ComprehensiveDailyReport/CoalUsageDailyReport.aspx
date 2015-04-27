@@ -26,6 +26,18 @@
 	            <tr>
 	                <td>
 		                <table>
+                            <tr>
+                                <td><input type="radio" name="timeType" value="day" checked="checked" onclick="DataBoxHide()"/>日报</td>
+                                <td><input type="radio" name="timeType" value=" custom" onclick="DataBoxShow()"/>自定义时间</td>
+                                <td style="padding-top:5px;">|</td>
+                                <td style="padding-top:5px;padding-left:10px">开始时间：</td>
+                                <td style="padding-top:5px"><input id="startDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td class="mDisplay" style="padding-top:5px;display:none">---</td>
+                                <td class="mDisplay" style="display:none;padding-top:5px;" >结束时间：</td>
+                                <td class="mDisplay" style="display:none;padding-top:5px;"><input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+                                        onclick="QueryReportFun();">查询</a></td>
+                            </tr>
 	                        <tr>
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>

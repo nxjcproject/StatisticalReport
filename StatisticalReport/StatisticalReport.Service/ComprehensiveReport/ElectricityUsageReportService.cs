@@ -11,43 +11,41 @@ namespace StatisticalReport.Service.ComprehensiveReport
 {
     public static class ElectricityUsageReportService
     {
+ 
         /// <summary>
-        /// 查询所有产线的用电量（前一天）
+        /// 
         /// </summary>
-        /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
+        /// <param name="levelCodes"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
         /// <returns></returns>
-        public static DataTable GetElectricityUsageDailyByOrganiztionIds(string[] levelCodes)
-        {
-            return GetElectricityUsageDailyByOrganiztionIds(levelCodes, DateTime.Now.AddDays(-1));
-        }
-
-        /// <summary>
-        /// 查询所有产线的用电量
-        /// </summary>
-        /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
-        /// <param name="time">时间</param>
-        /// <returns></returns>
-        public static DataTable GetElectricityUsageDailyByOrganiztionIds(string[] levelCodes, DateTime time)
+        public static DataTable GetElectricityUsageDailyByOrganiztionIds(string[] levelCodes, DateTime startDate,DateTime endDate)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
-            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-
-//            string queryString = @" SELECT [C].*, [A].[TimeStamp]
-//                                      FROM [balance_Energy] AS [C] INNER JOIN
-//                                           [tz_Balance] AS [A] ON [C].[KeyId] = [A].[BalanceId]
-//                                     WHERE ([A].[StaticsCycle] = 'day') AND 
-//                                           ([A].[TimeStamp] = '{1}') AND
-//                                   	       ([C].[VariableId] IN 
-//                                   		   (SELECT [B].[VariableId]
-//                                              FROM [NXJC].[dbo].[balance_Energy_Template] AS [B]
-//                                             WHERE [B].[TemplateType] = 'ProductionLine' AND [B].[ValueType] = 'ElectricityQuantity')) AND
-//                                   		   ([C].[OrganizationID] IN 
-//                                   		   (SELECT [OA].[OrganizationID]
-//                                              FROM [system_Organization] AS [OA] INNER JOIN
-//                                                   [system_Organization] AS [OB] ON [OA].[LevelCode] LIKE ([OB].[LevelCode] + '%')
-//                                             WHERE [OB].[OrganizationID] IN ({0})))
-//                                ";
-            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);                               
+//            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
+//                                        (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
+//	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
+//	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
+//	                                                 WHERE TF.KeyID=FFD.KeyID AND 
+//	                                                 -- FFD.LevelType='ProductionLine' AND
+//	                                                 TF.Type='2' AND TF.ENABLE='true') AS RST,
+//	                                    tz_Balance AS TB,balance_Energy AS BE
+//	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
+//                                        RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
+//	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
+//                                         ) AS FIN
+//                                    ON SO.OrganizationID=FIN.OrganizationID 
+//                                    INNER JOIN 
+//										 (
+//										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
+//										 ) AS O
+//									ON
+//									O.OrganizationID=SO.OrganizationID
+//                                    WHERE ISNULL(SO.Type,'')<>'余热发电' 
+//                                      ";
+            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.VariableName,FIN.FormulaLevelCode,SUM(FIN.FirstB) AS FirstB,SUM(FIN.SecondB) AS SecondB,SUM(FIN.ThirdB) AS ThirdB,SUM(FIN.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
+                                        FROM system_Organization AS SO LEFT JOIN 
                                         (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
 	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
 	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
@@ -57,26 +55,21 @@ namespace StatisticalReport.Service.ComprehensiveReport
 	                                    tz_Balance AS TB,balance_Energy AS BE
 	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
                                         RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
-	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
+	                                    TB.TimeStamp>='{0}' AND TB.TimeStamp<='{1}'AND
+										TB.StaticsCycle='day'
                                          ) AS FIN
                                     ON SO.OrganizationID=FIN.OrganizationID 
                                     INNER JOIN 
 										 (
-										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
+										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {2}
 										 ) AS O
 									ON
 									O.OrganizationID=SO.OrganizationID
                                     WHERE ISNULL(SO.Type,'')<>'余热发电' 
-                                      ";
-
-            //StringBuilder organiztionIdsParameter = new StringBuilder();
-            //foreach (var organizationId in organizationIds)
-            //{
-            //    organiztionIdsParameter.Append("'");
-            //    organiztionIdsParameter.Append(organizationId);
-            //    organiztionIdsParameter.Append("',");
-            //}
-            //organiztionIdsParameter.Remove(organiztionIdsParameter.Length - 1, 1);
+									GROUP BY VariableName,
+									SO.Name,SO.LevelCode,
+									FIN.VariableName,
+									FIN.FormulaLevelCode";
             StringBuilder levelCodesParameter = new StringBuilder();
             foreach (var levelCode in levelCodes)
             {
@@ -84,15 +77,15 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 levelCodesParameter.Append("'");
                 levelCodesParameter.Append(levelCode + "%");
                 levelCodesParameter.Append("'");
-                levelCodesParameter.Append(" AND ");
+                levelCodesParameter.Append(" OR ");
             }
-            levelCodesParameter.Remove(levelCodesParameter.Length - 5, 5);
+            levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
 
 #if DEBUG
-            DataTable resultTable = dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), "2015-02-09"));
+            DataTable resultTable = dataFactory.Query(string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), levelCodesParameter.ToString()));
             //DataTable resultTable = dataFactory.Query(string.Format(queryString, "2015-02-09"));  
 #else
-            DataTable resultTable =  dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), time.ToString("yyyy-MM-dd")));
+            DataTable resultTable =  dataFactory.Query(string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), levelCodesParameter.ToString()));
             //DataTable resultTable = dataFactory.Query(string.Format(queryString,time.ToString("yyyy-MM-dd")));
 #endif
             DataColumn stateColumn = new DataColumn("state", typeof(string));

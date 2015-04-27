@@ -6,13 +6,14 @@
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>煤耗日报</title>
-    <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
+ <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
 
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
+
 
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
@@ -26,17 +27,13 @@
 	            <tr>
 	                <td>
 		                <table>
-	                        <tr>
-                                <td>
-                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
-                                </td>
-                                <!--<td><div class="datagrid-btn-separator"></div>
-                                </td>
-                                <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
-                                </td>
-                                <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-printer',plain:true" onclick="PrintFileFun();">打印</a>
-                                </td>-->
+                            <tr>
+                                <td style="padding-top:5px;padding-left:10px">选择时间：</td>
+                                <td style="padding-top:5px"><input id="dateTime" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+                                        onclick="QueryReportFun();">查询</a></td>
                             </tr>
+
                         </table>
 		            </td>
                 </tr>

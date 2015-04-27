@@ -26,6 +26,21 @@
 	            <tr>
 	                <td>
 		                <table>
+                            <tr>
+                                <td>开始时间：</td>
+				                <td>
+                                    <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
+                                    <input id="startDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
+				                </td>
+                                <td>结束时间：</td>
+                                <td>
+                                    <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
+                                    <input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
+				                </td>
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    onclick="QueryReportFun();">查询</a>
+                                </td>
+                            </tr>
 	                        <tr>
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>

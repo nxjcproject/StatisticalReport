@@ -16,11 +16,12 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
         /// <param name="time">时间</param>
         /// <returns></returns>
-        public static DataTable GetDailyBasicElectricityUsageByOrganiztionIds(string organizationId, DateTime time)
+        public static DataTable GetDailyBasicElectricityUsageByOrganiztionIds(string organizationId, DateTime startDate,DateTime endDate)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
+            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.VariableName,FIN.FormulaLevelCode,SUM(FIN.FirstB) AS FirstB,SUM(FIN.SecondB) AS SecondB,SUM(FIN.ThirdB) AS ThirdB,SUM(FIN.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
+                                    FROM system_Organization AS SO LEFT JOIN 
                                         (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
 	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
 	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
@@ -30,7 +31,8 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 	                                    tz_Balance AS TB,balance_Energy AS BE
 	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
                                         RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
-	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
+	                                    TB.TimeStamp>='{0}' AND TB.TimeStamp<='{1}' AND
+										TB.StaticsCycle='day'
                                          ) AS FIN
                                     ON SO.OrganizationID=FIN.OrganizationID 
                                     INNER JOIN 
@@ -39,12 +41,16 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                             FROM system_Organization AS A 
                                             WHERE A.LevelCode like (
                                                                     SELECT T.LevelCode FROM system_Organization AS T
-						                                            WHERE T.OrganizationID='{0}'
+						                                            WHERE T.OrganizationID='{2}'
 						                                            )+'%'
 										 ) AS O
 									ON
 									O.OrganizationID=SO.OrganizationID
                                     WHERE ISNULL(SO.Type,'')<>'余热发电' 
+									GROUP BY VariableName,
+									SO.Name,SO.LevelCode,
+									FIN.VariableName,
+                                    FIN.FormulaLevelCode
                                       ";
             //StringBuilder levelCodesParameter = new StringBuilder();
             //foreach (var levelCode in levelCodes)
@@ -60,7 +66,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 //#if DEBUG
 //            DataTable resultTable = dataFactory.Query(string.Format(queryString, organizationId, "2015-02-09")); 
 //#else
-            DataTable resultTable =  dataFactory.Query(string.Format(queryString, organizationId, time.ToString("yyyy-MM-dd")));
+            DataTable resultTable = dataFactory.Query(string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), organizationId));
 //#endif
             DataColumn stateColumn = new DataColumn("state", typeof(string));
             resultTable.Columns.Add(stateColumn);
