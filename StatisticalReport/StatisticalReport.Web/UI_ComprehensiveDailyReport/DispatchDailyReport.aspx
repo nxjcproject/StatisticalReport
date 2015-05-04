@@ -34,6 +34,8 @@
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.categoryAxisRenderer.min.js"></script>
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.pointLabels.min.js"></script>
     <script type="text/javascript" src="/lib/pllib/plugins/jqplot.cursor.min.js"></script>
+    <script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasTextRenderer.min.js"></script>
+    <script type="text/javascript" src="/lib/pllib/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
 
     <%--<script type="text/javascript" src="/lib/pllib/themes/jquery.jqplot.js"></script>
     <script type="text/javascript" src="/lib/pllib/themes/jjquery.jqplot.min.js"></script>--%>
