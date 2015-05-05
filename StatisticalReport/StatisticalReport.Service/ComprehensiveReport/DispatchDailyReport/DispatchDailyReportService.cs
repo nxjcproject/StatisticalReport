@@ -648,6 +648,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             OR [B].[VariableId]='cement_CementOutput' OR [B].[VariableId]='cementmill_ElectricityQuantity' 
                             OR [B].[VariableId]='cementGrind_ElectricityQuantity' OR [B].[VariableId]='cementPreparation_ElectricityQuantity'
                             OR [B].[VariableId]='clinkerElectricityGeneration_ElectricityQuantity'
+                            OR [B].[VariableId]='clinker_ElectricityQuantity'
                             ) AND
                             [A].[TimeStamp]='{0}' AND                          
                             A.StaticsCycle='day' AND
@@ -666,18 +667,27 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             DataTable consumption = EnergyConsumption.EnergyConsumptionCalculate.Calculate(source, template, "ValueFormula", new string[] { "TotalPeakValleyFlatB" });
             DataRow row1 = result.NewRow();
             row1["项目指标"] = "熟料产量";
+
+            decimal ClinkerOutput = 0;
             if (source.Select("VariableId='clinker_ClinkerOutput'").Count() != 0)
+            {
+                ClinkerOutput = ReportHelper.MyToDecimal(source.Select("VariableId='clinker_ClinkerOutput'")[0]["TotalPeakValleyFlatB"]);
                 row1["日完成"] = source.Select("VariableId='clinker_ClinkerOutput'")[0]["TotalPeakValleyFlatB"];
+            }
             result.Rows.Add(row1);
             DataRow row2 = result.NewRow();
             row2["项目指标"] = "发电量";
+
+            decimal ElectricityGeneration = 0;
             if (source.Select("VariableId='clinkerElectricityGeneration_ElectricityQuantity'").Count() != 0)
-                row2["日完成"] = source.Select("VariableId='clinkerElectricityGeneration_ElectricityQuantity'")[0]["TotalPeakValleyFlatB"];
+            {
+                ElectricityGeneration =ReportHelper.MyToDecimal(source.Select("VariableId='clinkerElectricityGeneration_ElectricityQuantity'")[0]["TotalPeakValleyFlatB"]);
+                row2["日完成"] = source.Select("VariableId='clinkerElectricityGeneration_ElectricityQuantity'")[0]["TotalPeakValleyFlatB"];              
+            }
             result.Rows.Add(row2);
             DataRow row3 = result.NewRow();
             row3["项目指标"] = "吨熟料发电量";
-            //if (source.Select("VariableId='clinker_ClinkerOutput'").Count() != 0)
-            //    row1["日完成"] = source.Select("VariableId='clinker_ClinkerOutput'")[0]["TotalPeakValleyFlatB"];
+            row3["日完成"] = ClinkerOutput == 0 ? 0 : ElectricityGeneration / ClinkerOutput;
             result.Rows.Add(row3);
             DataRow row4 = result.NewRow();
             row4["项目指标"] = "熟料电耗";
