@@ -78,6 +78,8 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 levelCodesParameter.Append(levelCode + "%");
                 levelCodesParameter.Append("'");
                 levelCodesParameter.Append(" OR ");
+                levelCodesParameter.Append(string.Format("CHARINDEX(A.LevelCode,'{0}')>0", levelCode));
+                levelCodesParameter.Append(" OR ");
             }
             levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
 

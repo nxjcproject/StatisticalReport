@@ -110,8 +110,8 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
              */ 
             string sqlTree = @"SELECT A.OrganizationID,A.LevelCode,A.Name
                                     FROM system_Organization AS A
-                                    WHERE A.LevelType='Company' 
-                                    OR A.LevelType='Factory' AND
+                                    WHERE (A.LevelType='Company' 
+                                    OR A.LevelType='Factory') AND
                                     ({0})
                                     ORDER BY A.LevelCode";
             StringBuilder levelCodesParameter = new StringBuilder();
@@ -121,6 +121,8 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 levelCodesParameter.Append("'");
                 levelCodesParameter.Append(levelCode + "%");
                 levelCodesParameter.Append("'");
+                levelCodesParameter.Append(" OR ");
+                levelCodesParameter.Append(string.Format("CHARINDEX(A.LevelCode,'{0}')>0", levelCode));
                 levelCodesParameter.Append(" OR ");
             }
             levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
