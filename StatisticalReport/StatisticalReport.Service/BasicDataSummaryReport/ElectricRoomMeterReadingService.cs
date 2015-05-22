@@ -104,6 +104,12 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 row["Value"] = sourceTable.Rows[2][dc.ColumnName];
                 result.Rows.Add(row);
             }
+            int count = result.Rows.Count;
+            for (int i = 0; i < count; i++)
+            {
+                if (Convert.ToDecimal(result.Rows[i]["Value"]) < 0)
+                    result.Rows[i]["Value"] = 0;
+            }
             return result;
         }
     }
