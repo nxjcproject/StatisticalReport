@@ -182,6 +182,11 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             //destination.Columns.Add(companyRow);
             foreach (DataRow dr in itemTable.Rows)
             {
+                if (dr["QuotasID"].ToString() == "熟料电耗" || dr["QuotasID"].ToString() == "熟料煤耗" || dr["QuotasID"].ToString() == "水泥电耗")
+                {
+                    //TODO:暂时去掉综合的，以后用亮哥的动态库求综合
+                    continue;
+                }
                 DataColumn dc = new DataColumn(dr["QuotasID"].ToString(), typeof(decimal));
                 dc.DefaultValue = 0;
                 destination.Columns.Add(dc);
@@ -289,13 +294,13 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 resultPlanRow["熟料产量"] = clinkerOutPut;
                 resultPlanRow["发电量"] = elcOutPut;
                 resultPlanRow["吨熟料发电量"] = elcOutPut / clinkerOutPut;
-                resultPlanRow["熟料电耗"] = elcOutPut / clinkerOutPut;
-                resultPlanRow["熟料煤耗"] = coal*1000 / clinkerOutPut;
+                //resultPlanRow["熟料电耗"] = elcOutPut / clinkerOutPut;    //TODO:暂时去掉
+                //resultPlanRow["熟料煤耗"] = coal*1000 / clinkerOutPut;    //TODO:暂时去掉
                 resultPlanRow["生料磨电耗"] = rawMillElc / clinkerOutPut;
                 resultPlanRow["煤磨电耗"] = coalMillElc / coal;
                 //水泥
                 resultPlanRow["水泥产量"] = cementOutPut;
-                resultPlanRow["水泥电耗"] = cementElc / cementOutPut;
+                //resultPlanRow["水泥电耗"] = cementElc / cementOutPut;    //TODO:暂时去掉
                 resultPlanRow["水泥磨电耗"] = cementMillElc / cementOutPut;
                 destination.Rows.Add(resultPlanRow);
                 //*************END没转换单位的******************
@@ -306,13 +311,13 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 shiftResultPlanRow["熟料产量"] = clinkerOutPut/1000;
                 shiftResultPlanRow["发电量"] = elcOutPut/100000;
                 shiftResultPlanRow["吨熟料发电量"] = elcOutPut / clinkerOutPut;
-                shiftResultPlanRow["熟料电耗"] = elcOutPut / clinkerOutPut;
-                shiftResultPlanRow["熟料煤耗"] = coal * 1000 / clinkerOutPut/10;
+                //shiftResultPlanRow["熟料电耗"] = elcOutPut / clinkerOutPut;         //TODO:暂时去掉
+                //shiftResultPlanRow["熟料煤耗"] = coal * 1000 / clinkerOutPut/10;    //TODO:暂时去掉
                 shiftResultPlanRow["生料磨电耗"] = rawMillElc / clinkerOutPut;
                 shiftResultPlanRow["煤磨电耗"] = coalMillElc / coal;
                 //水泥
                 shiftResultPlanRow["水泥产量"] = cementOutPut/1000;
-                shiftResultPlanRow["水泥电耗"] = cementElc / cementOutPut;
+                //shiftResultPlanRow["水泥电耗"] = cementElc / cementOutPut;          //TODO:暂时去掉
                 shiftResultPlanRow["水泥磨电耗"] = cementMillElc / cementOutPut;
                 shiftDestination.Rows.Add(shiftResultPlanRow);
                 //*************END转换过单位的******************
@@ -327,13 +332,14 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                 //row["公司"] = dr["CompanyName"].ToString().Trim();
                 string organizationId = dr["OrganizationID"].ToString();
                 string sql = @"SELECT SUM([B].[TotalPeakValleyFlatB]) AS Value,[VariableId]
-                                    FROM [dbo].[balance_Energy] AS B INNER JOIN [dbo].[tz_Balance] AS A
-	                                ON [A].[BalanceId]=[B].[KeyId]
-	                                WHERE [B].[OrganizationID] LIKE @organizationId + '%' AND      
-	                                [A].StaticsCycle='day' AND
-	                                [A].[TimeStamp]>=@startDate AND
-	                                [A].[TimeStamp]<=@endDate AND 
-	                                (
+                                    FROM [dbo].[balance_Energy] AS B , [dbo].[tz_Balance] AS A,[system_Organization] AS C
+	                                WHERE [A].[BalanceId]=[B].[KeyId]
+                                    AND [B].[OrganizationID]=[C].[OrganizationID]
+                                    AND [C].[LevelCode] LIKE (select LevelCode from system_Organization where OrganizationID=@organizationId) + '%'     
+	                                AND [A].StaticsCycle='day' 
+	                                AND [A].[TimeStamp]>=@startDate 
+	                                AND [A].[TimeStamp]<=@endDate  
+	                                AND(
 	                                [B].[VariableId]='coalPreparation_ElectricityQuantity' OR [B].[VariableId]='clinker_PulverizedCoalOutput' OR [B].[VariableId]='rawMaterialsPreparation_ElectricityQuantity'
 	                                OR [B].[VariableId]='clinker_MixtureMaterialsOutput' OR [B].[VariableId]='clinkerPreparation_ElectricityQuantity'
 	                                OR [B].[VariableId]='clinker_ClinkerOutput' OR [B].[VariableId]='clinker_PulverizedCoalInput' 
@@ -341,6 +347,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                                     OR [B].[VariableId]='cementGrind_ElectricityQuantity' 
                                     OR [B].[VariableId]='clinkerElectricityGeneration_ElectricityQuantity' 
 	                                )
+									AND [C].[Type]<>'余热发电'
                                     GROUP BY [B].[VariableId]
                              ";
                 SqlParameter[] paramaters = {new SqlParameter("startDate",date.ToString("yyyy-MM")+"-01"),
@@ -365,14 +372,14 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             row["吨熟料发电量"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"]);
                             shiftRow["吨熟料发电量"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"]);
                             break;
-                        case "clinkerPreparation_ElectricityQuantity":
-                            row["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * Rate);
-                            shiftRow["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * Rate);
-                            break;
-                        case "clinker_PulverizedCoalInput":
-                            row["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"] * Rate);
-                            shiftRow["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"])/10;
-                            break;
+                        //case "clinkerPreparation_ElectricityQuantity":
+                        //    row["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * Rate);
+                        //    shiftRow["熟料电耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["熟料产量"] * Rate);
+                        //    break;
+                        //case "clinker_PulverizedCoalInput":
+                        //    row["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"] * Rate);
+                        //    shiftRow["熟料煤耗"] = (decimal)row["熟料产量"] == 0 ? 0 : (decimal)drow["Value"] * 1000 / ((decimal)row["熟料产量"])/10;
+                        //    break;
                         case "rawMaterialsPreparation_ElectricityQuantity":
                             DataRow[] rawMaterialsoutputRows = sourceTable.Select("VariableId='clinker_MixtureMaterialsOutput'");
                             if (rawMaterialsoutputRows.Count() == 1)
@@ -393,10 +400,10 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             row["水泥产量"] = (decimal)drow["Value"] / Rate;
                             shiftRow["水泥产量"] = (decimal)drow["Value"] / 1000;
                             break;
-                        case "cementmill_ElectricityQuantity":
-                            row["水泥电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
-                            shiftRow["水泥电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
-                            break;
+                        //case "cementmill_ElectricityQuantity":
+                        //    row["水泥电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
+                        //    shiftRow["水泥电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
+                        //    break;
                         case "cementGrind_ElectricityQuantity":
                             row["水泥磨电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
                             shiftRow["水泥磨电耗"] = (decimal)row["水泥产量"] == 0 ? 0 : (decimal)drow["Value"] / ((decimal)row["水泥产量"] * Rate);
@@ -641,8 +648,10 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             result.Columns.Add(itemColumn);
             result.Columns.Add(dailyComplete);
             string sql = @"SELECT B.VariableId,SUM(B.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
-                            FROM tz_Balance AS A,balance_Energy AS B
-                            WHERE A.BalanceId=B.KeyId AND
+                            FROM tz_Balance AS A,balance_Energy AS B ,system_Organization AS C
+                            WHERE A.BalanceId=B.KeyId 
+                            AND B.OrganizationID=C.OrganizationID
+                            AND
                             (
                             [B].[VariableId]='coalPreparation_ElectricityQuantity' OR [B].[VariableId]='clinker_PulverizedCoalOutput' OR [B].[VariableId]='rawMaterialsPreparation_ElectricityQuantity'
                             OR [B].[VariableId]='clinker_MixtureMaterialsOutput' OR [B].[VariableId]='clinkerPreparation_ElectricityQuantity'
@@ -655,6 +664,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                             [A].[TimeStamp]='{0}' AND                          
                             A.StaticsCycle='day' AND
                             B.OrganizationID IN (select OrganizationID from system_Organization where LevelCode like '{1}%')
+                            AND C.Type<>'余热发电'
                             GROUP BY B.VariableId";
             DataTable source = _dataFactory.Query(string.Format(sql, date.ToString("yyyy-MM-dd"), levelcode));
             string sqlTemplete = @"SELECT VariableId,VariableName,ValueFormula
@@ -695,13 +705,13 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             row4["项目指标"] = "熟料电耗";
             if (consumption.Select("VariableId='clinker_ElectricityConsumption'").Count() != 0)
                 row4["日完成"] = consumption.Select("VariableId='clinker_ElectricityConsumption'")[0]["TotalPeakValleyFlatB"];
-            result.Rows.Add(row4);
+            //result.Rows.Add(row4);   //TODO:暂时去掉
 
             DataRow row5 = result.NewRow();
             row5["项目指标"] = "熟料煤耗";
             if (consumption.Select("VariableId='clinker_CoalConsumption'").Count() != 0)
                 row5["日完成"] = consumption.Select("VariableId='clinker_CoalConsumption'")[0]["TotalPeakValleyFlatB"];
-            result.Rows.Add(row5);
+            //result.Rows.Add(row5);   //TODO:暂时去掉
 
             DataRow row6 = result.NewRow();
             row6["项目指标"] = "生料磨电耗";
@@ -725,7 +735,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             row9["项目指标"] = "水泥电耗";
             if (consumption.Select("VariableId='cementmill_ElectricityConsumption'").Count() != 0)
                 row9["日完成"] = consumption.Select("VariableId='cementmill_ElectricityConsumption'")[0]["TotalPeakValleyFlatB"];
-            result.Rows.Add(row9);
+            //result.Rows.Add(row9);   //TODO:暂时去掉
 
             DataRow row10 = result.NewRow();
             row10["项目指标"] = "水泥磨电耗";

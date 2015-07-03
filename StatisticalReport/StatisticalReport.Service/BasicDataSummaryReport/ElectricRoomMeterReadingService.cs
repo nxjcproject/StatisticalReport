@@ -59,8 +59,8 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             foreach (DataRow dr in ammeterInfoTable.Rows)
             {
                 stringBuilder.Append(dr["AmmeterNumber"].ToString().Trim());
-                stringBuilder.Append("energy AS '");  
-                stringBuilder.Append(dr["AmmeterName"].ToString().Trim());
+                stringBuilder.Append("energy AS '");
+                stringBuilder.Append(dr["AmmeterName"].ToString().Trim() + "(" + dr["AmmeterNumber"].ToString().Trim()+")");
                 stringBuilder.Append("',");
             }
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
