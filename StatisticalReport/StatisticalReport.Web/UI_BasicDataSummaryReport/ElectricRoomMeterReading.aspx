@@ -49,11 +49,11 @@
                             <tr>
                                 <td>开始时间：</td>
                                 <td>
-                                    <input id="starttime" class="easyui-datebox" style="width: 150px;" /></td>
+                                    <input id="starttime" class="easyui-datetimebox" style="width: 150px;" /></td>
                                 <td>|</td>
                                 <td>结束时间：</td>
                                 <td>
-                                    <input id="endtime" class="easyui-datebox" style="width: 150px;" /></td>
+                                    <input id="endtime" class="easyui-datetimebox" style="width: 150px;" /></td>
                                 <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
                                     onclick="QueryReportFun();">查询</a>
                                 </td>

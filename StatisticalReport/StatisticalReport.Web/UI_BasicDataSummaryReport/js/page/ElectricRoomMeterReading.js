@@ -10,10 +10,10 @@ function InitDate() {
     var nowDate = new Date();
     var beforeDate = new Date();
     beforeDate.setMonth(beforeDate.getMonth() - 1);
-    var nowString = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate();
-    var beforeString = beforeDate.getFullYear() + '-' + (beforeDate.getMonth() + 1) + '-' + beforeDate.getDate();
-    $('#starttime').datebox('setValue', beforeString);
-    $('#endtime').datebox('setValue',nowString);
+    var nowString = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate() + " "+nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds();
+    var beforeString = beforeDate.getFullYear() + '-' + (beforeDate.getMonth() + 1) + '-' + beforeDate.getDate()+" 0:00:00";
+    $('#starttime').datetimebox('setValue', beforeString);
+    $('#endtime').datetimebox('setValue', nowString);
 }
 
 function loadGridData(myLoadType, startTime, endTime) {
@@ -53,21 +53,12 @@ function InitializeGrid(myData) {
         dataType: "json",
         striped: true,
         idField: "field",
-        //frozenColumns: [[m_IdAndNameColumn[1]]],
         columns: myData['columns'],
-        //loadMsg: '',   //设置本身的提示消息为空 则就不会提示了的。这个设置很关键的
         rownumbers: true,
-        //pagination: true,
         singleSelect: true,
-        //onClickCell: onClickCell,
-        //idField: m_IdAndNameColumn[0].field,
-        //pageSize: 20,
-        //pageList: [20, 50, 100, 500],
-
         toolbar: '#toolbar_ReportTemplate'
     });
 
-    //for(
 }
 //获得电气室
 function InitElectricRoom(organizationId) {
@@ -154,8 +145,6 @@ function PrintFileFun() {
             PrintHtml(msg.d);
         }
     });
-
-
 }
 
 function QueryReportFun() {

@@ -64,7 +64,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 stringBuilder.Append("',");
             }
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
-            stringBuilder.Append("FROM [{0}].[dbo].[HistoryAmmeter] WHERE CONVERT(varchar(10),vDate,20){2}@date order by vDate {1}");
+            stringBuilder.Append("FROM [{0}].[dbo].[HistoryAmmeter] WHERE vDate{2}@date order by vDate {1}");
             SqlParameter parameterStartDate=new SqlParameter("date",startTime);
             SqlParameter parameterEndDate=new SqlParameter("date",endTime);
             DataTable startTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName, "ASC",">="), parameterStartDate);
