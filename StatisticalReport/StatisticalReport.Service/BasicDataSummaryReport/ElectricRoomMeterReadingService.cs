@@ -54,6 +54,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             SqlParameter parameter = new SqlParameter("electricRoom", electricRoom);
             //电表信息
             DataTable ammeterInfoTable = dataFactory.Query(string.Format(sqlStringAmmeter, meterDNName), parameter);
+            //根据差值计算电表电量
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append("SELECT TOP (1) "); 
             foreach (DataRow dr in ammeterInfoTable.Rows)
@@ -72,16 +73,39 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             startTable.Merge(endTable);
             if (startTable.Rows.Count != 2)
                 throw new Exception("数据不完整！");
-            DataRow row = startTable.NewRow();
+
+            DataTable resultTable = startTable.Clone();
+            DataRow row = resultTable.NewRow();
             foreach (DataColumn dc in startTable.Columns)//遍历所有的列 
             {
                 string columnName = dc.ColumnName;
                 row[columnName] =ReportHelper.MyToDecimal(startTable.Rows[1][columnName]) - ReportHelper.MyToDecimal(startTable.Rows[0][columnName]);
             }
             //table.Clear();
-            startTable.Rows.Add(row);
+            resultTable.Rows.Add(row);
 
-            return HorizontalToVertical(startTable);
+            //根据增量值计算电量电量
+            stringBuilder.Clear();
+            stringBuilder.Append("select ");
+            foreach (DataRow dr in ammeterInfoTable.Rows)
+            {
+                stringBuilder.Append("sum(");
+                stringBuilder.Append(dr["AmmeterNumber"].ToString().Trim());
+                stringBuilder.Append("energy) AS '");
+                stringBuilder.Append(dr["AmmeterName"].ToString().Trim() + "(" + dr["AmmeterNumber"].ToString().Trim() + ")");
+                stringBuilder.Append("',");
+            }
+            stringBuilder.Remove(stringBuilder.Length - 1, 1);
+            stringBuilder.Append("FROM [{0}].[dbo].[HistoryAmmeterIncrement] WHERE vDate>=@startTime and vDate<=@endTime");
+            SqlParameter[] parameters = { new SqlParameter("startTime", startTime), new SqlParameter("endTime", endTime) };
+            DataTable incrementTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName), parameters);
+            if (incrementTable.Rows.Count == 1)
+            {
+                DataRow iRow = resultTable.NewRow();
+                iRow.ItemArray= incrementTable.Rows[0].ItemArray;
+                resultTable.Rows.Add(iRow);
+            }
+            return HorizontalToVertical(resultTable);
         }
         /// <summary>
         /// 横表转纵表
@@ -91,25 +115,32 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         private static DataTable HorizontalToVertical(DataTable sourceTable)
         {
             DataTable result = new DataTable();
-            DataColumn AmmertNamecolumn = new DataColumn("AmmeterName", typeof(string));
+            DataColumn AmmertNameColumn = new DataColumn("AmmeterName", typeof(string));
             DataColumn AmmertValueColumn = new DataColumn("Value", typeof(decimal));
-            result.Columns.Add(AmmertNamecolumn);
+            DataColumn IncrementVallueColumn = new DataColumn("IncrementValue",typeof(decimal));
+            //用表差值
+            DataColumn DvalueColumn = new DataColumn("DvalueColumn",typeof(decimal));
+            result.Columns.Add(AmmertNameColumn);
             result.Columns.Add(AmmertValueColumn);
-            if(sourceTable.Rows.Count!=3)
+            result.Columns.Add(IncrementVallueColumn);
+            result.Columns.Add(DvalueColumn);
+            if(sourceTable.Rows.Count!=2)
                 throw new Exception("sourceTable数据不完整！");
             foreach (DataColumn dc in sourceTable.Columns)
             {
                 DataRow row = result.NewRow();
                 row["AmmeterName"] = dc.ColumnName.Trim();
-                row["Value"] = sourceTable.Rows[2][dc.ColumnName];
+                row["Value"] =Convert.ToDecimal(sourceTable.Rows[0][dc.ColumnName])<0?0: sourceTable.Rows[0][dc.ColumnName];
+                row["IncrementValue"]=sourceTable.Rows[1][dc.ColumnName];
+                row["DvalueColumn"] = Convert.ToDecimal(row["Value"]) -Convert.ToDecimal(row["IncrementValue"]);
                 result.Rows.Add(row);
             }
-            int count = result.Rows.Count;
-            for (int i = 0; i < count; i++)
-            {
-                if (Convert.ToDecimal(result.Rows[i]["Value"]) < 0)
-                    result.Rows[i]["Value"] = 0;
-            }
+            //int count = result.Rows.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    if (Convert.ToDecimal(result.Rows[i]["Value"]) < 0)
+            //        result.Rows[i]["Value"] = 0;
+            //}
             return result;
         }
     }

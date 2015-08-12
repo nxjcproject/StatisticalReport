@@ -66,7 +66,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <a href="#" class="easyui-linkbutton" iconcls="icon-reload" plain="true" onclick="RefreshFun();">刷新</a>
+                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:'true'"  onclick="RefreshFun();">刷新</a>
                                 </td>
                                 <td>
                                     <div class="datagrid-btn-separator"></div>
