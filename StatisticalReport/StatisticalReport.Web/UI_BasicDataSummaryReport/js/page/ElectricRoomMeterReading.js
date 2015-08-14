@@ -8,6 +8,7 @@ $(function () {
 //初始化日期框
 function InitDate() {
     var nowDate = new Date();
+    nowDate.setHours(nowDate.getHours()-1);
     var beforeDate = new Date();
     beforeDate.setMonth(beforeDate.getMonth() - 1);
     var nowString = nowDate.getFullYear() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getDate() + " "+nowDate.getHours() + ":" + nowDate.getMinutes() + ":" + nowDate.getSeconds();

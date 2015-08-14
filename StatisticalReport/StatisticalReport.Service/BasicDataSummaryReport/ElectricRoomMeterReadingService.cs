@@ -56,7 +56,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             DataTable ammeterInfoTable = dataFactory.Query(string.Format(sqlStringAmmeter, meterDNName), parameter);
             //根据差值计算电表电量
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("SELECT TOP (1) "); 
+            stringBuilder.Append("SELECT "); 
             foreach (DataRow dr in ammeterInfoTable.Rows)
             {
                 stringBuilder.Append(dr["AmmeterNumber"].ToString().Trim());
@@ -65,11 +65,14 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 stringBuilder.Append("',");
             }
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
-            stringBuilder.Append("FROM [{0}].[dbo].[HistoryAmmeter] WHERE vDate{2}@date order by vDate {1}");
+            stringBuilder.Append(@"from [{0}].[dbo].HistoryAmmeter A,
+                                        (select min(vDate) as vDate from [{0}].[dbo].HistoryAmmeter  
+                                         where vDate>=@date) B
+                                   where A.vDate=B.vDate");
             SqlParameter parameterStartDate=new SqlParameter("date",startTime);
             SqlParameter parameterEndDate=new SqlParameter("date",endTime);
-            DataTable startTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName, "ASC",">="), parameterStartDate);
-            DataTable endTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName, "DESC","<="), parameterEndDate);
+            DataTable startTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName), parameterStartDate);
+            DataTable endTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName), parameterEndDate);
             startTable.Merge(endTable);
             if (startTable.Rows.Count != 2)
                 throw new Exception("数据不完整！");
@@ -130,9 +133,9 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             {
                 DataRow row = result.NewRow();
                 row["AmmeterName"] = dc.ColumnName.Trim();
-                row["Value"] =Convert.ToDecimal(sourceTable.Rows[0][dc.ColumnName])<0?0: sourceTable.Rows[0][dc.ColumnName];
+                row["Value"] =ReportHelper.MyToDecimal(sourceTable.Rows[0][dc.ColumnName])<0?0: sourceTable.Rows[0][dc.ColumnName];
                 row["IncrementValue"]=sourceTable.Rows[1][dc.ColumnName];
-                row["DvalueColumn"] = Convert.ToDecimal(row["Value"]) -Convert.ToDecimal(row["IncrementValue"]);
+                row["DvalueColumn"] = ReportHelper.MyToDecimal(row["Value"]) -ReportHelper.MyToDecimal(row["IncrementValue"]);
                 result.Rows.Add(row);
             }
             //int count = result.Rows.Count;

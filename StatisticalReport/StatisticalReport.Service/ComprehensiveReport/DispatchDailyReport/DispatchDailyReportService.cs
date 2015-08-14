@@ -182,7 +182,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             //destination.Columns.Add(companyRow);
             foreach (DataRow dr in itemTable.Rows)
             {
-                if (dr["QuotasID"].ToString() == "熟料电耗" || dr["QuotasID"].ToString() == "熟料煤耗" || dr["QuotasID"].ToString() == "水泥电耗")
+                if (dr["QuotasID"].ToString() == "熟料电耗" || dr["QuotasID"].ToString() == "熟料综合电耗" || dr["QuotasID"].ToString() == "熟料煤耗" || dr["QuotasID"].ToString() == "水泥电耗")
                 {
                     //TODO:暂时去掉综合的，以后用亮哥的动态库求综合
                     continue;

@@ -41,7 +41,7 @@
         </div>
 
         <div id="reportTable" class="easyui-panel" data-options="region:'center', border:true, collapsible:false, split:false">
-            <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true" title="">
+            <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
 		        <thead>
 			        <tr>
                         <th data-options="field:'CompanyName',width:150">公司名称</th>
