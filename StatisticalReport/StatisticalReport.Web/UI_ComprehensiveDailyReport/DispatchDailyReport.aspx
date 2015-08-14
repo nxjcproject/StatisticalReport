@@ -51,32 +51,35 @@
    <%-- <div data-options="region:'north',border:true" style="height:30px;padding-top:2px;">
         <span style="padding-left:10px;">时间：</span><span><input id="dd" type="text" class="easyui-datebox" style="width:150px;"/></span>
     </div>--%>
-    <div data-options="region:'center',border:true" >
-        <div class="easyui-layout" data-options="fit:true,border:true">
-            <div id="completeGridContainId" data-options="region:'center',border:true">
+    <div data-options="region:'center',border:false" >
+        <div class="easyui-layout" data-options="fit:true,border:false">
+            <div id="completeGridContainId" data-options="region:'center',border:false" style ="padding:2px;">
                 <div id="tools"><input id="dateTime" type="text" class="easyui-datebox" required="required" />
                     <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
                                     onclick="QueryReportFun();">查询</a>
                 </div>
-                <table  id="completeGridId" class="easyui-treegrid" data-options="idField:'id',treeField:'Name',rownumbers:true,singleSelect:true,fit:true,onDblClickRow:onRowDblClick" title="">
+                <table  id="completeGridId" class="easyui-treegrid"  title="">
                     <thead>
                         <tr>
-                            <th data-options="field:'Name',width:120">名称</th>
+                            <th data-options="field:'OrganizationId',width:200,hidden: true">组织机构</th>
+                            <th data-options="field:'LevelCode',width:100,hidden: true">层次码</th>
+                            <th data-options="field:'Name',width:200">名称</th>
+                            <th data-options="field:'ElectricityQuantity',width:80">用电量(KWH)</th>
                             <th data-options="field:'clinker_ClinkerOutput',width:70">熟料产量(t)</th>
                             <th data-options="field:'cement_CementOutput',width:70">水泥产量(t)</th>
                             <th data-options="field:'clinker_PulverizedCoalOutput',width:70">煤粉产量(t)</th>
+                            <th data-options="field:'clinker_MixtureMaterialsOutput',width:70">生料产量(t)</th>
                             <th data-options="field:'clinker_PulverizedCoalInput',width:82">煤粉消耗量(t)</th>
                             <th data-options="field:'clinker_KilnHeadPulverizedCoalInput',width:105">窑头煤粉消耗量(t)</th>
                             <th data-options="field:'clinker_KilnTailPulverizedCoalInput',width:105">窑尾煤粉消耗量(t)</th>                           
-                            <th data-options="field:'clinker_MixtureMaterialsOutput',width:70">生料产量(t)</th>
                             <th data-options="field:'clinker_LimestoneInput',width:82">石灰石消耗(t)</th>
-                            <th data-options="field:'clinker_ElectricityQuantity',width:80">熟料电量(KWH)</th>
-                            <th data-options="field:'cementmill_ElectricityQuantity',width:100">水泥磨电量(KWH)</th>
+                            <th data-options="field:'clinker_ClinkerOutsourcingInput',width:82">外购熟料消耗(t)</th>
+                            <th data-options="field:'clinker_ClinkerInput',width:82">自产熟料消耗(t)</th>
                         </tr>
                     </thead>
                 </table>
             </div>
-            <div id="PlanAndCompleteChartId" data-options="region:'south',border:true" style="height: 250px;">
+            <div id="PlanAndCompleteChartId" data-options="region:'south',border:false" style="height: 250px; padding:2px;">
                 <div id="chartWindow" class="easyui-window" title="Custom Window Tools" data-options="iconCls:'icon-save',minimizable:false,onMaximize:updateWindowChart,onRestore:updateWindowChart,tools:'#tt'">
                 </div>
                 <div id="imageContainId"></div>
@@ -86,10 +89,10 @@
             </div>
         </div>
     </div>
-    <div data-options="region:'east',border:true" style="width: 550px;">
-        <div class="easyui-layout" data-options="fit:true,border:true">
-            <div data-options="region:'center',border:true">
-                <fieldset>
+    <div data-options="region:'east',border:false" style="width: 550px;">
+        <div class="easyui-layout" data-options="fit:true,border:false">
+            <div data-options="region:'center',border:false">
+                <fieldset style ="padding:2px;">
                     <legend id="legentId">完成情况</legend>
                     <table class="table" id="GapTableId" style="width: 100%;">
                         <tr>
@@ -172,7 +175,7 @@
                     </table>
                 </fieldset>
             </div>
-            <div id="AlarmId" data-options="region:'south',border:true" style="height: 250px;">
+            <div id="AlarmId" data-options="region:'south',border:true" style="height: 250px; padding:2px;">
                 <table id="AlarmContainId">
                     <tr>
                         <th class="alarmTitle" style="text-align: center">能源报警</th>

@@ -19,7 +19,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_tys" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -41,26 +41,16 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
             return json;
         }
         [WebMethod]
-        public static string GetPlanAndCompelete(DateTime date,string companyName)
+        public static string GetPlanAndCompelete(DateTime myDate, string myLevelCode)
         {
-            DataTable table = DispatchDailyReportService.GetPlanAndTargetCompletionByCompanyName(date,companyName,true);
-            IList<string> colNames = new List<string>();
-            foreach (DataColumn dc in table.Columns)
+            string m_Json = "";
+            DataTable table = DispatchDailyReportService.GetPlanAndTargetCompletionByLevelCode(myDate, myLevelCode, true);
+            if (table != null)
             {
-                colNames.Add(dc.ColumnName.ToString());
+                m_Json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
             }
-            string[] columnsNames = { "熟料产量(千吨)", "发电量(10WKwh)", "吨熟料发电量(KWH/吨)", "熟料电耗(Kwh/t)", 
-                                        "熟料煤耗(10Kg/t)", "生料磨电耗(Kwh/t)", "煤磨电耗(Kwh/t)", "水泥产量(千吨)", "水泥电耗(Kwh/t)", "水泥磨电耗(Kwh/t)" };
-            //string json = EasyUIJsonParser.ChartJsonParser.GetGridChartJsonString(table,colNames.ToArray(), new string[] { "计划","完成情况" }, "项目指标", "", 1);
-            string json = EasyUIJsonParser.ChartJsonParser.GetGridChartJsonString(table, columnsNames, new string[] { "计划", "完成情况" }, "项目指标", "", 1);
-            return json;
-        }
-        [WebMethod]
-        public static string GetGapPlanAndComplete(DateTime date,string companyName)
-        {
-            DataTable table = DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion(companyName,date);
-            string json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
-            return json;
+            return m_Json;
+
         }
         [WebMethod]
         public static string GetEnergyAlarm(DateTime date)

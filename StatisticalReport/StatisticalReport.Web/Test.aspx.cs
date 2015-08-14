@@ -27,7 +27,7 @@ namespace StatisticalReport.Web
            // DispatchDailyReportService.DailyComplete("白银公司", time);
             //DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银公司", time);
            // DispatchDailyReportService.GetTreeTargetComletion(new string[] { "O02", "O03" }, time);
-            DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银分公司", time);
+           // DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银分公司", time);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
