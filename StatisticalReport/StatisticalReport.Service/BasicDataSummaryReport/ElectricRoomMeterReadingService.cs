@@ -66,8 +66,8 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             }
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             stringBuilder.Append(@"from [{0}].[dbo].HistoryAmmeter A,
-                                        (select min(vDate) as vDate from [{0}].[dbo].HistoryAmmeter  
-                                         where vDate>=@date) B
+                                        (select max(vDate) as vDate from [{0}].[dbo].HistoryAmmeter  
+                                         where vDate<=@date) B
                                    where A.vDate=B.vDate");
             SqlParameter parameterStartDate=new SqlParameter("date",startTime);
             SqlParameter parameterEndDate=new SqlParameter("date",endTime);
