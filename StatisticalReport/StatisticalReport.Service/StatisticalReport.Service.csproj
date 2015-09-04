@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoSetParameters">
-      <HintPath>..\..\..\..\组件\StandardCalculation\AutoSetParameters\bin\Release\AutoSetParameters.dll</HintPath>
+    <Reference Include="AutoSetParameters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\AutoSetParameters.dll</HintPath>
     </Reference>
     <Reference Include="DataTypeConvert">
       <HintPath>..\..\Lib\DataTypeConvert.dll</HintPath>
