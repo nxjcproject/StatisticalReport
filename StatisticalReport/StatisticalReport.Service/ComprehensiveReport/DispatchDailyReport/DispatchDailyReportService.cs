@@ -12,11 +12,13 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 {
     public static class DispatchDailyReportService
     {
-        private static ISqlServerDataFactory _dataFactory;
+
+        private static readonly ISqlServerDataFactory _dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
         private const int Rate = 1;
+        private static readonly AutoSetParameters.AutoGetEnergyConsumption_V1 AutoGetEnergyConsumption_V1 = new AutoSetParameters.AutoGetEnergyConsumption_V1(new SqlServerDataAdapter.SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString));
         static DispatchDailyReportService()
         {
-            _dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
+
         }
 
         public static DataTable GetTreeTargetComletion(string[] levelCodes, DateTime date)
@@ -46,7 +48,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                                             or C.VariableId='clinker_ClinkerInput')
 		                                and C.OrganizationID = D.OrganizationID
 		                                GROUP BY D.LevelCode, C.VariableId) M on  M.LevelCode like A.LevelCode + '%'
-                                where (A.Type in ('熟料','水泥磨') or A.Type is null or A.Type = '')
+                                where (A.Type in ('熟料','水泥磨') or A.Type is null or A.Type = '' or A.Type = '分厂' or A.Type = '分公司')
                                 {0}
                                 group by A.OrganizationID, A.LevelCode,A.Name, M.VariableId
                                 order by A.LevelCode";
@@ -262,33 +264,20 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 
                     ////计算综合电耗、煤耗
                     DataTable m_ComprehensiveDataTable = m_ClinkerMonthData.Clone();
-                    string m_FactoryLevelCode = GetFactryLevelCode(LevelCode);
-                    
-                    DataTable m_ClinkerActualMonthResultTable = GetClinkerSumMonthConsumption(date, LevelCode);
-                    Standard_GB16780_2012.Parameters_ComprehensiveData m_Parameters_ComprehensiveData = AutoSetParameters.AutoSetParameters_V1.SetComprehensiveParametersFromSql("day",
-                               date.ToString("yyyy-MM-01"), DateTime.Parse(date.ToString("yyyy-MM-01")).AddDays(-1).ToString("yyyy-MM-dd"), m_FactoryLevelCode, _dataFactory);    //最少分厂级层次码
-                    Standard_GB16780_2012.Function_EnergyConsumption_V1 m_Function_EnergyConsumption_V1 = new Standard_GB16780_2012.Function_EnergyConsumption_V1();
-                    m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_ClinkerActualMonthResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
 
-                    
-                    decimal m_ClinkerPowerConsumption = m_Function_EnergyConsumption_V1.GetClinkerPowerConsumption();
-                    decimal m_ClinkerCoalConsumption = m_Function_EnergyConsumption_V1.GetClinkerCoalConsumption();
+                    decimal m_ClinkerPowerConsumption = AutoGetEnergyConsumption_V1.GetClinkerPowerConsumptionWithFormula("day",
+                                                     date.ToString("yyyy-MM-01"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_ClinkerCoalConsumption = AutoGetEnergyConsumption_V1.GetClinkerCoalConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-01"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_CementPowerConsumption = AutoGetEnergyConsumption_V1.GetCementPowerConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-01"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_CementCoalConsumption = AutoGetEnergyConsumption_V1.GetClinkerCoalConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-01"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+
                     m_ComprehensiveDataTable.Rows.Add(new object[] { "clinker_ElectricityConsumption", "ElectricityConsumption", m_ClinkerPowerConsumption });
                     m_ComprehensiveDataTable.Rows.Add(new object[] { "clinker_CoalConsumption", "CoalConsumption", m_ClinkerCoalConsumption });
-
-                    if (LevelCode != m_FactoryLevelCode)     //当当前层次码比分厂级层次码低,则熟料综合电耗必须得计算分厂平均熟料综合电耗或者煤耗
-                    {
-                        DataTable m_FactoryClinkerActualMonthResultTable = GetClinkerSumMonthConsumption(date, m_FactoryLevelCode);
-                        m_Function_EnergyConsumption_V1.ClearPropertiesList();
-                        m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_FactoryClinkerActualMonthResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
-                        m_ClinkerPowerConsumption = m_Function_EnergyConsumption_V1.GetClinkerPowerConsumption();
-                        m_ClinkerCoalConsumption = m_Function_EnergyConsumption_V1.GetClinkerCoalConsumption();
-                    }
-                    m_Function_EnergyConsumption_V1.ClearPropertiesList();           //计算水泥磨的
-                    DataTable m_CementActualMonthResultTable = GetCementSumMonthConsumption(date, LevelCode);
-                    m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_CementActualMonthResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
-                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_ElectricityConsumption", "ElectricityConsumption", m_Function_EnergyConsumption_V1.GetCementPowerConsumption(m_ClinkerPowerConsumption) });
-                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_CoalConsumption", "CoalConsumption", m_Function_EnergyConsumption_V1.GetCementCoalConsumption(m_ClinkerCoalConsumption) });
+                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_ElectricityConsumption", "ElectricityConsumption", m_CementPowerConsumption });
+                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_CoalConsumption", "CoalConsumption", m_CementCoalConsumption });
                     SetCaculateValue(PlanResultTable, m_ComprehensiveDataTable, "ActualMonth", "Value", "Comprehensive");
                 }
                 if (ConsumptionTempalte != null)                        //填入日统计
@@ -323,34 +312,21 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
                     ////计算综合电耗、煤耗
 
                     DataTable m_ComprehensiveDataTable = m_ClinkerDayData.Clone();
-                    string m_FactoryLevelCode = GetFactryLevelCode(LevelCode);
 
-                    DataTable m_ClinkerActualDayResultTable = GetClinkerSumDayConsumption(date, LevelCode);
-                    Standard_GB16780_2012.Parameters_ComprehensiveData m_Parameters_ComprehensiveData = AutoSetParameters.AutoSetParameters_V1.SetComprehensiveParametersFromSql("day",
-                        date.ToString("yyyy-MM-dd"), date.ToString("yyyy-MM-dd"), m_FactoryLevelCode, _dataFactory);
 
-                    Standard_GB16780_2012.Function_EnergyConsumption_V1 m_Function_EnergyConsumption_V1 = new Standard_GB16780_2012.Function_EnergyConsumption_V1();
-                    m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_ClinkerActualDayResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
+                    decimal m_ClinkerPowerConsumption = AutoGetEnergyConsumption_V1.GetClinkerPowerConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-dd"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_ClinkerCoalConsumption = AutoGetEnergyConsumption_V1.GetClinkerCoalConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-dd"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_CementPowerConsumption = AutoGetEnergyConsumption_V1.GetCementPowerConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-dd"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
+                    decimal m_CementCoalConsumption = AutoGetEnergyConsumption_V1.GetClinkerCoalConsumptionWithFormula("day",
+                                                                        date.ToString("yyyy-MM-dd"), date.ToString("yyyy-MM-dd"), LevelCode).CaculateValue;
 
-                    decimal m_ClinkerPowerConsumption = m_Function_EnergyConsumption_V1.GetClinkerPowerConsumption();
-                    decimal m_ClinkerCoalConsumption = m_Function_EnergyConsumption_V1.GetClinkerCoalConsumption();
                     m_ComprehensiveDataTable.Rows.Add(new object[] { "clinker_ElectricityConsumption", "ElectricityConsumption", m_ClinkerPowerConsumption });
                     m_ComprehensiveDataTable.Rows.Add(new object[] { "clinker_CoalConsumption", "CoalConsumption", m_ClinkerCoalConsumption });
-
-                    if (LevelCode != m_FactoryLevelCode)     //当当前层次码比分厂级层次码低,则熟料综合电耗必须得计算分厂平均熟料综合电耗或者煤耗
-                    {
-                        DataTable m_FactoryClinkerActualDayResultTable = GetClinkerSumDayConsumption(date, m_FactoryLevelCode);
-                        m_Function_EnergyConsumption_V1.ClearPropertiesList();
-                        m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_FactoryClinkerActualDayResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
-                        m_ClinkerPowerConsumption = m_Function_EnergyConsumption_V1.GetClinkerPowerConsumption();
-                        m_ClinkerCoalConsumption = m_Function_EnergyConsumption_V1.GetClinkerCoalConsumption();
-                    }
-                    m_Function_EnergyConsumption_V1.ClearPropertiesList();           //计算水泥磨的
-                    DataTable m_CementActualDayResultTable = GetCementSumDayConsumption(date, LevelCode);
-                    m_Function_EnergyConsumption_V1.LoadComprehensiveData(m_CementActualDayResultTable, m_Parameters_ComprehensiveData, "VariableId", "Value");
-
-                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_ElectricityConsumption", "ElectricityConsumption", m_Function_EnergyConsumption_V1.GetCementPowerConsumption(m_ClinkerPowerConsumption) });
-                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_CoalConsumption", "CoalConsumption", m_Function_EnergyConsumption_V1.GetCementCoalConsumption(m_ClinkerCoalConsumption) });
+                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_ElectricityConsumption", "ElectricityConsumption", m_CementPowerConsumption });
+                    m_ComprehensiveDataTable.Rows.Add(new object[] { "cementmill_CoalConsumption", "CoalConsumption", m_CementCoalConsumption });
                     SetCaculateValue(PlanResultTable, m_ComprehensiveDataTable, "ActualDay", "Value", "Comprehensive");
                 }
                 foreach (DataRow RowItem in PlanResultTable.Rows)         //计算差值
