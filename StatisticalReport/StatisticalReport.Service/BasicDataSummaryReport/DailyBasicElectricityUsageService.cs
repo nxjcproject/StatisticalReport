@@ -27,7 +27,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
 	                                                 WHERE TF.KeyID=FFD.KeyID AND 
 	                                                 -- FFD.LevelType='ProductionLine' AND
-	                                                 TF.Type='2' AND TF.ENABLE='true') AS RST,
+	                                                  TF.ENABLE='true') AS RST,
 	                                    tz_Balance AS TB,balance_Energy AS BE
 	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
                                         RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
@@ -39,10 +39,10 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 										 (
 										 SELECT A.OrganizationID 
                                             FROM system_Organization AS A 
-                                            WHERE A.LevelCode like (
+                                            WHERE A.LevelCode = (
                                                                     SELECT T.LevelCode FROM system_Organization AS T
 						                                            WHERE T.OrganizationID='{2}'
-						                                            )+'%'
+						                                            )
 										 ) AS O
 									ON
 									O.OrganizationID=SO.OrganizationID
@@ -81,7 +81,14 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 {
                     dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
                 }
-                if (dr["LevelCode"].ToString().Trim().Length == 7)
+                bool haveChidren = HaveChildren(dr["FormulaLevelCode"].ToString().Trim(), resultTable);
+                if (dr["FormulaLevelCode"].ToString().Trim().Contains('P') && dr["FormulaLevelCode"].ToString().Trim().Length == 5
+                    && haveChidren)
+                {
+                    dr["state"] = "closed";
+                }
+                else if (dr["FormulaLevelCode"].ToString().Trim().Contains('G') &&
+                    dr["FormulaLevelCode"].ToString().Trim().Length == 3 && haveChidren)
                 {
                     dr["state"] = "closed";
                 }
@@ -91,6 +98,21 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 }
             }
             return resultTable;
+        }
+        /// <summary>
+        /// 判断是否有孩子结点
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="resultTable"></param>
+        /// <returns></returns>
+        private static bool HaveChildren(string parent,DataTable resultTable)
+        {
+            int myLength=parent.Trim().Length;
+            DataRow[] rows=resultTable.Select("FormulaLevelCode Like '"+parent+"%' and Len(FormulaLevelCode)>"+myLength);
+            if (rows.Count() > 0)
+                return true;
+            else
+                return false;
         }
     }
 }
