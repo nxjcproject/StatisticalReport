@@ -18,70 +18,109 @@ namespace StatisticalReport.Service.ComprehensiveReport
         /// <param name="organizationIds">组织机构ID数组（通常为授权的组织机构ID数组）</param>
         /// <param name="time">时间</param>
         /// <returns></returns>
-        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(string[] levelCodes, DateTime time)
+        public static DataTable GetElectricityConsumptionDailyByOrganiztionIds(List<string> myOrganizationId, DateTime startDate, DateTime endDate)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
-                                        (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
-	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
-	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
-	                                                 WHERE TF.KeyID=FFD.KeyID AND 
-	                                                 -- FFD.LevelType='ProductionLine' AND
-	                                                 TF.Type='2' AND TF.ENABLE='true') AS RST,
-	                                    tz_Balance AS TB,balance_Energy AS BE
-	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
-                                        RST.VariableId+'_ElectricityConsumption'=BE.VariableId AND
-	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
-                                         ) AS FIN
-                                    ON SO.OrganizationID=FIN.OrganizationID 
-                                    INNER JOIN 
-										 (
-										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
-										 ) AS O
-									ON
-									O.OrganizationID=SO.OrganizationID
-                                    WHERE ISNULL(SO.Type,'')<>'余热发电'
-                                     ";
-
-            //StringBuilder organiztionIdsParameter = new StringBuilder();
-            //foreach (var organizationId in organizationIds)
-            //{
-            //    organiztionIdsParameter.Append("'");
-            //    organiztionIdsParameter.Append(organizationId);
-            //    organiztionIdsParameter.Append("',");
-            //}
-            //organiztionIdsParameter.Remove(organiztionIdsParameter.Length - 1, 1);
-            StringBuilder levelCodesParameter = new StringBuilder();
-            foreach (var levelCode in levelCodes)
+            string m_OrganizationIds = "";
+            if (myOrganizationId != null)
             {
-                levelCodesParameter.Append("A.LevelCode like ");
-                levelCodesParameter.Append("'");
-                levelCodesParameter.Append(levelCode + "%");
-                levelCodesParameter.Append("'");
-                levelCodesParameter.Append(" OR ");
-                levelCodesParameter.Append(string.Format("CHARINDEX(A.LevelCode,'{0}')>0", levelCode));
-                levelCodesParameter.Append(" OR ");
+                for (int i = 0; i < myOrganizationId.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        m_OrganizationIds = "'" + myOrganizationId[i] + "'";
+                    }
+                    else
+                    {
+                        m_OrganizationIds = m_OrganizationIds + ",'" + myOrganizationId[i] + "'";
+                    }
+                }
             }
-            levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
+            //////找到当前授权分厂级组织机构ID
 
+            string m_Sql_FactoryOrganizations = "Select distinct A.FactoryOrganizationID as FactoryOrganizationID from analyse_KPI_OrganizationContrast A where A.OrganizationID in ({0})";
+            m_Sql_FactoryOrganizations = string.Format(m_Sql_FactoryOrganizations, m_OrganizationIds);
+            DataTable m_FactoryOrganizationTable = dataFactory.Query(m_Sql_FactoryOrganizations);
 
-            DataTable resultTable = dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), time.ToString("yyyy-MM-dd")));
+            string m_ConditionFactoryOrganizations = "";           //找到的分厂级的组织机构
+            if (m_FactoryOrganizationTable != null)
+            {
+                for (int i = 0; i < m_FactoryOrganizationTable.Rows.Count; i++)
+                {
+                    string[] m_FactoryOrganizationItem = m_FactoryOrganizationTable.Rows[i]["FactoryOrganizationID"].ToString().Split(',');
+                    for (int j = 0; j < m_FactoryOrganizationItem.Length; j++)
+                    {
+                        if (i == 0)
+                        {
+                            m_ConditionFactoryOrganizations = "'" + m_FactoryOrganizationItem[j] + "'";
+                        }
+                        else
+                        {
+                            m_ConditionFactoryOrganizations = m_ConditionFactoryOrganizations + ",'" + m_FactoryOrganizationItem[j] + "'";
+                        }
+                    }
+                }
+            }
+            string queryString = @"select M.Name,M.LevelCode,M.VariableName, M.FormulaLevelCode, N.FirstB, N.SecondB, N.ThirdB, N.TotalPeakValleyFlatB from(  
+							        select 
+								    E.Name as Name, 
+								    E.OrganizationID as OrganizationID,
+								    B.VariableId as VariableId,
+								    A.Name + B.Name as VariableName,  
+                                    (case when E.Type = '熟料' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
+								          when E.Type = '水泥磨' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
+									      when E.Type = '余热发电' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
+									      when E.Type = '分厂' then E.LevelCode + '99' + SUBSTRING(B.LevelCode, 2, LEN(B.LevelCode) - 1)  else E.LevelCode  end) as LevelCode,
+								    E.LevelCode as FormulaLevelCode 
+		                                    from tz_Formula A, formula_FormulaDetail B,system_Organization D, system_Organization E
+			                                    where D.OrganizationID in ({0})
+			                                    and E.LevelCode like D.LevelCode + '%' 
+			                                    and A.OrganizationID in (E.OrganizationID)
+			                                    and A.ENABLE = 1
+			                                    and A.State = 0
+			                                    and A.KeyID = B.KeyID
+                                                and A.Type = 2
+                                                and E.Type <> '余热发电'
+                                                and B.LevelType <> 'MainMachine'
+                                        union all 
+									    select distinct B.Name as Name, B.OrganizationID as OrganizationID, '' as VariableId, B.Name as VariableName, B.LevelCode as LevelCode, B.LevelCode as FormulaLevelCode from system_Organization A,system_Organization B
+									      where A.OrganizationID in ({0})
+									      and B.LevelType <> 'ProductionLine' 
+		                                  and (B.LevelCode like A.LevelCode + '%' or CHARINDEX(B.LevelCode,A.LevelCode)>0)
+		                            ) M
+								    left join (
+								    select B.OrganizationID as OrganizationID, 
+								        B.VariableId as VariableId, 
+									    SUM(B.FirstB) AS FirstB,
+									    SUM(B.SecondB) AS SecondB,
+									    SUM(B.ThirdB) AS ThirdB,
+									    SUM(B.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
+							        from tz_Balance A, balance_Energy B
+								    where A.TimeStamp >= '{1}'
+								    and A.TimeStamp <= '{2}'
+								    and A.OrganizationID in ({0})
+								    and A.BalanceId = B.KeyId
+								    group by B.OrganizationID, B.VariableId) N on M.VariableId + '_ElectricityConsumption' = N.VariableId and M.OrganizationID = N.OrganizationID 
+                                    order by M.LevelCode";
+            queryString = string.Format(queryString, m_ConditionFactoryOrganizations, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
+
+            DataTable resultTable = dataFactory.Query(queryString);
 
             DataColumn stateColumn = new DataColumn("state", typeof(string));
             resultTable.Columns.Add(stateColumn);
-            
+
             foreach (DataRow dr in resultTable.Rows)
             {
-                if (dr["VariableName"] is DBNull || dr["VariableName"].ToString().Trim() == "")
-                {
-                    dr["VariableName"] = dr["Name"].ToString().Trim();
-                }
-                if (dr["FormulaLevelCode"].ToString().Length > 3)
-                {
-                    dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
-                }
-                if (dr["LevelCode"].ToString().Trim().Length ==7)
+                //if (dr["VariableName"] is DBNull || dr["VariableName"].ToString().Trim() == "")
+                //{
+                //    dr["VariableName"] = dr["Name"].ToString().Trim();
+                //}
+                //if (dr["FormulaLevelCode"].ToString().Length > 3)
+                //{
+                //    dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
+                //}
+                if (dr["LevelCode"].ToString().Trim().Length == 7)
                 {
                     dr["state"] = "closed";
                 }

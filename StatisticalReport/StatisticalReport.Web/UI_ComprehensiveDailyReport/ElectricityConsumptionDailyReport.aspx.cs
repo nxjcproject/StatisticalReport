@@ -30,8 +30,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         public static string GetElectricityConsumptionDailyReport(DateTime dateTime)
         {
             List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
-            IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = ElectricityConsumptionReportService.GetElectricityConsumptionDailyByOrganiztionIds(levelCodes.ToArray(),dateTime);
+            DataTable dt = ElectricityConsumptionReportService.GetElectricityConsumptionDailyByOrganiztionIds(oganizationIds, dateTime, dateTime);
             string json=EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
             return json;
         }
