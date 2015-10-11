@@ -53,8 +53,13 @@ function QueryReportFun() {
 }
 
 function onOrganisationTreeClick(node) {
-    $('#productLineName').textbox('setText', node.text);
-    $('#organizationId').val(node.OrganizationId);
+    if (node["OrganizationType"] == '分厂') {
+        $('#productLineName').textbox('setText', node.text);
+        $('#organizationId').val(node.OrganizationId);
+    }
+    else {
+        alert("请选择到分厂!");
+    }
 }
 
 function InitializeGrid(myData) {

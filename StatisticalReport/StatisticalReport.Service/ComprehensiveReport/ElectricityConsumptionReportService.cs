@@ -83,6 +83,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                                                 and A.Type = 2
                                                 and E.Type <> '余热发电'
                                                 and B.LevelType <> 'MainMachine'
+                                                and B.Visible = 1
                                         union all 
 									    select distinct B.Name as Name, B.OrganizationID as OrganizationID, '' as VariableId, B.Name as VariableName, B.LevelCode as LevelCode, B.LevelCode as FormulaLevelCode from system_Organization A,system_Organization B
 									      where A.OrganizationID in ({0})

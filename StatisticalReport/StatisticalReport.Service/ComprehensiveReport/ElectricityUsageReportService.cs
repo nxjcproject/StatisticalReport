@@ -103,6 +103,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
 			                                    and A.ENABLE = 1
 			                                    and A.State = 0
 			                                    and A.KeyID = B.KeyID
+                                                and B.Visible = 1
                                         union all 
 									    select distinct B.Name as Name, B.OrganizationID as OrganizationID, '' as VariableId, B.Name as VariableName, B.LevelCode as LevelCode, B.LevelCode as FormulaLevelCode from system_Organization A,system_Organization B
 									      where A.OrganizationID in ({0})
