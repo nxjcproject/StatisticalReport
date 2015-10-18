@@ -1,4 +1,5 @@
 ﻿using StatisticalReport.Service.BasicDataSummaryReport;
+using StatisticalReport.Service.StatisticalReportServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,8 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
 {
     public partial class DailyBasicMaterialWeight : WebStyleBaseForEnergy.webStyleBase
     {
+        private const string REPORT_TEMPLATE_PATH = "\\ReportHeaderTemplate\\DailyBasicMaterialWeight.xml";
+        private static DataTable myDataTable;
         protected void Page_Load(object sender, EventArgs e)
         {
             base.InitComponts();
@@ -19,7 +22,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -29,6 +32,19 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
                 //this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("熟料");
                 this.OrganisationTree_ProductionLine.LeveDepth = 5;
             }
+            ///以下是接收js脚本中post过来的参数
+            string m_FunctionName = Request.Form["myFunctionName"] == null ? "" : Request.Form["myFunctionName"].ToString();             //方法名称,调用后台不同的方法
+            string m_Parameter1 = Request.Form["myParameter1"] == null ? "" : Request.Form["myParameter1"].ToString();                   //方法的参数名称1
+            string m_Parameter2 = Request.Form["myParameter2"] == null ? "" : Request.Form["myParameter2"].ToString();                   //方法的参数名称2
+            if (m_FunctionName == "ExcelStream")
+            {
+
+                //ExportFile("xls", "导出报表1.xls");
+                string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
+                string m_HtmlData = StatisticalReportHelper.CreateExportHtmlTable(mFileRootPath +
+                    REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
+                StatisticalReportHelper.ExportExcelFile("xls", "物料统计.xls", m_HtmlData);
+            }
         }
 
         [WebMethod]
@@ -37,6 +53,8 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
             DataTable dt = DailyBasicMaterialWeightService.GetMaterialWeightByOrganiztionIds(organizationId, startDate, endDate);
+            myDataTable=dt.Copy();
+            myDataTable.Columns.Remove("FactoryOrgID");
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }
     }

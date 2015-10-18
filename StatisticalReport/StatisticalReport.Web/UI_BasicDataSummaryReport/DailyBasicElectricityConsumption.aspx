@@ -13,10 +13,10 @@
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
-
+    <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
-    <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicElectricityConsumption.js"></script>
+    <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicElectricityConsumption.js" charset="utf-8"></script>
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
@@ -57,12 +57,12 @@
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
                                 </td>
-                                <!--<td><div class="datagrid-btn-separator"></div>
+                                <td><div class="datagrid-btn-separator"></div>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-printer',plain:true" onclick="PrintFileFun();">打印</a>
-                                </td>-->
+                                </td>
                             </tr>
                         </table>
 		            </td>
@@ -72,9 +72,14 @@
 
         <div id="reportTable" class="easyui-panel" data-options="region:'center', border:true, collapsible:false, split:false">
             <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
-		        <thead>
+		        <thead data-options="frozen:true">
+                    <tr>
+                       <th data-options="field:'Name',width:250">项目</th>
+                    </tr>
+                </thead>
+                <thead>
 			        <tr>
-                        <th data-options="field:'Name',width:250">项目</th>
+                        <%--<th data-options="field:'Name',width:250">项目</th>--%>
                         <th data-options="field:'FirstB',width:150">甲班</th>
                         <th data-options="field:'SecondB',width:150">乙班</th>
                         <th data-options="field:'ThirdB',width:150">丙班</th>

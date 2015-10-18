@@ -13,10 +13,10 @@
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
-
+    <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
-    <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicMaterialWeight.js"></script>
+    <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicMaterialWeight.js" charset="utf-8"></script>
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
@@ -57,12 +57,12 @@
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
                                 </td>
-                                <!--<td><div class="datagrid-btn-separator"></div>
+                                <td><div class="datagrid-btn-separator"></div>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-printer',plain:true" onclick="PrintFileFun();">打印</a>
-                                </td>-->
+                                </td>
                             </tr>
                         </table>
 		            </td>
