@@ -30,6 +30,10 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             {
                 if (dr["ValueFormula"] is DBNull)
                 {
+                    if(dr["VariableId"] is DBNull || dr["VariableId"].ToString().Trim()=="")
+                    {
+                        continue;
+                    }
                     preFormula=DealWithFormula(preFormula,dr["VariableId"].ToString().Trim());
                     dr["ValueFormula"] = preFormula;
                 }
