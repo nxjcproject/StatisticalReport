@@ -15,6 +15,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 
         private static readonly ISqlServerDataFactory _dataFactory = new SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString);
         private const int Rate = 1;
+        private const string PlanType = "Energy";
         private static readonly AutoSetParameters.AutoGetEnergyConsumption_V1 AutoGetEnergyConsumption_V1 = new AutoSetParameters.AutoGetEnergyConsumption_V1(new SqlServerDataAdapter.SqlServerDataFactory(ConnectionStringFactory.NXJCConnectionString));
         static DispatchDailyReportService()
         {
@@ -169,6 +170,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 	                            and A.KeyID = B.KeyID
 	                            and B.QuotasID = C.QuotasID
 	                            and A.OrganizationID = D.OrganizationID
+                                and A.PlanType = '{2}'
 	                            and D.LevelCode like '{1}%'
 	                            and (C.ValueType = 'ElectricityQuantity' or C.ValueType = 'MaterialWeight')
 	                            group by C.VariableId, C.ValueType, C.CaculateType, C.Denominator, C.QuotasName
@@ -193,6 +195,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 				                            where A.Date = '{0}'
 				                            and A.Statue =1
 				                            and A.KeyID = B.KeyID
+                                            and A.PlanType = '{2}'
 				                            and B.QuotasID  = C.QuotasID
 				                            and A.OrganizationID = D.OrganizationID
 				                            and D.LevelCode like '{1}%'
@@ -204,6 +207,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
 						                            where A.Date = '{0}'
 						                            and A.Statue =1
 						                            and A.KeyID = B.KeyID
+                                                    and A.PlanType = '{2}'
 						                            and B.QuotasID = C.QuotasID
 						                            and A.OrganizationID = D.OrganizationID
 						                            and D.LevelCode like '{1}%'
@@ -214,7 +218,7 @@ namespace StatisticalReport.Service.ComprehensiveReport.DispatchDailyReport
             
             string m_Sql_ConsumptionTemplate = @"select A.VariableId, A.ValueType, A.ValueFormula from balance_Energy_Template A where A.Enabled = 1";
             string m_Month = InitMonthDictionary()[date.Month];
-            m_Sql_PlanResult = string.Format(m_Sql_PlanResult, date.ToString("yyyy"), LevelCode, m_Month);
+            m_Sql_PlanResult = string.Format(m_Sql_PlanResult, date.ToString("yyyy"), LevelCode, m_Month, PlanType);
             DataTable PlanResultTable = null;
             DataTable ConsumptionTempalte = null;
 
