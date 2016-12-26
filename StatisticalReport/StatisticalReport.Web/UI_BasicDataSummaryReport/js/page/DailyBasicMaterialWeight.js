@@ -17,6 +17,10 @@ function InitDate() {
 function loadGridData(myLoadType, organizationId, startDate,endDate) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "DailyBasicMaterialWeight.aspx/GetMaterialWeightDailyReport",
@@ -24,12 +28,19 @@ function loadGridData(myLoadType, organizationId, startDate,endDate) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
             _data = m_MsgData;
             InitializeGrid(m_MsgData);
 
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }
 

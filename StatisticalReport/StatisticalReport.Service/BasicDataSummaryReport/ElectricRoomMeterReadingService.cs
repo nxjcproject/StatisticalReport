@@ -101,14 +101,25 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             stringBuilder.Append("FROM [{0}].[dbo].[HistoryAmmeterIncrement] WHERE vDate>=@startTime and vDate<=@endTime");
             SqlParameter[] parameters = { new SqlParameter("startTime", startTime), new SqlParameter("endTime", endTime) };
-            DataTable incrementTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName), parameters);
+            DataTable incrementTable = dataFactory.Query(string.Format(stringBuilder.ToString(), meterDNName), parameters);          
             if (incrementTable.Rows.Count == 1)
             {
                 DataRow iRow = resultTable.NewRow();
                 iRow.ItemArray= incrementTable.Rows[0].ItemArray;
                 resultTable.Rows.Add(iRow);
             }
-            return HorizontalToVertical(resultTable);
+            DataRow jRow = resultTable.NewRow();
+            jRow.ItemArray = startTable.Rows[0].ItemArray;
+            resultTable.Rows.Add(jRow);
+            DataRow ijRow = resultTable.NewRow();
+            ijRow.ItemArray = startTable.Rows[1].ItemArray;
+            resultTable.Rows.Add(ijRow);
+            DataTable newResultTable = HorizontalToVertical(resultTable);
+            //foreach(DataRow dr in startTable.Compute)
+            //{
+
+            //}
+            return newResultTable;
         }
         /// <summary>
         /// 横表转纵表
@@ -119,20 +130,26 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         {
             DataTable result = new DataTable();
             DataColumn AmmertNameColumn = new DataColumn("AmmeterName", typeof(string));
+            DataColumn AmmertStartValueColumn = new DataColumn("StartValue", typeof(string));
+            DataColumn AmmertEndValueColumn = new DataColumn("EndValue", typeof(decimal));
             DataColumn AmmertValueColumn = new DataColumn("Value", typeof(decimal));
             DataColumn IncrementVallueColumn = new DataColumn("IncrementValue",typeof(decimal));
             //用表差值
             DataColumn DvalueColumn = new DataColumn("DvalueColumn",typeof(decimal));
             result.Columns.Add(AmmertNameColumn);
+            result.Columns.Add(AmmertStartValueColumn);
+            result.Columns.Add(AmmertEndValueColumn);
             result.Columns.Add(AmmertValueColumn);
             result.Columns.Add(IncrementVallueColumn);
             result.Columns.Add(DvalueColumn);
-            if(sourceTable.Rows.Count!=2)
+            if(sourceTable.Rows.Count!=4)
                 throw new Exception("sourceTable数据不完整！");
             foreach (DataColumn dc in sourceTable.Columns)
             {
                 DataRow row = result.NewRow();
                 row["AmmeterName"] = dc.ColumnName.Trim();
+                row["StartValue"] = sourceTable.Rows[2][dc.ColumnName];
+                row["EndValue"] = sourceTable.Rows[3][dc.ColumnName];
                 row["Value"] =ReportHelper.MyToDecimal(sourceTable.Rows[0][dc.ColumnName])<0?0: sourceTable.Rows[0][dc.ColumnName];
                 row["IncrementValue"]=sourceTable.Rows[1][dc.ColumnName];
                 row["DvalueColumn"] = ReportHelper.MyToDecimal(row["Value"]) -ReportHelper.MyToDecimal(row["IncrementValue"]);

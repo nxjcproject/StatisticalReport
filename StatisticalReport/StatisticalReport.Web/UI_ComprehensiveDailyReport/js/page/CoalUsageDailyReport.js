@@ -50,6 +50,10 @@ $(document).ready(function () {
 function loadGridData(myLoadType,startDate, endDate) {
     var m_MsgData;
     var data = '{startDate: "' + startDate + '", endDate: "' + endDate + '"}';
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "CoalUsageDailyReport.aspx/GetCoalUsageDailyReport",
@@ -57,6 +61,7 @@ function loadGridData(myLoadType,startDate, endDate) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
             if (myLoadType == "first") {
                 InitializeGrid(m_MsgData);
@@ -65,7 +70,13 @@ function loadGridData(myLoadType,startDate, endDate) {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData);
             }
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }
 

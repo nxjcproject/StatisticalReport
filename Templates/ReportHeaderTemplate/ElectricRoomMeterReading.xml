@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <FormTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <mForm>
     <mTable>
@@ -9,15 +9,15 @@
             <mBorderTopWidth>0</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>549.75</mWidth>
+            <mWidth>567</mWidth>
             <mHeight>20.25</mHeight>
             <mFontSize>16</mFontSize>
             <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>8</mColspan>
-            <mData>水泥磨能耗指标完成情况</mData>
+            <mColspan>4</mColspan>
+            <mData>电表抄表统计报表</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -29,15 +29,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>129</mWidth>
+            <mWidth>207</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>指标项目名称</mData>
+            <mData>电表名称</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -45,15 +45,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>57.75</mWidth>
+            <mWidth>126.75</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>本月指标</mData>
+            <mData>期初表码值电量</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -61,15 +61,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
+            <mWidth>116.25</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>本日完成</mData>
+            <mData>期末表码值电量</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -77,15 +77,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>61.5</mWidth>
+            <mWidth>126.75</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>本月累计</mData>
+            <mData>表码差值电量</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -93,15 +93,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
+            <mWidth>116.25</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>本月差距</mData>
+            <mData>电表增量电量</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -109,47 +109,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
+            <mWidth>117</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>年度指标</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>57.75</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>本年累计</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>61.5</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>本年差距</mData>
+            <mData>差值</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -157,131 +125,99 @@
       <FormRow>
         <mRows>
           <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
             <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>129</mWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>207</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
+            <mFontSize>12</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Name</mData>
+            <mData>AmmeterName</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+<FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>126.75</mWidth>
+            <mHeight>14.25</mHeight>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4108</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>StartValue</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+<FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>116.25</mWidth>
+            <mHeight>14.25</mHeight>
+            <mFontSize>12</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4108</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>EndValue</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
             <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>57.75</mWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>126.75</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
+            <mFontSize>12</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Monthly_Target</mData>
+            <mData>Value</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
             <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>116.25</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
+            <mFontSize>12</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Today_Completion</mData>
+            <mData>IncrementValue</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
             <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>61.5</mWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>117</mWidth>
             <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
+            <mFontSize>12</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Monthly_Accumulative</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Monthly_Gap</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>60.75</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Yearly_Target</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>57.75</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Yearly_Accumulative</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>61.5</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Yearly_Gap</mData>
+            <mData>DvalueColumn</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>

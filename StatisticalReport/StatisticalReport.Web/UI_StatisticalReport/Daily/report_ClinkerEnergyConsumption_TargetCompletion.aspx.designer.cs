@@ -22,7 +22,7 @@ namespace StatisticalReport.Web.UI_StatisticalReport.Daily {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// OrganisationTree 控件。
+        /// OrganisationTree_ProductionLine 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。

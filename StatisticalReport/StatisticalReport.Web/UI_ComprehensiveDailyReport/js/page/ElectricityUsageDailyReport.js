@@ -52,6 +52,10 @@ function QueryReportFun() {
 function loadGridData(myLoadType) {
     var startDate = $('#startDate').datetimespinner('getValue');//开始时间
     var endDate = $('#endDate').datetimespinner('getValue');//结束时间
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "ElectricityUsageDailyReport.aspx/GetElectricityUsageDailyReport",
@@ -59,6 +63,7 @@ function loadGridData(myLoadType) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
             if (myLoadType == "first") {
                 InitializeGrid(m_MsgData);
@@ -67,6 +72,12 @@ function loadGridData(myLoadType) {
                 $('#gridMain_ReportTemplate').treegrid('loadData', m_MsgData);
             }
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }

@@ -57,6 +57,13 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             foreach (DataRow dr in result.Rows)
             {
                 bool haveChidren = HaveChildren(dr["LevelCode"].ToString().Trim(), result);
+                if (dr["LevelType"].ToString() == "ProductionLine")
+                {
+                    dr["FirstB"] = DBNull.Value;
+                    dr["SecondB"] = DBNull.Value;
+                    dr["ThirdB"] = DBNull.Value;
+                    dr["TotalPeakValleyFlatB"] = DBNull.Value;
+                }
                 if (dr["LevelCode"].ToString().Trim().Length == 7 && haveChidren)
                 {
                     dr["state"] = "closed";

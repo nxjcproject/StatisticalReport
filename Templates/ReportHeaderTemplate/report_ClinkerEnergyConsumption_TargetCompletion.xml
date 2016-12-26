@@ -9,7 +9,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>2700</mWidth>
+            <mWidth>2776.5</mWidth>
             <mHeight>20.25</mHeight>
             <mFontSize>16</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -17,7 +17,7 @@
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>50</mColspan>
-            <mData />
+            <mData>熟料能耗指标完成情况</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -29,7 +29,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>130.5</mWidth>
             <mHeight>27.75</mHeight>
             <mFontSize>10</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -949,7 +949,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>130.5</mWidth>
             <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>

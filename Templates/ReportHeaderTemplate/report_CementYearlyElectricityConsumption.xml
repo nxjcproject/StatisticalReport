@@ -9,7 +9,7 @@
             <mBorderTopWidth>0</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>594</mWidth>
+            <mWidth>638.25</mWidth>
             <mHeight>20.25</mHeight>
             <mFontSize>16</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -45,7 +45,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>90</mWidth>
             <mHeight>28.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -61,7 +61,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>62.25</mWidth>
             <mHeight>28.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
@@ -260,7 +260,7 @@
             <mWidth>54</mWidth>
             <mHeight>14.25</mHeight>
             <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
+            <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
@@ -293,7 +293,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>90</mWidth>
             <mHeight>14.25</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
@@ -309,7 +309,7 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
+            <mWidth>62.25</mWidth>
             <mHeight>14.25</mHeight>
             <mFontSize>12</mFontSize>
             <mTextAlign>1</mTextAlign>

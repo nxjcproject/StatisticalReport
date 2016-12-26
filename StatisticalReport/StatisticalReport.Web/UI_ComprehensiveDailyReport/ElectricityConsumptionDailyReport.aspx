@@ -55,10 +55,10 @@
 		        <thead>
 			        <tr>
                         <th data-options="field:'VariableName',width:230">项目</th>
-                        <th data-options="field:'FirstB',width:150">甲班</th>
-                        <th data-options="field:'SecondB',width:150">乙班</th>
-                        <th data-options="field:'ThirdB',width:150">丙班</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:150">合计</th>
+                        <th data-options="field:'FirstB',width:80">甲班</th>
+                        <th data-options="field:'SecondB',width:80">乙班</th>
+                        <th data-options="field:'ThirdB',width:80">丙班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
 			        </tr>
 		        </thead>
             </table>

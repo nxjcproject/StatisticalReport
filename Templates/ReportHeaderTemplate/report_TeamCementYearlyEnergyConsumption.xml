@@ -5,19 +5,19 @@
       <FormRow>
         <mRows>
           <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>4039.5</mWidth>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>0</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>3870.75</mWidth>
             <mHeight>20.25</mHeight>
             <mFontSize>16</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>76</mColspan>
-            <mData>班组熟料生产能耗年统计分析</mData>
+            <mColspan>51</mColspan>
+            <mData>班组水泥粉磨能耗年统计分析</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -29,8 +29,8 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>38.25</mWidth>
-            <mHeight>55.5</mHeight>
+            <mWidth>54</mWidth>
+            <mHeight>40.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
@@ -45,14 +45,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>761.25</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>777.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>15</mColspan>
+            <mColspan>10</mColspan>
             <mData>A班</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -61,14 +61,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>810</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>757.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>15</mColspan>
+            <mColspan>10</mColspan>
             <mData>B班</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -77,14 +77,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>810</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>756</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>15</mColspan>
+            <mColspan>10</mColspan>
             <mData>C班</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -93,14 +93,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>810</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>762</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>15</mColspan>
+            <mColspan>10</mColspan>
             <mData>D班</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -109,14 +109,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>810</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>763.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>15</mColspan>
+            <mColspan>10</mColspan>
             <mData>合计</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -129,11 +129,11 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>217.5</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>283.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>4</mColspan>
@@ -145,15 +145,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>38.25</mWidth>
-            <mHeight>41.25</mHeight>
+            <mWidth>132.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>用煤量（t）</mData>
+            <mRowspan>1</mRowspan>
+            <mColspan>2</mColspan>
+            <mData>产量（t）</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -161,14 +161,190 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>179.25</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>218.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>3</mColspan>
+            <mData>电耗（KWh/t）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>143.25</mWidth>
+            <mHeight>27</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
+            <mRowspan>2</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>吨水泥综合电耗(KWh/t)</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>283.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>4</mColspan>
+            <mData>用电量（KWh）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>123</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>2</mColspan>
+            <mData>产量（t）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>210</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>3</mColspan>
+            <mData>电耗（KWh/t）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>141</mWidth>
+            <mHeight>27</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4108</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>2</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>吨水泥综合电耗(KWh/t)</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>279.75</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>4</mColspan>
+            <mData>用电量（KWh）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>127.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>2</mColspan>
+            <mData>产量（t）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>207</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>3</mColspan>
+            <mData>电耗（KWh/t）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>141.75</mWidth>
+            <mHeight>27</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4108</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>2</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>吨水泥综合电耗(KWh/t)</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>278.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>4</mColspan>
+            <mData>用电量（KWh）</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>129</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>-4108</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>2</mColspan>
             <mData>产量（t）</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -178,13 +354,13 @@
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
             <mWidth>213.75</mWidth>
-            <mHeight>14.25</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
+            <mColspan>3</mColspan>
             <mData>电耗（KWh/t）</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -193,15 +369,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>58.5</mWidth>
-            <mHeight>41.25</mHeight>
+            <mWidth>141</mWidth>
+            <mHeight>27</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>2</mRowspan>
             <mColspan>1</mColspan>
-            <mData>吨熟料综合电耗（KWh/t）</mData>
+            <mData>吨水泥综合电耗(KWh/t)</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -209,27 +385,11 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
+            <mWidth>281.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料实物煤耗（kg/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>4</mColspan>
@@ -241,30 +401,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
+            <mWidth>125.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>用煤量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
+            <mColspan>2</mColspan>
             <mData>产量（t）</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -273,14 +417,14 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
+            <mWidth>215.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
+            <mColspan>3</mColspan>
             <mData>电耗（KWh/t）</mData>
             <mDataType>string</mDataType>
           </FormColumn>
@@ -289,319 +433,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
+            <mWidth>141.75</mWidth>
+            <mHeight>27</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>-4108</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>2</mRowspan>
             <mColspan>1</mColspan>
-            <mData>吨熟料综合电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料实物煤耗（kg/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>用电量（KWh）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>用煤量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>产量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料综合电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料实物煤耗（kg/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>用电量（KWh）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>用煤量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>产量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料综合电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料实物煤耗（kg/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>用电量（KWh）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>用煤量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>产量（t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>216</mWidth>
-            <mHeight>14.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>4</mColspan>
-            <mData>电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料综合电耗（KWh/t）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>41.25</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>2</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>吨熟料实物煤耗（kg/t）</mData>
+            <mData>吨水泥综合电耗(KWh/t)</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -613,15 +453,223 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>54</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>水泥制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>其中：水泥磨</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>72.75</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>混合材制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>72.75</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>袋装与散装</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>61.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>水泥制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>袋装与散装</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>59.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>水泥制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>85.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>其中：水泥磨</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>73.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>袋装与散装</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>水泥制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>其中：水泥磨</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>混合材制备</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>袋装与散装</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>1</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>1</mBorderRightWidth>
+            <mBorderBottomWidth>1</mBorderBottomWidth>
             <mWidth>57</mWidth>
-            <mHeight>27</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -629,31 +677,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>51.75</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>66</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -661,15 +693,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54.75</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>57</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -677,15 +709,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>44.25</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>81.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -693,15 +725,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>44.25</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -709,15 +741,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>45</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>56.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>煤粉</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -725,15 +757,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>45.75</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>81</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>发电量（KWh）</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -741,15 +773,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>混合材制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -757,31 +789,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -789,15 +805,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>51.75</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -805,15 +821,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>69</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -822,30 +838,14 @@
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
             <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -853,15 +853,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>82.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -869,15 +869,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -885,15 +885,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>57</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -901,15 +901,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>80.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>煤粉</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -917,15 +917,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>发电量（KWh）</mData>
+            <mData>混合材制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -933,15 +933,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -949,31 +949,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -981,15 +965,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -997,15 +981,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>61.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1013,31 +997,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>82.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1045,15 +1013,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>69.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1062,14 +1030,14 @@
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
             <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1077,15 +1045,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1093,15 +1061,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>72</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>煤粉</mData>
+            <mData>混合材制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1109,15 +1077,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>发电量（KWh）</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1125,15 +1093,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>57.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1141,31 +1109,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>67.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1173,15 +1125,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>水泥制备</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1189,15 +1141,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>83.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>生料制备</mData>
+            <mData>其中：水泥磨</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1205,367 +1157,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>1</mBorderRightWidth>
             <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
+            <mWidth>73.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>生料</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>熟料</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>煤粉</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>发电量（KWh）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>生料制备</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>生料制备</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>-4108</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>生料</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>熟料</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>煤粉</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>发电量（KWh）</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>生料制备</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>255</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：生料磨</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>熟料烧成</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>1</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>1</mBorderRightWidth>
-            <mBorderBottomWidth>1</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>27</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>其中：煤磨</mData>
+            <mData>袋装与散装</mData>
             <mDataType>string</mDataType>
           </FormColumn>
         </mRows>
@@ -1577,8 +1177,8 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>38.25</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>54</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
@@ -1593,47 +1193,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>57</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamA_Electricity_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>51.75</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamA_Electricity_RawBatchGrinding</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
             <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Electricity_Clinker</mData>
+            <mData>TeamA_Electricity_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1641,15 +1209,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54.75</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Electricity_CoalDust</mData>
+            <mData>TeamA_Electricity_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1657,15 +1225,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>38.25</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>72.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Consumption_CoalDust</mData>
+            <mData>TeamA_Electricity_AdmixturePreparation</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1673,15 +1241,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>44.25</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>72.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Output_RawBatch</mData>
+            <mData>TeamA_Electricity_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1689,15 +1257,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>44.25</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>61.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Output_Clinker</mData>
+            <mData>TeamA_Output_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1705,15 +1273,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>45</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Output_CoalDust</mData>
+            <mData>TeamA_Output_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1721,15 +1289,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>45.75</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>59.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_Output_Cogeneration</mData>
+            <mData>TeamA_ElectricityConsumption_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1737,15 +1305,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>85.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_ElectricityConsumption_RawBatch</mData>
+            <mData>TeamA_ElectricityConsumption_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1753,15 +1321,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>73.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_ElectricityConsumption_RawBatchGrinding</mData>
+            <mData>TeamA_ElectricityConsumption_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1769,43 +1337,11 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>143.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamA_ElectricityConsumption_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>51.75</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamA_ElectricityConsumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>58.5</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
@@ -1817,15 +1353,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamA_ComprehensiveCoalConsumption</mData>
+            <mData>TeamB_Electricity_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1833,15 +1369,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Electricity_RawBatch</mData>
+            <mData>TeamB_Electricity_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1849,15 +1385,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Electricity_RawBatchGrinding</mData>
+            <mData>TeamB_Electricity_AdmixturePreparation</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1865,15 +1401,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Electricity_Clinker</mData>
+            <mData>TeamB_Electricity_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1881,15 +1417,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>57</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Electricity_CoalDust</mData>
+            <mData>TeamB_Output_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1897,15 +1433,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>66</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Consumption_CoalDust</mData>
+            <mData>TeamB_Electricity_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1913,15 +1449,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>57</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Output_RawBatch</mData>
+            <mData>TeamB_ElectricityConsumption_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1929,15 +1465,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>81.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Output_Clinker</mData>
+            <mData>TeamB_ElectricityConsumption_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1945,15 +1481,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_Output_CoalDust</mData>
+            <mData>TeamB_ElectricityConsumption_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -1961,91 +1497,11 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>141</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamB_Output_Cogeneration</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamB_ElectricityConsumption_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamB_ElectricityConsumption_RawBatchGrinding</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamB_ElectricityConsumption_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamB_ElectricityConsumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
@@ -2057,15 +1513,95 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>56.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>TeamC_Electricity_Cement</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>81</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamB_ComprehensiveCoalConsumption</mData>
+            <mData>TeamC_Electricity_CementGrinding</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>TeamC_Electricity_AdmixturePreparation</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>TeamC_Electricity_BagsBulk</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>TeamC_Output_Cement</mData>
+            <mDataType>string</mDataType>
+          </FormColumn>
+          <FormColumn>
+            <mBorderLeftWidth>0</mBorderLeftWidth>
+            <mBorderTopWidth>1</mBorderTopWidth>
+            <mBorderRightWidth>0</mBorderRightWidth>
+            <mBorderBottomWidth>0</mBorderBottomWidth>
+            <mWidth>69</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
+            <mTextAlign>1</mTextAlign>
+            <mValign>-4107</mValign>
+            <mFontColor>0</mFontColor>
+            <mRowspan>1</mRowspan>
+            <mColspan>1</mColspan>
+            <mData>TeamC_Output_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2074,14 +1610,14 @@
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
             <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamC_Electricity_RawBatch</mData>
+            <mData>TeamC_ElectricityConsumption_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2089,15 +1625,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>82.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamC_Electricity_RawBatchGrinding</mData>
+            <mData>TeamC_ElectricityConsumption_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2105,15 +1641,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamC_Electricity_Clinker</mData>
+            <mData>TeamC_ElectricityConsumption_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2121,171 +1657,11 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>141.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Electricity_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Consumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Output_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Output_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Output_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_Output_Cogeneration</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_ElectricityConsumption_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_ElectricityConsumption_RawBatchGrinding</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_ElectricityConsumption_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamC_ElectricityConsumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
@@ -2297,15 +1673,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>57</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
+            <mValign>-4107</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamC_ComprehensiveCoalConsumption</mData>
+            <mData>TeamD_Electricity_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2313,15 +1689,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>80.25</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Electricity_RawBatch</mData>
+            <mData>TeamD_Electricity_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2329,15 +1705,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Electricity_RawBatchGrinding</mData>
+            <mData>TeamD_Electricity_AdmixturePreparation</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2345,15 +1721,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Electricity_Clinker</mData>
+            <mData>TeamD_Electricity_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2361,15 +1737,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Electricity_CoalDust</mData>
+            <mData>TeamD_Output_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2377,15 +1753,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>70.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Consumption_CoalDust</mData>
+            <mData>TeamD_Output_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2393,15 +1769,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>61.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Output_RawBatch</mData>
+            <mData>TeamD_ElectricityConsumption_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2409,15 +1785,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>82.5</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Output_Clinker</mData>
+            <mData>TeamD_ElectricityConsumption_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2425,15 +1801,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>69.75</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_Output_CoalDust</mData>
+            <mData>TeamD_ElectricityConsumption_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2441,88 +1817,8 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamD_Output_Cogeneration</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamD_ElectricityConsumption_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamD_ElectricityConsumption_RawBatchGrinding</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamD_ElectricityConsumption_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>11</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>TeamD_ElectricityConsumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mWidth>141</mWidth>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
@@ -2538,14 +1834,14 @@
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
             <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
+            <mHeight>13.5</mHeight>
             <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>TeamD_ComprehensiveCoalConsumption</mData>
+            <mData>Amountto_Electricity_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2553,15 +1849,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>84</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Electricity_RawBatch</mData>
+            <mData>Amountto_Electricity_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2569,15 +1865,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>72</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Electricity_RawBatchGrinding</mData>
+            <mData>Amountto_Electricity_AdmixturePreparation</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2585,15 +1881,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>71.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Electricity_Clinker</mData>
+            <mData>Amountto_Electricity_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2601,15 +1897,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>57.75</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Electricity_CoalDust</mData>
+            <mData>Amountto_Output_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2617,15 +1913,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>67.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Consumption_CoalDust</mData>
+            <mData>Amountto_Output_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2633,15 +1929,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>58.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Output_RawBatch</mData>
+            <mData>Amountto_ElectricityConsumption_Cement</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2649,15 +1945,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>83.25</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Output_Clinker</mData>
+            <mData>Amountto_ElectricityConsumption_CementGrinding</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2665,15 +1961,15 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>73.5</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
             <mRowspan>1</mRowspan>
             <mColspan>1</mColspan>
-            <mData>Amountto_Output_CoalDust</mData>
+            <mData>Amountto_ElectricityConsumption_BagsBulk</mData>
             <mDataType>string</mDataType>
           </FormColumn>
           <FormColumn>
@@ -2681,89 +1977,9 @@
             <mBorderTopWidth>1</mBorderTopWidth>
             <mBorderRightWidth>0</mBorderRightWidth>
             <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_Output_Cogeneration</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_ElectricityConsumption_RawBatch</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_ElectricityConsumption_RawBatchGrinding</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_ElectricityConsumption_Clinker</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_ElectricityConsumption_CoalDust</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
+            <mWidth>141.75</mWidth>
+            <mHeight>13.5</mHeight>
+            <mFontSize>11</mFontSize>
             <mTextAlign>1</mTextAlign>
             <mValign>-4108</mValign>
             <mFontColor>0</mFontColor>
@@ -2772,27 +1988,11 @@
             <mData>Amountto_ComprehensiveElectricityConsumption</mData>
             <mDataType>string</mDataType>
           </FormColumn>
-          <FormColumn>
-            <mBorderLeftWidth>0</mBorderLeftWidth>
-            <mBorderTopWidth>1</mBorderTopWidth>
-            <mBorderRightWidth>0</mBorderRightWidth>
-            <mBorderBottomWidth>0</mBorderBottomWidth>
-            <mWidth>54</mWidth>
-            <mHeight>30</mHeight>
-            <mFontSize>12</mFontSize>
-            <mTextAlign>1</mTextAlign>
-            <mValign>-4108</mValign>
-            <mFontColor>0</mFontColor>
-            <mRowspan>1</mRowspan>
-            <mColspan>1</mColspan>
-            <mData>Amountto_ComprehensiveCoalConsumption</mData>
-            <mDataType>string</mDataType>
-          </FormColumn>
         </mRows>
       </FormRow>
     </mTable>
   </mForm>
-  <mStartDynamicLine>1</mStartDynamicLine>
+  <mStartDynamicLine>2</mStartDynamicLine>
   <mEndDynamicLine>4</mEndDynamicLine>
   <mHaveColumnFieldLine>true</mHaveColumnFieldLine>
 </FormTemplate>

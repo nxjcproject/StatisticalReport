@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
-        <div data-options="region:'west',border:false " style="width: 230px;">
+        <div data-options="region:'west',border:false " style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ReportTemplate" style="display: none;">
@@ -36,21 +36,21 @@
 		                <table>
 			                <tr>
 				                <td>生产线：</td>
-		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+		                        <td><input id="productLineName" class="easyui-textbox" style="width:120px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
-				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>
+				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:100px;" /></td>
                                 <td><a id="lbRead" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 
                                         onclick="ReadClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun();">查询</a>
                                 </td>
 				                <td><a id="lbQuery" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" 
                                         onclick="QueryClinkerYearlyPerUnitDistributionEnergyConsumptionPlanInfoFun();">能耗原始数据读入</a>
                                 </td>
-                                <td><a id="lbCalc" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-sum'" 
+                                <%--<td><a id="lbCalc" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-sum'" 
                                         onclick="CalculateClinkerYearlyPerUnitDistributionEnergyConsumptionFun();">计算分析</a>
                                 </td>
                                 <td><a id="lbSave" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-save'" 
                                         onclick="SaveClinkerYearlyPerUnitDistributionEnergyConsumptionFun();">分析结果存盘</a>
-                                </td>
+                                </td>--%>
 			                </tr>
 			            </table>
 		            </td>
@@ -59,6 +59,12 @@
 	                <td>
 		                <table>
 	                        <tr>
+                                <td><a id="lbCalc" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-sum'" 
+                                        onclick="CalculateClinkerYearlyPerUnitDistributionEnergyConsumptionFun();">计算分析</a>
+                                </td>
+                                <td><a id="lbSave" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-save'" 
+                                        onclick="SaveClinkerYearlyPerUnitDistributionEnergyConsumptionFun();">分析结果存盘</a>
+                                </td>
                                 <td>
                                     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="RefreshClinkerYearlyPerUnitDistributionEnergyConsumptionPlanFun();">刷新</a>
                                 </td>

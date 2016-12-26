@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',split:true" style="width: 230px;">
+        <div data-options="region:'west',split:true" style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <!-- 图表开始 -->
@@ -33,7 +33,7 @@
                             <tr>
                                 <td>生产线：</td>
                                 <td>
-                                    <input id="productLineName" class="easyui-textbox" style="width: 180px;" readonly="true" /><input id="organizationId" readonly="true" style="display: none;" /></td>
+                                    <input id="productLineName" class="easyui-textbox" style="width: 120px;" readonly="true" /><input id="organizationId" readonly="true" style="display: none;" /></td>
                                 <td>开始时间：</td>
                                 <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
@@ -77,16 +77,16 @@
             <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
                 <thead data-options="frozen:true">
                     <tr>
-                       <th data-options="field:'VariableName',width:250">项目</th>
+                       <th data-options="field:'VariableName',width:260">项目</th>
                     </tr>
                 </thead>
                 <thead>
                     <tr>
                         <%--<th data-options="field:'VariableName',width:250">项目</th>--%>
-                        <th data-options="field:'FirstB',width:150">甲班</th>
-                        <th data-options="field:'SecondB',width:150">乙班</th>
-                        <th data-options="field:'ThirdB',width:150">丙班</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:150">合计</th>
+                        <th data-options="field:'FirstB',width:80">甲班</th>
+                        <th data-options="field:'SecondB',width:80">乙班</th>
+                        <th data-options="field:'ThirdB',width:80">丙班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
                     </tr>
                 </thead>
             </table>

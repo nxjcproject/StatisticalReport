@@ -44,13 +44,13 @@
             <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
 		        <thead>
 			        <tr>
-                        <th data-options="field:'CompanyName',width:150">公司名称</th>
-                        <th data-options="field:'FactoryName',width:150">分厂名称</th>
+                        <th data-options="field:'CompanyName',width:100">公司名称</th>
+                        <th data-options="field:'FactoryName',width:100">分厂名称</th>
                         <th data-options="field:'VariableName',width:150">项目</th>
-                        <th data-options="field:'FirstB',width:150">甲班</th>
-                        <th data-options="field:'SecondB',width:150">乙班</th>
-                        <th data-options="field:'ThirdB',width:150">丙班</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:150">合计</th>
+                        <th data-options="field:'FirstB',width:80">甲班</th>
+                        <th data-options="field:'SecondB',width:80">乙班</th>
+                        <th data-options="field:'ThirdB',width:80">丙班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
 			        </tr>
 		        </thead>
             </table>

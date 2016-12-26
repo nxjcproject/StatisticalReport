@@ -8,6 +8,10 @@
 function loadGridData(myLoadType, organizationId, datetime) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "report_TeamClinkerMonthlyProcessEnergyConsumption.aspx/GetReportData",
@@ -15,6 +19,7 @@ function loadGridData(myLoadType, organizationId, datetime) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             if (myLoadType == 'first') {
                 m_MsgData = jQuery.parseJSON(msg.d);
                 InitializeGrid(m_MsgData);
@@ -24,7 +29,13 @@ function loadGridData(myLoadType, organizationId, datetime) {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
             }
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }
 

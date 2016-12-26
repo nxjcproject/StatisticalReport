@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',split:true" style="width:230px;">
+        <div data-options="region:'west',split:true" style="width:150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ReportTemplate" style="display: none;">
@@ -37,9 +37,9 @@
 		                <table>
 			                <tr>
 				                <td>生产线：</td>
-		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+		                        <td><input id="productLineName" class="easyui-textbox" style="width:120px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
-				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>
+				                <td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:100px;" /></td>
 				                <td><input id="Radio2" type="radio" name="reportType" value="月报" checked="checked"/>月报</td>
                                 <td><input id="Radio3" type="radio" name="reportType" value="年报" />年报</td>
                                 <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 

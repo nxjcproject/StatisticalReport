@@ -36,6 +36,10 @@ function InitializeTreeGrid(myData) {
 function loadFisrtCompanyData(myLoadFlag) {
     date = $('#dateTime').datebox('getValue');//datebox('setValue', startDate);
     var m_MsgData;
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "DispatchDailyReport.aspx/GetComplete",
@@ -43,6 +47,7 @@ function loadFisrtCompanyData(myLoadFlag) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
             //取出第一行公司的名称
             firstCompanyName = m_MsgData[0]['Name'];
@@ -57,7 +62,13 @@ function loadFisrtCompanyData(myLoadFlag) {
             //根据第一行公司名称加载计划和完成情况模块和差值模块
             InitChart(firstCompanyName, firstLevelCode);
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
     $.ajax({
         type: "POST",

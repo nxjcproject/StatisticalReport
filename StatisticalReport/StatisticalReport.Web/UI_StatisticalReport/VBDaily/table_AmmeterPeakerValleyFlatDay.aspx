@@ -25,7 +25,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',split:true" style="width:230px;">
+        <div data-options="region:'west',split:true" style="width:150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ReportTemplate" style="display:none">
@@ -35,7 +35,7 @@
 		                <table>
 			                <tr>
 				                <td>生产线：</td>
-		                        <td><input id="productLineName" class="easyui-textbox" style="width:180px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+		                        <td><input id="productLineName" class="easyui-textbox" style="width:120px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <td>时间：</td>
 				                <td><input id="datetime" type="text" class="easyui-datebox" style="width:120px;" required="required" /></td>
                                 <td><input id="Radio1" type="radio" name="reportType" value="日报" checked="checked" />日报</td>
