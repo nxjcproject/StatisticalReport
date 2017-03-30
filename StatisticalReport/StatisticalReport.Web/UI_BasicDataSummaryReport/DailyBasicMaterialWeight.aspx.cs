@@ -22,7 +22,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_efcf", "zc_nxjc_qtx_tys", "zc_nxjc_ychc_lsf", "zc_nxjc_szsc_szsf", "zc_nxjc_ychc_ndf", "zc_nxjc_ychc_yfcf", "zc_nxjc_qtx_efc", "zc_nxjc_tsc_tsf", "zc_nxjc_klqc_klqf","" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -48,6 +48,14 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         }
 
         [WebMethod]
+        public static string GetShiftsSchedulingLog(string organizationId, string startDate, string endDate)
+        {
+            DataTable table = DailyBasicMaterialWeightService.GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
+            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+        }
+
+
+        [WebMethod]
         public static string GetMaterialWeightDailyReport(string organizationId, DateTime startDate, DateTime endDate)
         {
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
@@ -57,5 +65,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             myDataTable.Columns.Remove("FactoryOrgID");
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }
+
+
     }
 }

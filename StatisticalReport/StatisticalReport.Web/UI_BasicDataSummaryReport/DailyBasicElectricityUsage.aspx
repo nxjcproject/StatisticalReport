@@ -6,10 +6,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>基础用电量数据汇总</title>
+    <title>电量日报</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css"/>
 
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
@@ -21,12 +22,15 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',split:true" style="width: 150px;">
+        <div data-options="region:'west',split:true" style="width: 180px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <!-- 图表开始 -->
-        <div id="toolbar_ReportTemplate" style="display: none;">
+        <div data-options="region:'center',border:false">
+            <div class="easyui-layout" data-options="fit:true,border:false">
+               <div  class="easyui-panel queryPanel" data-options="region:'north', border:true, collapsible:false, split:false" style="height: 83px;">
             <table>
+                <tr><td style="height:5px;"></td></tr>
                 <tr>
                     <td>
                         <table>
@@ -72,29 +76,47 @@
                 </tr>
             </table>
         </div>
-
-        <div id="reportTable" class="easyui-panel" data-options="region:'center', border:true, collapsible:false, split:false">
-            <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
-                <thead data-options="frozen:true">
+        <div data-options="region:'east',split:true" style="width:300px" title="排班情况">
+	                <table id="dgShiftsScheduling" class="easyui-datagrid" data-options="fill: true,singleSelect:true,fit:true">
+                       <thead>  
+		                <tr>
+				                <th data-options="field:'TimeStamp',width:120,styler:ShiftsSchedulingStyler">日期</th>
+                                <th data-options="field:'FirstWorkingTeam',width:50,styler:ShiftsSchedulingStyler">夜班</th>
+				                <th data-options="field:'SecondWorkingTeam',width:50,styler:ShiftsSchedulingStyler">白班</th>
+                                <th data-options="field:'ThirdWorkingTeam',width:50,styler:ShiftsSchedulingStyler">中班</th>
+			              </tr>
+                          </thead>
+	                </table>
+                </div>
+        <div data-options="region:'center'"title="电量日报">
+            <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="idField:'id',treeField:'VariableName',rownumbers:true,singleSelect:true,fit:true">
+              <thead frozen="true">
                     <tr>
-                       <th data-options="field:'VariableName',width:260">项目</th>
+                       <th data-options="field:'VariableName',width:250">项目</th>
+                        <%--<th data-options="field:'VariableName',width:250">项目</th>--%>
                     </tr>
-                </thead>
+               </thead>
                 <thead>
                     <tr>
-                        <%--<th data-options="field:'VariableName',width:250">项目</th>--%>
-                        <th data-options="field:'FirstB',width:80">甲班</th>
+                    <th data-options="field:'FirstB',width:80">甲班</th>
                         <th data-options="field:'SecondB',width:80">乙班</th>
                         <th data-options="field:'ThirdB',width:80">丙班</th>
+                         <th data-options="field:'PeakB',width:80">峰期</th>
+				        <th data-options="field:'ValleyB',width:80">谷期</th>
+                        <th data-options="field:'FlatB',width:80">平期</th>
                         <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
-                    </tr>
-                </thead>
+                        <th data-options="field:'A',width:80">A班</th>
+				        <th data-options="field:'B',width:80">B班</th>
+                        <th data-options="field:'C',width:80">C班</th>
+                        <th data-options="field:'D',width:80">D班</th>
+                        </tr>
+                    </thead>
             </table>
         </div>
+                </div>
+            </div>
         <!-- 图表结束 -->
     </div>
-
     <form id="form_Main" runat="server"></form>
-
 </body>
 </html>

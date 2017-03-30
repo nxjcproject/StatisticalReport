@@ -5,34 +5,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>基础消耗量产量汇总</title>
+    <title>产量消耗量日报</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
+        <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css"/>
+
 
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
+        <script type="text/javascript" src="/lib/ealib/extend/jquery.PrintArea.js" charset="utf-8"></script> 
+    <script type="text/javascript" src="/lib/ealib/extend/jquery.jqprint.js" charset="utf-8"></script>
+
     <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
     <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicMaterialWeight.js" charset="utf-8"></script>
 </head>
+
+
+
+
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
+
+        
+        
         <div data-options="region:'west',split:true" style="width:150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
+
+
+
         <!-- 图表开始 -->
-        <div id="toolbar_ReportTemplate" style="display: none;">
-            <table>
-                <tr>
-	                <td>
-		                <table>
-			                <tr>
-				                <td>生产线：</td>
-		                        <td><input id="productLineName" class="easyui-textbox" style="width:100px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
-				                <td>|</td>
+         <div data-options="region:'center',border:false">
+
+
+
+            <div class="easyui-layout" data-options="fit:true,border:false">
+
+
+    <div  class="easyui-panel queryPanel"  data-options="region:'north', border:true, collapsible:true, split:false" style="height: 90px;">
+          <table>
+               <tr><td style="height:5px;"></td></tr>
+			     <tr>  
+                     <td>
+                        <table>
+                             <tr>
+                               <td>生产线：</td>
+		                        <td><input id="productLineName"class="easyui-textbox" style="width:100px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
+				                
                                 <td>开始时间：</td>
 				                <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
@@ -44,14 +67,18 @@
                                     <input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
 				                </td>
 				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
-                                        onclick="QueryReportFun();">查询</a>
-                                </td>
-			                </tr>
-			            </table>
-		            </td>
-	            </tr>
-	            <tr>
-	                <td>
+                                        onclick="QueryReportFun();">查询</a></td> 
+                                </tr>
+                </table>
+                 </td>
+                   </tr>
+			            
+ 
+		          
+	             <tr>
+                    <td>
+	          
+	        
 		                <table>
 	                        <tr>
                                 <td>
@@ -67,27 +94,70 @@
                         </table>
 		            </td>
                 </tr>
-	        </table>
-        </div>
+               </table>
+             </div>
 
-        <div id="reportTable" class="easyui-panel" data-options="region:'center', border:true, collapsible:false, split:false">
-            <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
-		        <thead>
+
+                 <div  data-options="region:'center'">
+            <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" style="width:100%">
+		       
+                 <thead  data-options="frozen:true">
+                    <tr>
+                       <th data-options="field:'CompanyName',width:90">公司名称</th>
+   
+
+                        <th data-options="field:'FactoryName',width:90">分厂名称</th>
+                        <th data-options="field:'VariableName',width:200">项目</th>
+
+                    </tr>
+                </thead>
+                
+
+                
+                 <thead>
 			        <tr>
-                        <th data-options="field:'CompanyName',width:100">公司名称</th>
-                        <th data-options="field:'FactoryName',width:100">分厂名称</th>
-                        <th data-options="field:'VariableName',width:180">项目</th>
-                        <th data-options="field:'FirstB',width:80">甲班</th>
-                        <th data-options="field:'SecondB',width:80">乙班</th>
-                        <th data-options="field:'ThirdB',width:80">丙班</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
+                        <th data-options="field:'FirstB',width:65">甲班</th>
+                        <th data-options="field:'SecondB',width:65">乙班</th>
+                        <th data-options="field:'ThirdB',width:65">丙班</th> 
+
+                        <th data-options="field:'PeakB',width:65">峰期</th>
+                        <th data-options="field:'ValleyB',width:65">谷期</th>
+                        <th data-options="field:'FlatB',width:65">平期</th>
+
+                        <th data-options="field:'A班',width:65">A班</th>
+                        <th data-options="field:'B班',width:65">B班</th>
+                        <th data-options="field:'C班',width:65">C班</th>
+                        <th data-options="field:'D班',width:65">D班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:65">合计</th>
+
 			        </tr>
 		        </thead>
             </table>
         </div>
-        <!-- 图表结束 -->
-    </div>
 
+
+                 <div  data-options="region:'east', split:true" style="width:300px;" title="排班情况">
+	                <table id="dgShiftsScheduling" class="easyui-datagrid" data-options="fill: true,singleSelect:true,fit:true">
+		                <thead>
+			                <tr>
+				                <th data-options="field:'TimeStamp',width:75,styler:ShiftsSchedulingStyler">日期</th>
+                                <th data-options="field:'FirstWorkingTeam',width:75,styler:ShiftsSchedulingStyler">夜班</th>
+				                <th data-options="field:'SecondWorkingTeam',width:75,styler:ShiftsSchedulingStyler">白班</th>
+                                <th data-options="field:'ThirdWorkingTeam',width:75,styler:ShiftsSchedulingStyler">中班</th>
+			                </tr>
+		                </thead>
+	                </table>
+                </div>
+
+       
+
+
+              
+        <!-- 图表结束 -->
+     </div>
+     
+     </div>
+        </div>
     <form id="form_Main" runat="server"></form>
 
 </body>

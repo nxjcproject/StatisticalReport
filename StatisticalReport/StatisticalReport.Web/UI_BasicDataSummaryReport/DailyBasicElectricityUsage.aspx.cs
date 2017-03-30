@@ -21,14 +21,14 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_tys" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
                 this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");                         //向web用户控件传递数据授权参数
                 this.OrganisationTree_ProductionLine.PageName = "DailyBasicElectricityUsage.aspx";                                     //向web用户控件传递当前调用的页面名称
                 this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("水泥磨");
-                this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("熟料");  
+                this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("熟料");
             }
             ///以下是接收js脚本中post过来的参数
             string m_FunctionName = Request.Form["myFunctionName"] == null ? "" : Request.Form["myFunctionName"].ToString();             //方法名称,调用后台不同的方法
@@ -42,13 +42,18 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
                 StatisticalReportHelper.ExportExcelFile("xls", m_Parameter2 + "电量报表.xls", m_ExportTable);
             }
         }
-
         [WebMethod]
-        public static string GetElectricityUsageDailyReport(string organizationId, DateTime startDate, DateTime endDate)
+        public static string GetShiftsSchedulingLog(string organizationId, string startDate, string endDate)
+        {
+            DataTable table = DailyBasicElectricityUsageService.GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
+            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+        }
+        [WebMethod]
+        public static string GetElectricityUsageDailyReport(string organizationId, string startDate, string endDate)
         {
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
-            DataTable dt = DailyBasicElectricityUsageService.GetDailyBasicElectricityUsageByOrganiztionIds(organizationId, startDate,endDate);
+            DataTable dt = DailyBasicElectricityUsageService.GetTeamJobEvaluationMonthly(organizationId, startDate, endDate);
 
             //DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds();
             //return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);

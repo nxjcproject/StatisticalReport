@@ -20,7 +20,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             base.InitComponts();
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx", "zc_nxjc_byc_byf", "zc_nxjc_ychc", "zc_nxjc_tsc", "zc_nxjc_szsc", "zc_nxjc_klqc", "zc_nxjc_znc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -42,9 +42,9 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             }
         }
         [WebMethod]
-        public static string GetData(string organizationId, string startTime, string endTime)
+        public static string GetData(string organizationId, string startTime, string endTime,string consumptionType )
         {
-            DataTable table = DailyBasicElectricityConsumptionService.GetElectricityConsumptionData(organizationId, startTime, endTime);
+            DataTable table = DailyBasicElectricityConsumptionService.GetElectricityConsumptionData(organizationId, startTime, endTime, consumptionType);
             string json = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(table, "LevelCode");
             return json;
         }
@@ -61,5 +61,14 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
                 REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
             return m_HtmlData;
         }
+
+        [WebMethod]
+        public static string GetShiftsSchedulingLog(string organizationId, string startDate, string endDate)
+        {
+            DataTable table = DailyBasicElectricityConsumptionService.GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
+            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+        }
+
+
     }
 }

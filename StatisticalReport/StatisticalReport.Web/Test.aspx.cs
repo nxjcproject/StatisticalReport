@@ -29,7 +29,7 @@ namespace StatisticalReport.Web
             //DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银公司", time);
            // DispatchDailyReportService.GetTreeTargetComletion(new string[] { "O02", "O03" }, time);
            // DispatchDailyReportService.GetDailyGapPlanAndTargetCompletion("白银分公司", time);
-            DailyBasicElectricityConsumptionService.GetElectricityConsumptionData("zc_nxjc_byc", "", "");
+    //        DailyBasicElectricityConsumptionService.GetElectricityConsumptionData("zc_nxjc_byc", "", "");
         }
 
         protected void Button1_Click(object sender, EventArgs e)

@@ -12,8 +12,33 @@ function InitDate() {
     $('#startDate').datebox('setValue', nowString);
     $('#endDate').datebox('setValue', nowString);
 }
+function GetShiftsSchedulingLog(organizationId, startDate, endDate) {
+    var queryUrl = 'DailyBasicElectricityConsumption.aspx/GetShiftsSchedulingLog';
+    var dataToSend = '{organizationId: "' + organizationId + '", startDate:"' + startDate + '", endDate:"' + endDate + '"}';
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
+    $.ajax({
+        type: "POST",
+        url: queryUrl,
+        data: dataToSend,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            $.messager.progress('close');
+            $('#dgShiftsScheduling').datagrid({
+                data: jQuery.parseJSON(msg.d)
+            });
+        },
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        }
+    });
+}
 
-function loadGridData(myLoadType, organizationId, startDate, endDate) {
+
+function loadGridData(organizationId, startDate, endDate, consumptionType) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     var win = $.messager.progress({
@@ -23,7 +48,7 @@ function loadGridData(myLoadType, organizationId, startDate, endDate) {
     $.ajax({
         type: "POST",
         url: "DailyBasicElectricityConsumption.aspx/GetData",
-        data: '{organizationId: "' + organizationId + '", startTime: "' + startDate + '", endTime: "' + endDate + '"}',
+        data: '{organizationId: "' + organizationId + '", startTime: "' + startDate + '", endTime: "' + endDate + '", consumptionType: "' + consumptionType + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -49,19 +74,27 @@ function handleError() {
 
 function QueryReportFun() {
     SelectOrganizationName = $('#productLineName').textbox('getText');
-    var organizationID = $('#organizationId').val();
+    var organizationId = $('#organizationId').val();
     var startDate = $('#startDate').datetimespinner('getValue');//开始时间
     var endDate = $('#endDate').datetimespinner('getValue');//结束时间
+
+
+    var consumptionType = $('#cbbConsumptionType').combobox('getValue');
+
+
+
     SelectDatetime = startDate + ' 至 ' + endDate;
-    if (organizationID == "" || startDate == "" || endDate == "") {
+    if (organizationId == "" || startDate == "" || endDate == "") {
         $.messager.alert('警告', '请选择生产线和时间');
         return;
     }
     if (startDate > endDate) {
-        $.messager.alert('警告', '结束时间不能大于开始时间！');
+        $.messager.alert('警告', '开始时间不能大于结束时间！');
         return;
     }
-    loadGridData('first', organizationID, startDate, endDate);
+    loadGridData(organizationId, startDate, endDate, consumptionType);
+    GetShiftsSchedulingLog(organizationId, startDate, endDate);
+
 }
 
 function onOrganisationTreeClick(node) {
@@ -92,6 +125,19 @@ function InitializeGrid(myData) {
 function RefreshFun() {
     QueryReportFun();
 }
+
+function ShiftsSchedulingStyler(value, row, index) {
+    if (value == "A班") {
+        return 'background-color:#FF0000;';
+    } else if (value == "B班") {
+        return 'background-color:#00CD00;';
+    } else if (value == "C班") {
+        return 'background-color:#FFFF00;';
+    } else if (value == "D班") {
+        return 'background-color:#8470FF;';
+    }
+}
+
 
 
 function ExportFileFun() {

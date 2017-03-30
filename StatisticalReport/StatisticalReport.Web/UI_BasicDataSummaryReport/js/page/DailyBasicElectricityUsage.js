@@ -13,7 +13,7 @@ function InitDate() {
     $('#endDate').datebox('setValue', nowString);
 }
 
-function loadGridData(myLoadType, organizationId, startDate,endDate) {
+function loadGridData(myLoadType, organizationId, startDate, endDate) {
     //parent.$.messager.progress({ text: '数据加载中....' });
     var m_MsgData;
     var win = $.messager.progress({
@@ -27,10 +27,10 @@ function loadGridData(myLoadType, organizationId, startDate,endDate) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
-                $.messager.progress('close');
-                m_MsgData = jQuery.parseJSON(msg.d);
-                InitializeGrid(m_MsgData);
-            
+            $.messager.progress('close');
+            m_MsgData = jQuery.parseJSON(msg.d);
+            InitializeGrid(m_MsgData);
+
         },
         beforeSend: function (XMLHttpRequest) {
             win;
@@ -61,9 +61,44 @@ function QueryReportFun() {
         $.messager.alert('警告', '结束时间不能大于开始时间！');
         return;
     }
-    loadGridData('first', organizationID, startDate,endDate);
+    loadGridData('first', organizationID, startDate, endDate);
+    GetShiftsSchedulingLog(organizationID, startDate, endDate);
 }
-
+function GetShiftsSchedulingLog(organizationId, startDate, endDate) {
+    var queryUrl = 'DailyBasicElectricityUsage.aspx/GetShiftsSchedulingLog';
+    var dataToSend = '{organizationId: "' + organizationId + '", startDate:"' + startDate + '", endDate:"' + endDate + '"}';
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
+    $.ajax({
+        type: "POST",
+        url: queryUrl,
+        data: dataToSend,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            $.messager.progress('close');
+            $('#dgShiftsScheduling').datagrid({
+                data: jQuery.parseJSON(msg.d)
+            });
+        },
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        }
+    });
+}
+function ShiftsSchedulingStyler(value, row, index) {
+    if (value == "A班") {
+        return 'background-color:#FF0000;';
+    } else if (value == "B班") {
+        return 'background-color:#00CD00;';
+    } else if (value == "C班") {
+        return 'background-color:#FFFF00;';
+    } else if (value == "D班") {
+        return 'background-color:#8470FF;';
+    }
+}
 function onOrganisationTreeClick(node) {
     $('#productLineName').textbox('setText', node.text);
     $('#organizationId').val(node.OrganizationId);
