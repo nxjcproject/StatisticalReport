@@ -1,5 +1,4 @@
-﻿
-function doPrint(myTableString) {
+﻿function doPrint(myTableString) {
 
     var m_Div = $('<div></div');
     var m_TableObj = $(myTableString);
@@ -17,7 +16,55 @@ function PrintHtml(myDataTable) {
     var m_TableString = myDataTable;
     doPrint(m_TableString);
 }
-//////////////////////获得树形结构的Html///////////////////////
+
+/////////////////////获得DataGrid的Html//////////////////////
+function GetDataGridTableHtml(myDataGridId, myTitleName, mySelectDatetime) {
+    var m_DataGridDataObj = $('#' + myDataGridId).datagrid("getData");
+    var test = $('#' + myDataGridId).datagrid("options")["frozenColumns"];
+    var asd = (test == []);
+    var m_DataGridFrozenColumnsObj = $('#' + myDataGridId).datagrid("options")["frozenColumns"].length != 0 ? $('#' + myDataGridId).datagrid("options")["frozenColumns"][0] : [];
+    var m_DataGridColumnsObj = $('#' + myDataGridId).datagrid("options")["columns"] != [] ? $('#' + myDataGridId).datagrid("options")["columns"][0] : [];
+
+
+    var m_DataGridTableHtml = "";
+    var m_frozenColumnsCount = m_DataGridFrozenColumnsObj.length;
+    var m_ColumnsCount = m_DataGridColumnsObj.length;
+    var m_TitleSpan = m_frozenColumnsCount + m_ColumnsCount;
+    var m_TitleHtml = '<tr><td colspan = ' + m_TitleSpan + ' style = "font-size:18pt; text-align:center; font-weight:bold;">' + myTitleName + '</td></tr>';
+    m_TitleHtml = m_TitleHtml + '<tr><td colspan = ' + m_TitleSpan + ' style = "text-align:center; "> 统计日期: ' + mySelectDatetime + '</td></tr>';
+    var m_ColumnNamesHtml = "<tr>";
+    //////////////////////////字段名////////////////////
+    for (var j = 0; j < m_frozenColumnsCount; j++) {
+        if (m_DataGridFrozenColumnsObj[j]["hidden"] != true) {
+            m_ColumnNamesHtml = m_ColumnNamesHtml + '<td style = "border:0.1pt solid black; text-align:center;">' + m_DataGridFrozenColumnsObj[j]["title"] + '</td>';
+        }
+    }
+    for (var j = 0; j < m_ColumnsCount; j++) {
+        if (m_DataGridColumnsObj[j]["hidden"] != true) {
+            m_ColumnNamesHtml = m_ColumnNamesHtml + '<td style = "border:0.1pt solid black; text-align:center;">' + m_DataGridColumnsObj[j]["title"] + '</td>';
+        }
+    }
+    ////////////////////////行数据//////////////////////
+    m_ColumnNamesHtml = m_ColumnNamesHtml + "</tr>";
+    for (var i = 0; i < m_DataGridDataObj["rows"].length; i++) {
+        m_ColumnNamesHtml = m_ColumnNamesHtml + "<tr>"
+        for (var j = 0; j < m_frozenColumnsCount; j++) {
+            if (m_DataGridFrozenColumnsObj[j]["hidden"] != true) {
+                m_ColumnNamesHtml = m_ColumnNamesHtml + '<td style = "border:0.1pt solid black; text-align:center;">' + m_DataGridDataObj["rows"][i][m_DataGridFrozenColumnsObj[j]["field"]] + '</td>';
+            }
+        }
+        for (var j = 0; j < m_ColumnsCount; j++) {
+            if (m_DataGridColumnsObj[j]["hidden"] != true) {
+                m_ColumnNamesHtml = m_ColumnNamesHtml + '<td style = "border:0.1pt solid black; text-align:center;">' + m_DataGridDataObj["rows"][i][m_DataGridColumnsObj[j]["field"]] + '</td>';
+            }
+        }
+        m_ColumnNamesHtml = m_ColumnNamesHtml + "</tr>";
+    }
+    return m_DataGridTableHtml = '<table style = "border:0px;margin:0px;border-collapse:collapse;border-spacing:0px;padding:0px;">' + m_TitleHtml + m_ColumnNamesHtml + '</table>';
+
+}
+
+////////////////////获得树形结构的Html///////////////////////
 
 var MaxDepth = 0;
 //TreeGrid的DomId,导出日报标题名称,树形节点名称的字段,选择的组织机构名称,选择的时间

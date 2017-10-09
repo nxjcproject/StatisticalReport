@@ -9,43 +9,26 @@
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
-        <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css"/>
-
+    <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtCss.css"/>
 
     <script type="text/javascript" src="/lib/ealib/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/jquery.easyui.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/lib/ealib/easyui-lang-zh_CN.js" charset="utf-8"></script>
-        <script type="text/javascript" src="/lib/ealib/extend/jquery.PrintArea.js" charset="utf-8"></script> 
+    <script type="text/javascript" src="/lib/ealib/extend/jquery.PrintArea.js" charset="utf-8"></script> 
     <script type="text/javascript" src="/lib/ealib/extend/jquery.jqprint.js" charset="utf-8"></script>
-
     <script type="text/javascript" src="/js/common/PrintFile.js" charset="utf-8"></script> 
     <!--[if lt IE 8 ]><script type="text/javascript" src="/js/common/json2.min.js"></script><![endif]-->
 
     <script type="text/javascript" src="/UI_BasicDataSummaryReport/js/page/DailyBasicMaterialWeight.js" charset="utf-8"></script>
 </head>
-
-
-
-
 <body>
-    <div class="easyui-layout" data-options="fit:true,border:false">
-
-        
-        
+    <div class="easyui-layout" data-options="fit:true,border:false">             
         <div data-options="region:'west',split:true" style="width:150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
-
-
-
         <!-- 图表开始 -->
          <div data-options="region:'center',border:false">
-
-
-
             <div class="easyui-layout" data-options="fit:true,border:false">
-
-
     <div  class="easyui-panel queryPanel"  data-options="region:'north', border:true, collapsible:true, split:false" style="height: 90px;">
           <table>
                <tr><td style="height:5px;"></td></tr>
@@ -71,14 +54,9 @@
                                 </tr>
                 </table>
                  </td>
-                   </tr>
-			            
- 
-		          
+                   </tr>			           		          
 	             <tr>
-                    <td>
-	          
-	        
+                    <td>	         	        
 		                <table>
 	                        <tr>
                                 <td>
@@ -96,24 +74,18 @@
                 </tr>
                </table>
              </div>
-
-
                  <div  data-options="region:'center'">
             <table id="gridMain_ReportTemplate" class="easyui-datagrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" style="width:100%">
 		       
                  <thead  data-options="frozen:true">
                     <tr>
                        <th data-options="field:'CompanyName',width:90">公司名称</th>
-   
-
                         <th data-options="field:'FactoryName',width:90">分厂名称</th>
+                        <th data-options="field:'FactoryOrgID',width:90,hidden:true">分厂组织ID</th>
                         <th data-options="field:'VariableName',width:200">项目</th>
 
                     </tr>
-                </thead>
-                
-
-                
+                </thead>                             
                  <thead>
 			        <tr>
                         <th data-options="field:'FirstB',width:65">甲班</th>
@@ -134,8 +106,6 @@
 		        </thead>
             </table>
         </div>
-
-
                  <div  data-options="region:'east', split:true" style="width:300px;" title="排班情况">
 	                <table id="dgShiftsScheduling" class="easyui-datagrid" data-options="fill: true,singleSelect:true,fit:true">
 		                <thead>
@@ -147,12 +117,7 @@
 			                </tr>
 		                </thead>
 	                </table>
-                </div>
-
-       
-
-
-              
+                </div>                 
         <!-- 图表结束 -->
      </div>
      

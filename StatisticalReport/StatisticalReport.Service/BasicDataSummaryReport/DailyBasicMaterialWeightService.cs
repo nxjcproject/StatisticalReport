@@ -65,7 +65,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             //                                    W.FactoryName,
             //                                    TB.OrganizationID AS FactoryOrgID,
             //                                    BE.VariableName AS VariableName,
-            string queryString1 = @"   Select C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID, N.Name + B.Name AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB, F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班
+            string queryString1 = @"   Select C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID, N.Name + B.Name AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
                                         from tz_Material A, material_MaterialDetail B, system_Organization M
                                         left join system_Organization C on substring(M.LevelCode,1,Len(M.LevelCode) - 2) = C.LevelCode, system_Organization N, 
                                             (Select E.OrganizationID, E.VariableId, SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB,
@@ -94,10 +94,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                         ";
             // order by N.Type, N.Name, B.Name
 
-
-
-
-            string queryString2 = @"Select distinct C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID,N.Name+F.VariableName AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB, F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班
+            string queryString2 = @"Select distinct C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID,N.Name+F.VariableName AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
                                         from tz_Material A, material_MaterialDetail B, system_Organization M
                                         left join system_Organization C on substring(M.LevelCode,1,Len(M.LevelCode) - 2) = C.LevelCode, system_Organization N, 
                                             (Select E.OrganizationID, E.VariableId,E.VariableName, SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB,
@@ -123,10 +120,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                         and A.OrganizationID = F.OrganizationID
                                         
                                         order by FactoryOrgID, VariableName    ";
-
-
-                                               
-                 
+                                                              
             //#if DEBUG  order by N.Type, N.Name, B.Name    order by N.Type, N.Name, B.Name
 //            return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(), "2015-02-09"));
 //#else
@@ -154,8 +148,6 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 //#endif
         }
 
-
-
         public static DataTable GetShiftsSchedulingLogMonthly(string organizationId, string startDate, string endDate)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
@@ -167,23 +159,21 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 		                            and StaticsCycle = 'day' AND
 		                            [OrganizationID] = @organizationId
                               ORDER BY [TimeStamp]";
-
             SqlParameter[] parameters = new SqlParameter[]{
                 new SqlParameter("organizationId", organizationId),
                 new SqlParameter("startDate", startDate),
                 new SqlParameter("endDate",endDate)
             };
-
              DataTable result2=dataFactory.Query(sql, parameters);
              return result2;
         }
-
-       
-    
-    
-    
-    
-    
+        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
+        {
+            if (myFileType == "xls")
+            {
+                UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
+            }
+        }     
 }
 }
 

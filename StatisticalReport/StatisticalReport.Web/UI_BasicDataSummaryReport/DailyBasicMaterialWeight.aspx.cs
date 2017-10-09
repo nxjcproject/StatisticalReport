@@ -38,23 +38,19 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             string m_Parameter2 = Request.Form["myParameter2"] == null ? "" : Request.Form["myParameter2"].ToString();                   //方法的参数名称2
             if (m_FunctionName == "ExcelStream")
             {
-
                 //ExportFile("xls", "导出报表1.xls");
-                string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
-                string m_HtmlData = StatisticalReportHelper.CreateExportHtmlTable(mFileRootPath +
-                    REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
-                StatisticalReportHelper.ExportExcelFile("xls", "物料统计.xls", m_HtmlData);
+                string m_ExportTable = m_Parameter1.Replace("&lt;", "<");
+                m_ExportTable = m_ExportTable.Replace("&gt;", ">");
+                m_ExportTable = m_ExportTable.Replace("&nbsp", "  ");
+                DailyBasicMaterialWeightService.ExportExcelFile("xls", m_Parameter2 + "物料统计.xls", m_ExportTable);
             }
         }
-
         [WebMethod]
         public static string GetShiftsSchedulingLog(string organizationId, string startDate, string endDate)
         {
             DataTable table = DailyBasicMaterialWeightService.GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
         }
-
-
         [WebMethod]
         public static string GetMaterialWeightDailyReport(string organizationId, DateTime startDate, DateTime endDate)
         {
@@ -65,7 +61,5 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             myDataTable.Columns.Remove("FactoryOrgID");
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }
-
-
     }
 }

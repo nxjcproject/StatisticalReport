@@ -1,8 +1,4 @@
-﻿var SelectOrganizationName = "";
-var SelectDatetime = "";
-var _data = "";
-
-$(function () {
+﻿$(function () {
     InitDate();
 });
 //初始化日期框
@@ -30,7 +26,6 @@ function loadGridData(myLoadType, organizationId, startDate,endDate) {
         success: function (msg) {
             $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
-            _data = m_MsgData;
             InitializeGrid(m_MsgData);
 
         },
@@ -43,7 +38,6 @@ function loadGridData(myLoadType, organizationId, startDate,endDate) {
         }
     });
 }
-
 function handleError() {
     $('#gridMain_ReportTemplate').datagrid('loadData', []);
     $.messager.alert('失败', '获取数据失败');
@@ -66,7 +60,6 @@ function QueryReportFun() {
     loadGridData('first', organizationId, startDate, endDate);
     GetShiftsSchedulingLog(organizationId, startDate, endDate);
 }
-
 function onOrganisationTreeClick(node) {
     if (node["OrganizationType"] == '分厂') {
         $('#productLineName').textbox('setText', node.text);
@@ -76,7 +69,6 @@ function onOrganisationTreeClick(node) {
         alert("请选择到分厂!");
     }
 }
-
 function InitializeGrid(myData) {
 
     $('#gridMain_ReportTemplate').datagrid({
@@ -90,7 +82,6 @@ function InitializeGrid(myData) {
         toolbar: '#toolbar_ReportTemplate'
     });
 }
-
 function ShiftsSchedulingStyler(value, row, index) {
     if (value == "A班") {
         return 'background-color:#FF0000;';
@@ -102,7 +93,6 @@ function ShiftsSchedulingStyler(value, row, index) {
         return 'background-color:#8470FF;';
     }
 }
-
 function GetShiftsSchedulingLog(organizationId, startDate, endDate) {
     var queryUrl = 'DailyBasicMaterialWeight.aspx/GetShiftsSchedulingLog';
     var dataToSend = '{organizationId: "' + organizationId + '", startDate:"' + startDate + '", endDate:"' + endDate + '"}';
@@ -127,15 +117,20 @@ function GetShiftsSchedulingLog(organizationId, startDate, endDate) {
         }
     });
 }
-
 function RefreshFun() {
     QueryReportFun();
 }
-
+var SelectOrganizationName = '';
+var SelectDatetime = '';
 function ExportFileFun() {
     var m_FunctionName = "ExcelStream";
-    var m_Parameter1 = "Parameter1";
-    var m_Parameter2 = "Parameter2";
+    var m_Parameter1 = GetDataGridTableHtml("gridMain_ReportTemplate", "物料统计", SelectDatetime);
+    var m_Parameter2 = SelectOrganizationName;
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
 
     var form = $("<form id = 'ExportFile'>");   //定义一个form表单
     form.attr('style', 'display:none');   //在form表单中添加查询参数
@@ -163,35 +158,8 @@ function ExportFileFun() {
     form.submit();
     //释放生成的资源
     form.remove();
-
-    /*
-    var m_Parmaters = { "myFunctionName": m_FunctionName, "myParameter1": m_Parameter1, "myParameter2": m_Parameter2 };
-    $.ajax({
-        type: "POST",
-        url: "Report_Example.aspx",
-        data: m_Parmater,                       //'myFunctionName=' + m_FunctionName + '&myParameter1=' + m_Parameter1 + '&myParameter2=' + m_Parameter2,
-        //contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            if (msg.d == "1") {
-                alert("导出成功!");
-            }
-            else{
-                alert(msg.d);
-            }
-        }
-    });
-    */
 }
 function PrintFileFun() {
-    $.ajax({
-        type: "POST",
-        url: "DailyBasicMaterialWeight.aspx/PrintFile",
-        data: "",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            PrintHtml(msg.d);
-        }
-    });
+    var m_ReportTableHtml = GetDataGridTableHtml("gridMain_ReportTemplate", "物料统计", SelectDatetime);
+    PrintHtml(m_ReportTableHtml);
 }

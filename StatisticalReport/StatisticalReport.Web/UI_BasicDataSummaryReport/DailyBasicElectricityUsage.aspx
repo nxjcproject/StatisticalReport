@@ -28,7 +28,7 @@
         <!-- 图表开始 -->
         <div data-options="region:'center',border:false">
             <div class="easyui-layout" data-options="fit:true,border:false">
-               <div  class="easyui-panel queryPanel" data-options="region:'north', border:true, collapsible:false, split:false" style="height: 83px;">
+               <div  class="easyui-panel queryPanel" data-options="region:'north', border:true, collapsible:false, split:false" style="height: 87px;">
             <table>
                 <tr><td style="height:5px;"></td></tr>
                 <tr>

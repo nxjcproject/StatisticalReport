@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="UpDownLoadFiles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Lib\UpDownLoadFiles.dll</HintPath>
+      <HintPath>..\..\..\组件\UpDownLoadFiles\UpDownLoadFiles\bin\Debug\UpDownLoadFiles.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +80,7 @@
     <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\CoalConsumptionReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityConsumptionReportService.cs" />
+    <Compile Include="LightLoadOperationReport\LightLoadOperationDaily.cs" />
     <Compile Include="OrganizationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalReportServices\Daily\CementMilEnergyConsumption_TargetCompletion.cs" />
