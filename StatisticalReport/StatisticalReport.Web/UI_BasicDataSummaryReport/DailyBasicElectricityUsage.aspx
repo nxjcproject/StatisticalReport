@@ -101,14 +101,14 @@
                     <th data-options="field:'FirstB',width:80">甲班</th>
                         <th data-options="field:'SecondB',width:80">乙班</th>
                         <th data-options="field:'ThirdB',width:80">丙班</th>
-                         <th data-options="field:'PeakB',width:80">峰期</th>
+                        <th data-options="field:'PeakB',width:80">峰期</th>
 				        <th data-options="field:'ValleyB',width:80">谷期</th>
                         <th data-options="field:'FlatB',width:80">平期</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
                         <th data-options="field:'A',width:80">A班</th>
 				        <th data-options="field:'B',width:80">B班</th>
                         <th data-options="field:'C',width:80">C班</th>
                         <th data-options="field:'D',width:80">D班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:80">合计</th>
                         </tr>
                     </thead>
             </table>
