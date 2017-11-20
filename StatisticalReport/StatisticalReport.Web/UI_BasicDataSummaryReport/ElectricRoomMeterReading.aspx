@@ -1,6 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ElectricRoomMeterReading.aspx.cs" Inherits="StatisticalReport.Web.UI_BasicDataSummaryReport.ElectricRoomMeterReading" %>
-
-
 <%@ Register Src="../UI_WebUserControls/OrganizationSelector/OrganisationTree.ascx" TagName="OrganisationTree" TagPrefix="uc1" %>
 
 
@@ -43,8 +41,7 @@
                                 <td>|</td>
                                 <td>选择电气室</td>
                                 <td>
-                                    <input id="ElectricRoom" class="easyui-combobox" data-options="panelHeight:'auto'" style="width: 150px" /></td>
-                                
+                                    <input id="ElectricRoom" class="easyui-combobox" style="width: 150px" /></td>                               
                             </tr>
                             <tr>
                                 <td>开始时间：</td>

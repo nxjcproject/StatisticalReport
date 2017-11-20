@@ -85,7 +85,16 @@ function InitElectricRoom(organizationId) {
                 $('#ElectricRoom').combobox({
                     data:m_MsgData.rows,
                     valueField:'ElectricRoom',
-                    textField:'ElectricRoom'
+                    textField: 'ElectricRoom',                   
+                    onShowPanel: function () {
+                        var orgCount = m_MsgData.rows.length;
+                        // 动态调整高度  
+                        if (orgCount < 16) {
+                            $(this).combobox('panel').height("auto");
+                        } else {
+                            $(this).combobox('panel').height(300);
+                        }
+                    }
                 });                    
         },
         error: handleError
