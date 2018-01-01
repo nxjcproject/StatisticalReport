@@ -68,8 +68,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         {
             //myDataTable = ClinkerMonthlyPeakerValleyFlatElectricityConsumption.TableQuery("df863854-89ae-46e6-80e8-96f6db6471b4", "2014-10");
             myDataTable = ElectricRoomMeterReadingService.GetAmmeterValue(electricRoom, startTime, endTime);
-            string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath +
-                REPORT_TEMPLATE_PATH, myDataTable);
+            string m_UserInfoJson = StatisticalReportHelper.ReadReportHeaderFile(mFileRootPath + REPORT_TEMPLATE_PATH, myDataTable);
             return m_UserInfoJson;
         }
 

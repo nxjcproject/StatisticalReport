@@ -65,7 +65,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             //                                    W.FactoryName,
             //                                    TB.OrganizationID AS FactoryOrgID,
             //                                    BE.VariableName AS VariableName,
-            string queryString1 = @"   Select C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID, N.Name + B.Name AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
+            string queryString1 = @"Select C.Name AS CompanyName, M.Name as FactoryName, F.OrganizationID as FactoryOrgID, (case when N.Name like '%号熟料' then substring(N.Name,1,2) else N.Name end) + (case when B.Name='水泥产量' then '产量' else B.Name end) AS VariableName, F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,F.A班 as A班,F.B班 as B班,F.C班 as C班,F.D班 as D班,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
                                         from tz_Material A, material_MaterialDetail B, system_Organization M
                                         left join system_Organization C on substring(M.LevelCode,1,Len(M.LevelCode) - 2) = C.LevelCode, system_Organization N, 
                                             (Select E.OrganizationID, E.VariableId, SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB,

@@ -190,7 +190,6 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 new SqlParameter("startTime", start),
                 new SqlParameter("endTime", end)
             };
-
             return dataFactory.Query(sql, parameters);
         }
 

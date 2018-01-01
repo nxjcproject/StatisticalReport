@@ -51,33 +51,27 @@
 	                <td>
 		                <table>
 			                <tr>
-				                <td>生产线：</td>
-		                        <td><input id="productLineName" class="easyui-textbox" style="width:120px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
-				                
-
-                                <td>考核项目：</td>
+				                <td style="width: 50px; text-align: right;">组织机构</td>
+		                        <td><input id="productLineName" class="easyui-textbox" style="width:80px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>				                
+                                <td style="width: 50px; text-align: right;">考核项目</td>
                                 <td>
-                                <select id="cbbConsumptionType" class="easyui-combobox" data-options="panelHeight:'auto'" style="width:80px;">
+                                <select id="cbbConsumptionType" class="easyui-combobox" data-options="panelHeight:'auto'" style="width:70px;">
                                     <option value="ElectricityConsumption">电耗</option>
                                     <option value="CoalConsumption">煤耗</option>
                                 </select>
                             </td>
-                            <td><div class="datagrid-btn-separator"></div></td>
-
-
-
-                                
-                                <td>开始时间：</td>
+                            <td><div class="datagrid-btn-separator"></div></td>                              
+                                <td style="width: 50px; text-align: right;">开始时间</td>
 				                <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
                                     <input id="startDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
 				                </td>
-                                <td>结束时间：</td>
+                                <td style="width: 50px; text-align: right;">结束时间</td>
 				                <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
                                     <input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
 				                </td>
-				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 
                                         onclick="QueryReportFun();">查询</a>
                                 </td>
 			                </tr>
@@ -114,27 +108,27 @@
 		        <thead  data-options="frozen:true">
 <%--                    data-options="frozen:true"--%>
                     <tr>
-                       <th data-options="field:'Name',width:150">项目</th>
+                       <th data-options="field:'Name',width:255">项目</th>
                     </tr>
                 </thead>
                 <thead>
 			        <tr>
                         <%--<th data-options="field:'Name',width:250">项目</th>--%>
-                        <th data-options="field:'FirstB',width:65">甲班</th>
-                        <th data-options="field:'SecondB',width:65">乙班</th>
-                        <th data-options="field:'ThirdB',width:65">丙班</th>
+                        <th data-options="field:'FirstB',width:55">甲班</th>
+                        <th data-options="field:'SecondB',width:55">乙班</th>
+                        <th data-options="field:'ThirdB',width:55">丙班</th>
 
 
-                        <th data-options="field:'PeakB',width:65">峰期</th>
-                        <th data-options="field:'ValleyB',width:65">谷期</th>
-                        <th data-options="field:'FlatB',width:65">平期</th>
+                        <th data-options="field:'PeakB',width:55">峰期</th>
+                        <th data-options="field:'ValleyB',width:55">谷期</th>
+                        <th data-options="field:'FlatB',width:55">平期</th>
 
 
-                        <th data-options="field:'teamA',width:70">A班</th>
-                        <th data-options="field:'teamB',width:70">B班</th>
-                        <th data-options="field:'teamC',width:70">C班</th>
-                        <th data-options="field:'teamD',width:70">D班</th>
-                        <th data-options="field:'TotalPeakValleyFlatB',width:70">合计</th>
+                        <th data-options="field:'teamA',width:55">A班</th>
+                        <th data-options="field:'teamB',width:55">B班</th>
+                        <th data-options="field:'teamC',width:55">C班</th>
+                        <th data-options="field:'teamD',width:55">D班</th>
+                        <th data-options="field:'TotalPeakValleyFlatB',width:55">合计</th>
 
 			        </tr>
 		        </thead>
@@ -144,16 +138,16 @@
                        
         
         
-         <div  data-options="region:'east', split:true" style="width:300px;" title="排班情况">
+         <div  data-options="region:'east', split:true" style="width:215px;" title="排班情况">
 	                <table id="dgShiftsScheduling" class="easyui-datagrid" data-options="fill: true,singleSelect:true,fit:true">
 		                <thead>
 			                <tr>
-				                <th data-options="field:'TimeStamp',width:75 ,styler:ShiftsSchedulingStyler">日期</th>
-                                <th data-options="field:'FirstWorkingTeam',width:75 ,styler:ShiftsSchedulingStyler">夜班</th>
+				                <th data-options="field:'TimeStamp',width:78 ,styler:ShiftsSchedulingStyler">日期</th>
+                                <th data-options="field:'FirstWorkingTeam',width:37 ,styler:ShiftsSchedulingStyler">夜班</th>
 <%--                                ,styler:ShiftsSchedulingStyler--%>
-				                <th data-options="field:'SecondWorkingTeam',width:75 ,styler:ShiftsSchedulingStyler">白班</th>
+				                <th data-options="field:'SecondWorkingTeam',width:37 ,styler:ShiftsSchedulingStyler">白班</th>
 <%--                                ,styler:ShiftsSchedulingStyler--%>
-                                <th data-options="field:'ThirdWorkingTeam',width:75 ,styler:ShiftsSchedulingStyler">中班</th>
+                                <th data-options="field:'ThirdWorkingTeam',width:37 ,styler:ShiftsSchedulingStyler">中班</th>
 <%--                                ,styler:ShiftsSchedulingStyler--%>
 			                </tr>
 		                </thead>
@@ -168,6 +162,5 @@
     </div>
 
     <form id="form_Main" runat="server"></form>
-
 </body>
 </html>

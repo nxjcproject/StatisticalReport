@@ -29,26 +29,25 @@
                             <tr>
                                 <td><input type="radio" name="timeType" value="day" checked="checked" onclick="DataBoxHide()"/>日报</td>
                                 <td><input type="radio" name="timeType" value=" custom" onclick="DataBoxShow()"/>自定义时间</td>
-                                <td style="padding-top:5px;">|</td>
-                                <td style="padding-top:5px;padding-left:10px">开始时间：</td>
+                                <td><div class="datagrid-btn-separator"></div></td>
+                                <td style="width: 60px; text-align: right;">开始时间</td>
                                 <td style="padding-top:5px"><input id="startDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
-                                <td class="mDisplay" style="padding-top:5px;display:none">---</td>
-                                <td class="mDisplay" style="display:none;padding-top:5px;" >结束时间：</td>
-                                <td class="mDisplay" style="display:none;padding-top:5px;"><input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
-                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+                                <td class="mDisplay" style="display:none; width:60px; text-align:right;">结束时间</td>
+                                <td class="mDisplay" style="display:none;"><input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 
                                         onclick="QueryReportFun();">查询</a></td>
                             </tr>
-	                        <tr>
+	                        <%--<tr>
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
                                 </td>
-                                <!--<td><div class="datagrid-btn-separator"></div>
+                                <td><div class="datagrid-btn-separator"></div>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-printer',plain:true" onclick="PrintFileFun();">打印</a>
-                                </td>-->
-                            </tr>
+                                </td>
+                            </tr>--%>
                         </table>
 		            </td>
                 </tr>

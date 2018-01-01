@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="UpDownLoadFiles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\组件\UpDownLoadFiles\UpDownLoadFiles\bin\Debug\UpDownLoadFiles.dll</HintPath>
+      <HintPath>bin\Debug\UpDownLoadFiles.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

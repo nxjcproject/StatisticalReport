@@ -31,9 +31,10 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             if (factoryInfoTable.Rows.Count != 1)
                 throw new Exception("查找分厂数据库失败！");
             meterDNName = factoryInfoTable.Rows[0]["MeterDatabase"].ToString().Trim();
-            string sqlString = @"SELECT DISTINCT A.ElectricRoom AS ElectricRoom
-                                    FROM [{0}].[dbo].[AmmeterContrast] AS A
-                                    WHERE A.EnabledFlag='true'";
+            string sqlString = @"select A.ElectricRoom AS ElectricRoom, B.ElectricRoomName AS ElectricRoomName
+                                   from (SELECT DISTINCT ElectricRoom FROM [{0}].[dbo].[AmmeterContrast] WHERE EnabledFlag='true') A
+                              left join [{0}].[dbo].[ElectricRoomContrast] B on A.ElectricRoom=B.ElectricRoom 
+		                                order by B.DisplayIndex";
             DataTable electricRoomTable = dataFactory.Query(string.Format(sqlString, meterDNName));
             return electricRoomTable;
         }

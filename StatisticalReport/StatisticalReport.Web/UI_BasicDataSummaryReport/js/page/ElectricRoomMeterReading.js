@@ -58,7 +58,6 @@ function handleError() {
 }
 
 function InitializeGrid(myData) {
-
     $('#gridMain_ReportTemplate').datagrid({
         title: '',
         data: myData,
@@ -85,7 +84,7 @@ function InitElectricRoom(organizationId) {
                 $('#ElectricRoom').combobox({
                     data:m_MsgData.rows,
                     valueField:'ElectricRoom',
-                    textField: 'ElectricRoom',                   
+                    textField: 'ElectricRoomName',
                     onShowPanel: function () {
                         var orgCount = m_MsgData.rows.length;
                         // 动态调整高度  

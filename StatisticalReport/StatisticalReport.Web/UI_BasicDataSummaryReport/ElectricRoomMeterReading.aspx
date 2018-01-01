@@ -35,23 +35,21 @@
                     <td>
                         <table>
                             <tr>
-                                <td>生产线：</td>
+                                <td style="width: 60px; text-align: right;">组织机构</td>
                                 <td>
                                     <input id="productLineName" class="easyui-textbox" style="width: 100px;" readonly="true" /><input id="organizationId" readonly="true" style="display: none;" /></td>
-                                <td>|</td>
-                                <td>选择电气室</td>
+                                <td style="width: 70px; text-align: right;">选择电气室</td>
                                 <td>
                                     <input id="ElectricRoom" class="easyui-combobox" style="width: 150px" /></td>                               
                             </tr>
                             <tr>
-                                <td>开始时间：</td>
+                                <td style="width: 60px; text-align: right;">开始时间</td>
                                 <td>
                                     <input id="starttime" class="easyui-datetimebox" style="width: 150px;" /></td>
-                                <td>|</td>
-                                <td>结束时间：</td>
+                                <td style="width: 70px; text-align: right;">结束时间</td>
                                 <td>
                                     <input id="endtime" class="easyui-datetimebox" style="width: 150px;" /></td>
-                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                     onclick="QueryReportFun();">查询</a>
                                 </td>
                             </tr>

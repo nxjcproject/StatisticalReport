@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>用电量日报</title>
+    <title>工序用电量统计</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
@@ -27,17 +27,17 @@
 	                <td>
 		                <table>
                             <tr>
-                                <td>开始时间：</td>
+                                <td style="width: 60px; text-align: right;">开始时间</td>
 				                <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
                                     <input id="startDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
 				                </td>
-                                <td>结束时间：</td>
+                                <td style="width: 60px; text-align: right;">结束时间</td>
                                 <td>
                                     <%--<input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" />--%>
                                     <input id="endDate" type="text" class="easyui-datebox" required="required" style="width:100px;"/>
 				                </td>
-                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                     onclick="QueryReportFun();">查询</a>
                                 </td>
                             </tr>
@@ -62,7 +62,7 @@
             <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
 		        <thead>
 			        <tr>
-                        <th data-options="field:'VariableName',width:250">项目</th>
+                        <th data-options="field:'VariableName',width:350">项目</th>
                         <th data-options="field:'FirstB',width:80">甲班</th>
                         <th data-options="field:'SecondB',width:80">乙班</th>
                         <th data-options="field:'ThirdB',width:80">丙班</th>

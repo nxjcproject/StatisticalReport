@@ -21,7 +21,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_tys" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_tys", "zc_nxjc_szsc_szsf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif

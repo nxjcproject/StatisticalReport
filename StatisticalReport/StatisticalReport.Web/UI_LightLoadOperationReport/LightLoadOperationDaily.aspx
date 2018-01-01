@@ -29,14 +29,14 @@
                     <td>
                         <table>
                             <tr>
-                                <td style="width: 55px; text-align: right;">生产区域</td>
-                                <td style="width: 130px;">
+                                <td style="width: 60px; text-align: right;">组织机构</td>
+                                <td>
                                     <input id="productLineName" class="easyui-textbox" style="width: 120px;" readonly="true" /><input id="organizationId" readonly="true" style="display: none;" /></td>
-                                <td style="width: 55px; text-align: right;">开始时间</td>
-                                <td style="width: 160px;">
+                                <td style="width: 60px; text-align: right;">开始时间</td>
+                                <td>
                                     <input id="StartTime" type="text" class="easyui-datetimebox" style="width: 150px;" />
                                 </td>
-                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="QueryReportFun();">查询</a>
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="QueryReportFun();">查询</a>
                                 </td>
                                 <td>
                                     <div class="datagrid-btn-separator"></div>
@@ -51,12 +51,12 @@
                     <td>
                         <table>
                             <tr>
-                                <td style="width: 55px; text-align: right;">设备</td>
-                                <td style="width: 130px;">
+                                <td style="width: 60px; text-align: right;">设备</td>
+                                <td>
                                     <select id="Commbobox_VariableId" class="easyui-combobox" name="VariableId" style="width: 120px;" data-options="valueField:'id',textField:'text',panelHeight:'auto',required: false,editable: false"></select>
                                 </td>
-                                <td style="width: 55px; text-align: right;">结束时间</td>
-                                <td style="width: 160px;">
+                                <td style="width: 60px; text-align: right;">结束时间</td>
+                                <td>
                                     <input id="EndTime" type="text" class="easyui-datetimebox" style="width: 150px;" />
                                 </td>
                             </tr>
@@ -70,9 +70,7 @@
                 data-options="idField:'ID',treeField:'VariableDescription',rownumbers:true,singleSelect:true,border:false,fit:true,toolbar:'#toolbar_LightLoadOperation'">
                <thead frozen="true">
                     <tr>
-                        <!--<th data-options="field:'ID',width:200,hidden: true">设备ID</th>
-                        <th data-options="field:'OrganizationID',width:110,hidden: true">组织机构</th>-->
-                        <th data-options="field:'VariableDescription',width:200">设备名称</th>
+                        <th data-options="field:'VariableDescription',width:150">设备名称</th>
                     </tr>
                </thead>
                 <thead>
@@ -82,12 +80,12 @@
                         <th data-options="field:'StartTimeAlarm',width:130">报警开始时间</th>
                         <th data-options="field:'EndTimeAlarm',width:130">报警结束时间</th>
                         <th data-options="field:'EndTimeStop',width:130">停机时间</th>
-                        <th data-options="field:'AlarmTimeLong',width:130">报警持续时间</th>
-                        <th data-options="field:'RunTimeLong',width:130">运行时间</th>
+                        <th data-options="field:'AlarmTimeLong',width:120">报警持续时间</th>
+                        <th data-options="field:'RunTimeLong',width:120">运行时间</th>
                         <th data-options="field:'LoadValueAvg',width:70">平均负荷</th>
-                        <th data-options="field:'LoadTagType',width:70">负荷类型</th>
-                        <th data-options="field:'DelayTime',width:80">设定延时</th>
-                        <th data-options="field:'LLoadLimit',width:80">设定值</th>
+                        <th data-options="field:'LoadTagType',width:65">负荷类型</th>
+                        <th data-options="field:'DelayTime',width:65">设定延时</th>
+                        <th data-options="field:'LLoadLimit',width:65">设定值</th>
                         <th data-options="field:'Remark',width:150">备注</th>
                     </tr>
                 </thead>

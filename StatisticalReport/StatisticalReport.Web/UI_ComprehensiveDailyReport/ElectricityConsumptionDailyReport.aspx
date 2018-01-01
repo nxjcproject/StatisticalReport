@@ -27,23 +27,23 @@
 	                <td>
 		                <table>
                             <tr>
-                                <td style="padding-top:5px;padding-left:10px">选择时间：</td>
-                                <td style="padding-top:5px"><input id="dateTime" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
-                                <td style="padding-top:5px;"><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+                                <td style="width: 60px; text-align: right;">选择时间</td>
+                                <td><input id="dateTime" type="text" class="easyui-datebox" required="required" style="width:100px;"/></td>
+                                <td style="width: 10px;"></td>
+                                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 
                                         onclick="QueryReportFun();">查询</a></td>
                             </tr>
-	                        <tr>
-                                
+	                        <%--<tr>                             
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
                                 </td>
-                                <!--<td><div class="datagrid-btn-separator"></div>
+                                <td><div class="datagrid-btn-separator"></div>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
                                 </td>
                                 <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-printer',plain:true" onclick="PrintFileFun();">打印</a>
-                                </td>-->
-                            </tr>
+                                </td>
+                            </tr>--%>
                         </table>
 		            </td>
                 </tr>
@@ -54,7 +54,7 @@
             <table id="gridMain_ReportTemplate" class="easyui-treegrid" data-options="toolbar:'#toolbar_ReportTemplate',rownumbers:true,singleSelect:true,fit:true" title="">
 		        <thead>
 			        <tr>
-                        <th data-options="field:'VariableName',width:230">项目</th>
+                        <th data-options="field:'VariableName',width:330">项目</th>
                         <th data-options="field:'FirstB',width:80">甲班</th>
                         <th data-options="field:'SecondB',width:80">乙班</th>
                         <th data-options="field:'ThirdB',width:80">丙班</th>
