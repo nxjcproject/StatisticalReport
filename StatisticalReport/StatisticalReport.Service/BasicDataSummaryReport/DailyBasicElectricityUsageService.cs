@@ -54,7 +54,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             //									FIN.VariableName,
             //                                    FIN.FormulaLevelCode
             //                          SO.Name,SO.LevelCode,FIN.VariableName,FIN.FormulaLevelCode,            ";
-            string queryString = @"Select C.Name AS Name, B.LevelCode as LevelCode,C.Name + B.Name AS VariableName, F.VariableId,B.LevelCode as FormulaLevelCode,F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,'' AS A,'' AS B,'' AS C,'' AS D,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
+            string queryString = @"Select C.Name AS Name, B.LevelCode as LevelCode,(case when B.LevelType='ProductionLine' then C.Name else B.Name end) AS VariableName,F.VariableId,B.LevelCode as FormulaLevelCode,F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,'' AS A,'' AS B,'' AS C,'' AS D,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
                                         from tz_Formula A, formula_FormulaDetail B
                                         left join system_Organization C on C.OrganizationID = '{2}',
                                             (Select E.OrganizationID, E.VariableId,SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB

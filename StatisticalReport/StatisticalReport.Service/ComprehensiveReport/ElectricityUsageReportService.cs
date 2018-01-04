@@ -90,7 +90,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
 								    E.Name as Name, 
 								    E.OrganizationID as OrganizationID,
 								    B.VariableId as VariableId,
-								    A.Name + B.Name as VariableName,  
+								    (case when B.LevelType='ProductionLine' then A.Name else B.Name end) as VariableName,  
                                     (case when E.Type = '熟料' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
 								          when E.Type = '水泥磨' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
 									      when E.Type = '余热发电' then E.LevelCode + SUBSTRING(B.LevelCode, 4, LEN(B.LevelCode) - 3)
