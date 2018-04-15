@@ -27,7 +27,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         }
 
         [WebMethod]
-        public static string GetCoalUsageDailyReport(DateTime startDate ,DateTime  endDate)
+        public static string GetCoalUsageDailyReport(DateTime startDate ,DateTime endDate)
         {
             List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);

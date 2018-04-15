@@ -11,8 +11,6 @@ namespace StatisticalReport.Service.ComprehensiveReport
 {
     public static class CoalUsageReportService
     {
-
-
         /// <summary>
         /// 查询所有产线的用煤量
         /// </summary>
@@ -74,14 +72,15 @@ namespace StatisticalReport.Service.ComprehensiveReport
 	                                    left(F.LevelCode,3)=C.LevelCode
 	                                    ) AS W,
                                        (
-										SELECT A.OrganizationID FROM system_Organization AS A WHERE {2}
+										SELECT A.OrganizationID,A.LevelCode FROM system_Organization AS A WHERE {2}
 										) AS O
                                     WHERE BE.KeyId=TB.BalanceId AND
                                     BE.VariableId='clinker_PulverizedCoalInput' AND
                                     TB.TimeStamp>='{0}' AND TB.TimeStamp<='{1}' AND
                                     W.FactoryOrganizationID=TB.OrganizationID AND
                                     TB.[OrganizationID]=O.OrganizationID
-									GROUP BY W.CompanyName,W.FactoryName,TB.OrganizationID,BE.VariableName";
+									GROUP BY W.CompanyName,W.FactoryName,TB.OrganizationID,BE.VariableName,O.LevelCode
+                                    ORDER BY O.LevelCode";
 
             StringBuilder levelCodesParameter = new StringBuilder();
             foreach (var levelCode in levelCodes)
@@ -93,8 +92,9 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 levelCodesParameter.Append(" OR ");
             }
             levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
-            return dataFactory.Query(string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), levelCodesParameter.ToString()));
-
+            string mSqlQuery = string.Format(queryString, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), levelCodesParameter.ToString());
+            DataTable table = dataFactory.Query(mSqlQuery);
+            return table;
         }
     }
 }

@@ -1,43 +1,4 @@
-﻿
-//$(document).ready(function () {
-//    var m_MsgData;
-//    $.ajax({
-//        type: "POST",
-//        url: "CoalUsageDailyReport.aspx/GetCoalUsageDailyReport",
-//        data: '',
-//        contentType: "application/json; charset=utf-8",
-//        dataType: "json",
-//        success: function (msg) {
-//            m_MsgData = jQuery.parseJSON(msg.d);
-//            $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
-//        },
-//        error: handleError
-//    });
-//});
-
-
-//function InitializeGrid(myData) {
-
-//    $('#gridMain_ReportTemplate').datagrid({
-//        title: '',
-//        data: myData,
-//        dataType: "json",
-//        striped: true,
-//        rownumbers: true,
-//        singleSelect: true,
-
-//        toolbar: '#toolbar_ReportTemplate'
-//    });
-//}
-
-//function handleError() {
-//    $('#gridMain_ReportTemplate').datagrid('loadData', []);
-//    $.messager.alert('失败', '获取数据失败');
-//}
-
-
-//********************************************
-var timeType = '';
+﻿var timeType = '';
 var startDate = '';//开始日期
 $(document).ready(function () {
     var nowDate = new Date();
@@ -81,7 +42,6 @@ function loadGridData(myLoadType,startDate, endDate) {
 }
 
 function InitializeGrid(myData) {
-
     $('#gridMain_ReportTemplate').datagrid({
         title: '',
         data: myData,

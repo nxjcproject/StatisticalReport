@@ -43,16 +43,14 @@ namespace StatisticalReport.Service.ComprehensiveReport
 	                                    left(F.LevelCode,3)=C.LevelCode
 	                                    ) AS W,
                                         (
-										SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
+										SELECT A.OrganizationID,A.LevelCode FROM system_Organization AS A WHERE {0}
 										) AS O
                                     WHERE BE.KeyId=TB.BalanceId AND
                                     BE.VariableId='clinker_CoalConsumption' AND
                                     TB.TimeStamp='{1}' AND
                                     W.FactoryOrganizationID=TB.OrganizationID AND
                                     TB.[OrganizationID]=O.OrganizationID
-                                    --GROUP BY  W.CompanyName,W.FactoryName,TB.OrganizationID,BE.VariableName
-                                ";
-
+                                    order by O.LevelCode,O.OrganizationID";
             StringBuilder levelCodesParameter = new StringBuilder();
             foreach (var levelCode in levelCodes)
             {
@@ -63,10 +61,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 levelCodesParameter.Append(" OR ");
             }
             levelCodesParameter.Remove(levelCodesParameter.Length - 4, 4);
-
             return dataFactory.Query(string.Format(queryString, levelCodesParameter.ToString(),dateTime.ToString("yyyy-MM-dd")));
-
-
         }
     }
 }
