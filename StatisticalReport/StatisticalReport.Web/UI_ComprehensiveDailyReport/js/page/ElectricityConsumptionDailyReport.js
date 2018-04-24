@@ -28,7 +28,6 @@ function loadGridData(myLoadType) {
             } else {
                 $('#gridMain_ReportTemplate').treegrid('loadData', m_MsgData);
             }
-            //
         },
         beforeSend: function (XMLHttpRequest) {
             win;

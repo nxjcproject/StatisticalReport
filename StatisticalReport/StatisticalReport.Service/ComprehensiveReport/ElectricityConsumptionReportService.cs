@@ -51,7 +51,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                     string[] m_FactoryOrganizationItem = m_FactoryOrganizationTable.Rows[i]["FactoryOrganizationID"].ToString().Split(',');
                     for (int j = 0; j < m_FactoryOrganizationItem.Length; j++)
                     {
-                        if (i == 0)
+                        if (j == 0)
                         {
                             m_ConditionFactoryOrganizations = "'" + m_FactoryOrganizationItem[j] + "'";
                         }
@@ -113,14 +113,6 @@ namespace StatisticalReport.Service.ComprehensiveReport
 
             foreach (DataRow dr in resultTable.Rows)
             {
-                //if (dr["VariableName"] is DBNull || dr["VariableName"].ToString().Trim() == "")
-                //{
-                //    dr["VariableName"] = dr["Name"].ToString().Trim();
-                //}
-                //if (dr["FormulaLevelCode"].ToString().Length > 3)
-                //{
-                //    dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
-                //}
                 if (dr["LevelCode"].ToString().Trim().Length == 7)
                 {
                     dr["state"] = "closed";

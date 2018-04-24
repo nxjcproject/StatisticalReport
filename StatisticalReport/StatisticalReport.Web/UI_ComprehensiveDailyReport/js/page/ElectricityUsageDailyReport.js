@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
     var m_MsgData;
     InitDate();
     loadGridData("first");

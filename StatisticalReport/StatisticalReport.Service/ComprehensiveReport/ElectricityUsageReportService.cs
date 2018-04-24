@@ -39,7 +39,6 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 }
             }
             //////找到当前授权分厂级组织机构ID
-
             string m_Sql_FactoryOrganizations = "Select distinct A.FactoryOrganizationID as FactoryOrganizationID from analyse_KPI_OrganizationContrast A where A.OrganizationID in ({0})";
             m_Sql_FactoryOrganizations = string.Format(m_Sql_FactoryOrganizations, m_OrganizationIds);
             DataTable m_FactoryOrganizationTable = dataFactory.Query(m_Sql_FactoryOrganizations);
@@ -52,7 +51,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                     string[] m_FactoryOrganizationItem = m_FactoryOrganizationTable.Rows[i]["FactoryOrganizationID"].ToString().Split(',');
                     for (int j = 0; j < m_FactoryOrganizationItem.Length; j++)
                     {
-                        if (i == 0)
+                        if (j == 0)
                         {
                             m_ConditionFactoryOrganizations = "'" + m_FactoryOrganizationItem[j] + "'";
                         }
@@ -64,27 +63,6 @@ namespace StatisticalReport.Service.ComprehensiveReport
                 }
             }
 
-            //            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.* FROM system_Organization AS SO LEFT JOIN 
-            //                                        (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
-            //	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
-            //	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
-            //	                                                 WHERE TF.KeyID=FFD.KeyID AND 
-            //	                                                 -- FFD.LevelType='ProductionLine' AND
-            //	                                                 TF.Type='2' AND TF.ENABLE='true') AS RST,
-            //	                                    tz_Balance AS TB,balance_Energy AS BE
-            //	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
-            //                                        RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
-            //	                                    TB.TimeStamp='{1}' AND TB.StaticsCycle='day'
-            //                                         ) AS FIN
-            //                                    ON SO.OrganizationID=FIN.OrganizationID 
-            //                                    INNER JOIN 
-            //										 (
-            //										 SELECT A.OrganizationID FROM system_Organization AS A WHERE {0}
-            //										 ) AS O
-            //									ON
-            //									O.OrganizationID=SO.OrganizationID
-            //                                    WHERE ISNULL(SO.Type,'')<>'余热发电' 
-            //                                      ";
             string queryString = @"select M.Name,M.LevelCode,M.VariableName, M.FormulaLevelCode, N.FirstB, N.SecondB, N.ThirdB, N.TotalPeakValleyFlatB from(  
 							        select 
 								    E.Name as Name, 
@@ -138,14 +116,6 @@ namespace StatisticalReport.Service.ComprehensiveReport
 
             foreach (DataRow dr in resultTable.Rows)
             {
-                //if (dr["VariableName"] is DBNull || dr["VariableName"].ToString().Trim() == "")
-                //{
-                //    dr["VariableName"] = dr["Name"].ToString().Trim();
-                //}
-                //if (dr["FormulaLevelCode"].ToString().Length > 3)
-                //{
-                //    dr["LevelCode"] = dr["LevelCode"] + dr["FormulaLevelCode"].ToString().Substring(3);
-                //}
                 if (dr["LevelCode"].ToString().Trim().Length == 7)
                 {
                     dr["state"] = "closed";
