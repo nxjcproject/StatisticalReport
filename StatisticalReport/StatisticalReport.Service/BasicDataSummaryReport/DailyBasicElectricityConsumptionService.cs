@@ -16,31 +16,15 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-
-           
-           
-        
-              string   mySql = @"select A.OrganizationID,B.Name,B.LevelCode,B.VariableID,B.LevelType,C.ValueFormula 
-                                from (SELECT LevelCode FROM system_Organization WHERE OrganizationID=@organizationId) M inner join system_Organization N
+            string mySql = @"select A.OrganizationID,B.Name,B.LevelCode,B.VariableID,B.LevelType,C.ValueFormula 
+                                from (SELECT LevelCode,Type FROM system_Organization WHERE OrganizationID=@organizationId) M inner join system_Organization N
 	                                on N.LevelCode Like M.LevelCode+'%' inner join tz_Formula A 
 	                                on A.OrganizationID=N.OrganizationID inner join formula_FormulaDetail B
 	                                on A.KeyID=B.KeyID and A.Type=2 left join balance_Energy_Template C 
-	                                on B.VariableId+'_'+@consumptionType=C.VariableId   
+	                                on B.VariableId+'_'+@consumptionType=C.VariableId and C.ProductionLineType=M.Type 
                                 order by OrganizationID,LevelCode";
-           
-
-               
-
-
-
-
-     
-            SqlParameter[] parameter ={
-                                         new SqlParameter("@organizationId", organizationId),
-                                         new SqlParameter("@consumptionType", consumptionType),
-     
-        };
-
+            SqlParameter[] parameter ={  new SqlParameter("@organizationId", organizationId),
+                                         new SqlParameter("@consumptionType", consumptionType) };
             DataTable frameTable = dataFactory.Query(mySql, parameter);
             string preFormula = "";
             foreach (DataRow dr in frameTable.Rows)
@@ -64,50 +48,25 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'B班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'B班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'B班' THEN [B].[ThirdB] ELSE 0 END) AS teamB,
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'C班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'C班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'C班' THEN [B].[ThirdB] ELSE 0 END) AS teamC,
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'D班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'D班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'D班' THEN [B].[ThirdB] ELSE 0 END) AS teamD
-
                                 from tz_Balance A,balance_Energy B
-
                                 where A.BalanceId=B.KeyId
                                 and A.TimeStamp>=@startTime and A.TimeStamp<=@endTime
-                                and B.OrganizationID=@organizationId
-                                     
+                                and B.OrganizationID=@organizationId                                   
                                 group by B.OrganizationID,B.VariableId";
             SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId), 
-                                            new SqlParameter("@startTime", startTime), 
-                                            new SqlParameter("@endTime", endTime), 
-
-
-  //new SqlParameter("@consumptionType",consumptionType)  and  B.ValueType=@consumptionType  
+                                          new SqlParameter("@startTime", startTime), 
+                                          new SqlParameter("@endTime", endTime) 
                                         };
-
             DataTable sourceData = dataFactory.Query(dataSql, parameters);
             string[] calColumns = new string[] { "FirstB", "SecondB", "ThirdB", "TotalPeakValleyFlatB", "PeakB", "ValleyB", "FlatB", "teamA", "teamB", "teamC", "teamD" };
 
             DataTable result = EnergyConsumption.EnergyConsumptionCalculate.CalculateByOrganizationId(sourceData, frameTable, "ValueFormula", calColumns);
             DataColumn stateColumn = new DataColumn("state", typeof(string));
             result.Columns.Add(stateColumn);
-            
-
-           
+                    
             foreach (DataRow dr in result.Rows)
             {
                 bool haveChidren = HaveChildren(dr["LevelCode"].ToString().Trim(), result);
-                //if (dr["LevelType"].ToString() == "ProductionLine")
-                //{
-                //    //dr["FirstB"] = DBNull.Value;
-                //    //dr["SecondB"] = DBNull.Value;
-                //    //dr["ThirdB"] = DBNull.Value;
-                //    //dr["TotalPeakValleyFlatB"] = DBNull.Value;
-
-                //    //dr["PeakB"] = DBNull.Value;
-                //    //dr["ValleyB"] = DBNull.Value;
-                //    //dr["FlatB"] = DBNull.Value;
-
-                //    //dr["teamA"] = DBNull.Value;
-                //    //dr["teamB"] = DBNull.Value;
-                //    //dr["teamC"] = DBNull.Value;
-                //    //dr["teamD"] = DBNull.Value;
-                //}
                 if (dr["LevelCode"].ToString().Trim().Length == 7 && haveChidren)
                 {
                     dr["state"] = "closed";
@@ -119,11 +78,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             }
             return result;
         }
-        
-        
-        
-        
-        
+               
         /// <summary>
         /// 处理公式
         /// </summary>
@@ -139,12 +94,10 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 return preFormula.Replace(subStr, variableId);
             }
             else
+            {
                 return preFormula;
-        
+            }     
         }
-
-
-
 
         /// <summary>
         /// 判断是否有孩子结点
@@ -157,12 +110,15 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             int myLength = parent.Trim().Length;
             DataRow[] rows = resultTable.Select("LevelCode Like '" + parent + "%' and Len(LevelCode)>" + myLength);
             if (rows.Count() > 0)
+            {
                 return true;
-            else
-                return false;
-        
-               }
+            }
 
+            else
+            {
+                return false;
+            }
+        }
 
         public static DataTable GetShiftsSchedulingLogMonthly(string organizationId, string startDate, string endDate)
         {

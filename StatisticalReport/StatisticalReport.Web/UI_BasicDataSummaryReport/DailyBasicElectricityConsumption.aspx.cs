@@ -20,7 +20,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             base.InitComponts();
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx", "zc_nxjc_byc_byf", "zc_nxjc_ychc", "zc_nxjc_tsc", "zc_nxjc_szsc", "zc_nxjc_klqc", "zc_nxjc_znc" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys", "zc_nxjc_byc_byf", "zc_nxjc_ychc", "zc_nxjc_tsc", "zc_nxjc_szsc", "zc_nxjc_klqc", "zc_nxjc_znc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -57,8 +57,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         public static string PrintFile()
         {
             string[] m_TagData = new string[] { "10月份", "报表类型:日报表", "汇总人:某某某", "审批人:某某某" };
-            string m_HtmlData = StatisticalReportHelper.CreatePrintHtmlTable(mFileRootPath +
-                REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
+            string m_HtmlData = StatisticalReportHelper.CreatePrintHtmlTable(mFileRootPath + REPORT_TEMPLATE_PATH, myDataTable, m_TagData);
             return m_HtmlData;
         }
 
