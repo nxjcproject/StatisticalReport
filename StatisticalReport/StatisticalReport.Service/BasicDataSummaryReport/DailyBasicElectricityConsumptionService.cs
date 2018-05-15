@@ -50,6 +50,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'D班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'D班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'D班' THEN [B].[ThirdB] ELSE 0 END) AS teamD
                                 from tz_Balance A,balance_Energy B
                                 where A.BalanceId=B.KeyId
+                                and A.StaticsCycle = 'day'
                                 and A.TimeStamp>=@startTime and A.TimeStamp<=@endTime
                                 and B.OrganizationID=@organizationId                                   
                                 group by B.OrganizationID,B.VariableId";

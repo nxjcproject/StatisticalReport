@@ -51,7 +51,8 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
             string sqlStringAmmeter = @"SELECT AmmeterName,AmmeterNumber,ElectricRoom 
                                             FROM [{0}].[dbo].[AmmeterContrast] 
-                                            WHERE ElectricRoom=@electricRoom";
+                                         WHERE ElectricRoom=@electricRoom
+                                           and EnabledFlag=1";
             SqlParameter parameter = new SqlParameter("electricRoom", electricRoom);
             //电表信息
             DataTable ammeterInfoTable = dataFactory.Query(string.Format(sqlStringAmmeter, meterDNName), parameter);
@@ -116,10 +117,6 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             ijRow.ItemArray = startTable.Rows[1].ItemArray;
             resultTable.Rows.Add(ijRow);
             DataTable newResultTable = HorizontalToVertical(resultTable);
-            //foreach(DataRow dr in startTable.Compute)
-            //{
-
-            //}
             return newResultTable;
         }
         /// <summary>
