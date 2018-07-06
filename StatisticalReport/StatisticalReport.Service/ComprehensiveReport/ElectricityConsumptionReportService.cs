@@ -51,7 +51,7 @@ namespace StatisticalReport.Service.ComprehensiveReport
                     string[] m_FactoryOrganizationItem = m_FactoryOrganizationTable.Rows[i]["FactoryOrganizationID"].ToString().Split(',');
                     for (int j = 0; j < m_FactoryOrganizationItem.Length; j++)
                     {
-                        if (j == 0)
+                        if (i == 0 && j == 0)
                         {
                             m_ConditionFactoryOrganizations = "'" + m_FactoryOrganizationItem[j] + "'";
                         }
