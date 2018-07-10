@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicDataSummaryReport\AirPollutantEmissionMonitoring.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicElectricityConsumptionService.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicElectricityUsageService.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicMaterialWeightService.cs" />

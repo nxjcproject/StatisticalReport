@@ -1652,10 +1652,12 @@
     <Content Include="lib\ueditor\ueditor.parse.js" />
     <Content Include="lib\ueditor\ueditor.parse.min.js" />
     <Content Include="Test.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\AirPollutantEmissionMonitoring.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicElectricityConsumption.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx" />
     <Content Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\js\page\AirPollutantEmissionMonitoring.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityConsumption.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\ElectricRoomMeterReading.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityUsage.js" />
@@ -1750,6 +1752,13 @@
     </Compile>
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\AirPollutantEmissionMonitoring.aspx.cs">
+      <DependentUpon>AirPollutantEmissionMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\AirPollutantEmissionMonitoring.aspx.designer.cs">
+      <DependentUpon>AirPollutantEmissionMonitoring.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_BasicDataSummaryReport\DailyBasicElectricityConsumption.aspx.cs">
       <DependentUpon>DailyBasicElectricityConsumption.aspx</DependentUpon>

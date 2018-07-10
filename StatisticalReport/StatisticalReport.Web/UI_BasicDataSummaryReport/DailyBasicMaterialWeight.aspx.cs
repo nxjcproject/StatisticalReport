@@ -22,7 +22,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_efcf", "zc_nxjc_qtx_tys", "zc_nxjc_ychc_lsf", "zc_nxjc_szsc_szsf", "zc_nxjc_ychc_ndf", "zc_nxjc_ychc_yfcf", "zc_nxjc_qtx_efc", "zc_nxjc_tsc_tsf", "zc_nxjc_klqc_klqf","" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_efcf", "zc_nxjc_qtx_tys", "zc_nxjc_ychc_lsf", "zc_nxjc_szsc_szsf", "zc_nxjc_ychc_ndf", "zc_nxjc_ychc_yfcf", "zc_nxjc_qtx_efc", "zc_nxjc_tsc_tsf", "zc_nxjc_klqc_klqf", "zc_nxjc_znc_znf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -57,7 +57,7 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
             //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
             //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
             DataTable dt = DailyBasicMaterialWeightService.GetMaterialWeightByOrganiztionIds(organizationId, startDate, endDate);
-            myDataTable=dt.Copy();
+            myDataTable = dt.Copy();
             myDataTable.Columns.Remove("FactoryOrgID");
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
         }

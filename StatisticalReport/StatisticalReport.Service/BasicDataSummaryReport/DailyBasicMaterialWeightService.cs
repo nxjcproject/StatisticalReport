@@ -144,7 +144,8 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 result2.Rows[i].ItemArray.CopyTo(obj, 0);
                 newDataTable.Rows.Add(obj);
             }
-            return newDataTable;
+            newDataTable.DefaultView.Sort = "VariableName asc";
+            return newDataTable.DefaultView.ToTable();
 //#endif
         }
 
