@@ -174,7 +174,9 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             {
                 UpDownLoadFiles.DownloadFile.ExportExcelFile(myFileName, myData);
             }
-        }     
-}
+        }
+
+        
+    }
 }
 

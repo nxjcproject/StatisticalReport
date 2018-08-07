@@ -1657,11 +1657,13 @@
     <Content Include="UI_BasicDataSummaryReport\DailyBasicElectricityUsage.aspx" />
     <Content Include="UI_BasicDataSummaryReport\DailyBasicMaterialWeight.aspx" />
     <Content Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx" />
+    <Content Include="UI_BasicDataSummaryReport\EnvironmentalStatisticalReport.aspx" />
     <Content Include="UI_BasicDataSummaryReport\js\page\AirPollutantEmissionMonitoring.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityConsumption.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\ElectricRoomMeterReading.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicElectricityUsage.js" />
     <Content Include="UI_BasicDataSummaryReport\js\page\DailyBasicMaterialWeight.js" />
+    <Content Include="UI_BasicDataSummaryReport\js\page\EnvironmentalStatisticalReport.js" />
     <Content Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\CoalUsageDailyReport.aspx" />
     <Content Include="UI_ComprehensiveDailyReport\DispatchDailyReport.aspx" />
@@ -1787,6 +1789,13 @@
     </Compile>
     <Compile Include="UI_BasicDataSummaryReport\ElectricRoomMeterReading.aspx.designer.cs">
       <DependentUpon>ElectricRoomMeterReading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\EnvironmentalStatisticalReport.aspx.cs">
+      <DependentUpon>EnvironmentalStatisticalReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicDataSummaryReport\EnvironmentalStatisticalReport.aspx.designer.cs">
+      <DependentUpon>EnvironmentalStatisticalReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_ComprehensiveDailyReport\CoalConsumptionDailyReport.aspx.cs">
       <DependentUpon>CoalConsumptionDailyReport.aspx</DependentUpon>
