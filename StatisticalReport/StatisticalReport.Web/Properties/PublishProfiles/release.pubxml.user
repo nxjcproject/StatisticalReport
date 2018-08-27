@@ -41,13 +41,13 @@
       <publishTime>08/20/2017 19:43:47</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Infrastructure.dll">
-      <publishTime>07/26/2018 16:40:22</publishTime>
+      <publishTime>08/27/2018 17:51:19</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Service.dll">
-      <publishTime>07/26/2018 16:40:23</publishTime>
+      <publishTime>08/27/2018 17:51:20</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Web.dll">
-      <publishTime>07/26/2018 16:40:25</publishTime>
+      <publishTime>08/27/2018 17:51:20</publishTime>
     </File>
     <File Include="bin/UpDownLoadFiles.dll">
       <publishTime>08/27/2017 00:15:24</publishTime>
@@ -4823,7 +4823,7 @@
       <publishTime>12/27/2017 10:21:50</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/EnvironmentalStatisticalReport.aspx">
-      <publishTime>07/26/2018 16:38:40</publishTime>
+      <publishTime>08/07/2018 14:58:21</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/js/page/AirPollutantEmissionMonitoring.js">
       <publishTime>07/06/2018 19:39:58</publishTime>
@@ -5045,7 +5045,7 @@
       <publishTime>12/22/2017 17:35:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/26/2018 16:40:31</publishTime>
+      <publishTime>08/27/2018 17:51:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

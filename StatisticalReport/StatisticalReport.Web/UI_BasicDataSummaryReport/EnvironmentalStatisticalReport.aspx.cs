@@ -48,13 +48,15 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         public static string GetShiftsSchedulingLog(string organizationId, string startDate, string endDate)
         {
             DataTable table = EnvironmentalStatisticalReportService.GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
-            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+            string json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+            return json;
         }
         [WebMethod]
         public static string GetEnvironmentalStatisticalReport(string organizationId, DateTime startDate, DateTime endDate)
         {
             DataTable dt = EnvironmentalStatisticalReportService.GetEnvironmentalByOrganiztionIds(organizationId, startDate, endDate);
-            return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
+            string json = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
+            return json;
         }
     }
 }

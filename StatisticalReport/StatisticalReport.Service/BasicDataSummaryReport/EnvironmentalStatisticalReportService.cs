@@ -34,16 +34,14 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                        and A.ENABLED = 1
                                        and B.OrganizationID = D.OrganizationID
                                        and D.PageId = 'EnvironmentalMonitor') X
-
                                   left join
                                   (SELECT F.OrganizationID, F.VariableId, 
-                                            SUM(F.FirstB) AS FirstB,SUM(F.SecondB) AS SecondB,SUM(F.ThirdB) AS ThirdB,AVG(F.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,
-                                            SUM(F.PeakB) AS PeakB,SUM(F.ValleyB) AS ValleyB,SUM(F.FlatB) AS FlatB,
-                                            SUM(CASE WHEN [E].[FirstWorkingTeam] = 'A班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'A班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'A班' THEN [F].[ThirdB] ELSE 0 END) AS A班,
-		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'B班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'B班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'B班' THEN [F].[ThirdB] ELSE 0 END) AS B班,
-		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'C班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'C班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'C班' THEN [F].[ThirdB] ELSE 0 END) AS C班,
-		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'D班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'D班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'D班' THEN [F].[ThirdB] ELSE 0 END) AS D班
-	                
+                                            AVG(F.FirstB) AS FirstB,AVG(F.SecondB) AS SecondB,AVG(F.ThirdB) AS ThirdB,AVG(F.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,
+                                            AVG(F.PeakB) AS PeakB,AVG(F.ValleyB) AS ValleyB,AVG(F.FlatB) AS FlatB,
+                                            AVG(CASE WHEN [E].[FirstWorkingTeam] = 'A班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'A班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'A班' THEN [F].[ThirdB] ELSE 0 END) AS A班,
+		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'B班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'B班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'B班' THEN [F].[ThirdB] ELSE 0 END) AS B班,
+		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'C班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'C班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'C班' THEN [F].[ThirdB] ELSE 0 END) AS C班,
+		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'D班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'D班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'D班' THEN [F].[ThirdB] ELSE 0 END) AS D班	                
 					                                    from tz_Balance E, balance_Environmental F 
 		                                                where E.TimeStamp >= '{0}'
 		                                                and E.TimeStamp <= '{1}'
@@ -58,15 +56,6 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
            queryString1 = string.Format(queryString1, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), organizationId);
 
            DataTable result1 = dataFactory.Query(queryString1);
-
-           //DataTable newDataTable = result1.Clone();
-           //object[] obj = new object[newDataTable.Columns.Count];
-           //for (int i = 0; i < result1.Rows.Count; i++)
-           //{
-           //    result1.Rows[i].ItemArray.CopyTo(obj, 0);
-           //    newDataTable.Rows.Add(obj);
-           //}
-           //newDataTable.DefaultView.Sort = "VariableName asc";
            return result1;
        }
        public static DataTable GetShiftsSchedulingLogMonthly(string organizationId, string startDate, string endDate)
