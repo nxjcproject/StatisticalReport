@@ -41,7 +41,8 @@
     <Reference Include="EasyUIJsonParser">
       <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
     </Reference>
-    <Reference Include="EnergyConsumption">
+    <Reference Include="EnergyConsumption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\EnergyConsumption.dll</HintPath>
     </Reference>
     <Reference Include="FileIO">
@@ -51,7 +52,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\FormTableConvert.dll</HintPath>
     </Reference>
-    <Reference Include="SqlServerDataAdapter">
+    <Reference Include="SqlServerDataAdapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\SqlServerDataAdapter.dll</HintPath>
     </Reference>
     <Reference Include="Standard_GB16780-2012, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

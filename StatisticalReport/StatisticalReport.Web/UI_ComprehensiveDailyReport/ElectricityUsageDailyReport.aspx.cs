@@ -19,7 +19,7 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc", "zc_nxjc_byc" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
@@ -30,8 +30,8 @@ namespace StatisticalReport.Web.UI_ComprehensiveDailyReport
         public static string GetElectricityUsageDailyReport(DateTime startDate,DateTime endDate)
         {
             List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
-            DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds(oganizationIds, startDate, endDate);
-            string json = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
+            DataTable table = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds(oganizationIds, startDate, endDate);
+            string json = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(table, "LevelCode");
             return json;
         }
     }

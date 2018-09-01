@@ -22,42 +22,16 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
-            //            string queryString = @"SELECT  SO.Name,SO.LevelCode,FIN.VariableName,FIN.FormulaLevelCode,SUM(FIN.FirstB) AS FirstB,SUM(FIN.SecondB) AS SecondB,SUM(FIN.ThirdB) AS ThirdB,SUM(FIN.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB
-            //                                    FROM system_Organization AS SO LEFT JOIN 
-            //                                        (SELECT TB.TimeStamp,TB.StaticsCycle,BE.*,RST.VariableId AS FirstVariable,RST.FormulaLevelCode  FROM 
-            //	                                                 (SELECT TF.OrganizationID AS TFOrgID ,FFD.VariableId,FFD.LevelCode AS FormulaLevelCode
-            //	                                                 FROM tz_Formula AS TF,formula_FormulaDetail AS FFD 
-            //	                                                 WHERE TF.KeyID=FFD.KeyID AND 
-            //	                                                 -- FFD.LevelType='ProductionLine' AND
-            //	                                                  TF.ENABLE='true') AS RST,
-            //	                                    tz_Balance AS TB,balance_Energy AS BE
-            //	                                    WHERE TB.BalanceId=BE.KeyId AND RST.TFOrgID=BE.OrganizationID AND
-            //                                        RST.VariableId+'_ElectricityQuantity'=BE.VariableId AND
-            //	                                    TB.TimeStamp>='{0}' AND TB.TimeStamp<='{1}' AND
-            //										TB.StaticsCycle='day'
-            //                                         ) AS FIN
-            //                                    ON SO.OrganizationID=FIN.OrganizationID 
-            //                                    INNER JOIN 
-            //										 (
-            //										 SELECT A.OrganizationID 
-            //                                            FROM system_Organization AS A 
-            //                                            WHERE A.LevelCode = (
-            //                                                                    SELECT T.LevelCode FROM system_Organization AS T
-            //						                                            WHERE T.OrganizationID='{2}'
-            //						                                            )
-            //										 ) AS O
-            //									ON
-            //									O.OrganizationID=SO.OrganizationID
-            //                                    WHERE ISNULL(SO.Type,'')<>'余热发电' 
-            //									GROUP BY VariableName,
-            //									SO.Name,SO.LevelCode,
-            //									FIN.VariableName,
-            //                                    FIN.FormulaLevelCode
-            //                          SO.Name,SO.LevelCode,FIN.VariableName,FIN.FormulaLevelCode,            ";
-            string queryString = @"Select C.Name AS Name, B.LevelCode as LevelCode,(case when B.LevelType='ProductionLine' then C.Name else B.Name end) AS VariableName,F.VariableId,B.LevelCode as FormulaLevelCode,F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB,'' AS A,'' AS B,'' AS C,'' AS D,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
+            string queryString = @"Select C.Name AS Name, B.LevelCode as LevelCode
+                                         ,(case when B.LevelType='ProductionLine' then C.Name else B.Name end) AS VariableName
+                                         ,F.VariableId,B.LevelCode as FormulaLevelCode
+                                         ,F.FirstB AS FirstB, F.SecondB AS SecondB, F.ThirdB AS ThirdB,F.PeakB AS PeakB,F.ValleyB AS ValleyB,F.FlatB AS FlatB
+                                         ,'' AS A,'' AS B,'' AS C,'' AS D,F.TotalPeakValleyFlatB AS TotalPeakValleyFlatB
                                         from tz_Formula A, formula_FormulaDetail B
                                         left join system_Organization C on C.OrganizationID = '{2}',
-                                            (Select E.OrganizationID, E.VariableId,SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB
+                                            (Select E.OrganizationID, E.VariableId
+                                                   ,SUM(E.FirstB) AS FirstB,SUM(E.SecondB) AS SecondB,SUM(E.ThirdB) AS ThirdB
+                                                   ,SUM(E.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,SUM(E.PeakB) AS PeakB,SUM(E.ValleyB) AS ValleyB,SUM(E.FlatB) AS FlatB
 	                                            from tz_Balance D, balance_Energy E 
 		                                        where D.TimeStamp >= '{0}'
 		                                        and D.TimeStamp <= '{1}'
@@ -69,17 +43,16 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                         where A.OrganizationID = '{2}'
                                         and A.Enable = 1
                                         and A.State = 0
+                                        and A.KeyID = (SELECT TOP 1 KeyID
+                                                            FROM tz_Formula
+                                                            WHERE OrganizationID= '{2}' AND CreatedDate <= '{1}' AND ENABLE = 1 AND State = 0 
+                                                            ORDER BY CreatedDate DESC)--根据结束时间选择最近版本
                                         and A.KeyID = B.KeyID
                                         and B.Visible = 1
                                         and A.OrganizationID = F.OrganizationID
                                         and B.VariableId + '_ElectricityQuantity' = F.VariableId
                                         order by B.LevelCode";
-
-            //#if DEBUG
-            //            DataTable resultTable = dataFactory.Query(string.Format(queryString, organizationId, "2015-02-09")); 
-            //#else
             DataTable resultTable = dataFactory.Query(string.Format(queryString, startDate, endDate, organizationId));
-            //#endif
             DataColumn stateColumn = new DataColumn("state", typeof(string));
             resultTable.Columns.Add(stateColumn);
             int i = 0;
@@ -168,16 +141,15 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
 
             string sql = @" SELECT
-		                            --LEFT([A].[TimeStamp],7) AS [TimeStamp],
-                                    [B].[OrganizationID],
-		                            [B].[VariableId],
+                                    B.[OrganizationID],
+		                            B.[VariableId],
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'A班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'A班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'A班' THEN [B].[ThirdB] ELSE 0 END) AS A班,
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'B班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'B班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'B班' THEN [B].[ThirdB] ELSE 0 END) AS B班,
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'C班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'C班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'C班' THEN [B].[ThirdB] ELSE 0 END) AS C班,
 		                            SUM(CASE WHEN [A].[FirstWorkingTeam] = 'D班' THEN [B].[FirstB] WHEN [A].[SecondWorkingTeam] = 'D班' THEN [B].[SecondB] WHEN [A].[ThirdWorkingTeam] = 'D班' THEN [B].[ThirdB] ELSE 0 END) AS D班,
-		                            SUM([B].[TotalPeakValleyFlatB]) AS [合计]
-                            FROM	[tz_Balance] AS [A] INNER JOIN
-		                            [balance_Energy] AS [B] ON [A].[BalanceId] = [B].[KeyId]
+		                            SUM([B].[TotalPeakValleyFlatB]) AS 合计
+                            FROM	tz_Balance AS A INNER JOIN
+		                            balance_Energy AS B ON A.BalanceId = B.KeyId
                             WHERE
 		                            ([B].[OrganizationID] LIKE @organizationId + '%') AND 
 		                            ([A].[StaticsCycle] = 'day') AND 
@@ -190,19 +162,13 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                 new SqlParameter("startTime", start),
                 new SqlParameter("endTime", end)
             };
-            return dataFactory.Query(sql, parameters);
-        }
-
-        private static DataTable GetProcessValueTableMonthly(string organizationId, string startDate, string endDate)
-        {
-            //string startDate = (month.ToString("yyyy-MM") + "-01");
-            //string endDate = (month.ToString("yyyy-MM") + "-" + month.AddMonths(1).AddDays(-(month.Day)).ToString("dd"));
-            return GetProcessValueTableByOrganizationId(organizationId, startDate, endDate);
+            DataTable table = dataFactory.Query(sql, parameters);
+            return table;
         }
 
         public static DataTable GetTeamJobEvaluationMonthly(string organization, string startDate, string endDate)
         {
-            DataTable table = GetProcessValueTableMonthly(organization, startDate, endDate);
+            DataTable table = GetProcessValueTableByOrganizationId(organization, startDate, endDate);
             DataTable templateTable = GetDailyBasicElectricityUsageByOrganiztionIds(organization, startDate, endDate);
             int i = 0;
             foreach (DataRow dr in table.Rows)

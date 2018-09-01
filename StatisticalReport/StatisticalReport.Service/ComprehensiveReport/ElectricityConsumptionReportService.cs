@@ -102,7 +102,8 @@ namespace StatisticalReport.Service.ComprehensiveReport
 								    and A.TimeStamp <= '{2}'
 								    and A.OrganizationID in ({0})
 								    and A.BalanceId = B.KeyId
-								    group by B.OrganizationID, B.VariableId) N on M.VariableId + '_ElectricityConsumption' = N.VariableId and M.OrganizationID = N.OrganizationID 
+								    group by B.OrganizationID, B.VariableId) N 
+                                    on M.VariableId + '_ElectricityConsumption' = N.VariableId and M.OrganizationID = N.OrganizationID 
                                     order by M.LevelCode";
             queryString = string.Format(queryString, m_ConditionFactoryOrganizations, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
 

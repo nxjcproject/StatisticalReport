@@ -51,14 +51,9 @@ namespace StatisticalReport.Web.UI_BasicDataSummaryReport
         [WebMethod]
         public static string GetElectricityUsageDailyReport(string organizationId, string startDate, string endDate)
         {
-            //List<string> oganizationIds = WebStyleBaseForEnergy.webStyleBase.GetDataValidIdGroup("ProductionOrganization");
-            //IList<string> levelCodes = WebUserControls.Service.OrganizationSelector.OrganisationTree.GetOrganisationLevelCodeById(oganizationIds);
             DataTable dt = DailyBasicElectricityUsageService.GetTeamJobEvaluationMonthly(organizationId, startDate, endDate);
-
-            //DataTable dt = ElectricityUsageReportService.GetElectricityUsageDailyByOrganiztionIds();
-            //return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
-            //string test = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode");
-            return EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "FormulaLevelCode");
+            string json = EasyUIJsonParser.TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "FormulaLevelCode");
+            return json;
         }
     }
 }

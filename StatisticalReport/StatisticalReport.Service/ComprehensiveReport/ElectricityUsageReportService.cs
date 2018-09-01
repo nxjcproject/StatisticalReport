@@ -9,9 +9,8 @@ using System.Text;
 
 namespace StatisticalReport.Service.ComprehensiveReport
 {
-    public static class ElectricityUsageReportService
+    public class ElectricityUsageReportService
     {
- 
         /// <summary>
         /// 
         /// </summary>
@@ -77,10 +76,18 @@ namespace StatisticalReport.Service.ComprehensiveReport
 		                                    from tz_Formula A, formula_FormulaDetail B,system_Organization D, system_Organization E
 			                                    where D.OrganizationID in ({0})
 			                                    and E.LevelCode like D.LevelCode + '%' 
-			                                    and A.OrganizationID in (E.OrganizationID)
-			                                    and A.ENABLE = 1
-			                                    and A.State = 0
+			                                    and A.OrganizationID = E.OrganizationID
+			                                    and A.KeyID = (SELECT KeyID FROM
+                                                                    (SELECT KeyID,OrganizationID, CreatedDate,
+                                                                            ROW_NUMBER() OVER (PARTITION BY OrganizationID ORDER BY CreatedDate DESC) AS Number
+                                                                        FROM tz_Formula
+                                                                    WHERE OrganizationID = E.OrganizationID AND
+                                                                          CreatedDate <= '{2}' AND
+                                                                          ENABLE = 1 AND State = 0) Y
+                                                                WHERE Number = 1)--此处为了筛选出离结束时间最近的公式版本的KeyID
 			                                    and A.KeyID = B.KeyID
+                                                and A.ENABLE = 1
+			                                    and A.State = 0
                                                 and B.Visible = 1
                                         union all 
 									    select distinct B.Name as Name, B.OrganizationID as OrganizationID, '' as VariableId, B.Name as VariableName, B.LevelCode as LevelCode, B.LevelCode as FormulaLevelCode from system_Organization A,system_Organization B
@@ -105,7 +112,8 @@ namespace StatisticalReport.Service.ComprehensiveReport
 								    and A.TimeStamp <= '{2}'
 								    and A.OrganizationID in ({0})
 								    and A.BalanceId = B.KeyId
-								    group by B.OrganizationID, B.VariableId) N on M.VariableId + '_ElectricityQuantity' = N.VariableId and M.OrganizationID = N.OrganizationID 
+								    group by B.OrganizationID, B.VariableId) N 
+                                    on M.VariableId + '_ElectricityQuantity' = N.VariableId and M.OrganizationID = N.OrganizationID 
                                     order by M.LevelCode";
             queryString = string.Format(queryString, m_ConditionFactoryOrganizations, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
 

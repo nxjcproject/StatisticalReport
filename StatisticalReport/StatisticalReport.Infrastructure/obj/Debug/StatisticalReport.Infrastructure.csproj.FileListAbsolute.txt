@@ -16,7 +16,6 @@ C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalRe
 C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\bin\Debug\SqlServerDataAdapter.dll
 C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\bin\Debug\UpDownLoadFiles.dll
 C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\bin\Debug\AutoMapper.dll
-C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.dll
 C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.pdb
 C:\Users\Administrator\Desktop\20180312\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\bin\Debug\StatisticalReport.Infrastructure.dll
@@ -41,3 +40,4 @@ G:\工作\研二项目工作\环境报表（二分厂调试）\StatisticalReport
 G:\工作\研二项目工作\环境报表（二分厂调试）\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.csprojResolveAssemblyReference.cache
 G:\工作\研二项目工作\环境报表（二分厂调试）\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.dll
 G:\工作\研二项目工作\环境报表（二分厂调试）\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.pdb
+C:\Users\Administrator\Desktop\StatisticalReport\StatisticalReport\StatisticalReport.Infrastructure\obj\Debug\StatisticalReport.Infrastructure.csprojResolveAssemblyReference.cache
