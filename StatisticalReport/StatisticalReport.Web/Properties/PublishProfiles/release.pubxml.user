@@ -41,13 +41,13 @@
       <publishTime>08/20/2017 19:43:47</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Infrastructure.dll">
-      <publishTime>09/07/2018 12:51:08</publishTime>
+      <publishTime>09/19/2018 15:45:47</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Service.dll">
-      <publishTime>09/07/2018 12:51:09</publishTime>
+      <publishTime>09/19/2018 15:45:48</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Web.dll">
-      <publishTime>09/07/2018 12:51:10</publishTime>
+      <publishTime>09/19/2018 15:45:48</publishTime>
     </File>
     <File Include="bin/UpDownLoadFiles.dll">
       <publishTime>08/27/2017 00:15:24</publishTime>
@@ -4814,13 +4814,16 @@
       <publishTime>08/30/2018 16:47:20</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/DailyBasicElectricityUsage.aspx">
-      <publishTime>12/26/2017 18:13:28</publishTime>
+      <publishTime>09/13/2018 16:41:29</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/DailyBasicMaterialWeight.aspx">
       <publishTime>12/26/2017 18:15:18</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/ElectricRoomMeterReading.aspx">
       <publishTime>12/27/2017 10:21:50</publishTime>
+    </File>
+    <File Include="UI_BasicDataSummaryReport/EnergyConsumptionDetailReport.aspx">
+      <publishTime>09/13/2018 18:28:03</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/EnvironmentalStatisticalReport.aspx">
       <publishTime>08/30/2018 08:47:10</publishTime>
@@ -4839,6 +4842,9 @@
     </File>
     <File Include="UI_BasicDataSummaryReport/js/page/ElectricRoomMeterReading.js">
       <publishTime>12/31/2017 14:30:08</publishTime>
+    </File>
+    <File Include="UI_BasicDataSummaryReport/js/page/EnergyConsumptionDetailReport.js">
+      <publishTime>09/19/2018 13:52:08</publishTime>
     </File>
     <File Include="UI_BasicDataSummaryReport/js/page/EnvironmentalStatisticalReport.js">
       <publishTime>07/26/2018 16:38:44</publishTime>
@@ -5045,7 +5051,7 @@
       <publishTime>12/22/2017 17:35:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/07/2018 12:51:14</publishTime>
+      <publishTime>09/19/2018 15:45:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

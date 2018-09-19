@@ -73,11 +73,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicDataSummaryReport\AirPollutantEmissionMonitoring.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicElectricityConsumptionService.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicElectricityUsageService.cs" />
     <Compile Include="BasicDataSummaryReport\DailyBasicMaterialWeightService.cs" />
     <Compile Include="BasicDataSummaryReport\ElectricRoomMeterReadingService.cs" />
+    <Compile Include="BasicDataSummaryReport\EnergyConsumptionDetailReportService.cs" />
     <Compile Include="BasicDataSummaryReport\EnvironmentalStatisticalReportService.cs" />
     <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\DispatchDailyReport\DispatchDailyReportService.cs" />

@@ -62,7 +62,7 @@
                             <tr>
                                 <td>
                                     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="RefreshFun();">刷新</a>
-                                </td>
+                                </td>w
                                 <td>
                                     <div class="datagrid-btn-separator"></div>
                                 </td>
