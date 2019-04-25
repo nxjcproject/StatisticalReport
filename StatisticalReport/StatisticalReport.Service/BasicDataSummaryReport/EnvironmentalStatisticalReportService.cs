@@ -36,12 +36,12 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                                        and D.PageId = 'EnvironmentalMonitor') X
                                   left join
                                   (SELECT F.OrganizationID, F.VariableId, 
-                                            AVG(F.FirstB) AS FirstB,AVG(F.SecondB) AS SecondB,AVG(F.ThirdB) AS ThirdB,AVG(F.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,
-                                            AVG(F.PeakB) AS PeakB,AVG(F.ValleyB) AS ValleyB,AVG(F.FlatB) AS FlatB,
-                                            AVG(CASE WHEN [E].[FirstWorkingTeam] = 'A班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'A班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'A班' THEN [F].[ThirdB] ELSE 0 END) AS A班,
-		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'B班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'B班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'B班' THEN [F].[ThirdB] ELSE 0 END) AS B班,
-		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'C班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'C班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'C班' THEN [F].[ThirdB] ELSE 0 END) AS C班,
-		                                    AVG(CASE WHEN [E].[FirstWorkingTeam] = 'D班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'D班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'D班' THEN [F].[ThirdB] ELSE 0 END) AS D班	                
+                                            SUM(F.FirstB) AS FirstB,SUM(F.SecondB) AS SecondB,SUM(F.ThirdB) AS ThirdB,SUM(F.TotalPeakValleyFlatB) AS TotalPeakValleyFlatB,
+                                            SUM(F.PeakB) AS PeakB,SUM(F.ValleyB) AS ValleyB,SUM(F.FlatB) AS FlatB,
+                                            SUM(CASE WHEN [E].[FirstWorkingTeam] = 'A班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'A班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'A班' THEN [F].[ThirdB] ELSE 0 END) AS A班,
+		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'B班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'B班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'B班' THEN [F].[ThirdB] ELSE 0 END) AS B班,
+		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'C班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'C班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'C班' THEN [F].[ThirdB] ELSE 0 END) AS C班,
+		                                    SUM(CASE WHEN [E].[FirstWorkingTeam] = 'D班' THEN [F].[FirstB] WHEN [E].[SecondWorkingTeam] = 'D班' THEN [F].[SecondB] WHEN [E].[ThirdWorkingTeam] = 'D班' THEN [F].[ThirdB] ELSE 0 END) AS D班	                
 					                                    from tz_Balance E, balance_Environmental F 
 		                                                where E.TimeStamp >= '{0}'
 		                                                and E.TimeStamp <= '{1}'
@@ -56,8 +56,11 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
            queryString1 = string.Format(queryString1, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"), organizationId);
 
            DataTable result1 = dataFactory.Query(queryString1);
-           return result1;
+           DataTable result2 = GetModifyEnvironmental(result1, organizationId, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
+           return result2;
        }
+
+
        public static DataTable GetShiftsSchedulingLogMonthly(string organizationId, string startDate, string endDate)
        {
            string connectionString = ConnectionStringFactory.NXJCConnectionString;
@@ -77,6 +80,81 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
            DataTable result2 = dataFactory.Query(sql, parameters);
            return result2;
        }
+       public static DataTable GetModifyEnvironmental(DataTable environmentalTable,string organizationId, string startDate, string endDate)
+       {
+           DataTable shiftTable=GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
+           Dictionary<string, int> shiftDic = new Dictionary<string, int>();
+           shiftDic.Add("A班", 0);
+           shiftDic.Add("B班", 0);
+           shiftDic.Add("C班", 0);
+           shiftDic.Add("D班", 0);
+           for (int i = 0; i < shiftTable.Rows.Count; i++)
+           {
+               for (int j = 1; j < shiftTable.Columns.Count; j++)
+               {
+                   if (shiftTable.Rows[i][j].ToString()=="A班")
+                   {
+                       shiftDic["A班"] += 1;
+                   }
+                   else if (shiftTable.Rows[i][j].ToString() == "B班")
+                   {
+                       shiftDic["B班"] += 1;
+                   }
+                   else if (shiftTable.Rows[i][j].ToString() == "C班")
+                   {
+                       shiftDic["C班"] += 1;
+                   }
+                   else if (shiftTable.Rows[i][j].ToString() == "D班")
+                   {
+                       shiftDic["D班"] += 1;
+                   }
+               }
+           }
+           DateTime m_startDate = Convert.ToDateTime(startDate);
+           DateTime m_endDate = Convert.ToDateTime(endDate);
+           TimeSpan span=m_endDate - m_startDate;
+           int totalDays=span.Days+1;
+           for (int i = 0; i < environmentalTable.Rows.Count; i++)
+           {
+               for (int j = 3; j < environmentalTable.Columns.Count; j++)
+               {
+                   if (j == 9)
+                   {
+                       if (shiftDic["A班"]!=0)
+                       {
+                           environmentalTable.Rows[i][j] = (Convert.ToDouble(environmentalTable.Rows[i][j]) / shiftDic["A班"]);
+                       }
+                   }
+                   else if (j == 10)
+                   {
+                       if (shiftDic["B班"]!=0)
+                       {
+                           environmentalTable.Rows[i][j] = (Convert.ToDouble(environmentalTable.Rows[i][j]) / shiftDic["B班"]);
+                       }
+                   }
+                   else if (j == 11)
+                   {
+                       if (shiftDic["C班"]!=0)
+                       {
+                           environmentalTable.Rows[i][j] = (Convert.ToDouble(environmentalTable.Rows[i][j]) / shiftDic["C班"]);
+                       }
+                   }
+                   else if (j == 12)
+                   {
+                       if (shiftDic["D班"]!=0)
+                       {
+                           environmentalTable.Rows[i][j] = (Convert.ToDouble(environmentalTable.Rows[i][j]) / shiftDic["D班"]);
+                       }
+                   }
+                   else
+                   {
+                       environmentalTable.Rows[i][j] = (Convert.ToDouble(environmentalTable.Rows[i][j]) / totalDays);
+                   }
+               }
+           }
+           return environmentalTable;
+       }
+
        public static void ExportExcelFile(string myFileType, string myFileName, string myData)
        {
            if (myFileType == "xls")
