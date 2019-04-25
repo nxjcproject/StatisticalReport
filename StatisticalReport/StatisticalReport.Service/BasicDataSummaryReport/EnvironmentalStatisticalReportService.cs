@@ -57,7 +57,7 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
 
            DataTable result1 = dataFactory.Query(queryString1);
            DataTable result2 = GetModifyEnvironmental(result1, organizationId, startDate.ToString("yyyy-MM-dd"), endDate.ToString("yyyy-MM-dd"));
-           return result2;
+           return result2;   
        }
 
 
