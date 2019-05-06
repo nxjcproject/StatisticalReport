@@ -82,6 +82,19 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
        }
        public static DataTable GetModifyEnvironmental(DataTable environmentalTable,string organizationId, string startDate, string endDate)
        {
+           //不在采用旧的合计列算法（即利用TotalPeakVallyFlatB），改为甲乙丙班求和，除以3。
+           double sum = 0.0;
+           for (int i = 0; i < environmentalTable.Rows.Count; i++)
+           {
+               for (int j = 3; j < 6; j++)//3、4、5列对应甲乙丙班
+               {
+                   sum += Convert.ToDouble(environmentalTable.Rows[i][j]);
+               }
+               environmentalTable.Rows[i][environmentalTable.Columns.Count-1] = sum/3;
+               sum = 0.0;
+           }
+
+           //===================================
            DataTable shiftTable=GetShiftsSchedulingLogMonthly(organizationId, startDate, endDate);
            Dictionary<string, int> shiftDic = new Dictionary<string, int>();
            shiftDic.Add("A班", 0);
