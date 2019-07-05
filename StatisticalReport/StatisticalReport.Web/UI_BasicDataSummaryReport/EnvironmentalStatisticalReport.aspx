@@ -95,9 +95,9 @@
                                 <th data-options="field:'SecondB',width:65">乙班</th>
                                 <th data-options="field:'ThirdB',width:65">丙班</th>
 
-                                <%--  <th data-options="field:'PeakB',width:65">峰期</th>
+                                  <th data-options="field:'PeakB',width:65">峰期</th>
                         <th data-options="field:'ValleyB',width:65">谷期</th>
-                        <th data-options="field:'FlatB',width:65">平期</th>--%>
+                        <th data-options="field:'FlatB',width:65">平期</th>
 
                                 <th data-options="field:'A班',width:65">A班</th>
                                 <th data-options="field:'B班',width:65">B班</th>

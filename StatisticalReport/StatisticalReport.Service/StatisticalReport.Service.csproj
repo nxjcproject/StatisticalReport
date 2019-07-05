@@ -79,6 +79,9 @@
     <Compile Include="BasicDataSummaryReport\ElectricRoomMeterReadingService.cs" />
     <Compile Include="BasicDataSummaryReport\EnergyConsumptionDetailReportService.cs" />
     <Compile Include="BasicDataSummaryReport\EnvironmentalStatisticalReportService.cs" />
+    <Compile Include="BasicDataSummaryReport\Model\Model_EnvironmentalVariableIdInfo.cs" />
+    <Compile Include="BasicDataSummaryReport\Model\Model_EnvironmentCountCol.cs" />
+    <Compile Include="BasicDataSummaryReport\Model\Model_EnvironmentSumCol.cs" />
     <Compile Include="ComprehensiveReport\CoalUsageReportService.cs" />
     <Compile Include="ComprehensiveReport\DispatchDailyReport\DispatchDailyReportService.cs" />
     <Compile Include="ComprehensiveReport\ElectricityUsageReportService.cs" />
