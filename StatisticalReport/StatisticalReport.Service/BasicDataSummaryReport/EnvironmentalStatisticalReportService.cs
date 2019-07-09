@@ -87,57 +87,57 @@ namespace StatisticalReport.Service.BasicDataSummaryReport
                     sumColModel.OrganizationID = drArr[j]["OrganizationID"].ToString();
                     sumColModel.ItemName = drArr[j]["ItemName"].ToString();
                     sumColModel.VariableId = drArr[j]["variableid"].ToString();
-                    sumColModel.SumFirstB += Convert.ToDecimal(drArr[j]["FirstB"]);
-                    sumColModel.SumSecondB += Convert.ToDecimal(drArr[j]["SecondB"]);
-                    sumColModel.SumThirdB += Convert.ToDecimal(drArr[j]["ThirdB"]);
-                    sumColModel.SumPeakB += Convert.ToDecimal(drArr[j]["PeakB"]);
-                    sumColModel.SumValleyB += Convert.ToDecimal(drArr[j]["ValleyB"]);
-                    sumColModel.SumFlatB += Convert.ToDecimal(drArr[j]["FlatB"]);
-                    sumColModel.SumA班 += Convert.ToDecimal(drArr[j]["A班"]);
-                    sumColModel.SumB班 += Convert.ToDecimal(drArr[j]["B班"]);
-                    sumColModel.SumC班 += Convert.ToDecimal(drArr[j]["C班"]);
-                    sumColModel.SumD班 += Convert.ToDecimal(drArr[j]["D班"]);
+                    sumColModel.SumFirstB += drArr[j]["FirstB"]==DBNull.Value?0:Convert.ToDecimal(drArr[j]["FirstB"]);
+                    sumColModel.SumSecondB += drArr[j]["SecondB"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["SecondB"]);
+                    sumColModel.SumThirdB += drArr[j]["ThirdB"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["ThirdB"]);
+                    sumColModel.SumPeakB += drArr[j]["PeakB"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["PeakB"]);
+                    sumColModel.SumValleyB += drArr[j]["ValleyB"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["ValleyB"]);
+                    sumColModel.SumFlatB += drArr[j]["FlatB"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["FlatB"]);
+                    sumColModel.SumA班 += drArr[j]["A班"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["A班"]);
+                    sumColModel.SumB班 += drArr[j]["B班"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["B班"]);
+                    sumColModel.SumC班 += drArr[j]["C班"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["C班"]);
+                    sumColModel.SumD班 += drArr[j]["D班"] == DBNull.Value ? 0 : Convert.ToDecimal(drArr[j]["D班"]);
 
                     countModel.OrganizationID = drArr[j]["OrganizationID"].ToString();
                     countModel.ItemName = drArr[j]["ItemName"].ToString();
                     countModel.VariableId = drArr[j]["variableid"].ToString();
-                    if (Convert.ToDouble(drArr[j]["FirstB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 : Convert.ToDouble(drArr[j]["FirstB"])) != 0.0)
                     {
                         countModel.CountFirstBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["SecondB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["SecondB"])) != 0.0)
                     {
                         countModel.CountSecondBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["ThirdB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["ThirdB"])) != 0.0)
                     {
                         countModel.CountThirdBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["PeakB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["PeakB"])) != 0.0)
                     {
                         countModel.CountPeakBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["ValleyB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["ValleyB"])) != 0.0)
                     {
                         countModel.CountValleyBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["FlatB"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["FlatB"])) != 0.0)
                     {
                         countModel.CountFlatBNotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["A班"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["A班"])) != 0.0)
                     {
                         countModel.CountA班NotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["B班"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["B班"])) != 0.0)
                     {
                         countModel.CountB班NotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["C班"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["C班"])) != 0.0)
                     {
                         countModel.CountC班NotZero += 1;
                     }
-                    if (Convert.ToDouble(drArr[j]["D班"]) != 0.0)
+                    if ((drArr[j]["D班"] == DBNull.Value ? 0 :Convert.ToDouble(drArr[j]["D班"])) != 0.0)
                     {
                         countModel.CountD班NotZero += 1;
                     }
